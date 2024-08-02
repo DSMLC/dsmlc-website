@@ -1,0 +1,9 @@
+{
+  "home": { "name": "Home", "link": "/" },
+  "visionary-lab": { "name": "Visionary Lab", "link": "visionary-lab" },
+  "competition": { "name": "Final Competition", "link": "final-comp" },
+  "events": { "name": "Events", "link": "events" },
+  "execs": { "name": "Executive Roster", "link": "execs" },
+  "sponsors": { "name": "Sponsor Us", "link": "sponsor" },
+  "contact": { "name": "Contact Us", "link": "contact" }
+}

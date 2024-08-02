@@ -1,0 +1,16 @@
+{
+  "about": { "header": "About Us", "text": "this club is so cool" },
+  "mission": { "header": "Our Mission", "text": "this club is so cool" },
+  "join": {
+    "header": "Why Join?",
+    "text": "this club is so cool"
+  },
+  "membership": {
+    "header": "Become a Member Today!",
+    "text": "this club is so cool"
+  },
+  "sponsors": {
+    "header": "Sponsors",
+    "text": "this club is so cool"
+  }
+}
