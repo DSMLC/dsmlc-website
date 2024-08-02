@@ -17,6 +17,12 @@ const config: Config = {
         dsmlcDataOrange: "#F86306",
         dsmlcTangerine: "#FF914D",
         dsmlcParchment: "#F5EACF",
+        dsmlcWhite: "#F2F2F2",
+        dsmlcBlack: "#222222",
+      },
+      fontFamily: {
+        redHat: ['"Red_Hat_Display"', "sans-serif"],
+        quicksand: ['"Quicksand"', "sans-serif"],
       },
     },
   },

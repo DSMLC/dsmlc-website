@@ -11,17 +11,16 @@ export const Header = () => {
 
   console.log(pathname);
   return (
-    <div className="bg-[#272635] p-7 pr-12 flex justify-between flex-row text-white">
-      <Link href={"/"}>
-        <div className="flex flex-row gap-3 items-center">
-          <Image src={DSMLCLogo} alt="DSMLC Logo" className="" width={50} />{" "}
-          <span className="text-3xl font-semibold">DSMLC</span>
-        </div>
-      </Link>
-      <div className="inline-flex flex-row items-center justify-between">
-        {Object.values(Pages)
-          .filter((page) => page.type !== "sub")
-          .map((page) => {
+    <div className="bg-dsmlcBlack ">
+      <div className="p-5 px-10 m-auto max-w-7xl flex flex-row text-dsmlcWhite font-redHat lg:justify-between md:justify-center sm:justify-center justify-center">
+        <Link href={"/"}>
+          <div className="flex flex-row gap-3 items-center hover:text-dsmlcDataOrange transition-colors duration-300">
+            <Image src={DSMLCLogo} alt="DSMLC Logo" className="" width={50} />{" "}
+            <span className="text-3xl font-bold">DSMLC</span>
+          </div>
+        </Link>
+        <div className="flex-row items-center justify-between gap-10 lg:flex md:hidden sm:hidden hidden">
+          {Object.values(Pages).map((page) => {
             return (
               <div className="group relative">
                 <Link href={page.link}>
@@ -31,36 +30,38 @@ export const Header = () => {
                       pathname.includes(page.link + "/")
                         ? "text-dsmlcDataOrange"
                         : ""
-                    }  hover:text-dsmlcDataOrange hover:scale-110 transition-transform duration-150 p-4`}
+                    }  hover:text-dsmlcDataOrange hover:scale-110 transition-all duration-300 p-2 font-medium`}
                   >
-                    {page.name}{" "}
+                    {page.name}
                   </div>
                 </Link>
                 {page.type === "dropdown" && (
-                  <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 group-hover:flex hidden">
-                    {Object.values(page.dropdown).map((sub) => {
-                      console.log(`/${page.link}/${sub.link}` + " sublink");
-                      return (
-                        <div>
-                          <Link href={`${page.link}/${sub.link}`}>
-                            <div
-                              className={`${
-                                `${page.link + sub.link}` === pathname
-                                  ? "text-dsmlcDataOrange"
-                                  : ""
-                              }  hover:text-dsmlcDataOrange hover:brightness-150 flex flex-col invisible group-hover:visible justify-evenly items-center bg-[#272635] p-2 min-w-40`}
-                            >
-                              {sub.name}
-                            </div>
-                          </Link>
-                        </div>
-                      );
-                    })}
+                  <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 group-hover:flex hidden min-w-40 shadow-md shadow-dsmlcWhite bg-dsmlcBlack rounded-lg">
+                    {page.hasOwnProperty("dropdown") &&
+                      Object.values(page.dropdown).map((sub) => {
+                        console.log(`/${page.link}/${sub.link}` + " sublink");
+                        return (
+                          <div>
+                            <Link href={`${page.link}/${sub.link}`}>
+                              <div
+                                className={`${
+                                  `${page.link + sub.link}` === pathname
+                                    ? "text-dsmlcDataOrange"
+                                    : ""
+                                } hover:text-dsmlcDataOrange flex flex-col invisible group-hover:visible justify-evenly items-center p-2 rounded-lg bg-dsmlcBlack hover:brightness-150 font-medium`}
+                              >
+                                {sub.name}
+                              </div>
+                            </Link>
+                          </div>
+                        );
+                      })}
                   </div>
                 )}
               </div>
             );
           })}
+        </div>
       </div>
     </div>
   );

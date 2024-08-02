@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Red_Hat_Display } from "next/font/google";
+import { Quicksand } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/Header";
 
-const inter = Inter({ subsets: ["latin"] });
+export const quicksand = Quicksand({ subsets: ["latin"] }); // default font
+export const redHat = Red_Hat_Display({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={quicksand.className}>
         <Header />
         {children}
       </body>

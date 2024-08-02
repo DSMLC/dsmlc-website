@@ -12,27 +12,22 @@
     "dropdown": {
       "about": {
         "name": "About Us",
-        "type": "sub",
         "link": ""
       },
       "execs": {
         "name": "Executive Roster",
-        "type": "sub",
         "link": "/execs"
       },
       "members": {
         "name": "Official Members",
-        "type": "sub",
         "link": "/members"
       },
       "constitution": {
         "name": "Constitution",
-        "type": "sub",
         "link": "/constitution"
       },
       "sponsors": {
         "name": "Sponsors",
-        "type": "sub",
         "link": "/sponsors"
       }
     }
@@ -44,18 +39,19 @@
     "dropdown": {
       "events": {
         "name": "Events",
-        "type": "sub",
         "link": ""
       },
       "competition": {
         "name": "Final Competition",
-        "type": "sub",
         "link": "/final-comp"
       },
       "workshops": {
         "name": "Workshops",
-        "type": "sub",
         "link": "/workshops"
+      },
+      "other": {
+        "name": "Other Events",
+        "link": "/other"
       }
     }
   },
@@ -72,17 +68,14 @@
     "dropdown": {
       "contact": {
         "name": "Contact Us",
-        "type": "sub",
         "link": ""
       },
       "membership": {
         "name": "Join as Member",
-        "type": "sub",
         "link": "/membership"
       },
       "executive": {
         "name": "Join as Executive",
-        "type": "sub",
         "link": "executive"
       }
     }
