@@ -5,6 +5,38 @@
     "link": "/",
     "dropdown": {}
   },
+  "about": {
+    "name": "About",
+    "type": "dropdown",
+    "link": "/about",
+    "dropdown": {
+      "about": {
+        "name": "About Us",
+        "type": "sub",
+        "link": ""
+      },
+      "execs": {
+        "name": "Executive Roster",
+        "type": "sub",
+        "link": "/execs"
+      },
+      "members": {
+        "name": "Official Members",
+        "type": "sub",
+        "link": "/members"
+      },
+      "constitution": {
+        "name": "Constitution",
+        "type": "sub",
+        "link": "/constitution"
+      },
+      "sponsors": {
+        "name": "Sponsors",
+        "type": "sub",
+        "link": "/sponsors"
+      }
+    }
+  },
   "events": {
     "name": "Events",
     "type": "dropdown",
@@ -13,57 +45,45 @@
       "events": {
         "name": "Events",
         "type": "sub",
-        "link": "/events"
-      },
-      "visionary-lab": {
-        "name": "Visionary Lab",
-        "type": "sub",
-        "link": "/visionary-lab"
+        "link": ""
       },
       "competition": {
         "name": "Final Competition",
         "type": "sub",
         "link": "/final-comp"
+      },
+      "workshops": {
+        "name": "Workshops",
+        "type": "sub",
+        "link": "/workshops"
       }
     }
   },
-  "execs": {
-    "name": "Executive Roster",
-    "type": "sub",
-    "link": "/execs",
+  "visionary-lab": {
+    "name": "Visionary Lab",
+    "type": "main",
+    "link": "/visionary-lab",
     "dropdown": {}
   },
-  "sponsors": {
-    "name": "Sponsor Us",
-    "type": "sub",
-    "link": "/sponsor",
-    "dropdown": {
-      "visionary-lab": {
-        "name": "Visionary Lab",
-        "type": "sub",
-        "link": "/visionary-lab"
-      },
-      "competition": {
-        "name": "Final Competition",
-        "type": "sub",
-        "link": "/final-comp"
-      }
-    }
-  },
   "contact": {
-    "name": "Contact Us",
-    "type": "main",
+    "name": "Contact",
+    "type": "dropdown",
     "link": "/contact",
     "dropdown": {
-      "visionary-lab": {
-        "name": "Visionary Lab",
+      "contact": {
+        "name": "Contact Us",
         "type": "sub",
-        "link": "/visionary-lab"
+        "link": ""
       },
-      "competition": {
-        "name": "Final Competition",
+      "membership": {
+        "name": "Join as Member",
         "type": "sub",
-        "link": "/final-comp"
+        "link": "/membership"
+      },
+      "executive": {
+        "name": "Join as Executive",
+        "type": "sub",
+        "link": "executive"
       }
     }
   }

@@ -27,7 +27,10 @@ export const Header = () => {
                 <Link href={page.link}>
                   <div
                     className={`${
-                      page.link === pathname ? "text-dsmlcDataOrange" : ""
+                      page.link === pathname ||
+                      pathname.includes(page.link + "/")
+                        ? "text-dsmlcDataOrange"
+                        : ""
                     }  hover:text-dsmlcDataOrange hover:scale-110 transition-transform duration-150 p-4`}
                   >
                     {page.name}{" "}
@@ -36,12 +39,13 @@ export const Header = () => {
                 {page.type === "dropdown" && (
                   <div className="flex flex-col justify-center absolute left-1/2 transform -translate-x-1/2">
                     {Object.values(page.dropdown).map((sub) => {
+                      console.log(`/${page.link}/${sub.link}` + " sublink");
                       return (
                         <div>
-                          <Link href={sub.link}>
+                          <Link href={`${page.link}/${sub.link}`}>
                             <div
                               className={`${
-                                sub.link === pathname
+                                `${page.link + sub.link}` === pathname
                                   ? "text-dsmlcDataOrange"
                                   : ""
                               }  hover:text-dsmlcDataOrange hover:brightness-150 flex flex-col invisible group-hover:visible justify-evenly items-center bg-[#272635] p-2 min-w-40`}
