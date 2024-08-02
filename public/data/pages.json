@@ -1,9 +1,70 @@
 {
-  "home": { "name": "Home", "link": "/" },
-  "visionary-lab": { "name": "Visionary Lab", "link": "visionary-lab" },
-  "competition": { "name": "Final Competition", "link": "final-comp" },
-  "events": { "name": "Events", "link": "events" },
-  "execs": { "name": "Executive Roster", "link": "execs" },
-  "sponsors": { "name": "Sponsor Us", "link": "sponsor" },
-  "contact": { "name": "Contact Us", "link": "contact" }
+  "home": {
+    "name": "Home",
+    "type": "main",
+    "link": "/",
+    "dropdown": {}
+  },
+  "events": {
+    "name": "Events",
+    "type": "dropdown",
+    "link": "/events",
+    "dropdown": {
+      "events": {
+        "name": "Events",
+        "type": "sub",
+        "link": "/events"
+      },
+      "visionary-lab": {
+        "name": "Visionary Lab",
+        "type": "sub",
+        "link": "/visionary-lab"
+      },
+      "competition": {
+        "name": "Final Competition",
+        "type": "sub",
+        "link": "/final-comp"
+      }
+    }
+  },
+  "execs": {
+    "name": "Executive Roster",
+    "type": "sub",
+    "link": "/execs",
+    "dropdown": {}
+  },
+  "sponsors": {
+    "name": "Sponsor Us",
+    "type": "sub",
+    "link": "/sponsor",
+    "dropdown": {
+      "visionary-lab": {
+        "name": "Visionary Lab",
+        "type": "sub",
+        "link": "/visionary-lab"
+      },
+      "competition": {
+        "name": "Final Competition",
+        "type": "sub",
+        "link": "/final-comp"
+      }
+    }
+  },
+  "contact": {
+    "name": "Contact Us",
+    "type": "main",
+    "link": "/contact",
+    "dropdown": {
+      "visionary-lab": {
+        "name": "Visionary Lab",
+        "type": "sub",
+        "link": "/visionary-lab"
+      },
+      "competition": {
+        "name": "Final Competition",
+        "type": "sub",
+        "link": "/final-comp"
+      }
+    }
+  }
 }
