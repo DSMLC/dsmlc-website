@@ -37,7 +37,7 @@ export const Header = () => {
                   </div>
                 </Link>
                 {page.type === "dropdown" && (
-                  <div className="flex flex-col justify-center absolute left-1/2 transform -translate-x-1/2">
+                  <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 group-hover:flex hidden">
                     {Object.values(page.dropdown).map((sub) => {
                       console.log(`/${page.link}/${sub.link}` + " sublink");
                       return (
