@@ -10,7 +10,7 @@ const NavbarLinksDesktop = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex-row items-center justify-between gap-10 lg:flex md:hidden sm:hidden hidden">
+    <div className="flex-row items-center justify-between lg:gap-10 md:gap-3 lg:flex md:flex sm:hidden hidden ">
       {Object.values(Pages).map((page) => {
         return (
           <div key={page.name} className="group relative">
@@ -20,7 +20,7 @@ const NavbarLinksDesktop = () => {
                   page.link === pathname || pathname.includes(page.link + "/")
                     ? "text-dsmlcDataOrange"
                     : ""
-                }  hover:text-dsmlcDataOrange hover:scale-110 transition-all duration-300 p-2 font-medium`}
+                }  hover:text-dsmlcDataOrange hover:scale-110 transition-all duration-300 p-2 lg:pr-2 md:pr-5 font-medium`}
               >
                 {page.name}
               </div>
@@ -104,7 +104,7 @@ const NavbarLinksPhone = () => {
   }, [sidebarOpen]);
 
   return (
-    <div className="items-center lg:hidden md:flex sm:flex flex">
+    <div className="items-center lg:hidden md:hidden sm:flex flex">
       <button onClick={toggleSidebar}>
         <svg
           className="hover:fill-dsmlcDataOrange fill-dsmlcWhite transition-all duration-300"
@@ -224,7 +224,7 @@ export const Header = () => {
   return (
     <div className="bg-dsmlcBlack ">
       <div className="p-5 px-10 m-auto max-w-7xl flex flex-row text-dsmlcWhite font-redHat justify-between">
-        <div className="lg:hidden md:flex sm:flex flex"></div>
+        <div className="lg:hidden md:hidden sm:flex flex"></div>
         <Link href={"/"}>
           <div className="flex flex-row gap-3 items-center hover:text-dsmlcDataOrange transition-colors duration-300 flex-end">
             <Image src={DSMLCLogo} alt="DSMLC Logo" className="" width={50} />{" "}
