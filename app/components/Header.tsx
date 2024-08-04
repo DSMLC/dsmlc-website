@@ -1,8 +1,8 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import Pages from "../../public/data/pages.json";
+import HeaderData from "../../public/data/pages.json";
 import Link from "next/link";
-import DSMLCLogo from "../../public/DSMLC-logo-white.png";
+import DSMLCLogo from "../../public/images/DSMLC-logo-white.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
@@ -11,7 +11,7 @@ const NavbarLinksDesktop = () => {
 
   return (
     <div className="flex-row items-center justify-between lg:gap-10 md:gap-3 lg:flex md:flex sm:hidden hidden ">
-      {Object.values(Pages).map((page) => {
+      {Object.values(HeaderData).map((page) => {
         return (
           <div key={page.name} className="group relative">
             <Link href={page.link}>
@@ -143,13 +143,16 @@ const NavbarLinksPhone = () => {
               </Link>{" "}
             </button>
 
-            <div className="flex gap-5 flex-col">
-              {Object.values(Pages).map((page) => {
+            <div className="flex flex-col">
+              {Object.values(HeaderData).map((page) => {
                 const isOpen = dropdowns[page.name];
                 return (
-                  <div key={page.name} className="group relative text-xl">
+                  <div key={page.name} className="group relative text-lg">
                     <div className="flex flex-row justify-between">
-                      <button onClick={toggleSidebar}>
+                      <button
+                        className="flex-1 min-w-40"
+                        onClick={toggleSidebar}
+                      >
                         <Link href={page.link}>
                           <div
                             className={`${
@@ -157,7 +160,7 @@ const NavbarLinksPhone = () => {
                               pathname.includes(page.link + "/")
                                 ? "text-dsmlcDataOrange"
                                 : ""
-                            }  hover:text-dsmlcDataOrange text-start hover:scale-110 transition-all duration-300 p-5 pl-10 py-3 font-medium`}
+                            }  hover:text-dsmlcDataOrange text-start hover:scale-110 transition-all duration-300 p-5 pl-14 py-3 font-medium`}
                           >
                             {page.name}
                           </div>
@@ -165,7 +168,7 @@ const NavbarLinksPhone = () => {
                       </button>
                       {page.type === "dropdown" && (
                         <button
-                          className="w-full text-base hover:text-dsmlcDataOrange hover:scale-125 transition-all duration-300"
+                          className="flex-1 text-sm hover:text-dsmlcDataOrange hover:scale-125 transition-all duration-300"
                           onClick={() => toggleDropdown(page.name)}
                         >
                           {isOpen ? (
@@ -195,7 +198,7 @@ const NavbarLinksPhone = () => {
                                         : ""
                                     } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcBlack hover:brightness-150 font-medium`}
                                   >
-                                    <span className="hover:scale-110 w-full pl-14 text-start transition-all duration-150">
+                                    <span className="hover:scale-110 w-full pl-16 text-start transition-all duration-150">
                                       {sub.name}
                                     </span>
                                   </div>

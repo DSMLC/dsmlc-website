@@ -1,0 +1,37 @@
+{
+  "email": {
+    "name": "Email",
+    "link": "uofc.datascieclub@gmail.com",
+    "logo": ""
+  },
+  "membership": {
+    "name": "Membership Form",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScOGIqKjOxzu458lKIFtV3Kr3-Tf1jUvB4PyRZIXMxbvjEjHA/viewform",
+    "logo": ""
+  },
+  "workshops": {
+    "name": "Past Workshops",
+    "link": "https://drive.google.com/drive/folders/16I8AbsThFneWuxmp7N1n7UYInOtn9baK",
+    "logo": ""
+  },
+  "clubhub": {
+    "name": "SU ClubHub",
+    "link": "https://suuofc.campuslabs.ca/engage/organization/dsmlc",
+    "logo": ""
+  },
+  "discord": {
+    "name": "Discord",
+    "link": "https://discord.gg/NPCUa4rAdZ ",
+    "logo": "/images/discord.svg"
+  },
+  "insta": {
+    "name": "Instagram",
+    "link": "https://www.instagram.com/dsmlc.uofc/?hl=en",
+    "logo": "/images/instagram.svg"
+  },
+  "linkedin": {
+    "name": "LinkedIn",
+    "link": "https://www.linkedin.com/company/uofc-dsmlc/",
+    "logo": "/images/linkedin.svg"
+  }
+}
