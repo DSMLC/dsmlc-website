@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import HeaderData from "../../public/data/header.json";
+import PagesData from "../../public/data/pages.json";
+import LogoData from "../../public/data/logo.json";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -10,7 +11,7 @@ const NavbarLinksDesktop = () => {
 
   return (
     <div className="flex-row items-center justify-between lg:gap-10 md:gap-3 lg:flex md:flex sm:hidden hidden ">
-      {Object.values(HeaderData.pages_section).map((page) => {
+      {Object.values(PagesData).map((page) => {
         return (
           <div key={page.name} className="group relative">
             <Link href={page.link}>
@@ -132,20 +133,20 @@ const NavbarLinksPhone = () => {
               <Link href={"/"}>
                 <div className="flex flex-col gap-3 items-center hover:text-dsmlcDataOrange transition-colors duration-300">
                   <Image
-                    src={HeaderData.logo_section.white_logo}
-                    alt={`${HeaderData.logo_section.title} Logo`}
+                    src={LogoData.white_logo}
+                    alt={`${LogoData.club_acronym} Logo`}
                     width={50}
                     height={50}
                   />{" "}
                   <span className="text-3xl font-bold">
-                    {HeaderData.logo_section.title}
+                    {LogoData.club_acronym}
                   </span>
                 </div>
               </Link>{" "}
             </button>
 
             <div className="flex flex-col">
-              {Object.values(HeaderData.pages_section).map((page) => {
+              {Object.values(PagesData).map((page) => {
                 const isOpen = dropdowns[page.name];
                 return (
                   <div key={page.name} className="group relative text-lg">
@@ -232,14 +233,12 @@ export const Header = () => {
         <Link href={"/"}>
           <div className="flex flex-row gap-3 items-center hover:text-dsmlcDataOrange transition-colors duration-300 flex-end">
             <Image
-              src={HeaderData.logo_section.white_logo}
-              alt={`${HeaderData.logo_section.title} Logo`}
+              src={LogoData.white_logo}
+              alt={`${LogoData.club_acronym} Logo`}
               width={50}
               height={50}
             />{" "}
-            <span className="text-3xl font-bold">
-              {HeaderData.logo_section.title}
-            </span>
+            <span className="text-3xl font-bold">{LogoData.club_acronym}</span>
           </div>
         </Link>{" "}
         <NavbarLinksDesktop />

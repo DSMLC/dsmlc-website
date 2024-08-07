@@ -1,0 +1,83 @@
+{
+  "home": {
+    "name": "Home",
+    "type": "main",
+    "link": "/",
+    "dropdown": {}
+  },
+  "about": {
+    "name": "About",
+    "type": "dropdown",
+    "link": "/about",
+    "dropdown": {
+      "about": {
+        "name": "About Us",
+        "link": ""
+      },
+      "execs": {
+        "name": "Executive Roster",
+        "link": "/execs"
+      },
+      "members": {
+        "name": "Official Members",
+        "link": "/members"
+      },
+      "constitution": {
+        "name": "Constitution",
+        "link": "/constitution"
+      },
+      "sponsors": {
+        "name": "Sponsors",
+        "link": "/sponsors"
+      }
+    }
+  },
+  "events": {
+    "name": "Events",
+    "type": "dropdown",
+    "link": "/events",
+    "dropdown": {
+      "events": {
+        "name": "Events",
+        "link": ""
+      },
+      "competition": {
+        "name": "Final Competition",
+        "link": "/final-comp"
+      },
+      "workshops": {
+        "name": "Workshops",
+        "link": "/workshops"
+      },
+      "other": {
+        "name": "Other Events",
+        "link": "/other"
+      }
+    }
+  },
+  "visionary-lab": {
+    "name": "Visionary Lab",
+    "type": "main",
+    "link": "/visionary-lab",
+    "dropdown": {}
+  },
+  "contact": {
+    "name": "Contact",
+    "type": "dropdown",
+    "link": "/contact",
+    "dropdown": {
+      "contact": {
+        "name": "Contact Us",
+        "link": ""
+      },
+      "membership": {
+        "name": "Join as Member",
+        "link": "/membership"
+      },
+      "executive": {
+        "name": "Join as Executive",
+        "link": "executive"
+      }
+    }
+  }
+}

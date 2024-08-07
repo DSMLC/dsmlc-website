@@ -1,10 +1,10 @@
 import React from "react";
-import FooterData from "../../public/data/footer.json";
+import FooterData from "../../public/data/club_links.json";
 import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="fixed bottom-0 bg-dsmlcBlack text-dsmlcWhite w-full p-5 flex lg:flex-row flex-col lg:gap-2 gap-5 text-base justify-evenly items-center">
+    <div className="static bottom-0 bg-dsmlcBlack text-dsmlcWhite w-full p-5 flex lg:flex-row flex-col lg:gap-2 gap-5 text-base justify-evenly items-center">
       <div className="text-center">
         {FooterData.email_section.description}
         <span className="lg:inline md:hidden">
