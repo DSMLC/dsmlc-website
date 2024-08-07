@@ -33,7 +33,7 @@ const Hero = () => {
         <div className="flex-row flex gap-10 items-center">
           {Object.values(SocialMediaData.social_media).map((app) => {
             return (
-              <div>
+              <div className="flex items-center text-white hover:bg-dsmlcDataOrange transition-all duration-300 rounded p-1 md:h-10 h-9">
                 {" "}
                 <a href={app.link} target="_blank">
                   <Image

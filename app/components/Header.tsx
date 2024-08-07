@@ -20,7 +20,7 @@ const NavbarLinksDesktop = () => {
                   page.link === pathname || pathname.includes(page.link + "/")
                     ? "text-dsmlcDataOrange"
                     : ""
-                }  hover:text-dsmlcDataOrange hover:scale-110 transition-all duration-300 p-2 lg:pr-2 md:pr-5 font-medium`}
+                }  hover:text-dsmlcDataOrange hover:scale-105 transition-all duration-300 p-2 lg:pr-2 md:pr-5 font-medium`}
               >
                 {page.name}
               </div>
@@ -39,7 +39,7 @@ const NavbarLinksDesktop = () => {
                               : ""
                           } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcBlack hover:brightness-150 font-medium`}
                         >
-                          <span className="hover:scale-110 transition-all duration-150">
+                          <span className="hover:scale-105 transition-all duration-150">
                             {sub.name}
                           </span>
                         </div>
@@ -162,7 +162,7 @@ const NavbarLinksPhone = () => {
                               pathname.includes(page.link + "/")
                                 ? "text-dsmlcDataOrange"
                                 : ""
-                            }  hover:text-dsmlcDataOrange text-start hover:scale-110 transition-all duration-300 p-5 pl-14 py-3 font-medium`}
+                            }  hover:text-dsmlcDataOrange text-start hover:scale-105 transition-all duration-300 p-5 pl-14 py-3 font-medium`}
                           >
                             {page.name}
                           </div>
@@ -200,7 +200,7 @@ const NavbarLinksPhone = () => {
                                         : ""
                                     } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcBlack hover:brightness-150 font-medium`}
                                   >
-                                    <span className="hover:scale-110 w-full pl-16 text-start transition-all duration-150">
+                                    <span className="hover:scale-105 w-full pl-16 text-start transition-all duration-150">
                                       {sub.name}
                                     </span>
                                   </div>
