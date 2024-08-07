@@ -227,7 +227,7 @@ export const Header = () => {
 
   console.log(pathname);
   return (
-    <div className="bg-dsmlcBlack ">
+    <div className="bg-dsmlcBlack w-full fixed">
       <div className="p-5 px-10 m-auto max-w-7xl flex flex-row text-dsmlcWhite font-redHat justify-between">
         <div className="lg:hidden md:hidden sm:flex flex"></div>
         <Link href={"/"}>
