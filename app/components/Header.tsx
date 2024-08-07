@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import HeaderData from "../../public/data/pages.json";
+import HeaderData from "../../public/data/header.json";
 import Link from "next/link";
-import DSMLCLogo from "../../public/images/DSMLC-logo-white.png";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
@@ -11,7 +10,7 @@ const NavbarLinksDesktop = () => {
 
   return (
     <div className="flex-row items-center justify-between lg:gap-10 md:gap-3 lg:flex md:flex sm:hidden hidden ">
-      {Object.values(HeaderData).map((page) => {
+      {Object.values(HeaderData.pages_section).map((page) => {
         return (
           <div key={page.name} className="group relative">
             <Link href={page.link}>
@@ -133,18 +132,20 @@ const NavbarLinksPhone = () => {
               <Link href={"/"}>
                 <div className="flex flex-col gap-3 items-center hover:text-dsmlcDataOrange transition-colors duration-300">
                   <Image
-                    src={DSMLCLogo}
-                    alt="DSMLC Logo"
-                    className=""
+                    src={HeaderData.logo_section.white_logo}
+                    alt={`${HeaderData.logo_section.title} Logo`}
                     width={50}
+                    height={50}
                   />{" "}
-                  <span className="text-3xl font-bold">DSMLC</span>
+                  <span className="text-3xl font-bold">
+                    {HeaderData.logo_section.title}
+                  </span>
                 </div>
               </Link>{" "}
             </button>
 
             <div className="flex flex-col">
-              {Object.values(HeaderData).map((page) => {
+              {Object.values(HeaderData.pages_section).map((page) => {
                 const isOpen = dropdowns[page.name];
                 return (
                   <div key={page.name} className="group relative text-lg">
@@ -230,8 +231,15 @@ export const Header = () => {
         <div className="lg:hidden md:hidden sm:flex flex"></div>
         <Link href={"/"}>
           <div className="flex flex-row gap-3 items-center hover:text-dsmlcDataOrange transition-colors duration-300 flex-end">
-            <Image src={DSMLCLogo} alt="DSMLC Logo" className="" width={50} />{" "}
-            <span className="text-3xl font-bold">DSMLC</span>
+            <Image
+              src={HeaderData.logo_section.white_logo}
+              alt={`${HeaderData.logo_section.title} Logo`}
+              width={50}
+              height={50}
+            />{" "}
+            <span className="text-3xl font-bold">
+              {HeaderData.logo_section.title}
+            </span>
           </div>
         </Link>{" "}
         <NavbarLinksDesktop />
