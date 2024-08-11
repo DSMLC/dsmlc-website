@@ -1,5 +1,5 @@
 import React from "react";
-import FooterData from "../../public/data/club_links.json";
+import FooterData from "C:/Users/andin/OneDrive/Documents/AllRepos/dsmlc-website/public/data/club_links.json";
 import Image from "next/image";
 
 const Footer = () => {

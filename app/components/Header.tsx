@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import PagesData from "../../public/data/pages.json";
-import LogoData from "../../public/data/logo.json";
+import PagesData from "C:/Users/andin/OneDrive/Documents/AllRepos/dsmlc-website/public/data/pages.json";
+import LogoData from "C:/Users/andin/OneDrive/Documents/AllRepos/dsmlc-website/public/data/logo.json";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";

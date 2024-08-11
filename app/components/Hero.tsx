@@ -1,6 +1,6 @@
 import React from "react";
-import LogoData from "../../public/data/logo.json";
-import SocialMediaData from "../../public/data/club_links.json";
+import LogoData from "C:/Users/andin/OneDrive/Documents/AllRepos/dsmlc-website/public/data/logo.json";
+import SocialMediaData from "C:/Users/andin/OneDrive/Documents/AllRepos/dsmlc-website/public/data/club_links.json";
 import Link from "next/link";
 import Image from "next/image";
 
