@@ -1,7 +1,130 @@
-.title {
-    font-size: 2em; /* Adjust size as needed */
+/* Keyframes for animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.title-journey {
+    font-size: 2em;
     font-weight: bold;
     text-align: center;
-    background-clip: center;
     padding-top: 5%;
+    color: rgb(0, 0, 0);
+    margin-bottom: 3%; /* Space between sections */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; 
+    padding-bottom: 5%;
+    animation: fadeIn 2s ease-in-out; /* Fade-in animation */
+}
+
+.title {
+    font-size: 2em; 
+    font-weight: bold;
+    text-align: center;
+    padding-top: 5%;
+    color: rgb(0, 0, 0);
+    margin-bottom: 3%; /* Space between sections */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px; /* Adjust height as needed */
+    animation: fadeIn 2s ease-in-out; /* Fade-in animation */
+}
+
+.section {
+    margin-bottom: 40px; /* Space between sections */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Light background for content */
+    border-radius: 8px; /* Rounded corners for better visual separation */
+    animation: slideIn 1s ease-in-out; /* Slide-in animation */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
+.section:hover {
+    transform: translateY(-10px); /* Move up on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.page-container {
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #ff7e5f 0%, #2c3e50 100%);
+    padding: 20px;
+}
+
+.lower-text {
+    font-size: 1.3em; /* Slightly larger font size */
+    line-height: 1.6; /* Improved line spacing */
+    color: #333; /* Dark gray text color */
+    transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
+    animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
+    justify-content: center;
+    text-align: center;
+}
+
+
+/* Existing styles */
+
+.team-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+.team-member {
+    flex: 0 0 auto;
+    width: 200px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.team-member img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.team-member h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.team-member:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
