@@ -17,6 +17,36 @@ const teamMembers = [
     name: 'Team Member 3',
     description: 'Short description about team member 3.'
   },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
 ];
 
 const page = () => {
