@@ -37,7 +37,7 @@ const NavbarLinksDesktop = () => {
                             `${page.link + sub.link}` === pathname
                               ? "text-dsmlcDataOrange"
                               : ""
-                          } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcBlack hover:brightness-150 font-medium`}
+                          } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcBlack hover:brightness-125 font-medium`}
                         >
                           <span className="hover:scale-105 transition-all duration-150">
                             {sub.name}
@@ -198,7 +198,7 @@ const NavbarLinksPhone = () => {
                                       `${page.link + sub.link}` === pathname
                                         ? "text-dsmlcDataOrange"
                                         : ""
-                                    } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcBlack hover:brightness-150 font-medium`}
+                                    } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcBlack hover:brightness-125 font-medium`}
                                   >
                                     <span className="hover:scale-105 w-full pl-16 text-start transition-all duration-150">
                                       {sub.name}

@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Hero = () => {
   return (
-    <div className="w-full h-[85vh] bg-black flex-col pt-16">
+    <div className="w-full h-[85vh] bg-dsmlcBlack flex-col pt-16">
       <div className="flex justify-center items-center h-full gap-10 flex-col text-dsmlcWhite">
         <div className="font-redHat font-bold lg:text-4xl md:text-3xl text-2xl md:gap-10 gap-5 flex md:flex-row flex-col md:items-end items-center justify-center">
           <Image
@@ -33,7 +33,7 @@ const Hero = () => {
         <div className="flex-row flex gap-10 items-center">
           {Object.values(SocialMediaData.social_media).map((app) => {
             return (
-              <div className="flex items-center text-white hover:bg-dsmlcDataOrange transition-all duration-300 rounded p-1 md:h-10 h-9">
+              <div className="flex items-center text-dsmlcWhite hover:bg-dsmlcDataOrange transition-all duration-300 rounded p-1 md:h-10 h-9">
                 {" "}
                 <a href={app.link} target="_blank">
                   <Image

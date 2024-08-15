@@ -18,11 +18,17 @@ const config: Config = {
         dsmlcTangerine: "#FF914D",
         dsmlcParchment: "#F5EACF",
         dsmlcWhite: "#F2F2F2",
-        dsmlcBlack: "#222222",
+        dsmlcDarkBlack: "#222222",
+        dsmlcBlack: "#7a280f",
       },
       fontFamily: {
         redHat: ['"Red_Hat_Display"', "sans-serif"],
         quicksand: ['"Quicksand"', "sans-serif"],
+      },
+      borderRadius: {
+        "4xl": "2rem",
+        "5xl": "2.5rem",
+        "6xl": "9rem",
       },
     },
   },
