@@ -11,7 +11,7 @@ const NavbarLinksDesktop = () => {
 
   return (
     <div className="flex-row items-center justify-between lg:gap-10 md:gap-3 lg:flex md:flex sm:hidden hidden ">
-      {Object.values(PagesData).map((page) => {
+      {PagesData.map((page) => {
         return (
           <div key={page.name} className="group relative">
             <Link href={page.link}>
@@ -27,7 +27,7 @@ const NavbarLinksDesktop = () => {
             </Link>
             {page.type === "dropdown" && (
               <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-40 shadow-md shadow-dsmlcWhite bg-dsmlcBlack rounded-lg">
-                {Object.values(page.dropdown).map((sub) => {
+                {page.dropdown.map((sub) => {
                   console.log(`/${page.link}/${sub.link}` + " sublink");
                   return (
                     <div key={sub.name}>
@@ -146,7 +146,7 @@ const NavbarLinksPhone = () => {
             </button>
 
             <div className="flex flex-col">
-              {Object.values(PagesData).map((page) => {
+              {PagesData.map((page) => {
                 const isOpen = dropdowns[page.name];
                 return (
                   <div key={page.name} className="group relative text-lg">
@@ -184,7 +184,7 @@ const NavbarLinksPhone = () => {
 
                     {page.type === "dropdown" && isOpen && (
                       <div className="flex-col text-base justify-center flex min-w-40 rounded-lg">
-                        {Object.values(page.dropdown).map((sub) => {
+                        {page.dropdown.map((sub) => {
                           console.log(`/${page.link}/${sub.link}` + " sublink");
                           return (
                             <div key={sub.name}>

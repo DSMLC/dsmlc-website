@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Gabriel",
+    "role": [
+      {
+        "group": "Admin Team",
+        "roles": ["President"]
+      },
+      {
+        "group": "Operations Team",
+        "roles": []
+      },
+      {
+        "group": "Visionary Lab Team",
+        "roles": ["Project Manager", "Board Member"]
+      },
+      {
+        "group": "Legacy Executives",
+        "roles": []
+      }
+    ],
+    "profile": "image link",
+    "bio": "Hi I am Gabriel"
+  },
+  {
+    "name": "Joseph",
+    "role": [
+      {
+        "group": "Admin Team",
+        "roles": []
+      },
+      {
+        "group": "Operations Team",
+        "roles": ["Jr. VP of Operations"]
+      },
+      {
+        "group": "Visionary Lab Team",
+        "roles": []
+      },
+      {
+        "group": "Legacy Executives",
+        "roles": []
+      }
+    ],
+    "profile": "image link",
+    "bio": "Hi I am Joseph"
+  },
+  {
+    "name": "Maheen",
+    "role": [
+      {
+        "group": "Admin Team",
+        "roles": []
+      },
+      {
+        "group": "Operations Team",
+        "roles": ["VP of Operations"]
+      },
+      {
+        "group": "Visionary Lab Team",
+        "roles": []
+      },
+      {
+        "group": "Legacy Executives",
+        "roles": []
+      }
+    ],
+    "profile": "image link",
+    "bio": "Hi I am Maheen"
+  },
+  {
+    "name": "Rayyan",
+    "role": [
+      {
+        "group": "Admin Team",
+        "roles": []
+      },
+      {
+        "group": "Operations Team",
+        "roles": []
+      },
+      {
+        "group": "Visionary Lab Team",
+        "roles": []
+      },
+      {
+        "group": "Legacy Executives",
+        "roles": ["President"]
+      }
+    ],
+    "profile": "image link",
+    "bio": "Hi I am Rayyan"
+  }
+]
