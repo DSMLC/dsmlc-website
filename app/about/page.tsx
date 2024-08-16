@@ -1,3 +1,4 @@
+"use client";
 import React from 'react'
 import './aboutPage.css'
 
@@ -52,9 +53,12 @@ const teamMembers = [
 const page = () => {
   return (
     <div className="page-container">
-      <div style={{ paddingTop: '100px' }}>
-        <div></div>
-        <section className='background-gray section'>
+      <div>
+
+        <header className="p-5 px-10 m-auto max-w-7xl flex flex-row text-dsmlcWhite font-redHat justify-between">
+        </header>
+        
+        <section className='background-gray section-journey'>
           <div className="title-journey">DSMLC's Journey</div>        
           <div>
             <p className='lower-text'>
@@ -87,7 +91,7 @@ const page = () => {
         </div>
       </section>
 
-        <section className="section">
+        <section className="section-bottom">
 
           <div className="title">Meet the Team</div>
           <p className='lower-text'>
@@ -106,7 +110,7 @@ const page = () => {
                   <p>{member.description}</p>
                 </div>
               ))}
-            </div>
+          </div>
 
         </section>
 

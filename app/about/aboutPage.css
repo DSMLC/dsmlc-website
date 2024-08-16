@@ -31,7 +31,6 @@
     align-items: center;
     height: 100px; 
     padding-bottom: 5%;
-    animation: fadeIn 2s ease-in-out; /* Fade-in animation */
 }
 
 .title {
@@ -44,22 +43,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px; /* Adjust height as needed */
+    height: 100px;
     animation: fadeIn 2s ease-in-out; /* Fade-in animation */
 }
 
 .section {
+    width: 100%;
+    height: fit-content;
     margin-bottom: 40px; /* Space between sections */
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8); /* Light background for content */
-    border-radius: 8px; /* Rounded corners for better visual separation */
+    padding: 40px;
+    background-color: rgb(255, 255, 255); /* Light background for content */
+    /* border-radius: 8px; Rounded corners for better visual separation */
     animation: slideIn 1s ease-in-out; /* Slide-in animation */
     transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
 }
 
+.section-journey {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 40px; /* Space between sections */
+    padding: 40px;
+    background-color: rgb(255, 255, 255); /* Light background for content */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+}
+
 .section:hover {
-    transform: translateY(-10px); /* Move up on hover */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    /* transform: translateY(-10px); Move up on hover */
+    box-shadow: 0 40px 40px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.section-journey:hover {
+    /* transform: translateY(-10px); Move up on hover */
+    box-shadow: 0 40px 40px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+.section-bottom {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 40px; /* Space between sections */
+    padding: 40px;
+    background-color: rgb(255, 255, 255); /* Light background for content */
+    /* border-radius: 8px; Rounded corners for better visual separation */
+    animation: slideIn 1s ease-in-out; /* Slide-in animation */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
 }
 
 body, html {
@@ -70,10 +96,9 @@ body, html {
 }
 
 .page-container {
-    width: 100%;
     min-height: 100vh;
     background: linear-gradient(135deg, #ff7e5f 0%, #2c3e50 100%);
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .lower-text {
@@ -99,7 +124,7 @@ body, html {
 
 
 /* Custom scrollbar styles */
-.team-container::-webkit-scrollbar {
+.team-container::-webkit-scrollbar  {
     height: 10px;
 }
 
