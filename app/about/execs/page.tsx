@@ -5,7 +5,7 @@ import { ProfileListTemplate } from "@/app/components/ProfileListTemplate";
 
 const page = () => {
   return (
-    <div className="flex justify-center items-center flex-col gap-12 bg-dsmlcParchment">
+    <div className="flex justify-center items-center flex-col gap-12">
       <ProfileListTemplate ProfilesData={Execs} />
     </div>
   );

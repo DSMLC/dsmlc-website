@@ -22,7 +22,7 @@ export const ProfileListTemplate = ({
       {ProfilesData[0].role.map((roleGroup) => {
         return (
           <div className="flex flex-col w-full max-w-4xl m-auto p-14 py-5 gap-10">
-            <span className="text-4xl font-redHat text-dsmlcDataOrange font-bold">
+            <span className="text-4xl font-redHat text-dsmlcDataOrange font-bold md:text-start text-center">
               {roleGroup.group}
             </span>
             <div className="flex flex-row gap-10 flex-wrap justify-between">
@@ -33,7 +33,7 @@ export const ProfileListTemplate = ({
                 )
               ).map((filteredExec) => {
                 return (
-                  <div className="flex flex-col gap-1 w-1/4 text-center justify-between">
+                  <div className="flex flex-col gap-1 md:w-1/4 w-5/12 text-center justify-between">
                     <Image
                       src={
                         filteredExec.profile || ProfilesData[0].profile || ""
@@ -45,7 +45,7 @@ export const ProfileListTemplate = ({
                         filteredExec.profile
                           ? "object-cover"
                           : "object-contain p-4"
-                      } self-center object-center w-32 h-32 border-4 border-dsmlcTangerine rounded-4xl`}
+                      } self-center object-center md:w-32 md:h-32 w-24 h-24 border-4 border-dsmlcTangerine rounded-4xl`}
                     />
                     <span className="font-bold font-redHat text-xl text-dsmlcDataOrange">
                       {filteredExec.name}
