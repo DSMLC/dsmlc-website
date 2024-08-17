@@ -3,15 +3,11 @@
     "name": "Example: To add more roles, create a new group below.",
     "role": [
       {
-        "group": "Admin Team",
+        "group": "Visionary Lab Team",
         "roles": []
       },
       {
-        "group": "Operations Team",
-        "roles": []
-      },
-      {
-        "group": "Legacy Executives",
+        "group": "Advisors",
         "roles": []
       }
     ],
@@ -23,7 +19,7 @@
     "name": "Gabriel Rodriguez",
     "role": [
       {
-        "group": "Admin Team",
+        "group": "Visionary Lab Team",
         "roles": ["President"]
       }
     ],
@@ -35,7 +31,7 @@
     "name": "Joseph Tandyo",
     "role": [
       {
-        "group": "Operations Team",
+        "group": "Advisors",
         "roles": ["Jr. VP of Operations"]
       }
     ],
@@ -47,7 +43,7 @@
     "name": "Andrey Dimanchev",
     "role": [
       {
-        "group": "Operations Team",
+        "group": "Advisors",
         "roles": ["Jr. VP of Operations"]
       }
     ],
@@ -58,65 +54,11 @@
     "name": "Joseph",
     "role": [
       {
-        "group": "Operations Team",
+        "group": "Advisors",
         "roles": ["Jr. VP of Operations"]
       }
     ],
     "profile": "",
     "bio": "Hi I am Joseph"
-  },
-  {
-    "name": "Joseph",
-    "role": [
-      {
-        "group": "Operations Team",
-        "roles": ["Jr. VP of Operations"]
-      }
-    ],
-    "profile": "",
-    "bio": "Hi I am Joseph"
-  },
-  {
-    "name": "Joseph",
-    "role": [
-      {
-        "group": "Operations Team",
-        "roles": ["Jr. VP of Operations"]
-      }
-    ],
-    "profile": "",
-    "bio": "Hi I am Joseph"
-  },
-  {
-    "name": "Joseph",
-    "role": [
-      {
-        "group": "Operations Team",
-        "roles": ["Jr. VP of Operations"]
-      }
-    ],
-    "profile": "",
-    "bio": "Hi I am Joseph"
-  },
-  {
-    "name": "Maheen",
-    "role": [
-      {
-        "group": "Operations Team",
-        "roles": ["VP of Operations"]
-      }
-    ],
-    "profile": "",
-    "bio": "Hi I am Maheen"
-  },
-  {
-    "name": "Rayyan",
-    "role": [
-      {
-        "group": "Legacy Executives",
-        "roles": ["President"]
-      }
-    ],
-    "profile": ""
   }
 ]

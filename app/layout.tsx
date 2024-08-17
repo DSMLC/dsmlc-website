@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={quicksand.className}>
         <Header />
-        {children}
+        <div className="pt-24">{children}</div>
         <Footer />
       </body>
     </html>
