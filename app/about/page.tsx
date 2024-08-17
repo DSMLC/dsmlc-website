@@ -1,6 +1,7 @@
 "use client";
 import React from 'react'
 import './aboutPage.css'
+import {Header} from '../components/Header'
 
 const teamMembers = [
   {
@@ -48,19 +49,74 @@ const teamMembers = [
     name: 'Team Member 3',
     description: 'Short description about team member 3.'
   },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
+  {
+    imgSrc: 'path/to/image3.jpg',
+    name: 'Team Member 3',
+    description: 'Short description about team member 3.'
+  },
 ];
 
 const page = () => {
   return (
     <div className="page-container">
+
+      <Header></Header>
       <div>
 
-        <header className="p-5 px-10 m-auto max-w-7xl flex flex-row text-dsmlcWhite font-redHat justify-between">
+        <header className="header p-5 px-10 m-auto max-w-7xl flex flex-row text-dsmlcWhite font-redHat justify-between">
         </header>
+
+        <div className="image-container">
+          <img src="/images/AI.jpg" alt="Left Image" className="title-image left" /> 
+            <div className="text-overlay">About Us</div>
+        </div>
+
+        {/* <img src="/images/AI.jpg" alt="Left Image" className="title-image left" />  */}
         
         <section className='background-gray section-journey'>
-          <div className="title-journey">DSMLC's Journey</div>        
-          <div>
+          
+          <div className="title-journey">DSMLC's Journey</div> 
+          <div> 
             <p className='lower-text'>
               The Data Science and Machine Learning Club (DSMLC) 
               was founded in 2020 by a group of students who were 
@@ -72,7 +128,9 @@ const page = () => {
               over 300 members and has hosted a variety of events, 
               including workshops, hackathons, and guest lectures.
             </p>
-          </div>
+        </div>  
+            
+          
         </section>
 
       <section className="section">
