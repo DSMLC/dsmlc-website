@@ -8,7 +8,10 @@ interface ProfileList {
     roles: string[];
   }[];
   profile?: string;
-  program?: string;
+  program?: {
+    programs: string[];
+    year: string;
+  };
   bio?: string;
 }
 
@@ -21,11 +24,11 @@ export const ProfileListTemplate = ({
     <div>
       {ProfilesData[0].role.map((roleGroup) => {
         return (
-          <div className="flex flex-col w-full max-w-4xl m-auto p-14 py-5 gap-10">
+          <div className="flex flex-col w-full max-w-4xl m-auto md:p-14 p-5 py-5 gap-10">
             <span className="text-4xl font-redHat text-dsmlcDataOrange font-bold md:text-start text-center">
               {roleGroup.group}
             </span>
-            <div className="flex flex-row gap-10 flex-wrap justify-between">
+            <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
               {ProfilesData.filter((exec) =>
                 exec.role.some(
                   (role) =>
@@ -33,7 +36,7 @@ export const ProfileListTemplate = ({
                 )
               ).map((filteredExec) => {
                 return (
-                  <div className="flex flex-col gap-1 md:w-1/4 w-5/12 text-center justify-between">
+                  <div className="flex flex-col gap-1 text-center justify-between">
                     <Image
                       src={
                         filteredExec.profile || ProfilesData[0].profile || ""
@@ -49,16 +52,26 @@ export const ProfileListTemplate = ({
                     />
                     <span className="font-bold font-redHat text-xl text-dsmlcDataOrange">
                       {filteredExec.name}
-                    </span>
-                    <span className="text-sm italic ">
-                      {filteredExec.program}
-                    </span>
+                    </span>{" "}
+                    {filteredExec.program && (
+                      <span className="text-sm italic flex flex-wrap items-center justify-center px-2">
+                        {filteredExec.program?.year}
+                        {filteredExec.program?.programs?.length > 0 &&
+                          filteredExec.program?.programs.map((program) => {
+                            return (
+                              <div key={program} className="ml-1">
+                                {program}
+                              </div>
+                            );
+                          })}
+                      </span>
+                    )}
                     {filteredExec.role
                       .filter((role) => role.group === roleGroup.group)
                       .map((role) =>
                         role.roles.map((roleTitle, index) => (
                           <span
-                            className="border-b-2 border-dsmlcTangerine text-dsmlcDarkBlack font-semibold"
+                            className="border-b-2 w-fit self-center border-dsmlcTangerine text-dsmlcDarkBlack font-semibold"
                             key={index}
                           >
                             {roleTitle}

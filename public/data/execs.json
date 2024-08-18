@@ -11,13 +11,16 @@
         "roles": []
       },
       {
-        "group": "Legacy Executives",
+        "group": "Legacy Executives (Advisory Team)",
         "roles": []
       }
     ],
-    "profile": "/images/empty_profile.svg",
-    "program": "",
-    "bio": ""
+    "profile": "/images/profile/empty_profile.svg",
+    "program": {
+      "programs": ["Example major 1", "Example major 2"],
+      "year": "4th year"
+    },
+    "bio": "Hi this is an example bio"
   },
   {
     "name": "Gabriel Rodriguez",
@@ -27,96 +30,260 @@
         "roles": ["President"]
       }
     ],
-    "profile": "/images/gabriel.jpg",
-    "program": "3rd Year Computer Science",
+    "profile": "/images/profile/gabriel_rodriguez.jpg",
+    "program": {
+      "programs": ["Computer Science", "Business"],
+      "year": "4th Year"
+    },
     "bio": "I like learning about cultures and languages, travelling the world, painting and animating cityscapes, recording everything for my future self to see, and keeping things aesthetic :D"
+  },
+  {
+    "name": "Rayyan Zuberi",
+    "role": [
+      {
+        "group": "Admin Team",
+        "roles": ["Presidential Advisor"]
+      }
+    ],
+    "program": {
+      "programs": ["Medical Student (MD)"]
+    }
+  },
+  {
+    "name": "Evan Poulson",
+    "role": [
+      {
+        "group": "Admin Team",
+        "roles": ["VP General Events"]
+      }
+    ],
+    "program": {
+      "programs": ["Computer Science", "Data Science"],
+      "year": "2nd Year"
+    },
+    "bio": "Hi I'm Evan, a 2nd year Comp Sci/Data Sci Major! I'm really big into basketball and snowboarding, and I also enjoy learning about history and different cultures!"
+  },
+  {
+    "name": "Adrian Julve",
+    "role": [
+      {
+        "group": "Admin Team",
+        "roles": ["Jr. VP Events"]
+      }
+    ],
+    "profile": "/images/profile/adrian_julve.jpg",
+    "program": {
+      "programs": ["Data Science"],
+      "year": "2nd Year"
+    },
+    "bio": "I love being active and I'm all about improving myself physically and mentally. You can frequently catch me in the gym or hiking up a mountain! I'm also big into car culture and video games!"
+  },
+  {
+    "name": "Aimen Zahid",
+    "role": [
+      {
+        "group": "Admin Team",
+        "roles": ["Jr. VP Events"]
+      }
+    ],
+    "program": {
+      "programs": ["Data Science"],
+      "year": "2nd Year"
+    },
+    "bio": "Hi, I'm Aimen! I'm passionate problem-solving through data and the future of AI. During my free time, I'm an avid reader and enjoy exploring topics in literature and psychology."
+  },
+  {
+    "name": "Taha Malik",
+    "role": [
+      {
+        "group": "Admin Team",
+        "roles": ["VP Outreach"]
+      }
+    ],
+    "program": {
+      "programs": ["Computer Science", "Finance"],
+      "year": "2nd Year"
+    },
+    "bio": "I love to hike, and do summits in the mountains. I love technology and am always excited about the future of cybernetics, and also love to workout and lose braincells play Rainbow 6ix Seige"
+  },
+  {
+    "name": "Yash Dhaneshwari",
+    "role": [
+      {
+        "group": "Admin Team",
+        "roles": ["Jr. VP Outreach"]
+      }
+    ],
+    "program": {
+      "programs": ["Computer Science"],
+      "year": "2nd Year"
+    },
+    "bio": "Passionate about physics and math, and lvoe incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing"
+  },
+  {
+    "name": "Ian McCourtie",
+    "role": [
+      {
+        "group": "Admin Team",
+        "roles": ["Jr. VP Outreach"]
+      }
+    ],
+    "program": {
+      "programs": ["Business"],
+      "year": "2nd Year"
+    },
+    "profile": "/images/profile/ian_mccourtie.jpg",
+    "bio": "I love playing basketball and staying active as much as I can, and I enjoy being social and connecting with people from all different walks of life. I'm very interested in outreach and marketing, as far as connecting with companies and individuals and developing professional connections and relationships."
+  },
+  {
+    "name": "Maheen Hossain",
+    "role": [
+      {
+        "group": "Operations Team",
+        "roles": ["VP Operations"]
+      }
+    ],
+    "program": {
+      "programs": ["Software Engineering"],
+      "year": "6th Year"
+    },
+    "profile": "/images/profile/maheen_hossain.jpg"
   },
   {
     "name": "Joseph Tandyo",
     "role": [
       {
         "group": "Operations Team",
-        "roles": ["Jr. VP of Operations"]
+        "roles": ["Jr. VP Operations"]
       }
     ],
-    "profile": "",
-    "program": "3nd Year Computer Science",
+    "program": {
+      "programs": ["Computer Science"],
+      "year": "3rd Year"
+    },
+    "profile": "/images/profile/joseph_tandyo.jpg",
     "bio": "hello I'm Joseph and I am in 3rd year computer science. In my free time I like to watch movies, shows and interested in storytelling in general! I also like to go bouldering from time to time"
+  },
+  {
+    "name": "Jason Nguyen",
+    "role": [
+      {
+        "group": "Operations Team",
+        "roles": ["Tech Lead"]
+      }
+    ],
+    "program": {
+      "programs": ["Computer Science"],
+      "year": "6th Year"
+    },
+    "profile": "/images/profile/jason_nguyen.jpg"
+  },
+  {
+    "name": "Precious Adewuyi",
+    "role": [
+      {
+        "group": "Operations Team",
+        "roles": ["Competition Director"]
+      }
+    ]
+  },
+  {
+    "name": "Hanz Dela Cruz",
+    "role": [
+      {
+        "group": "Operations Team",
+        "roles": ["Competition Director"]
+      }
+    ]
+  },
+  {
+    "name": "Dheeraj Jaswal",
+    "role": [
+      {
+        "group": "Operations Team",
+        "roles": ["Jr. Competition Director"]
+      }
+    ],
+    "program": {
+      "programs": ["Business"],
+      "year": "2nd Year"
+    },
+    "profile": "/images/profile/dheeraj_jaswal.jpg",
+    "bio": "Hi I'm Dheeraj. I enjoy travelling around the world and meeting new people. I am passionate about data science and I love to learn new skills or volunteer in my free time."
+  },
+  {
+    "name": "Prantap Sharma",
+    "role": [
+      {
+        "group": "Operations Team",
+        "roles": ["Workshop Director"]
+      }
+    ]
   },
   {
     "name": "Andrey Dimanchev",
     "role": [
       {
         "group": "Operations Team",
-        "roles": ["Jr. VP of Operations"]
+        "roles": ["Workshop Director"]
       }
     ],
-    "profile": "",
+    "program": {
+      "programs": ["Computer Science", "Business"],
+      "year": "3rd Year"
+    },
+    "profile": "/images/profile/andrey_dimanchev.jpg",
     "bio": "Passionate about solving complex puzzles with technology, primarily in Machine Learning and Rocketry. I also skateboard!"
   },
   {
-    "name": "Joseph",
+    "name": "Lucy Li",
     "role": [
       {
-        "group": "Operations Team",
-        "roles": ["Jr. VP of Operations"]
+        "group": "Legacy Executives (Advisory Team)",
+        "roles": ["VP Outreach"]
       }
     ],
-    "profile": "",
-    "bio": "Hi I am Joseph"
+    "program": {
+      "programs": ["Business Analytics"]
+    }
   },
   {
-    "name": "Joseph",
+    "name": "Tan Li",
     "role": [
       {
-        "group": "Operations Team",
-        "roles": ["Jr. VP of Operations"]
+        "group": "Legacy Executives (Advisory Team)",
+        "roles": ["VP Finance"]
       }
-    ],
-    "profile": "",
-    "bio": "Hi I am Joseph"
+    ]
   },
   {
-    "name": "Joseph",
+    "name": "Haidar Putra",
     "role": [
       {
-        "group": "Operations Team",
-        "roles": ["Jr. VP of Operations"]
+        "group": "Legacy Executives (Advisory Team)",
+        "roles": ["VP Operations"]
       }
-    ],
-    "profile": "",
-    "bio": "Hi I am Joseph"
+    ]
   },
   {
-    "name": "Joseph",
+    "name": "Ayman Mohammed",
     "role": [
       {
-        "group": "Operations Team",
-        "roles": ["Jr. VP of Operations"]
+        "group": "Legacy Executives (Advisory Team)",
+        "roles": ["VP Operations"]
       }
     ],
-    "profile": "",
-    "bio": "Hi I am Joseph"
+    "program": {
+      "programs": ["Cellular Molecular Microbial Biology"]
+    }
   },
   {
-    "name": "Maheen",
+    "name": "Kelly Osena",
     "role": [
       {
-        "group": "Operations Team",
-        "roles": ["VP of Operations"]
+        "group": "Legacy Executives (Advisory Team)",
+        "roles": ["VP Communications"]
       }
-    ],
-    "profile": "",
-    "bio": "Hi I am Maheen"
-  },
-  {
-    "name": "Rayyan",
-    "role": [
-      {
-        "group": "Legacy Executives",
-        "roles": ["President"]
-      }
-    ],
-    "profile": ""
+    ]
   }
 ]

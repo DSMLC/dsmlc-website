@@ -3,7 +3,11 @@
     "name": "Example: To add more roles, create a new group below.",
     "role": [
       {
-        "group": "Visionary Lab Team",
+        "group": "Visionary Lab Board",
+        "roles": []
+      },
+      {
+        "group": "Project Managers",
         "roles": []
       },
       {
@@ -14,51 +18,5 @@
     "profile": "/images/empty_profile.svg",
     "program": "",
     "bio": ""
-  },
-  {
-    "name": "Gabriel Rodriguez",
-    "role": [
-      {
-        "group": "Visionary Lab Team",
-        "roles": ["President"]
-      }
-    ],
-    "profile": "/images/gabriel.jpg",
-    "program": "3rd Year Computer Science",
-    "bio": "I like learning about cultures and languages, travelling the world, painting and animating cityscapes, recording everything for my future self to see, and keeping things aesthetic :D"
-  },
-  {
-    "name": "Joseph Tandyo",
-    "role": [
-      {
-        "group": "Advisors",
-        "roles": ["Jr. VP of Operations"]
-      }
-    ],
-    "profile": "",
-    "program": "3nd Year Computer Science",
-    "bio": "hello I'm Joseph and I am in 3rd year computer science. In my free time I like to watch movies, shows and interested in storytelling in general! I also like to go bouldering from time to time"
-  },
-  {
-    "name": "Andrey Dimanchev",
-    "role": [
-      {
-        "group": "Advisors",
-        "roles": ["Jr. VP of Operations"]
-      }
-    ],
-    "profile": "",
-    "bio": "Passionate about solving complex puzzles with technology, primarily in Machine Learning and Rocketry. I also skateboard!"
-  },
-  {
-    "name": "Joseph",
-    "role": [
-      {
-        "group": "Advisors",
-        "roles": ["Jr. VP of Operations"]
-      }
-    ],
-    "profile": "",
-    "bio": "Hi I am Joseph"
   }
 ]
