@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import EmptyProfie from "../../public/images/profile/empty_profile.svg";
 
 interface ProfileList {
   name: string;
@@ -10,37 +11,36 @@ interface ProfileList {
   profile?: string;
   program?: {
     programs: string[];
-    year: string;
+    year?: string;
   };
   bio?: string;
 }
 
 export const ProfileListTemplate = ({
   ProfilesData,
+  GroupRoleTitle,
 }: {
   ProfilesData: ProfileList[];
+  GroupRoleTitle: string[];
 }) => {
   return (
     <div>
-      {ProfilesData[0].role.map((roleGroup) => {
+      {GroupRoleTitle.map((roleGroup) => {
         return (
           <div className="flex flex-col w-full max-w-4xl m-auto md:p-14 p-5 py-5 gap-10">
             <span className="text-4xl font-redHat text-dsmlcDataOrange font-bold md:text-start text-center">
-              {roleGroup.group}
+              {roleGroup}
             </span>
             <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
               {ProfilesData.filter((exec) =>
                 exec.role.some(
-                  (role) =>
-                    role.group == roleGroup.group && role.roles.length > 0
+                  (role) => role.group == roleGroup && role.roles.length > 0
                 )
               ).map((filteredExec) => {
                 return (
                   <div className="flex flex-col gap-1 text-center justify-between">
                     <Image
-                      src={
-                        filteredExec.profile || ProfilesData[0].profile || ""
-                      }
+                      src={filteredExec.profile || EmptyProfie || ""}
                       alt="Executive Profile Picture"
                       width={999}
                       height={999}
@@ -67,7 +67,7 @@ export const ProfileListTemplate = ({
                       </span>
                     )}
                     {filteredExec.role
-                      .filter((role) => role.group === roleGroup.group)
+                      .filter((role) => role.group === roleGroup)
                       .map((role) =>
                         role.roles.map((roleTitle, index) => (
                           <span
