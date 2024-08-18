@@ -1,14 +1,16 @@
 import React from "react";
 import Execs from "../../../public/data/execs.json";
-import GroupRoleTitles from "../../../public/data/page_data/executive_roster.json";
+import ExecutiveRosterData from "../../../public/data/page_data/executive_roster.json";
 import { ProfileListTemplate } from "@/app/components/ProfileListTemplate";
+import TitleTemplate from "@/app/components/TitleTemplate";
 
 const page = () => {
   return (
-    <div className="flex justify-center items-center flex-col gap-12">
+    <div>
+      <TitleTemplate Title={ExecutiveRosterData.title} />
       <ProfileListTemplate
         ProfilesData={Execs}
-        GroupRoleTitle={GroupRoleTitles}
+        GroupRoleTitle={ExecutiveRosterData.group_roles}
       />
     </div>
   );

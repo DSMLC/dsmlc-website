@@ -71,7 +71,7 @@ export const ProfileListTemplate = ({
                       .map((role) =>
                         role.roles.map((roleTitle, index) => (
                           <span
-                            className="border-b-2 w-fit self-center border-dsmlcTangerine text-dsmlcDarkBlack font-semibold"
+                            className="border-b-2 w-fit self-center border-dsmlcTangerine text-dsmlcBlack font-semibold"
                             key={index}
                           >
                             {roleTitle}

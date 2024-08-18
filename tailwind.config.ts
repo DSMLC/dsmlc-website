@@ -19,7 +19,7 @@ const config: Config = {
         dsmlcParchment: "#F5EACF",
         dsmlcWhite: "#F2F2F2",
         dsmlcDarkBlack: "#222222",
-        dsmlcBlack: "#7a280f",
+        dsmlcBlack: "#222222",
       },
       fontFamily: {
         redHat: ['"Red_Hat_Display"', "sans-serif"],
