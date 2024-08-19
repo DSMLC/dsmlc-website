@@ -28,7 +28,7 @@ export const ProfileListTemplate = ({
       {GroupRoleTitle.map((roleGroup) => {
         return (
           <div className="flex flex-col w-full max-w-4xl m-auto md:p-14 p-5 py-5 gap-10">
-            <span className="text-4xl font-redHat text-dsmlcDataOrange font-bold md:text-start text-center">
+            <span className="md:text-4xl text-3xl font-redHat text-dsmlcBlack font-bold md:text-start text-center">
               {roleGroup}
             </span>
             <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
@@ -50,7 +50,7 @@ export const ProfileListTemplate = ({
                           : "object-contain p-4"
                       } self-center object-center md:w-32 md:h-32 w-24 h-24 border-4 border-dsmlcTangerine rounded-4xl`}
                     />
-                    <span className="font-bold font-redHat text-xl text-dsmlcDataOrange">
+                    <span className="font-bold font-redHat text-xl text-dsmlcTangerine">
                       {filteredExec.name}
                     </span>{" "}
                     {filteredExec.program && (

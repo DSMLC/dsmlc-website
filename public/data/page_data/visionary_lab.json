@@ -1,1 +1,4 @@
-["Visionary Lab Board", "Project Managers", "Advisors"]
+{
+  "title": "Visionary Lab",
+  "group_roles": ["Visionary Lab Board", "Project Managers", "Advisors"]
+}
