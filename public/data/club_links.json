@@ -23,17 +23,20 @@
     "discord": {
       "name": "Discord",
       "link": "https://discord.gg/NPCUa4rAdZ ",
-      "logo": "/images/discord.svg"
+      "dark_logo": "/images/dark_discord.svg",
+      "light_logo": "/images/light_discord.svg"
     },
     "insta": {
       "name": "Instagram",
       "link": "https://www.instagram.com/dsmlc.uofc/?hl=en",
-      "logo": "/images/instagram.svg"
+      "dark_logo": "/images/dark_instagram.svg",
+      "light_logo": "/images/light_instagram.svg"
     },
     "linkedin": {
       "name": "LinkedIn",
       "link": "https://www.linkedin.com/company/uofc-dsmlc/",
-      "logo": "/images/linkedin.svg"
+      "dark_logo": "/images/dark_linkedin.svg",
+      "light_logo": "/images/light_linkedin.svg"
     }
   }
 }

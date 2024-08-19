@@ -26,7 +26,7 @@ const NavbarLinksDesktop = () => {
               </div>
             </Link>
             {page.type === "dropdown" && (
-              <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-40 shadow-md shadow-dsmlcWhite bg-dsmlcBlack rounded-lg">
+              <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-40 shadow-md shadow-dsmlcBlack bg-dsmlcWhite rounded-lg">
                 {page.dropdown.map((sub) => {
                   console.log(`/${page.link}/${sub.link}` + " sublink");
                   return (
@@ -37,7 +37,7 @@ const NavbarLinksDesktop = () => {
                             `${page.link + sub.link}` === pathname
                               ? "text-dsmlcDataOrange"
                               : ""
-                          } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcBlack hover:brightness-125 font-medium`}
+                          } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcWhite hover:brightness-125 font-medium`}
                         >
                           <span className="hover:scale-105 transition-all duration-150">
                             {sub.name}
@@ -107,7 +107,7 @@ const NavbarLinksPhone = () => {
     <div className="items-center lg:hidden md:hidden sm:flex flex">
       <button onClick={toggleSidebar}>
         <svg
-          className="hover:fill-dsmlcDataOrange fill-dsmlcWhite transition-all duration-300"
+          className="hover:fill-dsmlcDataOrange fill-dsmlcBlack transition-all duration-300"
           width="40"
           height="40"
           viewBox="0 0 100 100"
@@ -122,10 +122,10 @@ const NavbarLinksPhone = () => {
       </button>
 
       {sidebarOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 ">
+        <div className="fixed inset-0 bg-dsmlcWhite bg-opacity-50 z-50 ">
           <div
             ref={sidebarRef}
-            className={`overflow-y-auto no-scrollbar overflow-x-hidden fixed top-0 right-0 py-14 bg-dsmlcBlack md:w-80 sm:w-64 w-64 h-full shadow-md z-50 shadow-dsmlcWhite ${
+            className={`overflow-y-auto no-scrollbar overflow-x-hidden fixed top-0 right-0 py-14 bg-dsmlcWhite md:w-80 sm:w-64 w-64 h-full shadow-md z-50 shadow-dsmlcBlack ${
               isSliding ? "slide-out" : "slide-in"
             }`}
           >
@@ -133,7 +133,7 @@ const NavbarLinksPhone = () => {
               <Link href={"/"}>
                 <div className="flex flex-col gap-3 items-center hover:text-dsmlcDataOrange transition-colors duration-300">
                   <Image
-                    src={LogoData.white_logo}
+                    src={LogoData.dark_logo}
                     alt={`${LogoData.club_acronym} Logo`}
                     width={50}
                     height={50}
@@ -183,7 +183,7 @@ const NavbarLinksPhone = () => {
                     </div>
 
                     {page.type === "dropdown" && isOpen && (
-                      <div className="flex-col text-base justify-center flex min-w-40 rounded-lg">
+                      <div className="flex-col text-base justify-center flex min-w-40 rounded-lg ">
                         {page.dropdown.map((sub) => {
                           console.log(`/${page.link}/${sub.link}` + " sublink");
                           return (
@@ -198,7 +198,7 @@ const NavbarLinksPhone = () => {
                                       `${page.link + sub.link}` === pathname
                                         ? "text-dsmlcDataOrange"
                                         : ""
-                                    } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcBlack hover:brightness-125 font-medium`}
+                                    } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcWhite hover:brightness-125 font-medium`}
                                   >
                                     <span className="hover:scale-105 w-full pl-16 text-start transition-all duration-150">
                                       {sub.name}
@@ -223,17 +223,14 @@ const NavbarLinksPhone = () => {
 };
 
 export const Header = () => {
-  const pathname = usePathname();
-
-  console.log(pathname);
   return (
-    <div className="bg-dsmlcBlack w-full fixed h-24">
-      <div className="p-5 px-10 m-auto max-w-7xl flex flex-row text-dsmlcWhite font-redHat justify-between">
+    <div className="bg-dsmlcWhite w-full fixed h-24 border-b-2 border-dsmlcTangerine">
+      <div className="p-5 px-10 m-auto max-w-7xl flex flex-row text-dsmlcBlack font-redHat justify-between">
         <div className="lg:hidden md:hidden sm:flex flex"></div>
         <Link href={"/"}>
           <div className="flex flex-row gap-3 items-center hover:text-dsmlcDataOrange transition-colors duration-300 flex-end">
             <Image
-              src={LogoData.white_logo}
+              src={LogoData.dark_logo}
               alt={`${LogoData.club_acronym} Logo`}
               width={50}
               height={50}

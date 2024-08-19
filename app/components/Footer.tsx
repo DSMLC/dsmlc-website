@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="static bottom-0 bg-dsmlcBlack text-dsmlcWhite w-full p-5 flex lg:flex-row flex-col lg:gap-2 gap-5 text-base justify-evenly items-center">
+    <div className="static bottom-0 bg-dsmlcWhite text-dsmlcBlack w-full p-5 flex lg:flex-row flex-col lg:gap-2 gap-5 text-base justify-evenly items-center h-24 border-t-2 border-dsmlcTangerine">
       <div className="text-center">
         {FooterData.email_section.description}
         <span className="lg:inline md:hidden">
@@ -34,10 +34,10 @@ const Footer = () => {
       <div className="flex flex-row gap-5">
         {Object.values(FooterData.social_media).map((social_media) => {
           return (
-            <div className="flex items-center text-white hover:bg-dsmlcDataOrange transition-all duration-300 rounded p-1">
+            <div className="flex items-center text-dsmlcBlack hover:bg-dsmlcDataOrange transition-all duration-300 rounded p-1">
               <a href={social_media.link} target="_blank">
                 <Image
-                  src={social_media.logo}
+                  src={social_media.dark_logo}
                   alt={`${social_media.name} Logo`}
                   width={25}
                   height={25}
