@@ -1,7 +1,6 @@
 import React from "react";
 import LogoData from "../../public/data/logo.json";
 import SocialMediaData from "../../public/data/club_links.json";
-import Link from "next/link";
 import Image from "next/image";
 
 const Hero = () => {
@@ -23,9 +22,16 @@ const Hero = () => {
             width={70}
             height={70}
           />
-          <span className="md:w-1/2 w-3/4 md:text-start text-center">
-            {LogoData.club_name}
-          </span>
+          <div className="flex flex-col md:text-start text-center">
+            <span className="md:text-sm text-xs font-light">
+              {LogoData.university_name}
+            </span>
+            <span
+              dangerouslySetInnerHTML={{
+                __html: LogoData.club_name_styled,
+              }}
+            ></span>
+          </div>
         </div>
         <div className="font-quicksand lg:text-xl md:text-lg text-base lg:w-1/3 sm:w-1/2 w-3/4 text-center">
           {LogoData.description}
@@ -33,7 +39,7 @@ const Hero = () => {
         <div className="flex-row flex gap-10 items-center">
           {Object.values(SocialMediaData.social_media).map((app) => {
             return (
-              <div className="flex items-center text-dsmlcBlack hover:bg-dsmlcDataOrange transition-all duration-300 rounded p-1 md:h-10 h-9">
+              <div className="flex items-center text-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1 md:h-10 h-9">
                 {" "}
                 <a href={app.link} target="_blank">
                   <Image

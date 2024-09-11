@@ -37,7 +37,7 @@ const NavbarLinksDesktop = () => {
                             `${page.link + sub.link}` === pathname
                               ? "text-dsmlcDataOrange"
                               : ""
-                          } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcWhite hover:brightness-125 font-medium`}
+                          } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcWhite hover:brightness-110 font-medium`}
                         >
                           <span className="hover:scale-105 transition-all duration-150">
                             {sub.name}
@@ -131,17 +131,23 @@ const NavbarLinksPhone = () => {
           >
             <button className="w-full mb-5" onClick={toggleSidebar}>
               <Link href={"/"}>
-                <div className="flex flex-col gap-3 items-centertransition-colors duration-300">
+                <div className="flex flex-col gap-3 items-center transition-colors duration-300">
                   <Image
                     src={LogoData.dark_logo}
-                    alt={`${LogoData.club_name} Logo`}
+                    alt={`${LogoData.club_acronym} Logo`}
                     width={50}
                     height={50}
                   />{" "}
-                  <div className="">
-                    <span className="text-xs">{LogoData.university_name}</span>
-                    <span className="text-3xl font-bold hover:text-dsmlcDataOrange transition-colors duration-300" dangerouslySetInnerHTML={{ __html: LogoData.club_acronym }}>
+                  <div className="flex flex-col">
+                    <span className="text-xs font-light">
+                      {LogoData.university_name}
                     </span>
+                    <span
+                      className="text-3xl font-bold hover:text-dsmlcTangerine transition-colors duration-300"
+                      dangerouslySetInnerHTML={{
+                        __html: LogoData.club_acronym_styled,
+                      }}
+                    ></span>
                   </div>
                 </div>
               </Link>{" "}
@@ -200,7 +206,7 @@ const NavbarLinksPhone = () => {
                                       `${page.link + sub.link}` === pathname
                                         ? "text-dsmlcDataOrange"
                                         : ""
-                                    } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcWhite hover:brightness-125 font-medium`}
+                                    } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcWhite hover:brightness-110 font-medium`}
                                   >
                                     <span className="hover:scale-105 w-full pl-16 text-start transition-all duration-150">
                                       {sub.name}
@@ -233,13 +239,20 @@ export const Header = () => {
           <div className="flex flex-row gap-3 items-center flex-end">
             <Image
               src={LogoData.dark_logo}
-              alt={`${LogoData.club_name} Logo`}
+              alt={`${LogoData.club_acronym} Logo`}
               width={50}
               height={50}
             />{" "}
             <div className="flex flex-col">
-                <span className="text-xs">{LogoData.university_name}</span>
-                <span className="text-3xl font-bold hover:text-dsmlcDataOrange transition-colors duration-300" dangerouslySetInnerHTML={{ __html: LogoData.club_acronym }}></span>
+              <span className="text-xs font-light">
+                {LogoData.university_name}
+              </span>
+              <span
+                className="text-3xl font-bold hover:text-dsmlcTangerine transition-colors duration-300"
+                dangerouslySetInnerHTML={{
+                  __html: LogoData.club_acronym_styled,
+                }}
+              ></span>
             </div>
           </div>
         </Link>{" "}

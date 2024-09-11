@@ -1,4 +1,25 @@
 {
-  "title": "Visionary Lab",
+  "title_template": {
+    "title": "Visionary Lab",
+    "subtitle": "Real-World Data Challenges, Innovative Student Solutions"
+  },
+  "header_text_template": [
+    {
+      "header": "Overview",
+      "text": "The Visionary Lab is a key initiative within the Data Science and Machine Learning Club at the University of Calgary. This program connects students with real-world data science experience by receiving projects from local businesses and nonprofits. Dedicated teams of club members are then formed to work on these projects, providing students with invaluable hands-on experience and practical skills. For partner organizations, the Visionary Lab offers access to innovative, data-driven solutions at no cost. This mutually beneficial relationship enhances the data capabilities of the Calgary community and equips students with the experience needed to succeed in their future careers."
+    },
+    {
+      "header": "Our Mission",
+      "text": "The Visionary Lab aims to bridge the gap between academic learning and real-world application for University of Calgary students. We empower students to apply classroom knowledge to solve problems for local organizations, offering practical experience and affordable, data-driven decision-making solutions. Our mission is to provide students with resume-worthy experiences that enhance their professional growth while strengthening the data capabilities of the Calgary community."
+    },
+    {
+      "header": "Our Vision",
+      "text": "The Visionary Lab envisions a future where University of Calgary students gain industry connections and practical experiences through our program that empower them to pursue their career goals confidently. We see our members becoming highly attractive to employers through resume-worthy experiences. We also envision Calgary organizations thriving with enhanced data-driven decision-making, creating a vibrant community of skilled professionals and data-savvy enterprises."
+    },
+    {
+      "header": "History",
+      "text": "The Visionary Lab was established in 2024 as an initiative within the Data Science and Machine Learning Club at the University of Calgary. Founded by Evan Poulson, with backing from the club’s president Gabriel Rodriguez, the program is currently laying the groundwork for its inaugural year. The team is focused on building partnerships and preparing for impactful collaborations that benefit students and local organizations."
+    }
+  ],
   "group_roles": ["Visionary Lab Board", "Project Managers", "Advisors"]
 }
