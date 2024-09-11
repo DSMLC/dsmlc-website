@@ -1,6 +1,7 @@
 {
   "club_name": "Data Science and Machine Learning Club",
-  "club_acronym": "DSMLC",
+  "club_acronym": "DS<span class=text-dsmlcDataOrange>ML</span>C",
+  "university_name": "University of Calgary",
   "description": "Join us for data science and machine learning workshops, industry nights, and competitions!",
   "light_logo": "/images/light_logo.png",
   "dark_logo": "/images/dark_logo.png"

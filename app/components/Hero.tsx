@@ -12,14 +12,14 @@ const Hero = () => {
           <Image
             className="md:block hidden"
             src={LogoData.dark_logo}
-            alt={`${LogoData.club_acronym} Logo`}
+            alt={`${LogoData.club_name} Logo`}
             width={110}
             height={110}
           />
           <Image
             className="md:hidden block"
             src={LogoData.dark_logo}
-            alt={`${LogoData.club_acronym} Logo`}
+            alt={`${LogoData.club_name} Logo`}
             width={70}
             height={70}
           />

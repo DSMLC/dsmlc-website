@@ -131,16 +131,18 @@ const NavbarLinksPhone = () => {
           >
             <button className="w-full mb-5" onClick={toggleSidebar}>
               <Link href={"/"}>
-                <div className="flex flex-col gap-3 items-center hover:text-dsmlcDataOrange transition-colors duration-300">
+                <div className="flex flex-col gap-3 items-centertransition-colors duration-300">
                   <Image
                     src={LogoData.dark_logo}
-                    alt={`${LogoData.club_acronym} Logo`}
+                    alt={`${LogoData.club_name} Logo`}
                     width={50}
                     height={50}
                   />{" "}
-                  <span className="text-3xl font-bold">
-                    {LogoData.club_acronym}
-                  </span>
+                  <div className="">
+                    <span className="text-xs">{LogoData.university_name}</span>
+                    <span className="text-3xl font-bold hover:text-dsmlcDataOrange transition-colors duration-300" dangerouslySetInnerHTML={{ __html: LogoData.club_acronym }}>
+                    </span>
+                  </div>
                 </div>
               </Link>{" "}
             </button>
@@ -228,14 +230,17 @@ export const Header = () => {
       <div className="p-5 px-10 m-auto max-w-7xl flex flex-row text-dsmlcBlack font-redHat justify-between">
         <div className="lg:hidden md:hidden sm:flex flex"></div>
         <Link href={"/"}>
-          <div className="flex flex-row gap-3 items-center hover:text-dsmlcDataOrange transition-colors duration-300 flex-end">
+          <div className="flex flex-row gap-3 items-center flex-end">
             <Image
               src={LogoData.dark_logo}
-              alt={`${LogoData.club_acronym} Logo`}
+              alt={`${LogoData.club_name} Logo`}
               width={50}
               height={50}
             />{" "}
-            <span className="text-3xl font-bold">{LogoData.club_acronym}</span>
+            <div className="flex flex-col">
+                <span className="text-xs">{LogoData.university_name}</span>
+                <span className="text-3xl font-bold hover:text-dsmlcDataOrange transition-colors duration-300" dangerouslySetInnerHTML={{ __html: LogoData.club_acronym }}></span>
+            </div>
           </div>
         </Link>{" "}
         <NavbarLinksDesktop />
