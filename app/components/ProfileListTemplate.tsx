@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import EmptyProfie from "../../public/images/profile/empty_profile.svg";
+import SubtitleTemplate from "./SubtitleTemplate";
 
 interface ProfileList {
   name: string;
@@ -27,10 +28,8 @@ export const ProfileListTemplate = ({
     <div>
       {GroupRoleTitle.map((roleGroup) => {
         return (
-          <div className="flex flex-col w-full max-w-4xl m-auto md:p-14 p-5 py-5 gap-10">
-            <span className="md:text-4xl text-3xl font-redHat text-dsmlcBlack font-bold md:text-start text-center">
-              {roleGroup}
-            </span>
+          <div className="flex flex-col gap-10 lg:px-0 py-10 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center">
+            <SubtitleTemplate Subtitle={roleGroup} />
             <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
               {ProfilesData.filter((exec) =>
                 exec.role.some(

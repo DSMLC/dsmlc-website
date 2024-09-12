@@ -1,6 +1,6 @@
 import React from "react";
 
-interface PageData {
+export interface PageData {
   header: string;
   text: string;
 }

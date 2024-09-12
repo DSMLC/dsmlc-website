@@ -57,9 +57,22 @@
   },
   {
     "name": "Visionary Lab",
-    "type": "main",
+    "type": "dropdown",
     "link": "/visionary-lab",
-    "dropdown": []
+    "dropdown": [
+      {
+        "name": "About",
+        "link": ""
+      },
+      {
+        "name": "Benefit for Partner",
+        "link": "/membership"
+      },
+      {
+        "name": "Benefit for Students",
+        "link": "executive"
+      }
+    ]
   },
   {
     "name": "Contact",
@@ -76,7 +89,7 @@
       },
       {
         "name": "Join as Executive",
-        "link": "executive"
+        "link": "/executive"
       }
     ]
   }

@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <div className="w-full h-[85vh] flex-col">
       <div className="flex justify-center items-center h-full gap-10 flex-col text-dsmlcBlack">
-        <div className="font-redHat font-bold lg:text-4xl md:text-3xl text-2xl md:gap-10 gap-5 flex md:flex-row flex-col md:items-end items-center justify-center">
+        <div className="font-redHat lg:text-4xl md:text-3xl text-2xl md:gap-10 gap-5 flex md:flex-row flex-col md:items-end items-center justify-center">
           <Image
             className="md:block hidden"
             src={LogoData.dark_logo}
@@ -30,6 +30,7 @@ const Hero = () => {
               dangerouslySetInnerHTML={{
                 __html: LogoData.club_name_styled,
               }}
+              className="uppercase"
             ></span>
           </div>
         </div>
