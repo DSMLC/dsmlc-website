@@ -2,26 +2,11 @@ import React from "react";
 import Image from "next/image";
 import EmptyProfie from "../../../public/images/profile/empty_profile.svg";
 import SubtitleTemplate from "./SubtitleTemplate";
-
-interface ProfileList {
-  name: string;
-  role: {
-    group: string;
-    roles: string[];
-  }[];
-  profile?: string;
-  program?: {
-    programs: string[];
-    year?: string;
-  };
-  bio?: string;
-}
+import Execs from "../../../public/data/execs.json";
 
 export const ProfileListTemplate = ({
-  ProfilesData,
   GroupRoleTitle,
 }: {
-  ProfilesData: ProfileList[];
   GroupRoleTitle: string[];
 }) => {
   return (
@@ -31,7 +16,7 @@ export const ProfileListTemplate = ({
           <div className="flex flex-col gap-10 lg:px-0 py-10 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center">
             <SubtitleTemplate Subtitle={roleGroup} />
             <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
-              {ProfilesData.filter((exec) =>
+              {Execs.filter((exec) =>
                 exec.role.some(
                   (role) => role.group == roleGroup && role.roles.length > 0
                 )
