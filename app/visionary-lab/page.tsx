@@ -1,9 +1,9 @@
 import React from "react";
-import { ProfileListTemplate } from "../components/ProfileListTemplate";
+import { ProfileListTemplate } from "../components/templates/ProfileListTemplate";
 import VisionaryTeam from "../../public/data/execs.json";
 import VisionaryLabData from "../../public/data/page_data/visionary_lab.json";
-import TitleTemplate from "../components/TitleTemplate";
-import HeaderTextTemplate2 from "../components/HeaderTextTemplate2";
+import TitleTemplate from "../components/templates/TitleTemplate";
+import HeaderTextTemplate2 from "../components/templates/HeaderTextTemplate2";
 
 const page = () => {
   return (

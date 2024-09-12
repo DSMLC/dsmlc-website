@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import EmptyProfie from "../../public/images/profile/empty_profile.svg";
+import EmptyProfie from "../../../public/images/profile/empty_profile.svg";
 import SubtitleTemplate from "./SubtitleTemplate";
 
 interface ProfileList {
