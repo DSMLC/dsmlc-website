@@ -22,7 +22,7 @@ const config: Config = {
         dsmlcBlack: "#222222",
       },
       fontFamily: {
-        redHat: ['"Red_Hat_Display"', "sans-serif"],
+        redHat: ['"Red Hat Display"', "sans-serif"],
         quicksand: ['"Quicksand"', "sans-serif"],
       },
       borderRadius: {
