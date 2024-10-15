@@ -20,9 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={quicksand.className}>
+      <body className={`${quicksand.className} bg-dsmlcWhite`}>
         <Header />
-        <div className="pt-24 bg-dsmlcWhite">{children}</div>
+        <div className="pt-24">{children}</div>
         <Footer />
       </body>
     </html>

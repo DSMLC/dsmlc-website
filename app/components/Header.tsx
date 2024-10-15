@@ -133,19 +133,19 @@ const NavbarLinksPhone = () => {
               <Link href={"/"}>
                 <div className="flex flex-col gap-3 items-center transition-colors duration-300">
                   <Image
-                    src={LogoData.dark_logo}
-                    alt={`${LogoData.club_acronym} Logo`}
+                    src={LogoData.main_logo.logo.dark_logo}
+                    alt={`${LogoData.main_logo.acronym} Logo`}
                     width={50}
                     height={50}
                   />{" "}
                   <div className="flex flex-col">
                     <span className="text-xs font-light">
-                      {LogoData.university_name}
+                      {LogoData.main_logo.superscript_name}
                     </span>
                     <span
                       className="text-3xl font-bold hover:text-dsmlcTangerine transition-colors duration-300"
                       dangerouslySetInnerHTML={{
-                        __html: LogoData.club_acronym_styled,
+                        __html: LogoData.main_logo.acronym_styled,
                       }}
                     ></span>
                   </div>
@@ -238,19 +238,19 @@ export const Header = () => {
         <Link href={"/"}>
           <div className="flex flex-row gap-3 items-center flex-end">
             <Image
-              src={LogoData.dark_logo}
-              alt={`${LogoData.club_acronym} Logo`}
+              src={LogoData.main_logo.logo.dark_logo}
+              alt={`${LogoData.main_logo.acronym} Logo`}
               width={50}
               height={50}
             />{" "}
             <div className="flex flex-col">
               <span className="text-xs font-light">
-                {LogoData.university_name}
+                {LogoData.main_logo.superscript_name}
               </span>
               <span
                 className="text-3xl font-bold hover:text-dsmlcTangerine transition-colors duration-300"
                 dangerouslySetInnerHTML={{
-                  __html: LogoData.club_acronym_styled,
+                  __html: LogoData.main_logo.acronym_styled,
                 }}
               ></span>
             </div>

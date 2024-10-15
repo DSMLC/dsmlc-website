@@ -6,7 +6,7 @@ import TitleTemplate from "../../components/templates/TitleTemplate";
 const page = () => {
   return (
     <div>
-      <TitleTemplate Title={ExecutiveRosterData.title} />
+      <TitleTemplate Title={ExecutiveRosterData.title_template} />
       <ProfileListTemplate
         GroupRoleTitle={ExecutiveRosterData.group_roles}
       />
