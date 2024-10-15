@@ -10,10 +10,7 @@ const page = () => {
   return (
     <div>
       <HeroTemplate Data={LogoData.visionary_lab_logo} />
-      <TitleTemplate
-        Title={VisionaryLabData.title_template.title}
-        Subtitle={VisionaryLabData.title_template.subtitle}
-      />
+      <TitleTemplate Data={VisionaryLabData.title_template} />
       <HeaderTextTemplate2 Data={VisionaryLabData.header_text_template} />
       <ProfileListTemplate GroupRoleTitle={VisionaryLabData.group_roles} />
     </div>

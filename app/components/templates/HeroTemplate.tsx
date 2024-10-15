@@ -23,11 +23,18 @@ const HeroTemplate = ({ Data }: { Data: HeroData }) => {
           {Data.logo && (
             <>
               <Image
-                className="md:block hidden"
+                className="lg:block hidden"
                 src={Data.logo.dark_logo}
                 alt={`${Data.name} Logo`}
                 width={110}
                 height={110}
+              />
+              <Image
+                className="lg:hidden md:block hidden"
+                src={Data.logo.dark_logo}
+                alt={`${Data.name} Logo`}
+                width={90}
+                height={90}
               />
               <Image
                 className="md:hidden block"
@@ -52,7 +59,7 @@ const HeroTemplate = ({ Data }: { Data: HeroData }) => {
                 dangerouslySetInnerHTML={{
                   __html: Data.name_styled,
                 }}
-                className="uppercase text-5xl"
+                className="uppercase lg:text-5xl md:text-4xl text-2xl"
               ></span>
             )}
           </div>

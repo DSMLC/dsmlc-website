@@ -26,7 +26,7 @@ const NavbarLinksDesktop = () => {
               </div>
             </Link>
             {page.type === "dropdown" && (
-              <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-40 shadow-md shadow-dsmlcBlack bg-dsmlcWhite rounded-lg">
+              <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-44 shadow-md shadow-dsmlcBlack bg-dsmlcWhite rounded-lg">
                 {page.dropdown.map((sub) => {
                   console.log(`/${page.link}/${sub.link}` + " sublink");
                   return (

@@ -1,5 +1,4 @@
 import HomeData from "../public/data/page_data/home.json";
-import Hero from "./components/Hero";
 import PageTemplate from "./components/templates/HeaderTextTemplate";
 import PageTemplate2 from "./components/templates/HeaderTextTemplate2";
 import LogoData from "../public/data/logo.json";

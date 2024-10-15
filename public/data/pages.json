@@ -66,11 +66,11 @@
       },
       {
         "name": "Benefit for Partner",
-        "link": "/membership"
+        "link": "/partner-benefits"
       },
       {
         "name": "Benefit for Students",
-        "link": "executive"
+        "link": "student-benefits"
       }
     ]
   },
