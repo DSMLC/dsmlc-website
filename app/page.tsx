@@ -12,7 +12,7 @@ export default async function Home() {
       <HeroTemplate Data={LogoData.main_logo} />
       <PageTemplate Data={HomeData.header_text_template1} />
       <PageTemplate2 Data={HomeData.header_text_template1} />
-      <FAQAccordion items={FAQItems.items} />
+      <FAQAccordion Data={HomeData.faq_template} />
     </div>
   );
 }
