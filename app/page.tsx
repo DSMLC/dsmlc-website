@@ -3,8 +3,7 @@ import PageTemplate from "./components/templates/HeaderTextTemplate";
 import PageTemplate2 from "./components/templates/HeaderTextTemplate2";
 import LogoData from "../public/data/logo.json";
 import HeroTemplate from "./components/templates/HeroTemplate";
-import FAQAccordion from "./components/templates/FAQAccordionTemplate";
-import FAQItems from "../public/data/faq.json";
+import FAQTemplate from "./components/templates/FAQTemplate";
 
 export default async function Home() {
   return (
@@ -12,7 +11,7 @@ export default async function Home() {
       <HeroTemplate Data={LogoData.main_logo} />
       <PageTemplate Data={HomeData.header_text_template1} />
       <PageTemplate2 Data={HomeData.header_text_template1} />
-      <FAQAccordion Data={HomeData.faq_template} />
+      <FAQTemplate Data={HomeData.faq_template} />
     </div>
   );
 }

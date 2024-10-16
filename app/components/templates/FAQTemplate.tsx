@@ -2,37 +2,41 @@
 
 import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import SubtitleTemplate2 from "./SubtitleTemplate2";
 
 interface FAQItem {
   question: string;
   answer: string;
 }
 
-const FAQAccordion = ({ Data }: {Data : FAQItem[]}) => {
+interface FAQData {
+  header: string;
+  faq: FAQItem[];
+}
+
+const FAQTemplate = ({ Data }: { Data: FAQData }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleItem = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  if (!Data || Data.length === 0) {
+  if (!Data.faq || Data.faq.length === 0) {
     return (
-      <div className="text-center text-gray-500">No FAQ items available.</div>
+      <div className="text-center text-dsmlcBlack">No FAQ items available.</div>
     );
   }
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
-      <h1 className="text-4xl font-redHat font-bold text-dsmlcTangerine text-center mb-8 border-b-2 border-dsmlcTangerine pb-4">
-        Frequently Asked Questions
-      </h1>
-      {Data.map((item, index) => (
-        <div key={index} className="border-b border-gray-200 py-4">
+    <div className="w-full max-w-4xl mx-auto pb-16 lg:px-0 px-10">
+      <SubtitleTemplate2 Subtitle={Data.header} />
+      {Data.faq.map((item, index) => (
+        <div key={index} className="border-b-2 border-dsmlcTangerine py-4">
           <button
             className="flex justify-between items-center w-full text-left"
             onClick={() => toggleItem(index)}
           >
-            <span className="font-redHat font-semibold text-lg text-dsmlcTangerine">
+            <span className="font-redHat font-semibold lg:text-lg text-base text-dsmlcBlack">
               {item.question}
             </span>
             {openIndex === index ? (
@@ -42,7 +46,9 @@ const FAQAccordion = ({ Data }: {Data : FAQItem[]}) => {
             )}
           </button>
           {openIndex === index && (
-            <div className="mt-2 text-gray-600">{item.answer}</div>
+            <div className="mt-2 text-dsmlcBlack lg:text-lg text-base">
+              {item.answer}
+            </div>
           )}
         </div>
       ))}
@@ -50,4 +56,4 @@ const FAQAccordion = ({ Data }: {Data : FAQItem[]}) => {
   );
 };
 
-export default FAQAccordion;
+export default FAQTemplate;
