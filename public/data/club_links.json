@@ -36,6 +36,12 @@
       "link": "https://www.linkedin.com/company/uofc-dsmlc/",
       "dark_logo": "/images/dark_linkedin.svg",
       "light_logo": "/images/light_linkedin.svg"
+    },
+    "linktree": {
+      "name": "Linktree",
+      "link": "https://linktr.ee/dsmlc",
+      "dark_logo": "/images/dark_linktree.svg",
+      "light_logo": "/images/light_linktree.svg"
     }
   }
 }

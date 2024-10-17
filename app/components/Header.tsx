@@ -10,7 +10,7 @@ const NavbarLinksDesktop = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex-row items-center justify-between lg:gap-10 md:gap-3 lg:flex md:flex sm:hidden hidden ">
+    <div className="flex-row items-center justify-between lg:gap-10 md:gap-3 lg:flex md:flex sm:hidden hidden">
       {PagesData.map((page) => {
         return (
           <div key={page.name} className="group relative">
@@ -26,27 +26,24 @@ const NavbarLinksDesktop = () => {
               </div>
             </Link>
             {page.type === "dropdown" && (
-              <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-44 shadow-md shadow-dsmlcBlack bg-dsmlcWhite rounded-lg">
-                {page.dropdown.map((sub) => {
-                  console.log(`/${page.link}/${sub.link}` + " sublink");
-                  return (
-                    <div key={sub.name}>
-                      <Link href={`${page.link}/${sub.link}`}>
-                        <div
-                          className={`${
-                            `${page.link + sub.link}` === pathname
-                              ? "text-dsmlcDataOrange"
-                              : ""
-                          } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcWhite hover:brightness-110 font-medium`}
-                        >
-                          <span className="hover:scale-105 transition-all duration-150">
-                            {sub.name}
-                          </span>
-                        </div>
-                      </Link>
-                    </div>
-                  );
-                })}
+              <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-44 shadow-md shadow-dsmlcBlack bg-dsmlcWhite rounded-lg z-50">
+                {page.dropdown.map((sub) => (
+                  <div key={sub.name}>
+                    <Link href={`${page.link}/${sub.link}`}>
+                      <div
+                        className={`${
+                          `${page.link + sub.link}` === pathname
+                            ? "text-dsmlcDataOrange"
+                            : ""
+                        } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcWhite hover:brightness-110 font-medium`}
+                      >
+                        <span className="hover:scale-105 transition-all duration-150">
+                          {sub.name}
+                        </span>
+                      </div>
+                    </Link>
+                  </div>
+                ))}
               </div>
             )}
           </div>
@@ -232,7 +229,7 @@ const NavbarLinksPhone = () => {
 
 export const Header = () => {
   return (
-    <div className="bg-dsmlcWhite w-full fixed h-24 border-b-2 border-dsmlcTangerine">
+    <div className="bg-dsmlcWhite w-full fixed h-24 border-b-2 border-dsmlcTangerine z-40">
       <div className="p-5 px-10 m-auto max-w-7xl flex flex-row text-dsmlcBlack font-redHat justify-between">
         <div className="lg:hidden md:hidden sm:flex flex"></div>
         <Link href={"/"}>
