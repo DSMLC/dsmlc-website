@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "dsmlc-website": "file:",
+    "framer-motion": "^11.11.9",
     "lucide-react": "^0.453.0",
     "next": "14.2.5",
     "react": "^18",

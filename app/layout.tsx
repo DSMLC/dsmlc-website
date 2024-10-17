@@ -20,9 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${quicksand.className} bg-dsmlcWhite`}>
+      <body
+        className={`${quicksand.className} bg-dsmlcWhite flex flex-col min-h-screen`}
+      >
         <Header />
-        <div className="pt-24">{children}</div>
+        <main className="flex-grow pt-24">{children}</main>
         <Footer />
       </body>
     </html>
