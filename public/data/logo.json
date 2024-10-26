@@ -1,6 +1,5 @@
 {
-  "main_logo":
-  {
+  "main_logo": {
     "name": "Data Science and Machine Learning Club",
     "acronym": "DSMLC",
     "acronym_styled": "DS<span class=text-dsmlcTangerine>ML</span>C",
@@ -12,15 +11,14 @@
       "dark_logo": "/images/dark_logo.png"
     }
   },
-  "visionary_lab_logo":
-  {
+  "visionary_lab_logo": {
     "name": "Visionary Lab",
     "name_styled": "<span class=font-bold>Visionary</span> Lab",
     "superscript_name": "<span class=font-bold>Data Science</span> <span class=!font-thin>and</span> <span class='text-dsmlcTangerine font-bold'>Machine Learning</span> <span class=!font-thin>Club</span>",
     "description": "Real-world Data Challenges, Innovative Student Solutions.",
     "logo": {
-      "light_logo": "/images/light_logo.png",
-      "dark_logo": "/images/dark_logo.png"
+      "light_logo": "/images/light_visionary_logo.png",
+      "dark_logo": "/images/dark_visionary_logo.png"
     }
   }
 }

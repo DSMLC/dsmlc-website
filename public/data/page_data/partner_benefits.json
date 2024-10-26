@@ -8,6 +8,33 @@
       "text": "Partnering with the Visionary Lab offers numerous benefits to local organizations, providing them with access to skilled labor and innovative solutions without financial burden. Our dedicated teams ensure high-quality project outcomes that address your unique needs."
     }
   ],
+  "columns_template": [
+    {
+      "header": "Access to Skilled Labor:",
+      "text": "Gain access to motivated and skilled students who can provide innovative, data-driven solutions to your organizational challenges.",
+      "imageLink": "/images/dark_visionary_logo.png"
+    },
+    {
+      "header": "Cost-effective Solutions:",
+      "text": " Receive valuable insights and solutions at no cost, enabling data-driven decision-making without financial burden.",
+      "imageLink": "/images/dark_visionary_logo.png"
+    },
+    {
+      "header": "Diverse Expertise:",
+      "text": "Benefit from the diverse perspectives and expertise of student teams formed from various backgrounds.",
+      "imageLink": "/images/dark_visionary_logo.png"
+    },
+    {
+      "header": "Project Management:",
+      "text": "Projects are managed by experienced Project Managers and mentors, ensuring professional and high-quality outcomes.",
+      "imageLink": "/images/dark_visionary_logo.png"
+    },
+    {
+      "header": "Data Analysis and Reporting:",
+      "text": "Receive detailed data analysis and comprehensive reporting tailored to your specific needs.",
+      "imageLink": "/images/dark_visionary_logo.png"
+    }
+  ],
   "faq_template": {
     "header": "Frequently Asked Questions",
     "faq": [

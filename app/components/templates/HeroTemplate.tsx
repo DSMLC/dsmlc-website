@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import SocialMediaData from "../../../public/data/club_links.json";
+import ImageTemplate from "./ImageTemplate";
 
 export interface HeroData {
   name: string;
@@ -20,31 +21,7 @@ const HeroTemplate = ({ Data }: { Data: HeroData }) => {
     <div className="w-full h-[85vh] flex-col">
       <div className="flex justify-center items-center h-full gap-10 flex-col text-dsmlcBlack">
         <div className="font-redHat lg:text-4xl md:text-3xl text-2xl md:gap-10 gap-5 flex md:flex-row flex-col md:items-end items-center justify-center">
-          {Data.logo && (
-            <>
-              <Image
-                className="lg:block hidden"
-                src={Data.logo.dark_logo}
-                alt={`${Data.name} Logo`}
-                width={110}
-                height={110}
-              />
-              <Image
-                className="lg:hidden md:block hidden"
-                src={Data.logo.dark_logo}
-                alt={`${Data.name} Logo`}
-                width={90}
-                height={90}
-              />
-              <Image
-                className="md:hidden block"
-                src={Data.logo.dark_logo}
-                alt={`${Data.name} Logo`}
-                width={70}
-                height={70}
-              />
-            </>
-          )}
+          <ImageTemplate image={Data.logo?.dark_logo || ""} name={Data.name} />
           <div className="flex flex-col md:text-start text-center">
             {Data.superscript_name && (
               <span
