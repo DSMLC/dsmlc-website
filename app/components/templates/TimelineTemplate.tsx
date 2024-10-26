@@ -1,15 +1,13 @@
 import React from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
+import HeaderTextTemplate2 from "./HeaderTextTemplate2";
+import HeaderTextTemplate3 from "./HeaderTextTemplate3";
+import { PageData } from "./HeaderTextTemplate";
 
 interface timeline {
   number: number;
   header: string;
-  points: points[];
-}
-
-interface points {
-  subheader: string;
-  subtext: string;
+  points: PageData[];
 }
 
 const TimelineTemplate = ({ Data }: { Data: timeline[] }) => {
@@ -26,15 +24,7 @@ const TimelineTemplate = ({ Data }: { Data: timeline[] }) => {
                 {data.number}
               </div>
               <SubtitleTemplate3 Subtitle={data.header} />
-              {data.points.map((subdata, subIndex) => (
-                <div
-                  key={subIndex}
-                  className="text-dsmlcBlack tracking-wide max-w-3xl font-quicksand lg:text-lg md:text-base text-sm h-full"
-                >
-                  <span className="font-bold">{subdata.subheader}</span>{" "}
-                  <span>{subdata.subtext}</span>
-                </div>
-              ))}
+              <HeaderTextTemplate3 Data={data.points} />
             </div>
             {index % 2 !== 0 ? <div className="hidden md:block"></div> : null}
           </React.Fragment>

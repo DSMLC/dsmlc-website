@@ -6,6 +6,9 @@ import HeaderTextTemplate2 from "../../components/templates/HeaderTextTemplate2"
 import FAQTemplate from "../../components/templates/FAQTemplate";
 import ColumnTemplate from "../../components/templates/ColumnTemplate";
 import TimelineTemplate from "@/app/components/templates/TimelineTemplate";
+import HeaderTextTemplate3 from "@/app/components/templates/HeaderTextTemplate3";
+import SubtitleTemplate3 from "@/app/components/templates/SubtitleTemplate3";
+import TimelineTemplate2 from "@/app/components/templates/TimelineTemplate2";
 
 const page = () => {
   return (
@@ -17,6 +20,12 @@ const page = () => {
         Data={partnerBenefitsData.timleline_header_text_template}
       />
       <TimelineTemplate Data={partnerBenefitsData.timeline_template} />
+
+      <HeaderTextTemplate2
+        Data={partnerBenefitsData.projects_header_text_template}
+      />
+
+      <TimelineTemplate2 Data={partnerBenefitsData.timeline_template2} />
       <FAQTemplate Data={partnerBenefitsData.faq_template} />
     </div>
   );
