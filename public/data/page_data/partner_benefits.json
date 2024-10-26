@@ -35,6 +35,124 @@
       "imageLink": "/images/dark_visionary_logo.png"
     }
   ],
+  "timleline_header_text_template": [
+    {
+      "header": "How the Partnership Works",
+      "text": "Partnering with the Visionary Lab involves a clear and structured process designed to ensure the success of each project. Here’s the process:"
+    }
+  ],
+  "timeline_template": [
+    {
+      "number": 1,
+      "header": "Project Proposal Submission",
+      "points": [
+        {
+          "subheader": "Submission",
+          "subtext": "Partner organizations submit project proposals using a standardized template provided by the Visionary Lab."
+        },
+        {
+          "subheader": "Initial Review",
+          "subtext": "The Visionary Lab’s Board of Directors reviews the proposals for alignment with the program’s objectives and feasibility."
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "header": "Project Selection",
+      "points": [
+        {
+          "subheader": "Approval",
+          "subtext": "Projects are approved based on their potential impact, feasibility, and alignment with the Visionary Lab’s mission."
+        },
+        {
+          "subheader": "Assignment",
+          "subtext": "Approved projects are assigned to Project Managers who oversee the project from start to finish."
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "header": "Team Formation",
+      "points": [
+        {
+          "subheader": "Recruitment",
+          "subtext": "Project Managers assemble student teams based on their qualifications, interests, and the project’s requirements."
+        },
+        {
+          "subheader": "Introduction",
+          "subtext": "An initial meeting is held with the partner organization to introduce the project team, and clarify project goals, deliverables, and timelines."
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "header": "Project Planning",
+      "points": [
+        {
+          "subheader": "Planning Session",
+          "subtext": "The project team and partner organization collaborate to create a detailed project plan, outlining tasks, responsibilities, deadlines, and resource requirements."
+        },
+        {
+          "subheader": "Kick-off Meeting",
+          "subtext": "A kick-off meeting is held to finalize the project plan and ensure all parties are aligned."
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "header": "Project Execution",
+      "points": [
+        {
+          "subheader": "Implementation",
+          "subtext": "The project team works on the assigned tasks, applying their data science skills to solve the identified problems."
+        },
+        {
+          "subheader": "Regular Check-ins",
+          "subtext": "Ongoing communication is maintained with the partner organization to provide updates, gather feedback, and adjust plans as needed."
+        },
+        {
+          "subheader": "Mentorship",
+          "subtext": "Project Managers and experienced mentors provide guidance and support to the project teams."
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "header": "Project Completion and Handover",
+      "points": [
+        {
+          "subheader": "Final Deliverables",
+          "subtext": "Upon project completion, the team prepares final deliverables, including reports, presentations, and any developed models or tools."
+        },
+        {
+          "subheader": "Handover",
+          "subtext": "The final outcomes are presented to the partner organization, along with documentation and recommendations for implementation."
+        },
+        {
+          "subheader": "Feedback Collection",
+          "subtext": "Feedback is gathered from the partner organization and project team members to evaluate project success and identify areas for improvement."
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "header": "Evaluation and Reflection",
+      "points": [
+        {
+          "subheader": "Assessment",
+          "subtext": "The Board of Directors assesses the overall success of the project, including the impact on the partner organization and student learning outcomes."
+        },
+        {
+          "subheader": "Reflection",
+          "subtext": "Project teams and managers reflect on their experiences, discussing what went well and what could be improved in future projects."
+        },
+        {
+          "subheader": "Documentation",
+          "subtext": "Lessons learned are documented to inform future projects and enhance the Visionary Lab’s processes."
+        }
+      ]
+    }
+  ],
   "faq_template": {
     "header": "Frequently Asked Questions",
     "faq": [

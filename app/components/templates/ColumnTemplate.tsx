@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
 import ImageTemplate from "./ImageTemplate";
 
