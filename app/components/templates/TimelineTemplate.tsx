@@ -1,7 +1,7 @@
 import React from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
 import HeaderTextTemplate2 from "./HeaderTextTemplate2";
-import HeaderTextTemplate3 from "./HeaderTextTemplate3";
+import SubHeaderTextTemplate from "./SubHeaderTextTemplate";
 import { PageData } from "./HeaderTextTemplate";
 
 interface timeline {
@@ -24,7 +24,7 @@ const TimelineTemplate = ({ Data }: { Data: timeline[] }) => {
                 {data.number}
               </div>
               <SubtitleTemplate3 Subtitle={data.header} />
-              <HeaderTextTemplate3 Data={data.points} />
+              <SubHeaderTextTemplate Data={data.points} />
             </div>
             {index % 2 !== 0 ? <div className="hidden md:block"></div> : null}
           </React.Fragment>

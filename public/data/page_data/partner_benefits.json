@@ -231,6 +231,53 @@
       ]
     }
   ],
+  "responsibility_header_text_template": [
+    {
+      "header": "Roles and Responsibilities",
+      "text": "Project partners play an integral role in ensuring the success of Visionary Lab projects. Their active participation, clear communication, and consistent feedback are essential to meeting project goals effectively."
+    }
+  ],
+  "responsibilities": [
+    {
+      "header": "Project Proposers",
+      "subheaders": [
+        {
+          "header": "Clear Objectives:",
+          "text": "Submit detailed project proposals with clear objectives and required resources."
+        },
+        {
+          "header": "Engagement:",
+          "text": "Actively participate in initial meetings and provide necessary data and context for the project."
+        }
+      ]
+    },
+    {
+      "header": "Stakeholders",
+      "subheaders": [
+        {
+          "header": "Continuous Feedback:",
+          "text": "Provide regular feedback throughout the project lifecycle to ensure alignment with organizational goals."
+        },
+        {
+          "header": "Data Provision:",
+          "text": "Supply the project team with the necessary data and information required to complete the project."
+        }
+      ]
+    },
+    {
+      "header": "Reviewers",
+      "subheaders": [
+        {
+          "header": "Regular Check-ins:",
+          "text": "Participate in regular check-ins to monitor progress and provide feedback."
+        },
+        {
+          "header": "Final Review:",
+          "text": "Review final deliverables and provide feedback on the project’s success and impact."
+        }
+      ]
+    }
+  ],
   "faq_template": {
     "header": "Frequently Asked Questions",
     "faq": [

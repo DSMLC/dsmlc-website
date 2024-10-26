@@ -1,7 +1,7 @@
 import React from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
 import HeaderTextTemplate2 from "./HeaderTextTemplate2";
-import HeaderTextTemplate3 from "./HeaderTextTemplate3";
+import HeaderTextTemplate3 from "./SubHeaderTextTemplate";
 import { PageData } from "./HeaderTextTemplate";
 
 interface timeline {

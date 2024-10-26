@@ -20,12 +20,14 @@ const page = () => {
         Data={partnerBenefitsData.timleline_header_text_template}
       />
       <TimelineTemplate Data={partnerBenefitsData.timeline_template} />
-
       <HeaderTextTemplate2
         Data={partnerBenefitsData.projects_header_text_template}
       />
-
       <TimelineTemplate2 Data={partnerBenefitsData.timeline_template2} />
+      <HeaderTextTemplate2
+        Data={partnerBenefitsData.responsibility_header_text_template}
+      />
+      <HeaderTextTemplate3 Data={partnerBenefitsData.responsibilities} />
       <FAQTemplate Data={partnerBenefitsData.faq_template} />
     </div>
   );
