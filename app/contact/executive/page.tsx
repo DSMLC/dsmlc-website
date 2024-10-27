@@ -1,4 +1,7 @@
+import React from "react";
 import Link from "next/link";
+import ApplicationSection from "../../components/templates/ApplicationTemplate";
+import applicationData from "../../../public/data/page_data/contact_executive.json";
 
 export default function ApplyPage() {
   return (
@@ -11,33 +14,7 @@ export default function ApplyPage() {
         </div>
         <div className="bg-dsmlcWhite shadow-xl rounded-4xl overflow-hidden">
           <div className="p-8 sm:p-12">
-            <h2 className="text-3xl font-bold text-dsmlcDataOrange mb-6 font-quicksand">
-              Executive Application
-            </h2>
-            <p className="text-lg text-dsmlcBlack mb-8">
-              We're excited that you're interested in joining our executive
-              team! As a member of our leadership, you'll have the opportunity
-              to shape the future of data science and machine learning on our
-              campus.
-            </p>
-            <p className="text-lg text-dsmlcBlack mb-8">
-              We're looking for passionate individuals who are eager to learn,
-              lead, and make a difference. Whether you're an experienced data
-              scientist or just starting your journey, we welcome your
-              application.
-            </p>
-            <div className="space-y-4 mb-8">
-              <h3 className="text-2xl font-semibold text-dsmlcTangerine font-quicksand">
-                Available Positions:
-              </h3>
-              <ul className="list-disc list-inside text-dsmlcBlack space-y-2 pl-4">
-                <li>1-2 Junior VP Events</li>
-                <li>1 Competition Director</li>
-                <li>1 Junior Competition Director</li>
-                <li>1-2 Workshop Directors</li>
-                <li>Visionary Lab Board of Directors</li>
-              </ul>
-            </div>
+            <ApplicationSection {...applicationData} />
             <div className="flex justify-center">
               <Link
                 href="https://forms.gle/1gf3dtyjecYHpUQaA"

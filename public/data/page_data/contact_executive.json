@@ -1,0 +1,13 @@
+{
+  "title": "Executive Application",
+  "mainDescription": "We're excited that you're interested in joining our executive team! As a member of our leadership, you'll have the opportunity to shape the future of data science and machine learning on our campus.",
+  "secondaryDescription": "We're looking for passionate individuals who are eager to learn, lead, and make a difference. Whether you're an experienced data scientist or just starting your journey, we welcome your application.",
+  "positionsSectionTitle": "Available Positions:",
+  "positions": [
+    { "count": "1-2", "title": "Junior VP Events" },
+    { "count": "1", "title": "Competition Director" },
+    { "count": "1", "title": "Junior Competition Director" },
+    { "count": "1-2", "title": "Workshop Directors" },
+    { "title": "Visionary Lab Board of Directors" }
+  ]
+}
