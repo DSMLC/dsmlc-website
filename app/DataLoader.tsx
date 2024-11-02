@@ -20,10 +20,12 @@ export interface ApplicationTemplateData {
   type: "ApplicationTemplate";
   data: {
     title: string;
-    mainDescription: string;
-    secondaryDescription: string;
-    positionsSectionTitle: string;
-    positions: { title: string; count?: string }[];
+    descriptions: string[];
+    bullets: {
+      bulletsTitle: string;
+      bullets: { title: string; text: string }[];
+    };
+    button: { buttonLink: string; buttonText: string };
   };
 }
 

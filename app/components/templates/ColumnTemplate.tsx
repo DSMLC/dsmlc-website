@@ -5,7 +5,7 @@ import { ColumnTemplateData } from "@/app/DataLoader";
 
 const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
   return (
-    <div className="pb-16 md:text-start text-center grid gap-14 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-fit m-auto items-stretch">
+    <div className="pb-16 text-center grid gap-14 lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-fit m-auto items-stretch">
       {Data.map((data) => {
         return (
           <div className="flex flex-col gap-7 px-5 lg:px-0 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto h-full">

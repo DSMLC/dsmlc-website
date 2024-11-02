@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import rawData from "../../../public/data/page_data/contact_executive.json";
 import DataLoader, { PageData } from "@/app/DataLoader";
 
@@ -14,23 +13,9 @@ export default function ApplyPage() {
             Join Our Executive Team
           </h1>
         </div>
-        <div className="bg-dsmlcWhite shadow-xl rounded-4xl overflow-hidden">
-          <div className="p-8 sm:p-12">
-            {ApplicationData.map((section, index) => (
-              <DataLoader key={index} pageData={section} />
-            ))}
-            <div className="flex justify-center">
-              <Link
-                href="https://forms.gle/1gf3dtyjecYHpUQaA"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-lg text-dsmlcWhite bg-dsmlcDataOrange hover:bg-dsmlcTangerine focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dsmlcTangerine transition duration-150 ease-in-out"
-              >
-                Apply Now
-              </Link>
-            </div>
-          </div>
-        </div>
+        {ApplicationData.map((section, index) => (
+          <DataLoader key={index} pageData={section} />
+        ))}
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div className="bg-dsmlcWhite overflow-hidden shadow-lg rounded-3xl">
             <div className="p-6">

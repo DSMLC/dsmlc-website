@@ -2,20 +2,20 @@
   {
     "type": "TitleTemplate",
     "data": {
-      "title": "TitleTemplate",
-      "subtitle": "string (optional)"
+      "title": "TitleTemplate - Welcome to Our Club",
+      "subtitle": "Explore the world of data science and machine learning"
     }
   },
   {
     "type": "HeaderTextTemplate1",
     "data": [
       {
-        "header": "HeaderTextTemplate1",
-        "text": "header: string, text: string"
+        "header": "HeaderTextTemplate1 - Our Mission",
+        "text": "To provide hands-on experience in data science through workshops, competitions, and industry collaborations."
       },
       {
-        "header": "HeaderTextTemplate1",
-        "text": "header: string, text: string"
+        "header": "HeaderTextTemplate1 - Why Join?",
+        "text": "Gain practical skills, network with professionals, and work on real-world projects to enhance your career prospects."
       }
     ]
   },
@@ -23,8 +23,8 @@
     "type": "HeaderTextTemplate2",
     "data": [
       {
-        "header": "HeaderTextTemplate2",
-        "text": "header: string, text: string"
+        "header": "HeaderTextTemplate2 - Community Impact",
+        "text": "We partner with local organizations to provide data-driven solutions that benefit the community and foster student growth."
       }
     ]
   },
@@ -32,13 +32,13 @@
     "type": "ColumnTemplate",
     "data": [
       {
-        "header": "ColumnTemplate",
-        "text": "header: string, text: string",
+        "header": "ColumnTemplate - Skill Development",
+        "text": "Learn essential data science skills such as data wrangling, machine learning, and data visualization.",
         "imageLink": "/images/dark_visionary_logo.png"
       },
       {
-        "header": "ColumnTemplate",
-        "text": "header: string, text: string",
+        "header": "ColumnTemplate - Networking Opportunities",
+        "text": "Connect with industry experts and fellow enthusiasts through our events and meet-ups.",
         "imageLink": "/images/dark_visionary_logo.png"
       }
     ]
@@ -48,11 +48,25 @@
     "data": [
       {
         "number": 1,
-        "header": "TimelineTemplate1",
+        "header": "TimelineTemplate1 - Joining Process",
         "points": [
           {
-            "header": "header: string",
-            "text": "text: string"
+            "header": "Step 1: Submit Application",
+            "text": "Complete our online application form to express your interest."
+          },
+          {
+            "header": "Step 2: Interview",
+            "text": "Participate in a short interview to discuss your goals and skills."
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "header": "TimelineTemplate1 - Joining Process",
+        "points": [
+          {
+            "header": "Step 1: Submit Application",
+            "text": "Complete our online application form to express your interest."
           }
         ]
       }
@@ -63,11 +77,25 @@
     "data": [
       {
         "number": 1,
-        "header": "TimelineTemplate2",
+        "header": "TimelineTemplate2 - Event Planning",
         "points": [
           {
-            "header": "header: string",
-            "text": "text: string"
+            "header": "Step 1: Brainstorm",
+            "text": "Our team collaborates to come up with unique event ideas for the semester."
+          },
+          {
+            "header": "Step 2: Execution",
+            "text": "Events are organized with attention to detail to ensure a great experience for all participants."
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "header": "TimelineTemplate2 - Event Planning",
+        "points": [
+          {
+            "header": "Step 2: Brainstorm",
+            "text": "Our team collaborates to come up with unique event ideas for the semester."
           }
         ]
       }
@@ -76,11 +104,15 @@
   {
     "type": "FAQTemplate",
     "data": {
-      "header": "FAQTemplate",
+      "header": "FAQTemplate - Frequently Asked Questions",
       "faq": [
         {
-          "question": "question: string",
-          "answer": "answer: string"
+          "question": "What is the DSML Club?",
+          "answer": "The Data Science and Machine Learning Club is a student organization focused on data science education and experience."
+        },
+        {
+          "question": "How can I join?",
+          "answer": "You can join by submitting an application on our website or attending our events."
         }
       ]
     }
@@ -89,15 +121,30 @@
     "type": "ApplicationTemplate",
     "data": {
       "title": "ApplicationTemplate",
-      "mainDescription": "mainDescription: string",
-      "secondaryDescription": "secondaryDescription: string",
-      "positionsSectionTitle": "positionsSectionTitle: string",
-      "positions": [
-        {
-          "title": "title: string",
-          "count": "count: string (optional)"
-        }
-      ]
+      "descriptions": [
+        "We're excited that you're interested in joining our executive team! As a member of our leadership, you'll have the opportunity to shape the future of data science and machine learning on our campus.",
+        "We're looking for passionate individuals who are eager to learn, lead, and make a difference. Whether you're an experienced data scientist or just starting your journey, we welcome your application."
+      ],
+      "bullets": {
+        "bulletsTitle": "Available Positions:",
+        "bullets": [
+          { "title": "Junior VP Events:", "text": "1-2 positions available" },
+          { "title": "Competition Director:", "text": "1 position available" },
+          {
+            "title": "Junior Competition Director:",
+            "text": "1 position available"
+          },
+          { "title": "Workshop Directors:", "text": "1-2 positions available" },
+          {
+            "title": "Visionary Lab Board of Directors:",
+            "text": "Positions available"
+          }
+        ]
+      },
+      "button": {
+        "buttonLink": "https://forms.gle/1gf3dtyjecYHpUQaA",
+        "buttonText": "Apply Now"
+      }
     }
   },
   {
@@ -106,25 +153,21 @@
   },
   {
     "type": "ProfileListTemplate",
-    "data": [
-      "ProfileListTemplate item 1",
-      "ProfileListTemplate item 2",
-      "ProfileListTemplate item 3"
-    ]
+    "data": ["ProfileListTemplate", "Operations Team"]
   },
   {
     "type": "SectionedHeaderTemplate",
     "data": [
       {
-        "header": "SectionedHeaderTemplate",
+        "header": "SectionedHeaderTemplate - Team Roles",
         "subheaders": [
           {
-            "header": "header: string",
-            "text": "text: string"
+            "header": "Role: President",
+            "text": "Leads the club and oversees all activities and meetings."
           },
           {
-            "header": "header: string",
-            "text": "text: string"
+            "header": "Role: Vice President",
+            "text": "Assists the President and manages member engagement."
           }
         ]
       }
@@ -134,21 +177,21 @@
     "type": "SubHeaderTextTemplate",
     "data": [
       {
-        "header": "SubHeaderTextTemplate",
-        "text": "header: string, text: string"
+        "header": "SubHeaderTextTemplate header",
+        "text": "This is not used on its own, used in another template"
       }
     ]
   },
   {
     "type": "SubtitleTemplate1",
-    "data": "SubtitleTemplate1 data: string"
+    "data": "This is not used on its own, used in another template"
   },
   {
     "type": "SubtitleTemplate2",
-    "data": "SubtitleTemplate2 data: string"
+    "data": "This is not used on its own, used in another template"
   },
   {
     "type": "SubtitleTemplate3",
-    "data": "SubtitleTemplate3 data: string"
+    "data": "This is not used on its own, used in another template"
   }
 ]

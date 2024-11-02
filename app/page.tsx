@@ -7,7 +7,7 @@ export default async function Home() {
   return (
     <div>
       <span className="text-red-500 text-center text-3xl">
-        THIS PAGE WILL BE A PLACE TO TEST TEMPLATES FOR NOW:{" "}
+        THIS PAGE WILL BE A PLACE TO TEST TEMPLATES FOR NOW: all the content is just placeholder{" "}
       </span>
       {HomeData.map((section, index) => (
         <DataLoader key={index} pageData={section} />
