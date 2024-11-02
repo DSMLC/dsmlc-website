@@ -152,6 +152,31 @@
     "data": "main_logo"
   },
   {
+    "type": "InfoBubbleTemplate",
+    "data": [
+      {
+        "title": "Infobubbletemplate 1",
+        "text": "hi 1!",
+        "imageLink": "/images/dark_discord.svg"
+      },
+      {
+        "title": "Hello 2",
+        "text": "hi2 2!",
+        "imageLink": "/images/dark_discord.svg"
+      },
+      {
+        "title": "Hello 2",
+        "text": "hi2 2!",
+        "imageLink": "/images/dark_instagram.svg"
+      },
+      {
+        "title": "2nd row",
+        "text": "hi 1!",
+        "imageLink": "/images/dark_discord.svg"
+      }
+    ]
+  },
+  {
     "type": "ProfileListTemplate",
     "data": ["ProfileListTemplate", "Operations Team"]
   },

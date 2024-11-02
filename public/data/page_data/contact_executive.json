@@ -1,5 +1,11 @@
 [
   {
+    "type": "TitleTemplate",
+    "data": {
+      "title": "Join Our Executive Team"
+    }
+  },
+  {
     "type": "ApplicationTemplate",
     "data": {
       "title": "Executive Application",
@@ -28,5 +34,30 @@
         "buttonText": "Apply Now"
       }
     }
+  },
+  {
+    "type": "InfoBubbleTemplate",
+    "data": [
+      {
+        "title": "Infobubbletemplate 1",
+        "text": "hi 1!",
+        "imageLink": "/images/dark_discord.svg"
+      },
+      {
+        "title": "Hello 2",
+        "text": "hi2 2!",
+        "imageLink": "/images/dark_discord.svg"
+      },
+      {
+        "title": "Hello 2",
+        "text": "hi2 2!",
+        "imageLink": "/images/dark_instagram.svg"
+      },
+      {
+        "title": "2nd row",
+        "text": "hi 1!",
+        "imageLink": "/images/dark_discord.svg"
+      }
+    ]
   }
 ]

@@ -15,6 +15,7 @@ import SubtitleTemplate1 from "./components/templates/SubtitleTemplate1";
 import SubtitleTemplate2 from "./components/templates/SubtitleTemplate2";
 import SubtitleTemplate3 from "./components/templates/SubtitleTemplate3";
 import logoData from "../public/data/logo.json";
+import InfoBubbleTemplate from "./components/templates/InfoBubbleTemplate";
 
 export interface ApplicationTemplateData {
   type: "ApplicationTemplate";
@@ -70,6 +71,15 @@ export interface HeroTemplateData {
       dark_logo: string;
     };
   };
+}
+
+export interface InfoBubbleTemplateData {
+  type: "InfoBubbleTemplate";
+  data: {
+    title: string;
+    text: string;
+    imageLink: string;
+  }[];
 }
 
 export interface ProfileListTemplateData {
@@ -142,6 +152,7 @@ export type PageData =
   | FAQTemplateData
   | ApplicationTemplateData
   | HeroTemplateData
+  | InfoBubbleTemplateData
   | HeaderTextTemplateData1
   | HeaderTextTemplateData2
   | ProfileListTemplateData
@@ -161,6 +172,7 @@ const templateMap: {
   FAQTemplate: FAQTemplate,
   ApplicationTemplate: ApplicationTemplate,
   HeroTemplate: HeroTemplate,
+  InfoBubbleTemplate: InfoBubbleTemplate,
   HeaderTextTemplate1: HeaderTextTemplate1,
   HeaderTextTemplate2: HeaderTextTemplate2,
   ProfileListTemplate: ProfileListTemplate,
