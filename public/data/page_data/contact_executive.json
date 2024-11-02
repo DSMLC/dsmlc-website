@@ -39,24 +39,19 @@
     "type": "InfoBubbleTemplate",
     "data": [
       {
-        "title": "Infobubbletemplate 1",
-        "text": "hi 1!",
-        "imageLink": "/images/dark_discord.svg"
+        "title": "Welcome to Our Team!",
+        "text": "Join us to collaborate in data science!",
+        "imageLink": "/images/heart.svg"
       },
       {
-        "title": "Hello 2",
-        "text": "hi2 2!",
-        "imageLink": "/images/dark_discord.svg"
+        "title": "Who We Are",
+        "text": "We’re passionate data scientists.",
+        "imageLink": "/images/flask.svg"
       },
       {
-        "title": "Hello 2",
-        "text": "hi2 2!",
-        "imageLink": "/images/dark_instagram.svg"
-      },
-      {
-        "title": "2nd row",
-        "text": "hi 1!",
-        "imageLink": "/images/dark_discord.svg"
+        "title": "Why Join Us?",
+        "text": "Build Projects and develop your skills!",
+        "imageLink": "/images/fire.svg"
       }
     ]
   }
