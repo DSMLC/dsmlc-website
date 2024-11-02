@@ -1,16 +1,9 @@
 import React from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
-import HeaderTextTemplate2 from "./HeaderTextTemplate2";
 import SubHeaderTextTemplate from "./SubHeaderTextTemplate";
-import { PageData } from "./HeaderTextTemplate";
+import { TimelineTemplateData1 } from "@/app/DataLoader";
 
-interface timeline {
-  number: number;
-  header: string;
-  points: PageData[];
-}
-
-const TimelineTemplate = ({ Data }: { Data: timeline[] }) => {
+const TimelineTemplate1 = ({ Data }: { Data: TimelineTemplateData1['data'] }) => {
   return (
     <div className="relative mb-16 text-start grid gap-14 md:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-fit m-auto items-stretch">
       <div className="absolute top-0 md:left-1/2 left-4 w-px h-full bg-dsmlcBlack transform -translate-x-1/2"></div>
@@ -23,7 +16,7 @@ const TimelineTemplate = ({ Data }: { Data: timeline[] }) => {
               <div className="absolute md:left-1/2 left-4 transform -translate-x-1/2 bg-dsmlcParchment text-center md:text-2xl text-lg text-dsmlcDataOrange font-bold md:w-12 md:h-12 w-7 h-7 flex items-center justify-center rounded-full border-2 border-dsmlcBlack border-solid">
                 {data.number}
               </div>
-              <SubtitleTemplate3 Subtitle={data.header} />
+              <SubtitleTemplate3 Data={data.header} />
               <SubHeaderTextTemplate Data={data.points} />
             </div>
             {index % 2 !== 0 ? <div className="hidden md:block"></div> : null}
@@ -34,4 +27,4 @@ const TimelineTemplate = ({ Data }: { Data: timeline[] }) => {
   );
 };
 
-export default TimelineTemplate;
+export default TimelineTemplate1;

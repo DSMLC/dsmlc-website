@@ -1,33 +1,154 @@
-{
-  "header_text_template1": [
-    {
-      "header": "Lorem Ipsum Dolor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "header": "Consectetur Adipiscing",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br><br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "header": "Tempor Incididunt Ut",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br><br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. <br><br> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-    },
-    {
-      "header": "Eiusmod Tempor",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br><br>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+[
+  {
+    "type": "TitleTemplate",
+    "data": {
+      "title": "TitleTemplate",
+      "subtitle": "string (optional)"
     }
-  ],
-  "faq_template": {
-    "header": "FAQ TEST",
-    "faq": [
+  },
+  {
+    "type": "HeaderTextTemplate1",
+    "data": [
       {
-        "question": "What is your return policy?",
-        "answer": "We offer a 30-day money-back guarantee on all our products."
+        "header": "HeaderTextTemplate1",
+        "text": "header: string, text: string"
       },
       {
-        "question": "How long does shipping take?",
-        "answer": "Shipping usually takes 3-5 business days within the continental US."
+        "header": "HeaderTextTemplate1",
+        "text": "header: string, text: string"
       }
     ]
+  },
+  {
+    "type": "HeaderTextTemplate2",
+    "data": [
+      {
+        "header": "HeaderTextTemplate2",
+        "text": "header: string, text: string"
+      }
+    ]
+  },
+  {
+    "type": "ColumnTemplate",
+    "data": [
+      {
+        "header": "ColumnTemplate",
+        "text": "header: string, text: string",
+        "imageLink": "/images/dark_visionary_logo.png"
+      },
+      {
+        "header": "ColumnTemplate",
+        "text": "header: string, text: string",
+        "imageLink": "/images/dark_visionary_logo.png"
+      }
+    ]
+  },
+  {
+    "type": "TimelineTemplate1",
+    "data": [
+      {
+        "number": 1,
+        "header": "TimelineTemplate1",
+        "points": [
+          {
+            "header": "header: string",
+            "text": "text: string"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "TimelineTemplate2",
+    "data": [
+      {
+        "number": 1,
+        "header": "TimelineTemplate2",
+        "points": [
+          {
+            "header": "header: string",
+            "text": "text: string"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FAQTemplate",
+    "data": {
+      "header": "FAQTemplate",
+      "faq": [
+        {
+          "question": "question: string",
+          "answer": "answer: string"
+        }
+      ]
+    }
+  },
+  {
+    "type": "ApplicationTemplate",
+    "data": {
+      "title": "ApplicationTemplate",
+      "mainDescription": "mainDescription: string",
+      "secondaryDescription": "secondaryDescription: string",
+      "positionsSectionTitle": "positionsSectionTitle: string",
+      "positions": [
+        {
+          "title": "title: string",
+          "count": "count: string (optional)"
+        }
+      ]
+    }
+  },
+  {
+    "type": "HeroTemplate",
+    "data": "main_logo"
+  },
+  {
+    "type": "ProfileListTemplate",
+    "data": [
+      "ProfileListTemplate item 1",
+      "ProfileListTemplate item 2",
+      "ProfileListTemplate item 3"
+    ]
+  },
+  {
+    "type": "SectionedHeaderTemplate",
+    "data": [
+      {
+        "header": "SectionedHeaderTemplate",
+        "subheaders": [
+          {
+            "header": "header: string",
+            "text": "text: string"
+          },
+          {
+            "header": "header: string",
+            "text": "text: string"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "SubHeaderTextTemplate",
+    "data": [
+      {
+        "header": "SubHeaderTextTemplate",
+        "text": "header: string, text: string"
+      }
+    ]
+  },
+  {
+    "type": "SubtitleTemplate1",
+    "data": "SubtitleTemplate1 data: string"
+  },
+  {
+    "type": "SubtitleTemplate2",
+    "data": "SubtitleTemplate2 data: string"
+  },
+  {
+    "type": "SubtitleTemplate3",
+    "data": "SubtitleTemplate3 data: string"
   }
-}
+]

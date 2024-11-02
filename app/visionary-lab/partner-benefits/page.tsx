@@ -1,34 +1,15 @@
 import React from "react";
-import TitleTemplate from "../../components/templates/TitleTemplate";
-import partnerBenefitsData from "../../../public/data/page_data/partner_benefits.json";
-import HeaderTextTemplate from "../../components/templates/HeaderTextTemplate";
-import HeaderTextTemplate2 from "../../components/templates/HeaderTextTemplate2";
-import FAQTemplate from "../../components/templates/FAQTemplate";
-import ColumnTemplate from "../../components/templates/ColumnTemplate";
-import TimelineTemplate from "@/app/components/templates/TimelineTemplate";
-import HeaderTextTemplate3 from "@/app/components/templates/HeaderTextTemplate3";
-import SubtitleTemplate3 from "@/app/components/templates/SubtitleTemplate3";
-import TimelineTemplate2 from "@/app/components/templates/TimelineTemplate2";
+import rawData from "../../../public/data/page_data/partner_benefits.json";
+import DataLoader, { PageData } from "@/app/DataLoader";
+
+const partnerBenefitsData: PageData[] = rawData as PageData[];
 
 const page = () => {
   return (
     <div>
-      <TitleTemplate Data={partnerBenefitsData.title_template} />
-      <HeaderTextTemplate2 Data={partnerBenefitsData.text_header_template} />
-      <ColumnTemplate Data={partnerBenefitsData.columns_template} />
-      <HeaderTextTemplate2
-        Data={partnerBenefitsData.timleline_header_text_template}
-      />
-      <TimelineTemplate Data={partnerBenefitsData.timeline_template} />
-      <HeaderTextTemplate2
-        Data={partnerBenefitsData.projects_header_text_template}
-      />
-      <TimelineTemplate2 Data={partnerBenefitsData.timeline_template2} />
-      <HeaderTextTemplate2
-        Data={partnerBenefitsData.responsibility_header_text_template}
-      />
-      <HeaderTextTemplate3 Data={partnerBenefitsData.responsibilities} />
-      <FAQTemplate Data={partnerBenefitsData.faq_template} />
+      {partnerBenefitsData.map((section, index) => (
+        <DataLoader key={index} pageData={section} />
+      ))}
     </div>
   );
 };

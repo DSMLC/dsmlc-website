@@ -3,18 +3,10 @@
 import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import SubtitleTemplate2 from "./SubtitleTemplate2";
+import { FAQTemplateData } from "@/app/DataLoader";
 
-interface FAQItem {
-  question: string;
-  answer: string;
-}
 
-interface FAQData {
-  header: string;
-  faq: FAQItem[];
-}
-
-const FAQTemplate = ({ Data }: { Data: FAQData }) => {
+const FAQTemplate = ({ Data }: { Data: FAQTemplateData['data'] }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleItem = (index: number) => {
@@ -29,7 +21,7 @@ const FAQTemplate = ({ Data }: { Data: FAQData }) => {
 
   return (
     <div className="w-full max-w-4xl mx-auto pb-16 lg:px-0 px-10">
-      <SubtitleTemplate2 Subtitle={Data.header} />
+      <SubtitleTemplate2 Data={Data.header} />
       {Data.faq.map((item, index) => (
         <div key={index} className="border-b-2 border-dsmlcTangerine py-4">
           <button

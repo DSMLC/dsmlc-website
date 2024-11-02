@@ -1,15 +1,15 @@
 import React from "react";
-import ExecutiveRosterData from "../../../public/data/page_data/executive_roster.json";
-import { ProfileListTemplate } from "../../components/templates/ProfileListTemplate";
-import TitleTemplate from "../../components/templates/TitleTemplate";
+import rawData from "../../../public/data/page_data/executive_roster.json";
+import DataLoader, { PageData } from "@/app/DataLoader";
+
+const ExecutiveRosterData: PageData[] = rawData as PageData[];
 
 const page = () => {
   return (
     <div>
-      <TitleTemplate Data={ExecutiveRosterData.title_template} />
-      <ProfileListTemplate
-        GroupRoleTitle={ExecutiveRosterData.group_roles}
-      />
+      {ExecutiveRosterData.map((section, index) => (
+        <DataLoader key={index} pageData={section} />
+      ))}
     </div>
   );
 };

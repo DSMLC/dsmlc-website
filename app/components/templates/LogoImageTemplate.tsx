@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-const ImageTemplate = ({ image, name }: { image: string; name: string }) => {
+const LogoImageTemplate = ({ image, name }: { image: string; name: string }) => {
   return (
     <div>
       {image && (
@@ -33,4 +33,4 @@ const ImageTemplate = ({ image, name }: { image: string; name: string }) => {
   );
 };
 
-export default ImageTemplate;
+export default LogoImageTemplate;

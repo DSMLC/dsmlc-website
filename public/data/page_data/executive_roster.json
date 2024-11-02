@@ -1,10 +1,16 @@
-{
-  "title_template": {
-    "title": "Meet the Team!"
+[
+  {
+    "type": "TitleTemplate",
+    "data": {
+      "title": "Meet the Team!"
+    }
   },
-  "group_roles": [
-    "Admin Team",
-    "Operations Team",
-    "Legacy Executives (Advisory Team)"
-  ]
-}
+  {
+    "type": "ProfileListTemplate",
+    "data": [
+      "Admin Team",
+      "Operations Team",
+      "Legacy Executives (Advisory Team)"
+    ]
+  }
+]

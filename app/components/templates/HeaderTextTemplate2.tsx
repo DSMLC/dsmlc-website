@@ -1,14 +1,18 @@
 import React from "react";
-import { PageData } from "./HeaderTextTemplate";
-import SubtitleTemplate from "./SubtitleTemplate";
+import SubtitleTemplate from "./SubtitleTemplate1";
+import { HeaderTextTemplateData2 } from "@/app/DataLoader";
 
-const HeaderTextTemplate2 = ({ Data }: { Data: PageData[] }) => {
+const HeaderTextTemplate2 = ({
+  Data,
+}: {
+  Data: HeaderTextTemplateData2["data"];
+}) => {
   return (
     <div className="flex flex-col w-full items-center">
       {Data.map((data) => {
         return (
           <div className="flex flex-col gap-7 lg:px-0 py-10 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center">
-            <SubtitleTemplate Subtitle={data.header} />
+            <SubtitleTemplate Data={data.header} />
             <div
               className="text-dsmlcBlack tracking-wide max-w-3xl font-quicksand lg:text-lg md:text-base text-sm pl-5"
               dangerouslySetInnerHTML={{ __html: data.text }}

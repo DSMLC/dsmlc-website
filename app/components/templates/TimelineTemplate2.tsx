@@ -1,16 +1,9 @@
 import React from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
-import HeaderTextTemplate2 from "./HeaderTextTemplate2";
 import HeaderTextTemplate3 from "./SubHeaderTextTemplate";
-import { PageData } from "./HeaderTextTemplate";
+import { TimelineTemplateData2 } from "@/app/DataLoader";
 
-interface timeline {
-  number: number;
-  header: string;
-  points: PageData[];
-}
-
-const TimelineTemplate = ({ Data }: { Data: timeline[] }) => {
+const TimelineTemplate = ({ Data }: { Data: TimelineTemplateData2["data"] }) => {
   return (
     <div className="relative mb-16 text-start grid md:gap-14 gap-0 md:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-fit m-auto items-stretch">
       <div className="md:absolute none top-0 left-1/2 w-px h-full bg-dsmlcDataOrange transform -translate-x-1/2"></div>
@@ -20,7 +13,7 @@ const TimelineTemplate = ({ Data }: { Data: timeline[] }) => {
             <div className="md:text-2xl text-lg text-dsmlcBlack font-bold flex items-center justify-center">
               {data.number}
             </div>
-            <SubtitleTemplate3 Subtitle={data.header} />
+            <SubtitleTemplate3 Data={data.header} />
             <HeaderTextTemplate3 Data={data.points} />
           </div>
         );

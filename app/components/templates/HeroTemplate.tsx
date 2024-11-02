@@ -1,22 +1,10 @@
 import React from "react";
 import Image from "next/image";
 import SocialMediaData from "../../../public/data/club_links.json";
-import ImageTemplate from "./ImageTemplate";
+import ImageTemplate from "./LogoImageTemplate";
+import { HeroTemplateData } from "@/app/DataLoader";
 
-export interface HeroData {
-  name: string;
-  acronym?: string;
-  acronym_styled?: string;
-  name_styled?: string;
-  superscript_name?: string;
-  description?: string;
-  logo?: {
-    light_logo: string;
-    dark_logo: string;
-  };
-}
-
-const HeroTemplate = ({ Data }: { Data: HeroData }) => {
+const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
   return (
     <div className="w-full h-[85vh] flex-col">
       <div className="flex justify-center items-center h-full gap-10 flex-col text-dsmlcBlack">

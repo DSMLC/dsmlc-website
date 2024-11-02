@@ -1,314 +1,344 @@
-{
-  "title_template": {
-    "title": "Visionary Lab Partner Program"
+[
+  {
+    "type": "TitleTemplate",
+    "data": {
+      "title": "Visionary Lab Partner Program"
+    }
   },
-  "text_header_template": [
-    {
-      "header": "Benefits to Partner Organizations",
-      "text": "Partnering with the Visionary Lab offers numerous benefits to local organizations, providing them with access to skilled labor and innovative solutions without financial burden. Our dedicated teams ensure high-quality project outcomes that address your unique needs."
-    }
-  ],
-  "columns_template": [
-    {
-      "header": "Access to Skilled Labor:",
-      "text": "Gain access to motivated and skilled students who can provide innovative, data-driven solutions to your organizational challenges.",
-      "imageLink": "/images/dark_visionary_logo.png"
-    },
-    {
-      "header": "Cost-effective Solutions:",
-      "text": " Receive valuable insights and solutions at no cost, enabling data-driven decision-making without financial burden.",
-      "imageLink": "/images/dark_visionary_logo.png"
-    },
-    {
-      "header": "Diverse Expertise:",
-      "text": "Benefit from the diverse perspectives and expertise of student teams formed from various backgrounds.",
-      "imageLink": "/images/dark_visionary_logo.png"
-    },
-    {
-      "header": "Project Management:",
-      "text": "Projects are managed by experienced Project Managers and mentors, ensuring professional and high-quality outcomes.",
-      "imageLink": "/images/dark_visionary_logo.png"
-    },
-    {
-      "header": "Data Analysis and Reporting:",
-      "text": "Receive detailed data analysis and comprehensive reporting tailored to your specific needs.",
-      "imageLink": "/images/dark_visionary_logo.png"
-    }
-  ],
-  "timleline_header_text_template": [
-    {
-      "header": "How the Partnership Works",
-      "text": "Partnering with the Visionary Lab involves a clear and structured process designed to ensure the success of each project. Here’s the process:"
-    }
-  ],
-  "timeline_template": [
-    {
-      "number": 1,
-      "header": "Project Proposal Submission",
-      "points": [
-        {
-          "header": "Submission:",
-          "text": "Partner organizations submit project proposals using a standardized template provided by the Visionary Lab."
-        },
-        {
-          "header": "Initial Review:",
-          "text": "The Visionary Lab’s Board of Directors reviews the proposals for alignment with the program’s objectives and feasibility."
-        }
-      ]
-    },
-    {
-      "number": 2,
-      "header": "Project Selection",
-      "points": [
-        {
-          "header": "Approval:",
-          "text": "Projects are approved based on their potential impact, feasibility, and alignment with the Visionary Lab’s mission."
-        },
-        {
-          "header": "Assignment:",
-          "text": "Approved projects are assigned to Project Managers who oversee the project from start to finish."
-        }
-      ]
-    },
-    {
-      "number": 3,
-      "header": "Team Formation",
-      "points": [
-        {
-          "header": "Recruitment:",
-          "text": "Project Managers assemble student teams based on their qualifications, interests, and the project’s requirements."
-        },
-        {
-          "header": "Introduction:",
-          "text": "An initial meeting is held with the partner organization to introduce the project team, and clarify project goals, deliverables, and timelines."
-        }
-      ]
-    },
-    {
-      "number": 4,
-      "header": "Project Planning",
-      "points": [
-        {
-          "header": "Planning Session:",
-          "text": "The project team and partner organization collaborate to create a detailed project plan, outlining tasks, responsibilities, deadlines, and resource requirements."
-        },
-        {
-          "header": "Kick-off Meeting:",
-          "text": "A kick-off meeting is held to finalize the project plan and ensure all parties are aligned."
-        }
-      ]
-    },
-    {
-      "number": 5,
-      "header": "Project Execution",
-      "points": [
-        {
-          "header": "Implementation:",
-          "text": "The project team works on the assigned tasks, applying their data science skills to solve the identified problems."
-        },
-        {
-          "header": "Regular Check-ins:",
-          "text": "Ongoing communication is maintained with the partner organization to provide updates, gather feedback, and adjust plans as needed."
-        },
-        {
-          "header": "Mentorship:",
-          "text": "Project Managers and experienced mentors provide guidance and support to the project teams."
-        }
-      ]
-    },
-    {
-      "number": 6,
-      "header": "Project Completion and Handover",
-      "points": [
-        {
-          "header": "Final Deliverables:",
-          "text": "Upon project completion, the team prepares final deliverables, including reports, presentations, and any developed models or tools."
-        },
-        {
-          "header": "Handover:",
-          "text": "The final outcomes are presented to the partner organization, along with documentation and recommendations for implementation."
-        },
-        {
-          "header": "Feedback Collection:",
-          "text": "Feedback is gathered from the partner organization and project team members to evaluate project success and identify areas for improvement."
-        }
-      ]
-    },
-    {
-      "number": 7,
-      "header": "Evaluation and Reflection",
-      "points": [
-        {
-          "header": "Assessment:",
-          "text": "The Board of Directors assesses the overall success of the project, including the impact on the partner organization and student learning outcomes."
-        },
-        {
-          "header": "Reflection:",
-          "text": "Project teams and managers reflect on their experiences, discussing what went well and what could be improved in future projects."
-        },
-        {
-          "header": "Documentation:",
-          "text": "Lessons learned are documented to inform future projects and enhance the Visionary Lab’s processes."
-        }
-      ]
-    }
-  ],
-  "projects_header_text_template": [
-    {
-      "header": "Project Examples",
-      "text": "Our projects span a wide range of data science applications, tailored to meet the specific needs of partner organizations. Here are a few examples of what the Visionary Lab can do:"
-    }
-  ],
-  "timeline_template2": [
-    {
-      "number": 1,
-      "header": "Customer Data Analysis",
-      "points": [
-        {
-          "header": "Example:",
-          "text": "A retail business seeking to understand customer purchasing patterns."
-        },
-        {
-          "header": "Potential Outcome:",
-          "text": "Analyzing transaction data to identify key purchasing trends and customer segments, leading to targeted marketing strategies that could increase sales."
-        }
-      ]
-    },
-    {
-      "number": 2,
-      "header": "Predictive Sales Modeling",
-      "points": [
-        {
-          "header": "Example:",
-          "text": "A small business looking to forecast future sales."
-        },
-        {
-          "header": "Potential Outcome:",
-          "text": "Developing a predictive model to forecast sales trends accurately, allowing the business to optimize inventory management and reduce costs."
-        }
-      ]
-    },
-    {
-      "number": 3,
-      "header": "Operational Efficiency Improvement",
-      "points": [
-        {
-          "header": "Example:",
-          "text": "A manufacturing company aiming to improve production efficiency."
-        },
-        {
-          "header": "Potential Outcome:",
-          "text": "Analyzing production data to identify bottlenecks and inefficiencies, resulting in recommendations that could improve production efficiency."
-        }
-      ]
-    },
-    {
-      "number": 4,
-      "header": "Market Research and Analysis",
-      "points": [
-        {
-          "header": "Example:",
-          "text": "A non-profit organization seeking to understand the needs of its target demographic."
-        },
-        {
-          "header": "Potential Outcome:",
-          "text": "Conducting a comprehensive analysis of survey data, providing insights that could help the organization tailor its programs to better serve its community."
-        }
-      ]
-    },
-    {
-      "number": 5,
-      "header": "Social Media Sentiment Analysis",
-      "points": [
-        {
-          "header": "Example:",
-          "text": "A company wanting to gauge public sentiment about their brand."
-        },
-        {
-          "header": "Potential Outcome:",
-          "text": "Using natural language processing to analyze social media mentions, providing a detailed report on public sentiment and actionable recommendations for improving brand perception."
-        }
-      ]
-    }
-  ],
-  "responsibility_header_text_template": [
-    {
-      "header": "Roles and Responsibilities",
-      "text": "Project partners play an integral role in ensuring the success of Visionary Lab projects. Their active participation, clear communication, and consistent feedback are essential to meeting project goals effectively."
-    }
-  ],
-  "responsibilities": [
-    {
-      "header": "Project Proposers",
-      "subheaders": [
-        {
-          "header": "Clear Objectives:",
-          "text": "Submit detailed project proposals with clear objectives and required resources."
-        },
-        {
-          "header": "Engagement:",
-          "text": "Actively participate in initial meetings and provide necessary data and context for the project."
-        }
-      ]
-    },
-    {
-      "header": "Stakeholders",
-      "subheaders": [
-        {
-          "header": "Continuous Feedback:",
-          "text": "Provide regular feedback throughout the project lifecycle to ensure alignment with organizational goals."
-        },
-        {
-          "header": "Data Provision:",
-          "text": "Supply the project team with the necessary data and information required to complete the project."
-        }
-      ]
-    },
-    {
-      "header": "Reviewers",
-      "subheaders": [
-        {
-          "header": "Regular Check-ins:",
-          "text": "Participate in regular check-ins to monitor progress and provide feedback."
-        },
-        {
-          "header": "Final Review:",
-          "text": "Review final deliverables and provide feedback on the project’s success and impact."
-        }
-      ]
-    }
-  ],
-  "faq_template": {
-    "header": "Frequently Asked Questions",
-    "faq": [
+  {
+    "type": "HeaderTextTemplate1",
+    "data": [
       {
-        "question": "Who can partner with the Visionary Lab?",
-        "answer": "We welcome partnerships from local businesses, non-profits, and government agencies that have data science projects needing innovative, data-driven solutions."
-      },
-      {
-        "question": "Is there a cost associated with partnering with the Visionary Lab?",
-        "answer": "No, partnering with the Visionary Lab is free of charge. Our goal is to provide valuable experience for students and affordable solutions for our partners."
-      },
-      {
-        "question": "What types of projects are suitable for the Visionary Lab?",
-        "answer": "We handle a wide range of data science projects, including data analysis, predictive modeling, operational efficiency improvements, market research, and more. If you're unsure whether your project fits, feel free to contact us for a consultation."
-      },
-      {
-        "question": "How long does a typical project take?",
-        "answer": "Most projects should be designed to be completed within 2-6 weeks, depending on the complexity and scope of the work involved."
-      },
-      {
-        "question": "How are students selected for projects?",
-        "answer": "Students are selected based on their qualifications, interests, and the specific requirements of the project. We ensure that each team has the necessary skills to deliver high-quality results."
-      },
-      {
-        "question": "What kind of support can we expect during the project?",
-        "answer": "You will have regular communication with the project team, including weekly meetings and progress reports. Additionally, experienced mentors and project managers will provide guidance and support throughout the project lifecycle."
-      },
-      {
-        "question": "How do we submit a project proposal?",
-        "answer": "Contact us via email or phone to express your interest. We will provide you with a project proposal template and guide you through the submission process."
+        "header": "Benefits to Partner Organizations",
+        "text": "Partnering with the Visionary Lab offers numerous benefits to local organizations, providing them with access to skilled labor and innovative solutions without financial burden. Our dedicated teams ensure high-quality project outcomes that address your unique needs."
       }
     ]
+  },
+  {
+    "type": "ColumnTemplate",
+    "data": [
+      {
+        "header": "Access to Skilled Labor:",
+        "text": "Gain access to motivated and skilled students who can provide innovative, data-driven solutions to your organizational challenges.",
+        "imageLink": "/images/dark_visionary_logo.png"
+      },
+      {
+        "header": "Cost-effective Solutions:",
+        "text": "Receive valuable insights and solutions at no cost, enabling data-driven decision-making without financial burden.",
+        "imageLink": "/images/dark_visionary_logo.png"
+      },
+      {
+        "header": "Diverse Expertise:",
+        "text": "Benefit from the diverse perspectives and expertise of student teams formed from various backgrounds.",
+        "imageLink": "/images/dark_visionary_logo.png"
+      },
+      {
+        "header": "Project Management:",
+        "text": "Projects are managed by experienced Project Managers and mentors, ensuring professional and high-quality outcomes.",
+        "imageLink": "/images/dark_visionary_logo.png"
+      },
+      {
+        "header": "Data Analysis and Reporting:",
+        "text": "Receive detailed data analysis and comprehensive reporting tailored to your specific needs.",
+        "imageLink": "/images/dark_visionary_logo.png"
+      }
+    ]
+  },
+  {
+    "type": "HeaderTextTemplate1",
+    "data": [
+      {
+        "header": "How the Partnership Works",
+        "text": "Partnering with the Visionary Lab involves a clear and structured process designed to ensure the success of each project. Here’s the process:"
+      }
+    ]
+  },
+  {
+    "type": "TimelineTemplate1",
+    "data": [
+      {
+        "number": 1,
+        "header": "Project Proposal Submission",
+        "points": [
+          {
+            "header": "Submission:",
+            "text": "Partner organizations submit project proposals using a standardized template provided by the Visionary Lab."
+          },
+          {
+            "header": "Initial Review:",
+            "text": "The Visionary Lab’s Board of Directors reviews the proposals for alignment with the program’s objectives and feasibility."
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "header": "Project Selection",
+        "points": [
+          {
+            "header": "Approval:",
+            "text": "Projects are approved based on their potential impact, feasibility, and alignment with the Visionary Lab’s mission."
+          },
+          {
+            "header": "Assignment:",
+            "text": "Approved projects are assigned to Project Managers who oversee the project from start to finish."
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "header": "Team Formation",
+        "points": [
+          {
+            "header": "Recruitment:",
+            "text": "Project Managers assemble student teams based on their qualifications, interests, and the project’s requirements."
+          },
+          {
+            "header": "Introduction:",
+            "text": "An initial meeting is held with the partner organization to introduce the project team, and clarify project goals, deliverables, and timelines."
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "header": "Project Planning",
+        "points": [
+          {
+            "header": "Planning Session:",
+            "text": "The project team and partner organization collaborate to create a detailed project plan, outlining tasks, responsibilities, deadlines, and resource requirements."
+          },
+          {
+            "header": "Kick-off Meeting:",
+            "text": "A kick-off meeting is held to finalize the project plan and ensure all parties are aligned."
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "header": "Project Execution",
+        "points": [
+          {
+            "header": "Implementation:",
+            "text": "The project team works on the assigned tasks, applying their data science skills to solve the identified problems."
+          },
+          {
+            "header": "Regular Check-ins:",
+            "text": "Ongoing communication is maintained with the partner organization to provide updates, gather feedback, and adjust plans as needed."
+          },
+          {
+            "header": "Mentorship:",
+            "text": "Project Managers and experienced mentors provide guidance and support to the project teams."
+          }
+        ]
+      },
+      {
+        "number": 6,
+        "header": "Project Completion and Handover",
+        "points": [
+          {
+            "header": "Final Deliverables:",
+            "text": "Upon project completion, the team prepares final deliverables, including reports, presentations, and any developed models or tools."
+          },
+          {
+            "header": "Handover:",
+            "text": "The final outcomes are presented to the partner organization, along with documentation and recommendations for implementation."
+          },
+          {
+            "header": "Feedback Collection:",
+            "text": "Feedback is gathered from the partner organization and project team members to evaluate project success and identify areas for improvement."
+          }
+        ]
+      },
+      {
+        "number": 7,
+        "header": "Evaluation and Reflection",
+        "points": [
+          {
+            "header": "Assessment:",
+            "text": "The Board of Directors assesses the overall success of the project, including the impact on the partner organization and student learning outcomes."
+          },
+          {
+            "header": "Reflection:",
+            "text": "Project teams and managers reflect on their experiences, discussing what went well and what could be improved in future projects."
+          },
+          {
+            "header": "Documentation:",
+            "text": "Lessons learned are documented to inform future projects and enhance the Visionary Lab’s processes."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "HeaderTextTemplate1",
+    "data": [
+      {
+        "header": "Project Examples",
+        "text": "Our projects span a wide range of data science applications, tailored to meet the specific needs of partner organizations. Here are a few examples of what the Visionary Lab can do:"
+      }
+    ]
+  },
+  {
+    "type": "TimelineTemplate2",
+    "data": [
+      {
+        "number": 1,
+        "header": "Customer Data Analysis",
+        "points": [
+          {
+            "header": "Example:",
+            "text": "A retail business seeking to understand customer purchasing patterns."
+          },
+          {
+            "header": "Potential Outcome:",
+            "text": "Analyzing transaction data to identify key purchasing trends and customer segments, leading to targeted marketing strategies that could increase sales."
+          }
+        ]
+      },
+      {
+        "number": 2,
+        "header": "Predictive Sales Modeling",
+        "points": [
+          {
+            "header": "Example:",
+            "text": "A small business looking to forecast future sales."
+          },
+          {
+            "header": "Potential Outcome:",
+            "text": "Developing a predictive model to forecast sales trends accurately, allowing the business to optimize inventory management and reduce costs."
+          }
+        ]
+      },
+      {
+        "number": 3,
+        "header": "Operational Efficiency Improvement",
+        "points": [
+          {
+            "header": "Example:",
+            "text": "A manufacturing company aiming to improve production efficiency."
+          },
+          {
+            "header": "Potential Outcome:",
+            "text": "Analyzing production data to identify bottlenecks and inefficiencies, resulting in recommendations that could improve production efficiency."
+          }
+        ]
+      },
+      {
+        "number": 4,
+        "header": "Market Research and Analysis",
+        "points": [
+          {
+            "header": "Example:",
+            "text": "A non-profit organization seeking to understand the needs of its target demographic."
+          },
+          {
+            "header": "Potential Outcome:",
+            "text": "Conducting a comprehensive analysis of survey data, providing insights that could help the organization tailor its programs to better serve its community."
+          }
+        ]
+      },
+      {
+        "number": 5,
+        "header": "Social Media Sentiment Analysis",
+        "points": [
+          {
+            "header": "Example:",
+            "text": "A company wanting to gauge public sentiment about their brand."
+          },
+          {
+            "header": "Potential Outcome:",
+            "text": "Using natural language processing to analyze social media mentions, providing a detailed report on public sentiment and actionable recommendations for improving brand perception."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "HeaderTextTemplate1",
+    "data": [
+      {
+        "header": "Roles and Responsibilities",
+        "text": "Project partners play an integral role in ensuring the success of Visionary Lab projects. Their active participation, clear communication, and consistent feedback are essential to meeting project goals effectively."
+      }
+    ]
+  },
+  {
+    "type": "SectionedHeaderTemplate",
+    "data": [
+      {
+        "header": "Project Proposers",
+        "subheaders": [
+          {
+            "header": "Clear Objectives:",
+            "text": "Submit detailed project proposals with clear objectives and required resources."
+          },
+          {
+            "header": "Engagement:",
+            "text": "Actively participate in initial meetings and provide necessary data and context for the project."
+          }
+        ]
+      },
+      {
+        "header": "Stakeholders",
+        "subheaders": [
+          {
+            "header": "Continuous Feedback:",
+            "text": "Provide regular feedback throughout the project lifecycle to ensure alignment with organizational goals."
+          },
+          {
+            "header": "Data Provision:",
+            "text": "Supply the project team with the necessary data and information required to complete the project."
+          }
+        ]
+      },
+      {
+        "header": "Reviewers",
+        "subheaders": [
+          {
+            "header": "Regular Check-ins:",
+            "text": "Participate in regular check-ins to monitor progress and provide feedback."
+          },
+          {
+            "header": "Final Review:",
+            "text": "Review final deliverables and provide feedback on the project’s success and impact."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "FAQTemplate",
+    "data": {
+      "header": "Frequently Asked Questions",
+      "faq": [
+        {
+          "question": "Who can partner with the Visionary Lab?",
+          "answer": "We welcome partnerships from local businesses, non-profits, and government agencies that have data science projects needing innovative, data-driven solutions."
+        },
+        {
+          "question": "Is there a cost associated with partnering with the Visionary Lab?",
+          "answer": "No, partnering with the Visionary Lab is free of charge. Our goal is to provide valuable experience for students and affordable solutions for our partners."
+        },
+        {
+          "question": "What types of projects are suitable for the Visionary Lab?",
+          "answer": "We handle a wide range of data science projects, including data analysis, predictive modeling, operational efficiency improvements, market research, and more. If you're unsure whether your project fits, feel free to contact us for a consultation."
+        },
+        {
+          "question": "How long does a typical project take?",
+          "answer": "Most projects should be designed to be completed within 2-6 weeks, depending on the complexity and scope of the work involved."
+        },
+        {
+          "question": "How are students selected for projects?",
+          "answer": "Students are selected based on their qualifications, interests, and the specific requirements of the project. We ensure that each team has the necessary skills to deliver high-quality results."
+        },
+        {
+          "question": "What kind of support can we expect during the project?",
+          "answer": "You will have regular communication with the project team, including weekly meetings and progress reports. Additionally, experienced mentors and project managers will provide guidance and support throughout the project lifecycle."
+        },
+        {
+          "question": "How do we submit a project proposal?",
+          "answer": "Contact us via email or phone to express your interest. We will provide you with a project proposal template and guide you through the submission process."
+        }
+      ]
+    }
   }
-}
+]

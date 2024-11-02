@@ -1,18 +1,15 @@
 import React from "react";
-import { ProfileListTemplate } from "../components/templates/ProfileListTemplate";
-import VisionaryLabData from "../../public/data/page_data/visionary_lab.json";
-import TitleTemplate from "../components/templates/TitleTemplate";
-import HeaderTextTemplate2 from "../components/templates/HeaderTextTemplate2";
-import HeroTemplate from "../components/templates/HeroTemplate";
-import LogoData from "../../public/data/logo.json";
+import rawData from "../../public/data/page_data/visionary_lab.json";
+import DataLoader, { PageData } from "../DataLoader";
+
+const VisionaryLabData: PageData[] = rawData as PageData[];
 
 const page = () => {
   return (
     <div>
-      <HeroTemplate Data={LogoData.visionary_lab_logo} />
-      <TitleTemplate Data={VisionaryLabData.title_template} />
-      <HeaderTextTemplate2 Data={VisionaryLabData.header_text_template} />
-      <ProfileListTemplate GroupRoleTitle={VisionaryLabData.group_roles} />
+      {VisionaryLabData.map((section, index) => (
+        <DataLoader key={index} pageData={section} />
+      ))}
     </div>
   );
 };

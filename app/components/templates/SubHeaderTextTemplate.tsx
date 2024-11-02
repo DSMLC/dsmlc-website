@@ -1,7 +1,11 @@
 import React from "react";
-import { PageData } from "./HeaderTextTemplate";
+import { SubHeaderTextTemplateData } from "../../DataLoader";
 
-const SubHeaderTextTemplate = ({ Data }: { Data: PageData[] }) => {
+const SubHeaderTextTemplate = ({
+  Data,
+}: {
+  Data: SubHeaderTextTemplateData["data"];
+}) => {
   return (
     <>
       {Data.map((data) => {

@@ -1,7 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import ApplicationSection from "../../components/templates/ApplicationTemplate";
-import applicationData from "../../../public/data/page_data/contact_executive.json";
+import rawData from "../../../public/data/page_data/contact_executive.json";
+import DataLoader, { PageData } from "@/app/DataLoader";
+
+const ApplicationData: PageData[] = rawData as PageData[];
 
 export default function ApplyPage() {
   return (
@@ -14,7 +16,9 @@ export default function ApplyPage() {
         </div>
         <div className="bg-dsmlcWhite shadow-xl rounded-4xl overflow-hidden">
           <div className="p-8 sm:p-12">
-            <ApplicationSection {...applicationData} />
+            {ApplicationData.map((section, index) => (
+              <DataLoader key={index} pageData={section} />
+            ))}
             <div className="flex justify-center">
               <Link
                 href="https://forms.gle/1gf3dtyjecYHpUQaA"

@@ -1,11 +1,12 @@
+
+import { HeaderTextTemplateData1 } from "@/app/DataLoader";
 import React from "react";
 
-export interface PageData {
-  header: string;
-  text: string;
-}
-
-const HeaderTextTemplate = ({ Data }: { Data: PageData[] }) => {
+const HeaderTextTemplate = ({
+  Data,
+}: {
+  Data: HeaderTextTemplateData1["data"];
+}) => {
   return (
     <div className="flex flex-col w-full items-center lg:my-20 lg:gap-14 lg:[&>*:nth-child(odd)]:rounded-r-full lg:[&>*:nth-child(even)]:rounded-l-full lg:[&>*:nth-child(odd)]:mr-auto lg:[&>*:nth-child(even)]:ml-auto">
       {Data.map((data) => {

@@ -1,20 +1,21 @@
 import React from "react";
 import Image from "next/image";
 import EmptyProfie from "../../../public/images/profile/empty_profile.svg";
-import SubtitleTemplate from "./SubtitleTemplate";
+import SubtitleTemplate from "./SubtitleTemplate1";
 import Execs from "../../../public/data/execs.json";
+import { ProfileListTemplateData } from "@/app/DataLoader";
 
 export const ProfileListTemplate = ({
-  GroupRoleTitle,
+  Data,
 }: {
-  GroupRoleTitle: string[];
+  Data: ProfileListTemplateData["data"];
 }) => {
   return (
     <div>
-      {GroupRoleTitle.map((roleGroup) => {
+      {Data.map((roleGroup) => {
         return (
           <div className="flex flex-col gap-10 lg:px-0 py-10 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center">
-            <SubtitleTemplate Subtitle={roleGroup} />
+            <SubtitleTemplate Data={roleGroup} />
             <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
               {Execs.filter((exec) =>
                 exec.role.some(
