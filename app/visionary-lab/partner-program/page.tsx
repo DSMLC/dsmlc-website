@@ -1,5 +1,5 @@
 import React from "react";
-import rawData from "../../../public/data/page_data/partner_benefits.json";
+import rawData from "../../../public/data/page_data/partner_program.json";
 import DataLoader, { PageData } from "@/app/DataLoader";
 
 const partnerBenefitsData: PageData[] = rawData as PageData[];

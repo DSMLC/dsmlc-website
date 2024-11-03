@@ -22,11 +22,11 @@ export interface ApplicationTemplateData {
   data: {
     title: string;
     descriptions: string[];
-    bullets: {
-      bulletsTitle: string;
-      bullets: { title: string; text: string }[];
+    bullets?: {
+      bulletsTitle?: string;
+      bullets?: { title: string; text: string }[];
     };
-    button: { buttonLink: string; buttonText: string };
+    button?: { buttonLink: string; buttonText: string };
   };
 }
 

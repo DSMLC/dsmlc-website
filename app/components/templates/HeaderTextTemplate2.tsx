@@ -11,10 +11,10 @@ const HeaderTextTemplate2 = ({
     <div className="flex flex-col w-full items-center">
       {Data.map((data) => {
         return (
-          <div className="flex flex-col gap-7 lg:px-0 py-10 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center">
+          <div className="flex flex-col gap-7 lg:px-0 px-5 py-10 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center">
             <SubtitleTemplate Data={data.header} />
             <div
-              className="text-dsmlcBlack tracking-wide max-w-3xl font-quicksand lg:text-lg md:text-base text-sm pl-5"
+              className="text-dsmlcBlack tracking-wide max-w-3xl font-quicksand lg:text-lg md:text-base text-sm"
               dangerouslySetInnerHTML={{ __html: data.text }}
             ></div>
           </div>
