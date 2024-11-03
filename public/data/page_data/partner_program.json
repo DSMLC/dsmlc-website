@@ -101,9 +101,7 @@
         "points": [
           {
             "header": "Approval:",
-            "text": "Projects are approved based on their potential impact, feasibility, and alignment with the Visionary Lab’s mission.",
-            "imageLink": "/images/dark_visionary_logo.png",
-            "imageName": "Visionary Lab Logo"
+            "text": "Projects are approved based on their potential impact, feasibility, and alignment with the Visionary Lab’s mission."
           },
           {
             "header": "Assignment:",

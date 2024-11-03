@@ -3,7 +3,7 @@ import React from "react";
 
 const TitleTemplate = ({ Data }: { Data: TitleTemplateData['data'] }) => {
   return (
-    <div className="flex flex-col border-b-2 border-dsmlcBlack border-opacity-25 pt-20 lg:w-full max-w-4xl w-fit m-auto pb-5 gap-3">
+    <div className="flex flex-col border-b-2 border-dsmlcBlack border-opacity-25 pt-20 lg:w-full max-w-4xl w-fit m-auto pb-5 gap-3 mb-16">
       <h1 className="font-redHat font-[750] md:text-5xl text-4xl lg:text-start text-center text-dsmlcTangerine">
         {Data.title}
       </h1>

@@ -45,7 +45,7 @@ const TimelineTemplate1 = ({
   }, []);
 
   return (
-    <div className="relative mb-16 text-start grid gap-14 md:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-fit m-auto items-stretch">
+    <div className="relative mb-16 text-start grid md:gap-14 gap-7 md:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-fit m-auto items-stretch">
       <div className="absolute top-0 md:left-1/2 left-4 w-px h-full bg-dsmlcBlack transform -translate-x-1/2"></div>
       {Data.map((data, index) => {
         return (

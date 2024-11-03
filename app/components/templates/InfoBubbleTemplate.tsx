@@ -13,12 +13,14 @@ const InfoBubbleTemplate = ({
         return (
           <div className="bg-dsmlcWhite shadow-lg rounded-3xl p-6 flex items-center">
             <div className="flex-shrink-0">
-              <Image
-                src={section.imageLink}
-                alt={`${section.imageLink} Logo`}
-                width={25}
-                height={25}
-              />
+              {section.image && (
+                <Image
+                  src={section.image.imageLink || ""}
+                  alt={`${section.image.imageName || ""} Logo`}
+                  width={25}
+                  height={25}
+                />
+              )}
             </div>
             <div className="ml-5 w-0 flex-1">
               <dl>
