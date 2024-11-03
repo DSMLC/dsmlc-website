@@ -1,6 +1,6 @@
 [
   {
-    "type": "TitleTemplate",
+    "type": "TitleTemplate1",
     "data": {
       "title": "Visionary Lab Student Program"
     }
@@ -18,7 +18,7 @@
     "type": "TimelineTemplate2",
     "data": [
       {
-        "number": 1,
+        "number": "1",
         "header": "Project Team Members",
         "points": [
           {
@@ -104,7 +104,7 @@
     "type": "TimelineTemplate2",
     "data": [
       {
-        "number": 1,
+        "number": "1",
         "header": "Customer Data Analysis",
         "points": [
           {

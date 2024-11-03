@@ -24,21 +24,21 @@ const ImageTemplate = ({
           <Image
             className={`${imageClassname} lg:block hidden`}
             src={image}
-            alt={`${name} Logo`}
+            alt={`${name} ${type}`}
             width={largeSize}
             height={largeSize}
           />
           <Image
             className={`${imageClassname} lg:hidden md:block hidden`}
             src={image}
-            alt={`${name} Logo`}
+            alt={`${name} ${type}`}
             width={medSize}
             height={medSize}
           />
           <Image
             className={`${imageClassname} md:hidden block`}
             src={image}
-            alt={`${name} Logo`}
+            alt={`${name} ${type}`}
             width={smallSize}
             height={smallSize}
           />

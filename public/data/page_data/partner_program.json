@@ -1,6 +1,6 @@
 [
   {
-    "type": "TitleTemplate",
+    "type": "TitleTemplate1",
     "data": {
       "title": "Visionary Lab Partner Program"
     }
@@ -77,7 +77,7 @@
     "type": "TimelineTemplate1",
     "data": [
       {
-        "number": 1,
+        "number": "1",
         "header": "Project Proposal Submission",
         "points": [
           {
@@ -236,7 +236,7 @@
     "type": "TimelineTemplate2",
     "data": [
       {
-        "number": 1,
+        "number": "1",
         "header": "Customer Data Analysis",
         "points": [
           {

@@ -44,7 +44,7 @@ export const ProfileListTemplate = ({
                         {filteredExec.program?.programs?.length > 0 &&
                           filteredExec.program?.programs.map((program) => {
                             return (
-                              <div key={program} className="ml-1">
+                              <div key={program} className="w-full text-center">
                                 {program}
                               </div>
                             );

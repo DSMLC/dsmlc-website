@@ -1,6 +1,5 @@
 import React from "react";
 import ColumnTemplate from "./components/templates/ColumnTemplate";
-import TitleTemplate from "./components/templates/TitleTemplate";
 import TimelineTemplate1 from "./components/templates/TimelineTemplate1";
 import FAQTemplate from "./components/templates/FAQTemplate";
 import ApplicationTemplate from "./components/templates/ApplicationTemplate";
@@ -16,6 +15,8 @@ import SubtitleTemplate2 from "./components/templates/SubtitleTemplate2";
 import SubtitleTemplate3 from "./components/templates/SubtitleTemplate3";
 import logoData from "../public/data/logo.json";
 import InfoBubbleTemplate from "./components/templates/InfoBubbleTemplate";
+import TitleTemplate2 from "./components/templates/TitleTemplate2";
+import TitleTemplate1 from "./components/templates/TitleTemplate1";
 
 export interface ApplicationTemplateData {
   type: "ApplicationTemplate";
@@ -129,7 +130,7 @@ export interface SubtitleTemplateData3 {
 export interface TimelineTemplateData1 {
   type: "TimelineTemplate1";
   data: {
-    number: number;
+    number: string;
     header: string;
     points: {
       header: string;
@@ -146,14 +147,22 @@ export interface TimelineTemplateData1 {
 export interface TimelineTemplateData2 {
   type: "TimelineTemplate2";
   data: {
-    number: number;
+    number: string;
     header: string;
     points: { header: string; text: string }[];
   }[];
 }
 
-export interface TitleTemplateData {
-  type: "TitleTemplate";
+export interface TitleTemplateData1 {
+  type: "TitleTemplate1";
+  data: {
+    title: string;
+    subtitle?: string;
+  };
+}
+
+export interface TitleTemplateData2 {
+  type: "TitleTemplate2";
   data: {
     title: string;
     subtitle?: string;
@@ -162,7 +171,8 @@ export interface TitleTemplateData {
 
 export type PageData =
   | ColumnTemplateData
-  | TitleTemplateData
+  | TitleTemplateData1
+  | TitleTemplateData2
   | TimelineTemplateData1
   | TimelineTemplateData2
   | FAQTemplateData
@@ -182,7 +192,8 @@ const templateMap: {
   [key in PageData["type"]]?: React.ComponentType<{ Data: any }>;
 } = {
   ColumnTemplate: ColumnTemplate,
-  TitleTemplate: TitleTemplate,
+  TitleTemplate1: TitleTemplate1,
+  TitleTemplate2: TitleTemplate2,
   TimelineTemplate1: TimelineTemplate1,
   TimelineTemplate2: TimelineTemplate2,
   FAQTemplate: FAQTemplate,

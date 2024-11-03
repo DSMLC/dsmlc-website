@@ -1,8 +1,15 @@
 [
   {
-    "type": "TitleTemplate",
+    "type": "TitleTemplate1",
     "data": {
       "title": "TitleTemplate - Welcome to Our Club",
+      "subtitle": "Explore the world of data science and machine learning"
+    }
+  },
+  {
+    "type": "TitleTemplate2",
+    "data": {
+      "title": "TitleTemplate2 - Welcome to Our Club",
       "subtitle": "Explore the world of data science and machine learning"
     }
   },
@@ -55,7 +62,7 @@
     "type": "TimelineTemplate1",
     "data": [
       {
-        "number": 1,
+        "number": "1",
         "header": "TimelineTemplate1 - Joining Process",
         "points": [
           {
@@ -74,7 +81,7 @@
         }
       },
       {
-        "number": 2,
+        "number": "2",
         "header": "TimelineTemplate1 - Joining Process",
         "points": [
           {
@@ -94,7 +101,7 @@
     "type": "TimelineTemplate2",
     "data": [
       {
-        "number": 1,
+        "number": "1",
         "header": "TimelineTemplate2 - Event Planning",
         "points": [
           {
@@ -108,7 +115,7 @@
         ]
       },
       {
-        "number": 2,
+        "number": "2",
         "header": "TimelineTemplate2 - Event Planning",
         "points": [
           {

@@ -46,8 +46,15 @@ const TimelineTemplate1 = ({
 
   return (
     <div className="relative mb-16 text-start grid md:gap-14 gap-7 md:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-fit m-auto items-stretch">
-      <div className="absolute top-0 md:left-1/2 left-4 w-px h-full bg-dsmlcBlack transform -translate-x-1/2"></div>
+      <div className="absolute top-0 md:left-1/2 left-6 w-px h-full bg-dsmlcBlack transform -translate-x-1/2"></div>
       {Data.map((data, index) => {
+        const getFontSize = () => {
+          const length = String(data.number).length;
+          if (length <= 2) return "text-2xl"; // Standard size for 1-2 characters
+          if (length === 3) return "text-md"; // Smaller size for 3 characters
+          return "text-sm"; // Smallest size for 4 or more characters
+        };
+
         return (
           <React.Fragment key={index}>
             {index % 2 === 0 ? (
@@ -75,7 +82,10 @@ const TimelineTemplate1 = ({
             ) : null}
 
             <div className="flex flex-col gap-7 lg:px-0 px-5 pl-10 lg:pl-5 lg:w-full max-w-4xl w-fit m-auto h-full">
-              <div className="absolute md:left-1/2 left-4 transform -translate-x-1/2 bg-dsmlcParchment text-center md:text-2xl text-lg text-dsmlcDataOrange font-bold md:w-12 md:h-12 w-7 h-7 flex items-center justify-center rounded-full border-2 border-dsmlcBlack border-solid">
+              <div
+                className={`absolute md:left-1/2 left-6 transform -translate-x-1/2 bg-dsmlcParchment text-center ${getFontSize()} text-dsmlcDataOrange font-bold w-12 h-12 flex items-center justify-center rounded-full border-2 border-dsmlcBlack border-solid`}
+              >
+                {" "}
                 {data.number}
               </div>
 

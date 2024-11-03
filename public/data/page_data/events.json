@@ -1,6 +1,6 @@
 [
   {
-    "type": "TitleTemplate",
+    "type": "TitleTemplate1",
     "data": {
       "title": "Fall 2024"
     }
@@ -9,25 +9,39 @@
     "type": "TimelineTemplate1",
     "data": [
       {
-        "number": 25,
-        "header": "HTC x DSMLC",
+        "number": "11/01",
+        "header": "WeFlourish",
         "points": [
           {
-            "text": "Panel discussion on "
+            "text": "WeFlourish"
           }
         ],
         "image": {
-          "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
-          "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+          "imageLink": "/images/events/fall_2024/weflourish.png",
+          "imageName": "Picture of DSMLC's Fall 2024 WeFlourish Event",
           "imageType": "Pic"
         }
       },
       {
-        "number": 24,
+        "number": "10/29",
+        "header": "Interviews and Applications Night",
+        "points": [
+          {
+            "text": "TO BE FILLED"
+          }
+        ],
+        "image": {
+          "imageLink": "/images/events/fall_2024/int_and_app2.png",
+          "imageName": "Picture of DSMLC's Fall 2024 Int and App Event",
+          "imageType": "Pic"
+        }
+      },
+      {
+        "number": "10/24",
         "header": "Inro to Python Data Visualization Workshop",
         "points": [
           {
-            "text": "Explore the exciting world of Python Data Visualization and Manipulation, diving into libraries like Matplotlib, Plotly, Seaborn, and tools such as Pandas and NumPy."
+            "text": "Explored the exciting world of Python Data Visualization and Manipulation, diving into libraries like Matplotlib, Plotly, Seaborn, and tools such as Pandas and NumPy."
           }
         ],
         "image": {
@@ -37,7 +51,7 @@
         }
       },
       {
-        "number": 12,
+        "number": "09/27",
         "header": "Fall Meet and Greet",
         "points": [
           {
@@ -49,11 +63,25 @@
           "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
           "imageType": "Pic"
         }
+      },
+      {
+        "number": "09/11",
+        "header": "Science Pancake Breakfast",
+        "points": [
+          {
+            "text": "TO BE FILLED"
+          }
+        ],
+        "image": {
+          "imageLink": "/images/events/fall_2024/pancakes.png",
+          "imageName": "Picture of DSMLC's Fall 2024 Pancake Breakfast Event",
+          "imageType": "Pic"
+        }
       }
     ]
   },
   {
-    "type": "TitleTemplate",
+    "type": "TitleTemplate1",
     "data": {
       "title": "Winter 2024"
     }
@@ -62,7 +90,7 @@
     "type": "TimelineTemplate1",
     "data": [
       {
-        "number": 27,
+        "number": "09/27",
         "header": "DSMLC Annual Final Competition",
         "points": [
           {
@@ -76,7 +104,7 @@
         }
       },
       {
-        "number": 12,
+        "number": "03/23",
         "header": "Fall Meet and Greet",
         "points": [
           {
