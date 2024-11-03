@@ -1,6 +1,6 @@
 import React from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
-import ImageTemplate from "./LogoImageTemplate";
+import ImageTemplate from "./ImageTemplate";
 import { ColumnTemplateData } from "@/app/DataLoader";
 
 const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
@@ -10,10 +10,13 @@ const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
         return (
           <div className="flex flex-col gap-7 px-5 lg:px-0 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto h-full">
             <div className="flex justify-center">
-              <ImageTemplate
-                image={data.imageLink || ""}
-                name={data.imageLink || ""}
-              />
+              {data.image && (
+                <ImageTemplate
+                  image={data.image.imageLink || ""}
+                  name={data.image.imageName || ""}
+                  type={data.image.imageType || ""}
+                />
+              )}
             </div>
             <SubtitleTemplate3 Data={data.header} />
             <div

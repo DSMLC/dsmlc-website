@@ -34,12 +34,20 @@
       {
         "header": "ColumnTemplate - Skill Development",
         "text": "Learn essential data science skills such as data wrangling, machine learning, and data visualization.",
-        "imageLink": "/images/dark_visionary_logo.png"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       },
       {
         "header": "ColumnTemplate - Networking Opportunities",
         "text": "Connect with industry experts and fellow enthusiasts through our events and meet-ups.",
-        "imageLink": "/images/dark_visionary_logo.png"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       }
     ]
   },
@@ -58,7 +66,12 @@
             "header": "Step 2: Interview",
             "text": "Participate in a short interview to discuss your goals and skills."
           }
-        ]
+        ],
+        "image": {
+          "imageLink": "/images/dark_discord.svg",
+          "imageName": "discord logo",
+          "imageType": "Logo"
+        }
       },
       {
         "number": 2,
@@ -68,7 +81,12 @@
             "header": "Step 1: Submit Application",
             "text": "Complete our online application form to express your interest."
           }
-        ]
+        ],
+        "image": {
+          "imageLink": "/images/profile/joseph_tandyo.jpg",
+          "imageName": "pic test",
+          "imageType": "Pic"
+        }
       }
     ]
   },
@@ -157,22 +175,38 @@
       {
         "title": "Infobubbletemplate 1",
         "text": "hi 1!",
-        "imageLink": "/images/dark_discord.svg"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       },
       {
         "title": "Hello 2",
         "text": "hi2 2!",
-        "imageLink": "/images/fire.svg"
+        "image": {
+          "imageLink": "/images/fire.svg",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       },
       {
         "title": "Hello 2",
         "text": "hi2 2!",
-        "imageLink": "/images/dark_instagram.svg"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       },
       {
         "title": "2nd row",
         "text": "hi 1!",
-        "imageLink": "/images/dark_discord.svg"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       }
     ]
   },

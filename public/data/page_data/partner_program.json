@@ -20,27 +20,47 @@
       {
         "header": "Access to Skilled Labor:",
         "text": "Gain access to motivated and skilled students who can provide innovative, data-driven solutions to your organizational challenges.",
-        "imageLink": "/images/dark_visionary_logo.png"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       },
       {
         "header": "Cost-effective Solutions:",
         "text": "Receive valuable insights and solutions at no cost, enabling data-driven decision-making without financial burden.",
-        "imageLink": "/images/dark_visionary_logo.png"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       },
       {
         "header": "Diverse Expertise:",
         "text": "Benefit from the diverse perspectives and expertise of student teams formed from various backgrounds.",
-        "imageLink": "/images/dark_visionary_logo.png"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       },
       {
         "header": "Project Management:",
         "text": "Projects are managed by experienced Project Managers and mentors, ensuring professional and high-quality outcomes.",
-        "imageLink": "/images/dark_visionary_logo.png"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       },
       {
         "header": "Data Analysis and Reporting:",
         "text": "Receive detailed data analysis and comprehensive reporting tailored to your specific needs.",
-        "imageLink": "/images/dark_visionary_logo.png"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       }
     ]
   },
@@ -49,7 +69,7 @@
     "data": [
       {
         "header": "How the Partnership Works",
-        "text": "Partnering with the Visionary Lab involves a clear and structured process designed to ensure the success of each project. Here’s the process:"
+        "text": "Partnering with the Visionary Lab involves a clear and structured process designed to ensure the success of each project."
       }
     ]
   },
@@ -68,7 +88,12 @@
             "header": "Initial Review:",
             "text": "The Visionary Lab’s Board of Directors reviews the proposals for alignment with the program’s objectives and feasibility."
           }
-        ]
+        ],
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "Visionary Lab Logo",
+          "imageType": "Logo"
+        }
       },
       {
         "number": 2,
@@ -76,13 +101,20 @@
         "points": [
           {
             "header": "Approval:",
-            "text": "Projects are approved based on their potential impact, feasibility, and alignment with the Visionary Lab’s mission."
+            "text": "Projects are approved based on their potential impact, feasibility, and alignment with the Visionary Lab’s mission.",
+            "imageLink": "/images/dark_visionary_logo.png",
+            "imageName": "Visionary Lab Logo"
           },
           {
             "header": "Assignment:",
             "text": "Approved projects are assigned to Project Managers who oversee the project from start to finish."
           }
-        ]
+        ],
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "Visionary Lab Logo",
+          "imageType": "Logo"
+        }
       },
       {
         "number": 3,
@@ -96,7 +128,12 @@
             "header": "Introduction:",
             "text": "An initial meeting is held with the partner organization to introduce the project team, and clarify project goals, deliverables, and timelines."
           }
-        ]
+        ],
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "Visionary Lab Logo",
+          "imageType": "Logo"
+        }
       },
       {
         "number": 4,
@@ -110,7 +147,12 @@
             "header": "Kick-off Meeting:",
             "text": "A kick-off meeting is held to finalize the project plan and ensure all parties are aligned."
           }
-        ]
+        ],
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "Visionary Lab Logo",
+          "imageType": "Logo"
+        }
       },
       {
         "number": 5,
@@ -128,7 +170,12 @@
             "header": "Mentorship:",
             "text": "Project Managers and experienced mentors provide guidance and support to the project teams."
           }
-        ]
+        ],
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "Visionary Lab Logo",
+          "imageType": "Logo"
+        }
       },
       {
         "number": 6,
@@ -146,7 +193,12 @@
             "header": "Feedback Collection:",
             "text": "Feedback is gathered from the partner organization and project team members to evaluate project success and identify areas for improvement."
           }
-        ]
+        ],
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "Visionary Lab Logo",
+          "imageType": "Logo"
+        }
       },
       {
         "number": 7,
@@ -164,7 +216,12 @@
             "header": "Documentation:",
             "text": "Lessons learned are documented to inform future projects and enhance the Visionary Lab’s processes."
           }
-        ]
+        ],
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "Visionary Lab Logo",
+          "imageType": "Logo"
+        }
       }
     ]
   },

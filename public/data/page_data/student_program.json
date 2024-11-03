@@ -19,7 +19,7 @@
     "data": [
       {
         "number": 1,
-        "header": "Project Team Members:",
+        "header": "Project Team Members",
         "points": [
           {
             "header": "Execution of Tasks:",
@@ -41,7 +41,7 @@
       },
       {
         "number": 2,
-        "header": "Project Managers:",
+        "header": "Project Managers",
         "points": [
           {
             "header": "Leadership:",
@@ -65,17 +65,29 @@
       {
         "header": "Hands-on Experience:",
         "text": "Gaining practical experience in applying data science concepts to real-world problems.",
-        "imageLink": "/images/dark_visionary_logo.png"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       },
       {
         "header": "Skill Development:",
         "text": " Developing critical skills in data analysis, project management, teamwork, and problem-solving.",
-        "imageLink": "/images/dark_visionary_logo.png"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       },
       {
         "header": "Professional Growth:",
         "text": "Building industry connections and gaining insights into career paths in data science.",
-        "imageLink": "/images/dark_visionary_logo.png"
+        "image": {
+          "imageLink": "/images/dark_visionary_logo.png",
+          "imageName": "visionary lab logo",
+          "imageType": "Logo"
+        }
       }
     ]
   },

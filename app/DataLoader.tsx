@@ -35,7 +35,11 @@ export interface ColumnTemplateData {
   data: {
     header: string;
     text: string;
-    imageLink?: string;
+    image?: {
+      imageLink?: string;
+      imageName?: string;
+      imageType?: string;
+    };
   }[];
 }
 
@@ -78,7 +82,11 @@ export interface InfoBubbleTemplateData {
   data: {
     title: string;
     text: string;
-    imageLink: string;
+    image?: {
+      imageLink?: string;
+      imageName?: string;
+      imageType?: string;
+    };
   }[];
 }
 
@@ -123,7 +131,15 @@ export interface TimelineTemplateData1 {
   data: {
     number: number;
     header: string;
-    points: { header: string; text: string }[];
+    points: {
+      header: string;
+      text: string;
+    }[];
+    image?: {
+      imageLink?: string;
+      imageName?: string;
+      imageType?: string;
+    };
   }[];
 }
 

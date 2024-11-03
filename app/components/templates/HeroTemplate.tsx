@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import SocialMediaData from "../../../public/data/club_links.json";
-import ImageTemplate from "./LogoImageTemplate";
+import ImageTemplate from "./ImageTemplate";
 import { HeroTemplateData } from "@/app/DataLoader";
 
 const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
@@ -9,7 +9,11 @@ const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
     <div className="w-full h-[85vh] flex-col">
       <div className="flex justify-center items-center h-full gap-10 flex-col text-dsmlcBlack">
         <div className="font-redHat lg:text-4xl md:text-3xl text-2xl md:gap-10 gap-5 flex md:flex-row flex-col md:items-end items-center justify-center">
-          <ImageTemplate image={Data.logo?.dark_logo || ""} name={Data.name} />
+          <ImageTemplate
+            image={Data.logo?.dark_logo || ""}
+            name={Data.name}
+            type="Logo"
+          />
           <div className="flex flex-col md:text-start text-center">
             {Data.superscript_name && (
               <span

@@ -42,17 +42,29 @@
       {
         "title": "Welcome to Our Team!",
         "text": "Join us to collaborate in data science!",
-        "imageLink": "/images/heart.svg"
+        "image": {
+          "imageLink": "/images/heart.svg",
+          "imageName": "heart logo",
+          "imageType": "Logo"
+        }
       },
       {
         "title": "Who We Are",
         "text": "We’re passionate data scientists.",
-        "imageLink": "/images/flask.svg"
+        "image": {
+          "imageLink": "/images/flask.svg",
+          "imageName": "flask logo",
+          "imageType": "Logo"
+        }
       },
       {
         "title": "Why Join Us?",
         "text": "Build Projects and develop your skills!",
-        "imageLink": "/images/fire.svg"
+        "image": {
+          "imageLink": "/images/fire.svg",
+          "imageName": "fire logo",
+          "imageType": "Logo"
+        }
       }
     ]
   }
