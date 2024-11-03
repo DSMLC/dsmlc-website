@@ -1,23 +1,55 @@
+"use client";
+
 import React from "react";
+import { motion, useInView } from "framer-motion";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
 import HeaderTextTemplate3 from "./SubHeaderTextTemplate";
 import { TimelineTemplateData2 } from "@/app/DataLoader";
 
-const TimelineTemplate = ({ Data }: { Data: TimelineTemplateData2["data"] }) => {
+const TimelineSection = ({ data, index }: { data: any; index: number }) => {
+  const ref = React.useRef(null);
+  const isInView = useInView(ref, {
+    once: true,
+    margin: "-100px",
+  });
+
+  return (
+    <motion.div
+      ref={ref}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.2, // Stagger effect based on index
+        ease: "easeOut",
+      }}
+      className="flex flex-col md:gap-5 px-5 lg:pl-5 md:pt-5 pt-11 lg:w-full max-w-4xl w-fit m-auto h-full md:text-center text-start"
+    >
+      <div className="md:text-2xl text-lg text-dsmlcBlack font-bold flex items-center justify-center">
+        {data.number}
+      </div>
+      <SubtitleTemplate3 Data={data.header} />
+      <HeaderTextTemplate3 Data={data.points} />
+    </motion.div>
+  );
+};
+
+const TimelineTemplate = ({
+  Data,
+}: {
+  Data: TimelineTemplateData2["data"];
+}) => {
   return (
     <div className="relative mb-16 text-start grid md:gap-14 gap-0 md:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-fit m-auto items-stretch">
-      <div className="md:absolute none top-0 left-1/2 w-px h-full bg-dsmlcDataOrange transform -translate-x-1/2"></div>
-      {Data.map((data) => {
-        return (
-          <div className="flex flex-col md:gap-5 px-5 lg:pl-5 md:pt-5 pt-11 lg:w-full max-w-4xl w-fit m-auto h-full md:text-center text-start">
-            <div className="md:text-2xl text-lg text-dsmlcBlack font-bold flex items-center justify-center">
-              {data.number}
-            </div>
-            <SubtitleTemplate3 Data={data.header} />
-            <HeaderTextTemplate3 Data={data.points} />
-          </div>
-        );
-      })}
+      <motion.div
+        initial={{ scaleY: 0 }}
+        animate={{ scaleY: 1 }}
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="md:absolute none top-0 left-1/2 w-px h-full bg-dsmlcDataOrange transform -translate-x-1/2"
+      />
+      {Data.map((data, index) => (
+        <TimelineSection key={index} data={data} index={index} />
+      ))}
     </div>
   );
 };
