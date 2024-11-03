@@ -18,8 +18,8 @@ const TimelineTemplate1 = ({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.remove(
-              "translate-x-full",
-              "-translate-x-full",
+              "sm:translate-x-full",
+              "sm:-translate-x-full",
               "opacity-0"
             );
             entry.target.classList.add("translate-x-0", "opacity-100");
@@ -27,8 +27,8 @@ const TimelineTemplate1 = ({
         });
       },
       {
-        threshold: 0.1,
-        rootMargin: "0px",
+        threshold: 0.7,
+        rootMargin: "-50px 500px -50px 500px",
       }
     );
 
@@ -51,15 +51,19 @@ const TimelineTemplate1 = ({
           <React.Fragment key={index}>
             {index % 2 === 0 ? <div className="hidden md:block"></div> : null}
 
-            <div className="flex flex-col gap-7 px-5 pl-10 lg:pl-5 pt-11 lg:w-full max-w-4xl w-fit m-auto h-full">
+            <div className="flex flex-col gap-7 lg:px-0 px-5 pl-10 lg:pl-5 pt-11 lg:w-full max-w-4xl w-fit m-auto h-full">
               <div className="absolute md:left-1/2 left-4 transform -translate-x-1/2 bg-dsmlcParchment text-center md:text-2xl text-lg text-dsmlcDataOrange font-bold md:w-12 md:h-12 w-7 h-7 flex items-center justify-center rounded-full border-2 border-dsmlcBlack border-solid">
                 {data.number}
               </div>
 
               <div
-                ref={(el) => (timelineRefs.current[index] = el)}
-                className={`flex flex-col gap-7 px-5 pl-10 lg:pl-5 pt-11 lg:w-full max-w-4xl w-fit m-auto h-full transform transition-all duration-1000 ease-out opacity-0 ${
-                  index % 2 === 0 ? "-translate-x-full" : "translate-x-full"
+                ref={(el) => {
+                  timelineRefs.current[index] = el;
+                }}
+                className={`flex flex-col gap-7 lg:px-0 px-5 pl-10 lg:pl-5 pt-11 lg:w-full max-w-4xl w-fit m-auto h-full transform transition-all duration-1000 ease-in-out opacity-0 ${
+                  index % 2 === 0
+                    ? "sm:translate-x-full"
+                    : "sm:-translate-x-full"
                 }`}
               >
                 <SubtitleTemplate3 Data={data.header} />

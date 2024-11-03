@@ -10,7 +10,7 @@ const TimelineSection = ({ data, index }: { data: any; index: number }) => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    margin: "-100px",
+    margin: "-250px",
   });
 
   return (
@@ -19,11 +19,11 @@ const TimelineSection = ({ data, index }: { data: any; index: number }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{
-        duration: 0.5,
-        delay: index * 0.2, // Stagger effect based on index
+        duration: 1,
+        delay: 0, // Stagger effect based on index
         ease: "easeOut",
       }}
-      className="flex flex-col md:gap-5 px-5 lg:pl-5 md:pt-5 pt-11 lg:w-full max-w-4xl w-fit m-auto h-full md:text-center text-start"
+      className="flex flex-col md:gap-5 lg:px-0 px-5 lg:pl-5 md:pt-5 pt-11 lg:w-full max-w-4xl w-fit m-auto h-full md:text-center text-start"
     >
       <div className="md:text-2xl text-lg text-dsmlcBlack font-bold flex items-center justify-center">
         {data.number}

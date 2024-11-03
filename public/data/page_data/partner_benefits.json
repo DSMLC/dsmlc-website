@@ -310,8 +310,9 @@
     "data": {
       "title": "Getting Started",
       "descriptions": [
-        "To start working with the Visionary Lab, simply reach out to us via email or phone to express your interest. We will provide you with a project proposal template and guide you through the initial steps. Once your proposal is submitted and reviewed, our team will work with you to form a project plan and assemble a team of skilled students. We look forward to collaborating with you to deliver innovative, data-driven solutions that meet your organization’s needs.",
-        "Please reach out to us using the following contact details:"
+        "To start working with the Visionary Lab, simply reach out to us via email or phone to express your interest.",
+        "We will provide you with a project proposal template and guide you through the initial steps. Once your proposal is submitted and reviewed, our team will work with you to form a project plan and assemble a team of skilled students.",
+        "We look forward to collaborating with you to deliver innovative, data-driven solutions that meet your organization’s needs."
       ],
       "bullets": {
         "bulletsTitle": "Contact Information:",
