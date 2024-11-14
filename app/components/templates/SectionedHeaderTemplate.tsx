@@ -10,9 +10,9 @@ const SectionedHeaderTemplate = ({
 }) => {
   return (
     <div className="flex flex-col w-full items-center pb-16 gap-10">
-      {Data.map((data) => {
+      {Data.map((data, index) => {
         return (
-          <div className="flex flex-col gap-3 lg:px-0 px-5 lg:w-full max-w-4xl w-fit m-auto text-start">
+          <div key={index} className="flex flex-col gap-3 lg:px-0 px-5 lg:w-full max-w-4xl w-fit m-auto text-start">
             <SubtitleTemplate3 Data={data.header} />
             <SubHeaderTextTemplate Data={data.subheaders} />
           </div>

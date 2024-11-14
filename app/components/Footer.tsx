@@ -33,9 +33,9 @@ const Footer = () => {
         })}{" "}
       </div>
       <div className="flex flex-row gap-5">
-        {Object.values(FooterData.social_media).map((social_media) => {
+        {Object.values(FooterData.social_media).map((social_media, index) => {
           return (
-            <div className="flex items-center text-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1">
+            <div key={index} className="flex items-center text-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1">
               <a href={social_media.link} target="_blank">
                 <Image
                   src={social_media.dark_logo}
