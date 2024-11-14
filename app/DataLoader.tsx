@@ -17,6 +17,7 @@ import logoData from "../public/data/logo.json";
 import InfoBubbleTemplate from "./components/templates/InfoBubbleTemplate";
 import TitleTemplate2 from "./components/templates/TitleTemplate2";
 import TitleTemplate1 from "./components/templates/TitleTemplate1";
+import CarouselTemplate from "./components/templates/CarouselTemplate";
 
 export interface ApplicationTemplateData {
   type: "ApplicationTemplate";
@@ -32,6 +33,18 @@ export interface ApplicationTemplateData {
       }[];
     };
     button?: { buttonLink: string; buttonText: string };
+  };
+}
+
+export interface CarouselTemplateData {
+  type: "CarouselTemplate";
+  data: {
+    image: {
+      imageLink?: string;
+      imageName?: string;
+      imageType?: string;
+    }[];
+    interval?: number;
   };
 }
 
@@ -175,6 +188,7 @@ export interface TitleTemplateData2 {
 
 export type PageData =
   | ColumnTemplateData
+  | CarouselTemplateData
   | TitleTemplateData1
   | TitleTemplateData2
   | TimelineTemplateData1
@@ -212,6 +226,7 @@ const templateMap: {
   SubtitleTemplate1: SubtitleTemplate1,
   SubtitleTemplate2: SubtitleTemplate2,
   SubtitleTemplate3: SubtitleTemplate3,
+  CarouselTemplate: CarouselTemplate,
 };
 
 const resolveData = (pageData: PageData): any => {

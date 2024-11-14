@@ -19,11 +19,6 @@ export default async function Home() {
       {HomeData.map((section, index) => (
         <DataLoader key={index} pageData={section} />
       ))}
-      <CarouselTemplate
-        images={images}
-        interval={5000} // Optional: defaults to 5000ms (5 seconds)
-        type="Pic" // Optional: defaults to "Pic"
-      />
     </div>
   );
 }

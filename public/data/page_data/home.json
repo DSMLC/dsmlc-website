@@ -59,6 +59,29 @@
     ]
   },
   {
+    "type": "CarouselTemplate",
+    "data": {
+      "image": [
+        {
+          "imageLink": "/images/events/fall_2024/weflourish.png",
+          "imageName": "Picture of DSMLC's Fall 2024 WeFlourish Event",
+          "imageType": "Pic"
+        },
+        {
+          "imageLink": "/images/events/fall_2024/int_and_app2.png",
+          "imageName": "Picture of DSMLC's Fall 2024 Int and App Event",
+          "imageType": "Pic"
+        },
+        {
+          "imageLink": "/images/events/fall_2024/meet_and_greet.png",
+          "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+          "imageType": "Pic"
+        }
+      ],
+      "interval": 5000
+    }
+  },
+  {
     "type": "TimelineTemplate1",
     "data": [
       {
