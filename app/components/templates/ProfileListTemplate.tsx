@@ -12,18 +12,24 @@ export const ProfileListTemplate = ({
 }) => {
   return (
     <div>
-      {Data.map((roleGroup) => {
+      {Data.map((roleGroup, index) => {
         return (
-          <div className="flex flex-col gap-10 lg:px-0 py-10 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center">
+          <div
+            key={index}
+            className="flex flex-col gap-10 lg:px-0 py-10 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center"
+          >
             <SubtitleTemplate Data={roleGroup} />
             <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
               {Execs.filter((exec) =>
                 exec.role.some(
                   (role) => role.group == roleGroup && role.roles.length > 0
                 )
-              ).map((filteredExec) => {
+              ).map((filteredExec, index) => {
                 return (
-                  <div className="flex flex-col gap-1 text-center justify-between">
+                  <div
+                    key={index}
+                    className="flex flex-col gap-1 text-center justify-between"
+                  >
                     <Image
                       src={filteredExec.profile || EmptyProfie || ""}
                       alt="Executive Profile Picture"
@@ -42,13 +48,15 @@ export const ProfileListTemplate = ({
                       <span className="text-sm italic flex flex-wrap items-center justify-center px-2">
                         {filteredExec.program?.year}
                         {filteredExec.program?.programs?.length > 0 &&
-                          filteredExec.program?.programs.map((program) => {
-                            return (
-                              <div key={program} className="w-full text-center">
-                                {program}
-                              </div>
-                            );
-                          })}
+                          filteredExec.program?.programs.map(
+                            (program, index) => {
+                              return (
+                                <div key={index} className="w-full text-center">
+                                  {program}
+                                </div>
+                              );
+                            }
+                          )}
                       </span>
                     )}
                     {filteredExec.role

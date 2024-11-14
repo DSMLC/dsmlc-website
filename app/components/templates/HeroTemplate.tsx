@@ -39,9 +39,12 @@ const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
           </div>
         )}
         <div className="flex-row flex gap-10 items-center">
-          {Object.values(SocialMediaData.social_media).map((app) => {
+          {Object.values(SocialMediaData.social_media).map((app, index) => {
             return (
-              <div className="flex items-center text-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1 md:h-10 h-9">
+              <div
+                key={index}
+                className="flex items-center text-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1 md:h-10 h-9"
+              >
                 {" "}
                 <a href={app.link} target="_blank">
                   <Image

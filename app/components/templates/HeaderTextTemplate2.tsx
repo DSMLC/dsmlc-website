@@ -9,9 +9,12 @@ const HeaderTextTemplate2 = ({
 }) => {
   return (
     <div className="flex flex-col w-full items-center">
-      {Data.map((data) => {
+      {Data.map((data, index) => {
         return (
-          <div className="flex flex-col gap-7 lg:px-0 px-5 pb-10 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center">
+          <div
+            key={index}
+            className="flex flex-col gap-7 lg:px-0 px-5 pb-10 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center"
+          >
             <SubtitleTemplate Data={data.header} />
             <div
               className="text-dsmlcBlack tracking-wide max-w-3xl font-quicksand lg:text-lg md:text-base text-sm"

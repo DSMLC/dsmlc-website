@@ -48,7 +48,7 @@ export default function ContactPage() {
               Get in Touch
             </h2>
             <p className="text-xl text-dsmlcParchment font-quicksand mb-8">
-              We'd love to hear from you. Send us a message and we'll respond as
+              We&apos;d love to hear from you. Send us a message and we&apos;ll respond as
               soon as possible.
             </p>
             <div className="space-y-6">

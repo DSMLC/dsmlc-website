@@ -35,7 +35,7 @@ export default function Component() {
               Membership Benefits
             </h2>
             <p className="text-dsmlcWhite text-lg mt-2">
-              What you'll get when you join
+              What you&apos;ll get when you join
             </p>
           </div>
           <div className="p-8">

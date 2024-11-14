@@ -14,8 +14,12 @@ const ApplicationSection = ({
           {Data.title}
         </h2>
 
-        {Data.descriptions.map((desc) => {
-          return <p className="text-lg text-dsmlcBlack mb-8">{desc}</p>;
+        {Data.descriptions.map((desc, index) => {
+          return (
+            <p key={index} className="text-lg text-dsmlcBlack mb-8">
+              {desc}
+            </p>
+          );
         })}
 
         <div className="space-y-4 mb-8">

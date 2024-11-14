@@ -19,9 +19,10 @@ const Footer = () => {
         </a>
       </div>
       <div className="flex md:flex-row lg:w-1/2 md:w-full md:gap-12 md:justify-center lg:justify-evenly gap-5 w-fit flex-col items-center">
-        {Object.values(FooterData.links_section).map((links) => {
+        {Object.values(FooterData.links_section).map((links, index) => {
           return (
             <a
+              key={index}
               className="font-semibold pb-1 border-b-2 border-dsmlcDataOrange hover:text-dsmlcDataOrange transition-all duration-300 font-redHat w-fit"
               href={links.link}
               target="_blank"

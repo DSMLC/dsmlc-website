@@ -98,7 +98,7 @@ const NavbarLinksPhone = () => {
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [sidebarOpen]);
+  }, [sidebarOpen, handleClickOutside]);
 
   return (
     <div className="items-center lg:hidden md:hidden sm:flex flex">
