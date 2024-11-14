@@ -44,7 +44,7 @@
         ]
       },
       "button": {
-        "buttonLink": "https://example.com/register",
+        "buttonLink": "/events/upcoming",
         "buttonText": "View All Events"
       }
     }
@@ -101,7 +101,7 @@
         "Partner with us and connect with the next generation of professionals. Sponsoring our organization provides brand visibility, access to top talent, and engagement opportunities with students and academics."
       ],
       "button": {
-        "buttonLink": "https://example.com/sponsorship",
+        "buttonLink": "/about/sponsors",
         "buttonText": "Learn More"
       }
     }
