@@ -25,7 +25,11 @@ export interface ApplicationTemplateData {
     descriptions: string[];
     bullets?: {
       bulletsTitle?: string;
-      bullets?: { title: string; text: string }[];
+      bullets?: {
+        title: string;
+        text: string;
+        link?: { linkName: string; link: string };
+      }[];
     };
     button?: { buttonLink: string; buttonText: string };
   };

@@ -1,0 +1,54 @@
+[
+  {
+    "type": "TitleTemplate1",
+    "data": {
+      "title": "DSMLC Annual Final Competition"
+    }
+  },
+  {
+    "type": "ApplicationTemplate",
+    "data": {
+      "title": "About the Competition",
+      "descriptions": [
+        "The DSMLC Final Competition offers students the chance to apply their classroom knowledge to solve practical, real-world data science challenges.",
+        "Participants work with real datasets from industry partners and coursework across sectors providing exposure to diverse data science applications.",
+        "This annual event attracts students from various academic backgrounds, with winners emerging from a broad range of disciplines."
+      ],
+      "bullets": {
+        "bulletsTitle": "Competition Categories",
+        "bullets": [
+          {
+            "title": "Data Visualization",
+            "text": "Students focus on communicating insights effectively through data visualizations."
+          },
+          {
+            "title": "Research Approach",
+            "text": "A research-oriented category, allowing students to approach data science problems through exploration and investigation."
+          },
+          {
+            "title": "Machine Learning Techniques",
+            "text": "Students leverage machine learning algorithms to solve complex data problems."
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "SectionedHeaderTemplate",
+    "data": [
+      {
+        "header": "Event Overview",
+        "subheaders": [
+          {
+            "header": "Grand Symposium",
+            "text": "The competition concludes with an in-person symposium where finalists present projects to peers, industry experts, and academic mentors. This presentation event is a platform to demonstrate the practical applications of their projects and skills."
+          },
+          {
+            "header": "Networking Opportunities",
+            "text": "The symposium allows participants to connect directly with industry professionals, gaining insights on trends, potential project applications, and the evolving needs of data science. These interactions can lead to mentorships, internships, and full-time roles."
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,119 @@
+[
+  {
+    "type": "TitleTemplate1",
+    "data": {
+      "title": "Workshops",
+      "subtitle": "Explore the workshop sessions that DSMLC hosts for its members."
+    }
+  },
+  {
+    "type": "ApplicationTemplate",
+    "data": {
+      "title": "Upcoming Workshop",
+      "descriptions": [
+        "Join our next workshop to deepen your skills in data science and machine learning. This session will focus on enhancing ETL processes using SQL and PySpark, providing a hands-on learning experience through a business case study.",
+        "Date and Time: Friday, November 29, 2024, from 6:00 PM to 7:30 PM MST",
+        "Location: Online (the Zoom link will be shared on Discord and social media prior to the workshop)"
+      ],
+      "bullets": {
+        "bulletsTitle": "Next Workshop",
+        "bullets": [
+          {
+            "title": "DSMLC Clouds and Businesses: Enhancing ETL with SQL and PySpark",
+            "text": "This workshop provides a comprehensive understanding of the loading phase in the ETL (Extract, Transform, Load) data pipeline. Participants will learn SQL fundamentals, benefits, and best practices for writing SQL queries. Using Google Colab, we'll explore data querying and data distribution with PySpark through a real-world business case study."
+          }
+        ]
+      },
+      "button": {
+        "buttonLink": "https://suuofc.campuslabs.ca/engage/event/278202",
+        "buttonText": "Register"
+      }
+    }
+  },
+  {
+    "type": "ApplicationTemplate",
+    "data": {
+      "title": "Our Previous Workshops",
+      "descriptions": [
+        "Here is a list of workshops that DSMLC has organized, covering topics from Python programming and data visualization to machine learning and SQL. These workshops provided our members with hands-on experience using real-world tools and techniques."
+      ],
+      "bullets": {
+        "bulletsTitle": "List of Past Workshops",
+        "bullets": [
+          {
+            "title": "0.1 Intro to Python",
+            "text": "An introductory workshop on Python programming fundamentals.",
+            "link": {
+              "linkName": "View Workshop",
+              "link": "https://drive.google.com/open?id=1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37"
+            }
+          },
+          {
+            "title": "0.2 Intro to Pandas",
+            "text": "An introduction to the Pandas library, focusing on data manipulation and analysis.",
+            "link": {
+              "linkName": "View Workshop",
+              "link": "https://drive.google.com/open?id=1WZ98o5cK59sANYLivBTq4pxI3UN96fR3"
+            }
+          },
+          {
+            "title": "0.3 Intro to Data Visualization",
+            "text": "Workshop on data visualization techniques and tools.",
+            "link": {
+              "linkName": "View Workshop",
+              "link": "https://drive.google.com/open?id=12JQVaQjlXbzWHKpjF4tWDUE2pUqxUZLS"
+            }
+          },
+          {
+            "title": "0.4 Intro to Supervised Learning Pt.1",
+            "text": "Part 1 of an introduction to supervised learning concepts in machine learning.",
+            "link": {
+              "linkName": "View Workshop",
+              "link": "https://drive.google.com/open?id=1t0nJKAyOO8Xbx2w8Le-QQQH2tUHfPzr2"
+            }
+          },
+          {
+            "title": "0.5 Intro to Supervised Learning Pt.2",
+            "text": "Part 2 of an introduction to supervised learning concepts in machine learning.",
+            "link": {
+              "linkName": "View Workshop",
+              "link": "https://drive.google.com/open?id=18eNQLCqK7NAxbWJti5T0oH0lL8LxgO6s"
+            }
+          },
+          {
+            "title": "0.6 Intro to SQL",
+            "text": "An introduction to SQL for managing and querying databases.",
+            "link": {
+              "linkName": "View Workshop",
+              "link": "https://drive.google.com/open?id=1p006H_RDLjapfkj91p9EXSSvKwsJpXQQ"
+            }
+          },
+          {
+            "title": "0.7 Intro to Power BI",
+            "text": "A beginner’s guide to Power BI for data visualization and business intelligence.",
+            "link": {
+              "linkName": "View Workshop",
+              "link": "https://drive.google.com/open?id=1KKYHNbd5BeX8_tw1mrtkJYl614dwGopT"
+            }
+          },
+          {
+            "title": "0.8 Machine Learning Algorithmic Approaches by Khizer",
+            "text": "Workshop covering different algorithmic approaches in machine learning.",
+            "link": {
+              "linkName": "View Workshop",
+              "link": "https://drive.google.com/open?id=1iI_Rqo_xmTlTzLAflSDKHF9UFohtsrmy"
+            }
+          },
+          {
+            "title": "0.9 Data Visualization and Manipulation Using Python",
+            "text": "Workshop on advanced data visualization and manipulation techniques using Python.",
+            "link": {
+              "linkName": "View Workshop",
+              "link": "https://drive.google.com/open?id=1n4zDqrl3mRltO3L5rHclUmagH4jBsa_d"
+            }
+          }
+        ]
+      }
+    }
+  }
+]

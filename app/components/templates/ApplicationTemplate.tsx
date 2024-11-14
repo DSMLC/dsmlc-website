@@ -30,6 +30,14 @@ const ApplicationSection = ({
                 <li key={index}>
                   <span className="font-bold">{bullet.title} </span>
                   {bullet.text}
+                  <br></br>
+                  <a
+                    className="text-dsmlcDataOrange underline"
+                    href={bullet.link?.link}
+                    target="_blank"
+                  >
+                    {bullet.link?.linkName}
+                  </a>
                 </li>
               ))}
             </ul>
