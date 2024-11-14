@@ -19,14 +19,6 @@
         "link": "/execs"
       },
       {
-        "name": "Official Members",
-        "link": "/members"
-      },
-      {
-        "name": "Constitution",
-        "link": "/constitution"
-      },
-      {
         "name": "Sponsors",
         "link": "/sponsors"
       }
@@ -50,8 +42,8 @@
         "link": "/workshops"
       },
       {
-        "name": "Other Events",
-        "link": "/other"
+        "name": "Upcoming Events",
+        "link": "/upcoming"
       }
     ]
   },

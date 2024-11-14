@@ -1,0 +1,57 @@
+[
+  {
+    "type": "TitleTemplate1",
+    "data": {
+      "title": "Upcoming Events",
+      "subtitle": "Discover upcoming events hosted by DSMLC, offering networking, learning, and global opportunities."
+    }
+  },
+  {
+    "type": "ApplicationTemplate",
+    "data": {
+      "title": "DSMLC Fall 2024 Networking Night",
+      "descriptions": [
+        "Expand your professional network at our Networking Night, where you'll have the chance to connect with industry experts, academics, alumni, and peers in the field of data science and machine learning. This event is designed to facilitate meaningful conversations and create opportunities for mentorship, collaboration, and career growth.",
+        "Date and Time: Thursday, November 21, 2024, from 6:00 PM to 8:00 PM MST",
+        "Location: TBD"
+      ],
+      "bullets": {
+        "bulletsTitle": "Event Highlights",
+        "bullets": [
+          {
+            "title": "Perks",
+            "text": "Free Food"
+          }
+        ]
+      },
+      "button": {
+        "buttonLink": "https://suuofc.campuslabs.ca/engage/event/274906",
+        "buttonText": "Register"
+      }
+    }
+  },
+  {
+    "type": "ApplicationTemplate",
+    "data": {
+      "title": "DSMLC x UCalgary Study Abroad: Data Science Without Borders",
+      "descriptions": [
+        "Ready to take your data science journey international? Join us for Data Science Without Borders, a collaborative event between DSMLC and the UCalgary Study Abroad Office. Discover global education and work opportunities in data science and machine learning, with insights from a Study Abroad Office speaker on programs and career paths designed to take your skills to the next level.",
+        "Date and Time: Monday, November 25, 2024, from 6:00 PM to 7:30 PM MST",
+        "Location: TBD"
+      ],
+      "bullets": {
+        "bulletsTitle": "Event Highlights",
+        "bullets": [
+          {
+            "title": "Perks",
+            "text": "Free Food"
+          }
+        ]
+      },
+      "button": {
+        "buttonLink": "https://suuofc.campuslabs.ca/engage/event/277138",
+        "buttonText": "Register"
+      }
+    }
+  }
+]

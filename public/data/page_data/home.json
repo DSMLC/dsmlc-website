@@ -1,60 +1,60 @@
 [
   {
+    "type": "HeroTemplate",
+    "data": "main_logo"
+  },
+  {
     "type": "TitleTemplate1",
     "data": {
-      "title": "TitleTemplate - Welcome to Our Club",
-      "subtitle": "Explore the world of data science and machine learning"
+      "title": "What We Do",
+      "subtitle": "Explore our initiatives that foster practical skills and bridge the gap between theory and real-world applications."
     }
-  },
-  {
-    "type": "TitleTemplate2",
-    "data": {
-      "title": "TitleTemplate2 - Welcome to Our Club",
-      "subtitle": "Explore the world of data science and machine learning"
-    }
-  },
-  {
-    "type": "HeaderTextTemplate1",
-    "data": [
-      {
-        "header": "HeaderTextTemplate1 - Our Mission",
-        "text": "To provide hands-on experience in data science through workshops, competitions, and industry collaborations."
-      },
-      {
-        "header": "HeaderTextTemplate1 - Why Join?",
-        "text": "Gain practical skills, network with professionals, and work on real-world projects to enhance your career prospects."
-      }
-    ]
   },
   {
     "type": "HeaderTextTemplate2",
     "data": [
       {
-        "header": "HeaderTextTemplate2 - Community Impact",
-        "text": "We partner with local organizations to provide data-driven solutions that benefit the community and foster student growth."
+        "header": "Workshops",
+        "text": "Our workshops provide interactive learning experiences, covering topics essential to developing technical skills in data science and related fields."
+      },
+      {
+        "header": "Competitions",
+        "text": "Our competitions allow participants to demonstrate their knowledge and skills by tackling practical challenges in data science."
+      },
+      {
+        "header": "Networking Events",
+        "text": "We host networking events that connect students with professionals and peers, creating opportunities for mentorship and career growth."
       }
     ]
   },
   {
-    "type": "ColumnTemplate",
+    "type": "ApplicationTemplate",
+    "data": {
+      "title": "Upcoming Event",
+      "descriptions": [
+        "Join us for our next event! This is a great opportunity to connect with others and enhance your knowledge and skills."
+      ],
+      "bullets": {
+        "bulletsTitle": "Next Event",
+        "bullets": [
+          {
+            "title": "Networking Night",
+            "text": "An event designed to help attendees expand their network and learn from industry experts, academic mentors, and fellow participants."
+          }
+        ]
+      },
+      "button": {
+        "buttonLink": "https://example.com/register",
+        "buttonText": "View All Events"
+      }
+    }
+  },
+  {
+    "type": "HeaderTextTemplate2",
     "data": [
       {
-        "header": "ColumnTemplate - Skill Development",
-        "text": "Learn essential data science skills such as data wrangling, machine learning, and data visualization.",
-        "image": {
-          "imageLink": "/images/dark_visionary_logo.png",
-          "imageName": "visionary lab logo",
-          "imageType": "Logo"
-        }
-      },
-      {
-        "header": "ColumnTemplate - Networking Opportunities",
-        "text": "Connect with industry experts and fellow enthusiasts through our events and meet-ups.",
-        "image": {
-          "imageLink": "/images/dark_visionary_logo.png",
-          "imageName": "visionary lab logo",
-          "imageType": "Logo"
-        }
+        "header": "Highlights",
+        "text": "Explore some of our recent initiatives and events that have enriched our members' learning experience."
       }
     ]
   },
@@ -63,201 +63,47 @@
     "data": [
       {
         "number": "1",
-        "header": "TimelineTemplate1 - Joining Process",
+        "header": "Annual Competition Recap",
         "points": [
           {
-            "header": "Step 1: Submit Application",
-            "text": "Complete our online application form to express your interest."
-          },
-          {
-            "header": "Step 2: Interview",
-            "text": "Participate in a short interview to discuss your goals and skills."
-          }
-        ],
-        "image": {
-          "imageLink": "/images/dark_discord.svg",
-          "imageName": "discord logo",
-          "imageType": "Logo"
-        }
-      },
-      {
-        "number": "2",
-        "header": "TimelineTemplate1 - Joining Process",
-        "points": [
-          {
-            "header": "Step 1: Submit Application",
-            "text": "Complete our online application form to express your interest."
-          }
-        ],
-        "image": {
-          "imageLink": "/images/profile/joseph_tandyo.jpg",
-          "imageName": "pic test",
-          "imageType": "Pic"
-        }
-      }
-    ]
-  },
-  {
-    "type": "TimelineTemplate2",
-    "data": [
-      {
-        "number": "1",
-        "header": "TimelineTemplate2 - Event Planning",
-        "points": [
-          {
-            "header": "Step 1: Brainstorm",
-            "text": "Our team collaborates to come up with unique event ideas for the semester."
-          },
-          {
-            "header": "Step 2: Execution",
-            "text": "Events are organized with attention to detail to ensure a great experience for all participants."
+            "header": "Overview",
+            "text": "Our recent competition saw an increase in participation and support, featuring impactful sessions and valuable project showcases."
           }
         ]
       },
       {
         "number": "2",
-        "header": "TimelineTemplate2 - Event Planning",
+        "header": "Technical Workshop",
         "points": [
           {
-            "header": "Step 2: Brainstorm",
-            "text": "Our team collaborates to come up with unique event ideas for the semester."
+            "header": "Overview",
+            "text": "A session focusing on real-world applications of technical skills, offering participants hands-on experience and practical insights."
+          }
+        ]
+      },
+      {
+        "number": "3",
+        "header": "Data Visualization Workshop",
+        "points": [
+          {
+            "header": "Overview",
+            "text": "An interactive session on creating effective visual reports, enabling participants to communicate data insights through visualizations."
           }
         ]
       }
     ]
-  },
-  {
-    "type": "FAQTemplate",
-    "data": {
-      "header": "FAQTemplate - Frequently Asked Questions",
-      "faq": [
-        {
-          "question": "What is the DSML Club?",
-          "answer": "The Data Science and Machine Learning Club is a student organization focused on data science education and experience."
-        },
-        {
-          "question": "How can I join?",
-          "answer": "You can join by submitting an application on our website or attending our events."
-        }
-      ]
-    }
   },
   {
     "type": "ApplicationTemplate",
     "data": {
-      "title": "ApplicationTemplate",
+      "title": "Become a Sponsor",
       "descriptions": [
-        "We're excited that you're interested in joining our executive team! As a member of our leadership, you'll have the opportunity to shape the future of data science and machine learning on our campus.",
-        "We're looking for passionate individuals who are eager to learn, lead, and make a difference. Whether you're an experienced data scientist or just starting your journey, we welcome your application."
+        "Partner with us and connect with the next generation of professionals. Sponsoring our organization provides brand visibility, access to top talent, and engagement opportunities with students and academics."
       ],
-      "bullets": {
-        "bulletsTitle": "Available Positions:",
-        "bullets": [
-          { "title": "Junior VP Events:", "text": "1-2 positions available" },
-          { "title": "Competition Director:", "text": "1 position available" },
-          {
-            "title": "Junior Competition Director:",
-            "text": "1 position available"
-          },
-          { "title": "Workshop Directors:", "text": "1-2 positions available" },
-          {
-            "title": "Visionary Lab Board of Directors:",
-            "text": "Positions available"
-          }
-        ]
-      },
       "button": {
-        "buttonLink": "https://forms.gle/1gf3dtyjecYHpUQaA",
-        "buttonText": "Apply Now"
+        "buttonLink": "https://example.com/sponsorship",
+        "buttonText": "Learn More"
       }
     }
-  },
-  {
-    "type": "HeroTemplate",
-    "data": "main_logo"
-  },
-  {
-    "type": "InfoBubbleTemplate",
-    "data": [
-      {
-        "title": "Infobubbletemplate 1",
-        "text": "hi 1!",
-        "image": {
-          "imageLink": "/images/dark_visionary_logo.png",
-          "imageName": "visionary lab logo",
-          "imageType": "Logo"
-        }
-      },
-      {
-        "title": "Hello 2",
-        "text": "hi2 2!",
-        "image": {
-          "imageLink": "/images/fire.svg",
-          "imageName": "visionary lab logo",
-          "imageType": "Logo"
-        }
-      },
-      {
-        "title": "Hello 2",
-        "text": "hi2 2!",
-        "image": {
-          "imageLink": "/images/dark_visionary_logo.png",
-          "imageName": "visionary lab logo",
-          "imageType": "Logo"
-        }
-      },
-      {
-        "title": "2nd row",
-        "text": "hi 1!",
-        "image": {
-          "imageLink": "/images/dark_visionary_logo.png",
-          "imageName": "visionary lab logo",
-          "imageType": "Logo"
-        }
-      }
-    ]
-  },
-  {
-    "type": "ProfileListTemplate",
-    "data": ["ProfileListTemplate", "Operations Team"]
-  },
-  {
-    "type": "SectionedHeaderTemplate",
-    "data": [
-      {
-        "header": "SectionedHeaderTemplate - Team Roles",
-        "subheaders": [
-          {
-            "header": "Role: President",
-            "text": "Leads the club and oversees all activities and meetings."
-          },
-          {
-            "header": "Role: Vice President",
-            "text": "Assists the President and manages member engagement."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "SubHeaderTextTemplate",
-    "data": [
-      {
-        "header": "SubHeaderTextTemplate header",
-        "text": "This is not used on its own, used in another template"
-      }
-    ]
-  },
-  {
-    "type": "SubtitleTemplate1",
-    "data": "This is not used on its own, used in another template"
-  },
-  {
-    "type": "SubtitleTemplate2",
-    "data": "This is not used on its own, used in another template"
-  },
-  {
-    "type": "SubtitleTemplate3",
-    "data": "This is not used on its own, used in another template"
   }
 ]

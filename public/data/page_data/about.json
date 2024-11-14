@@ -1,0 +1,119 @@
+[
+  {
+    "type": "TitleTemplate1",
+    "data": {
+      "title": "About DSMLC",
+      "subtitle": "Learn more about the Data Science and Machine Learning Club at the University of Calgary."
+    }
+  },
+  {
+    "type": "HeaderTextTemplate2",
+    "data": [
+      {
+        "header": "Introduction to DSMLC",
+        "text": "The Data Science and Machine Learning Club (DSMLC) at the University of Calgary is a student-led initiative providing a platform for students to engage with data science and machine learning concepts. We create learning opportunities for students across all disciplines through workshops, competitions, and networking events, equipping them with the skills necessary for their future careers in these rapidly growing fields."
+      },
+      {
+        "header": "Our Mission",
+        "text": "Our mission is to foster a thriving community where students from all backgrounds can explore and learn about data science and machine learning. Through hands-on educational experiences, we bridge the gap between theory and practice, enabling students to apply their knowledge to real-world problems."
+      },
+      {
+        "header": "Our Vision",
+        "text": "We aim to become a respected leader within the data science and machine learning communities in Calgary, creating a space where students can innovate, collaborate, and grow. We strive to make data science accessible to all students, regardless of their academic background, and to extend our reach beyond the University of Calgary."
+      },
+      {
+        "header": "What We Do",
+        "text": "DSMLC organizes a wide range of activities that enrich the educational experience of students and promote professional growth. These initiatives fall into three primary categories: Skills Workshops, Networking Events, and Competitions."
+      }
+    ]
+  },
+  {
+    "type": "HeaderTextTemplate2",
+    "data": [
+      {
+        "header": "Skills Workshops",
+        "text": "Our workshops equip students with essential data science and machine learning skills, with content designed for all experience levels."
+      }
+    ]
+  },
+  {
+    "type": "TimelineTemplate2",
+    "data": [
+      {
+        "number": "1",
+        "header": "Machine Learning Workshop",
+        "points": [
+          {
+            "header": "Overview",
+            "text": "This transformative seminar covered machine learning applications, GPT-4 strategies for data analysis, and career insights such as tips for securing top internships."
+          }
+        ]
+      },
+      {
+        "number": "2",
+        "header": "Power BI Workshop",
+        "points": [
+          {
+            "header": "Overview",
+            "text": "Students learned how to use Power BI for business analytics, gaining experience in creating visually compelling reports and dashboards."
+          }
+        ]
+      },
+      {
+        "number": "3",
+        "header": "SQL Workshop",
+        "points": [
+          {
+            "header": "Overview",
+            "text": "This workshop introduced students to SQL for managing and manipulating databases, providing them with practical, industry-relevant skills."
+          }
+        ]
+      },
+      {
+        "number": "4",
+        "header": "Intro to Supervised Machine Learning Workshop",
+        "points": [
+          {
+            "header": "Overview",
+            "text": "A two-part workshop where students learned fundamental algorithms such as K-Nearest Neighbors and Random Forest, applying them using Python in hands-on sessions."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "HeaderTextTemplate2",
+    "data": [
+      {
+        "header": "Networking Events and Socials",
+        "text": "We host events that connect students with professionals from industry and academia, providing invaluable networking opportunities."
+      }
+    ]
+  },
+  {
+    "type": "ColumnTemplate",
+    "data": [
+      {
+        "header": "Research Night",
+        "text": "An event featuring students and professors sharing their experiences with data science research, offering tips on securing research positions and insight into ongoing projects."
+      },
+      {
+        "header": "Industry Night",
+        "text": "An event dedicated to connecting students with industry professionals, providing insights into career opportunities and developments in data science and machine learning industries."
+      },
+      {
+        "header": "Internship Night",
+        "text": "A networking event focused on helping students connect with companies offering internships, giving students valuable tips on securing internships in data science and related fields."
+      }
+    ]
+  },
+  {
+    "type": "HeaderTextTemplate2",
+    "data": [
+      {
+        "header": "DSMLC Annual Final Competition",
+        "text": "DSMLC’s final competition give students the opportunity to apply their skills in a real-world context, showcasing their abilities to industry leaders and academic professionals."
+      }
+    ]
+  }
+]

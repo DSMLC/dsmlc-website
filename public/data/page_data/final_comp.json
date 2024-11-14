@@ -6,48 +6,136 @@
     }
   },
   {
+    "type": "HeaderTextTemplate1",
+    "data": [
+      {
+        "header": "Introduction and Background",
+        "text": "The Data Science and Machine Learning Club at the University of Calgary hosts an annual competition to give students an opportunity to showcase their programming and data science skills. Open to university students, it provides a platform to demonstrate their abilities using a comprehensive dataset in front of the broader community. This competition involves data science tasks including visualization, manipulation, and analysis, applying classroom concepts to real-world data."
+      },
+      {
+        "header": "Benefits and Recognition",
+        "text": "Participation in this competition allows students to gain recognition for their achievements, build their portfolios, and make valuable connections that support their career development in data science."
+      }
+    ]
+  },
+  {
+    "type": "TimelineTemplate2",
+    "data": [
+      {
+        "number": "1",
+        "header": "DSMLC Final Competition 2023",
+        "points": [
+          {
+            "header": "Overview",
+            "text": "The inaugural competition attracted 37 attendees and 7 participants, with sponsorship from ARC Resources and a keynote by Dr. Xuewen Lu, bringing valuable academic insights."
+          }
+        ]
+      },
+      {
+        "number": "2",
+        "header": "DSMLC Final Competition 2024",
+        "points": [
+          {
+            "header": "Overview",
+            "text": "In 2024, attendance more than doubled to 78 attendees, marking a 210% increase. Keynote speaker Renee Matsalla from Tacit Edge discussed data science in product management, enhancing the event’s industry relevance."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "type": "ApplicationTemplate",
     "data": {
-      "title": "About the Competition",
+      "title": "Competition Categories",
       "descriptions": [
-        "The DSMLC Final Competition offers students the chance to apply their classroom knowledge to solve practical, real-world data science challenges.",
-        "Participants work with real datasets from industry partners and coursework across sectors providing exposure to diverse data science applications.",
-        "This annual event attracts students from various academic backgrounds, with winners emerging from a broad range of disciplines."
+        "The competition is structured into three categories, allowing participants to compete in areas that best showcase their skills and interests."
       ],
       "bullets": {
-        "bulletsTitle": "Competition Categories",
+        "bulletsTitle": "Categories",
         "bullets": [
           {
             "title": "Data Visualization",
-            "text": "Students focus on communicating insights effectively through data visualizations."
+            "text": "Focuses on creating compelling and informative visualizations that communicate insights and patterns in the data."
           },
           {
-            "title": "Research Approach",
-            "text": "A research-oriented category, allowing students to approach data science problems through exploration and investigation."
+            "title": "Machine Learning Approach",
+            "text": "Involves applying machine learning algorithms, including data cleaning, pre-processing, algorithm selection, and results evaluation."
           },
           {
-            "title": "Machine Learning Techniques",
-            "text": "Students leverage machine learning algorithms to solve complex data problems."
+            "title": "Research Proposal Approach",
+            "text": "Encourages participants to formulate and present a research proposal based on data analysis, identifying trends and presenting a concise research question."
           }
         ]
       }
     }
   },
   {
-    "type": "SectionedHeaderTemplate",
+    "type": "TimelineTemplate1",
     "data": [
       {
-        "header": "Event Overview",
-        "subheaders": [
+        "number": "1",
+        "header": "Competition Kickoff",
+        "points": [
           {
-            "header": "Grand Symposium",
-            "text": "The competition concludes with an in-person symposium where finalists present projects to peers, industry experts, and academic mentors. This presentation event is a platform to demonstrate the practical applications of their projects and skills."
+            "header": "Date",
+            "text": "February 16, 2025"
           },
           {
-            "header": "Networking Opportunities",
-            "text": "The symposium allows participants to connect directly with industry professionals, gaining insights on trends, potential project applications, and the evolving needs of data science. These interactions can lead to mentorships, internships, and full-time roles."
+            "header": "Description",
+            "text": "The competition begins with an official kickoff event where students are introduced to project guidelines, expectations, and the timeline."
           }
         ]
+      },
+      {
+        "number": "2",
+        "header": "Project Development Phase",
+        "points": [
+          {
+            "header": "Date",
+            "text": "February 16, 2025 - March 22, 2025"
+          },
+          {
+            "header": "Description",
+            "text": "During this phase, students work on constructing their projects, applying skills, conducting research, and collaborating to develop innovative solutions."
+          }
+        ]
+      },
+      {
+        "number": "3",
+        "header": "Project Submission & Evaluation",
+        "points": [
+          {
+            "header": "Date",
+            "text": "March 22, 2025 - March 25, 2025"
+          },
+          {
+            "header": "Description",
+            "text": "After project development, participants submit their final projects for evaluation by a panel of expert judges who assess innovation, technical execution, and impact."
+          }
+        ]
+      },
+      {
+        "number": "4",
+        "header": "Final Symposium & Award Ceremony",
+        "points": [
+          {
+            "header": "Date",
+            "text": "March 27, 2025"
+          },
+          {
+            "header": "Description",
+            "text": "Top teams present their projects at a live symposium with sponsors and industry professionals. Winners are announced, and awards are presented."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "HeaderTextTemplate1",
+    "data": [
+      {
+        "header": "In-Person Symposium",
+        "text": "The competition culminates in an in-person symposium, where participants present their work to a panel of judges, peers, and industry professionals. This event provides a valuable networking opportunity, recognition for accomplishments, and experience in presenting work to a broader audience."
       }
     ]
   }
