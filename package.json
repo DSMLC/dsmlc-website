@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "canvas": "^2.11.2",
     "dsmlc-website": "file:",
     "framer-motion": "^11.11.9",
     "konva": "^9.3.16",

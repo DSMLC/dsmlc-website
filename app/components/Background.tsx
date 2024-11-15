@@ -14,7 +14,9 @@ interface ShapeProps {
 
 const getRandomPosition = (
   size: number,
-  existingShapes: ShapeProps[]
+  existingShapes: ShapeProps[],
+  width: number,
+  height: number
 ): { x: number; y: number } => {
   let position: { x: any; y: any };
   let isOverlapping;
@@ -23,8 +25,8 @@ const getRandomPosition = (
 
   do {
     position = {
-      x: Math.random() * (window.innerWidth - size),
-      y: Math.random() * (window.innerHeight - size),
+      x: Math.random() * (width - size),
+      y: Math.random() * (height - size),
     };
 
     isOverlapping = existingShapes.some((shape) => {
@@ -42,11 +44,15 @@ const getRandomPosition = (
 
 const getRandomColor = () => `hsl(${Math.random() * 60}, 100%, 50%)`;
 
-const generateRandomShapes = (count: number): ShapeProps[] => {
+const generateRandomShapes = (
+  count: number,
+  width: number,
+  height: number
+): ShapeProps[] => {
   const shapes: ShapeProps[] = [];
   for (let i = 0; i < count; i++) {
     const size = Math.random() * 50 + 20;
-    const position = getRandomPosition(size, shapes);
+    const position = getRandomPosition(size, shapes, width, height);
 
     shapes.push({
       type: ["circle", "square", "triangle"][Math.floor(Math.random() * 3)] as
@@ -64,16 +70,23 @@ const generateRandomShapes = (count: number): ShapeProps[] => {
 };
 
 const Background: React.FC = () => {
-  const pathname = usePathname(); 
+  const pathname = usePathname();
   const [shapes, setShapes] = useState<ShapeProps[]>([]);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
+  // Run this effect only on the client
   useEffect(() => {
-    setShapes(generateRandomShapes(10));
+    // Set the dimensions on the client side
+    setDimensions({ width: window.innerWidth, height: window.innerHeight });
+    setShapes(generateRandomShapes(10, window.innerWidth, window.innerHeight));
   }, [pathname]);
+
+  // Wait until dimensions are set on the client side
+  if (!dimensions.width || !dimensions.height) return null;
 
   return (
     <div className="fixed top-0 left-0 w-full h-full -z-10">
-      <Stage width={window.innerWidth} height={window.innerHeight}>
+      <Stage width={dimensions.width} height={dimensions.height}>
         <Layer>
           {shapes.map((shape, index) => {
             const commonProps: any = {
