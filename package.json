@@ -11,10 +11,12 @@
   "dependencies": {
     "dsmlc-website": "file:",
     "framer-motion": "^11.11.9",
+    "konva": "^9.3.16",
     "lucide-react": "^0.453.0",
     "next": "14.2.5",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-konva": "^18.2.10"
   },
   "devDependencies": {
     "@types/node": "^20",

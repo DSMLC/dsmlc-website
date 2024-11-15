@@ -4,6 +4,7 @@ import { Quicksand } from "next/font/google";
 import "./globals.css";
 import { Header } from "./components/Header";
 import Footer from "./components/Footer";
+import Background from "./components/Background";
 
 export const quicksand = Quicksand({ subsets: ["latin"] }); // default font
 export const redHat = Red_Hat_Display({ subsets: ["latin"] });
@@ -21,9 +22,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${quicksand.className} bg-dsmlcWhite flex flex-col min-h-screen`}
+        className={`${quicksand.className} relative bg-dsmlcWhite flex flex-col min-h-screen`}
       >
         <Header />
+        <Background />
         <main className="flex-grow pt-24">{children}</main>
         <Footer />
       </body>
