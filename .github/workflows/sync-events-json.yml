@@ -1,0 +1,39 @@
+name: Sync events.json from Google Drive to GitHub
+
+on:
+  schedule:
+    # Runs every hour; adjust the schedule as necessary
+    - cron: "0 * * * *" # This is in UTC
+  push:
+    branches:
+      - main # Or your default branch
+
+jobs:
+  sync-events-json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v3
+
+      - name: Download events.json from Google Drive
+        run: |
+          # Install gdrive CLI (tool to interact with Google Drive)
+          curl -s -L https://github.com/prasmussen/gdrive/releases/download/2.1.0/gdrive-linux-x64 -o /usr/local/bin/gdrive
+          chmod +x /usr/local/bin/gdrive
+
+          # Authenticate with Google Drive using your token
+          echo "${{ secrets.GOOGLE_DRIVE_ACCESS_TOKEN }}" | gdrive about
+
+          # Download the events.json file from Google Drive using the gdrive CLI
+          gdrive download --force --path ./public/data/ "1_O-Y7PVc2PEacjJKrj5kOJ2tJ7VVFAmo"
+
+      - name: Commit and push the updated events.json
+        run: |
+          git config user.name "Your GitHub Username"
+          git config user.email "youremail@example.com"
+          git add ./public/data/events.json
+          git commit -m "Update events.json"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
