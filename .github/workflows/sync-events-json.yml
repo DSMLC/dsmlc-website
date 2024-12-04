@@ -30,8 +30,8 @@ jobs:
 
       - name: Commit and push the updated events.json
         run: |
-          git config user.name "Your GitHub Username"
-          git config user.email "youremail@example.com"
+          git config user.name "Joseph Tandyo"
+          git config user.email "josephtandyo@gmail.com"
           git add ./public/data/events.json
           git commit -m "Update events.json"
           git push
