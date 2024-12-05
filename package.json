@@ -12,6 +12,7 @@
     "canvas": "^3.0.0-rc2",
     "dsmlc-website": "file:",
     "framer-motion": "^11.11.9",
+    "googleapis": "^144.0.0",
     "konva": "^9.3.16",
     "lucide-react": "^0.453.0",
     "next": "14.2.5",

@@ -16,16 +16,24 @@ jobs:
       - name: Checkout the repository
         uses: actions/checkout@v3
 
-      - name: Download events.json from Google Drive
+      - name: Install gdrive CLI and Download events.json from Google Drive
         run: |
           # Install gdrive CLI (tool to interact with Google Drive)
           curl -s -L https://github.com/prasmussen/gdrive/releases/download/2.1.0/gdrive-linux-x64 -o /usr/local/bin/gdrive
           chmod +x /usr/local/bin/gdrive
 
+          # Add /usr/local/bin to the PATH if necessary
+          echo "/usr/local/bin" >> $GITHUB_PATH
+
+          # Check the installation: list file and verify path
+          ls -l /usr/local/bin/gdrive
+          which gdrive
+          gdrive --version
+
           # Authenticate with Google Drive using your token
           echo "${{ secrets.GOOGLE_DRIVE_ACCESS_TOKEN }}" | gdrive about
 
-          # Download the events.json file from Google Drive using the gdrive CLI
+          # Download the events.json file from Google Drive
           gdrive download --force --path ./public/data/ "1_O-Y7PVc2PEacjJKrj5kOJ2tJ7VVFAmo"
 
       - name: Commit and push the updated events.json
