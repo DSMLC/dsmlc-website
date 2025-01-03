@@ -12,13 +12,13 @@ const HeaderTextTemplate = ({
         return (
           <div
             key={index}
-            className="flex gap-7 flex-col p-16 lg:py-16 py-28 lg:pt-11 lg:px-0 lg:w-11/12 w-full items-center bg-dsmlcParchment"
+            className="flex gap-7 flex-col p-16 lg:py-16 py-28 lg:pt-11 lg:px-0 lg:w-11/12 w-full items-center dark:bg-dark-dsmlcParchment bg-light-dsmlcParchment"
           >
             <div className="lg:text-3xl md:text-2xl text-xl font-bold font-redHat text-dsmlcDataOrange">
               {data.header}
             </div>{" "}
             <div
-              className="text-dsmlcBlack tracking-wide max-w-3xl font-quicksand lg:text-lg md:text-base text-sm"
+              className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack tracking-wide max-w-3xl font-quicksand lg:text-lg md:text-base text-sm"
               dangerouslySetInnerHTML={{ __html: data.text }}
             ></div>
           </div>

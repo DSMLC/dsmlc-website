@@ -45,7 +45,7 @@ export const ProfileListTemplate = ({
                       {filteredExec.name}
                     </span>{" "}
                     {filteredExec.program && (
-                      <span className="text-sm italic flex flex-wrap items-center justify-center px-2">
+                      <span className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack text-sm italic flex flex-wrap items-center justify-center px-2">
                         {filteredExec.program?.year}
                         {filteredExec.program?.programs?.length > 0 &&
                           filteredExec.program?.programs.map(
@@ -64,7 +64,7 @@ export const ProfileListTemplate = ({
                       .map((role) =>
                         role.roles.map((roleTitle, index) => (
                           <span
-                            className="border-b-2 w-fit self-center border-dsmlcTangerine text-dsmlcBlack font-semibold"
+                            className="border-b-2 w-fit self-center border-dsmlcTangerine dark:text-dark-dsmlcBlack text-light-dsmlcBlack font-semibold"
                             key={index}
                           >
                             {roleTitle}

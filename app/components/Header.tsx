@@ -5,6 +5,7 @@ import LogoData from "../../public/data/logo.json";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useTheme } from "../ThemeProvider";
 
 const NavbarLinksDesktop = () => {
   const pathname = usePathname();
@@ -26,7 +27,7 @@ const NavbarLinksDesktop = () => {
               </div>
             </Link>
             {page.type === "dropdown" && (
-              <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-44 shadow-md shadow-dsmlcBlack bg-dsmlcWhite rounded-lg z-50">
+              <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-44 shadow-md dark:shadow-dark-dsmlcBlack shadow-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite rounded-lg z-50">
                 {page.dropdown.map((sub) => (
                   <div key={sub.name}>
                     <Link href={`${page.link}/${sub.link}`}>
@@ -35,7 +36,7 @@ const NavbarLinksDesktop = () => {
                           `${page.link + sub.link}` === pathname
                             ? "text-dsmlcDataOrange"
                             : ""
-                        } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcWhite hover:brightness-110 font-medium`}
+                        } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite hover:brightness-110 font-medium`}
                       >
                         <span className="hover:scale-105 transition-all duration-150">
                           {sub.name}
@@ -54,6 +55,7 @@ const NavbarLinksDesktop = () => {
 };
 
 const NavbarLinksPhone = () => {
+  const { isDarkMode } = useTheme();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [dropdowns, setDropdowns] = useState<{ [key: string]: boolean }>({});
   const [isSliding, setIsSliding] = useState(false);
@@ -104,7 +106,7 @@ const NavbarLinksPhone = () => {
     <div className="items-center lg:hidden md:hidden sm:flex flex">
       <button onClick={toggleSidebar}>
         <svg
-          className="hover:fill-dsmlcDataOrange fill-dsmlcBlack transition-all duration-300"
+          className="hover:fill-dsmlcDataOrange dark:fill-dark-dsmlcBlack fill-light-dsmlcBlack transition-all duration-300"
           width="40"
           height="40"
           viewBox="0 0 100 100"
@@ -119,10 +121,10 @@ const NavbarLinksPhone = () => {
       </button>
 
       {sidebarOpen && (
-        <div className="fixed inset-0 bg-dsmlcWhite bg-opacity-50 z-50 ">
+        <div className="fixed inset-0 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite bg-opacity-50 z-50 ">
           <div
             ref={sidebarRef}
-            className={`overflow-y-auto no-scrollbar overflow-x-hidden fixed top-0 right-0 py-14 bg-dsmlcWhite md:w-80 sm:w-64 w-64 h-full shadow-md z-50 shadow-dsmlcBlack ${
+            className={`overflow-y-auto no-scrollbar overflow-x-hidden fixed top-0 right-0 py-14 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite md:w-80 sm:w-64 w-64 h-full shadow-md z-50 dark:shadow-dark-dsmlcBlack shadow-light-dsmlcBlack ${
               isSliding ? "slide-out" : "slide-in"
             }`}
           >
@@ -130,7 +132,11 @@ const NavbarLinksPhone = () => {
               <Link href={"/"}>
                 <div className="flex flex-col gap-3 items-center transition-colors duration-300">
                   <Image
-                    src={LogoData.main_logo.logo.dark_logo}
+                    src={
+                      isDarkMode
+                        ? LogoData.main_logo.logo.light_logo
+                        : LogoData.main_logo.logo.dark_logo
+                    }
                     alt={`${LogoData.main_logo.acronym} Logo`}
                     width={50}
                     height={50}
@@ -203,7 +209,7 @@ const NavbarLinksPhone = () => {
                                       `${page.link + sub.link}` === pathname
                                         ? "text-dsmlcDataOrange"
                                         : ""
-                                    } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-dsmlcWhite hover:brightness-110 font-medium`}
+                                    } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite hover:brightness-110 font-medium`}
                                   >
                                     <span className="hover:scale-105 w-full pl-16 text-start transition-all duration-150">
                                       {sub.name}
@@ -228,14 +234,19 @@ const NavbarLinksPhone = () => {
 };
 
 export const Header = () => {
+  const { isDarkMode } = useTheme();
   return (
-    <div className="bg-dsmlcWhite w-full fixed h-24 border-b-2 border-dsmlcTangerine z-40">
-      <div className="p-5 px-10 m-auto max-w-7xl flex flex-row text-dsmlcBlack font-redHat justify-between">
+    <div className="bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite w-full fixed h-24 border-b-2 border-dsmlcTangerine z-40">
+      <div className="p-5 px-10 m-auto max-w-7xl flex flex-row dark:text-dark-dsmlcBlack text-light-dsmlcBlack font-redHat justify-between">
         <div className="lg:hidden md:hidden sm:flex flex"></div>
         <Link href={"/"}>
           <div className="flex flex-row gap-3 items-center flex-end">
             <Image
-              src={LogoData.main_logo.logo.dark_logo}
+              src={
+                isDarkMode
+                  ? LogoData.main_logo.logo.light_logo
+                  : LogoData.main_logo.logo.dark_logo
+              }
               alt={`${LogoData.main_logo.acronym} Logo`}
               width={50}
               height={50}

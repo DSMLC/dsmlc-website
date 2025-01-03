@@ -1,16 +1,24 @@
+"use client";
 import React from "react";
 import Image from "next/image";
 import SocialMediaData from "../../../public/data/club_links.json";
 import ImageTemplate from "./ImageTemplate";
 import { HeroTemplateData } from "@/app/DataLoader";
+import { useTheme } from "../../ThemeProvider";
+import ThemeToggle from "../ThemeToggle";
 
 const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
+  const { isDarkMode } = useTheme();
   return (
     <div className="w-full h-[85vh] flex-col">
-      <div className="flex justify-center items-center h-full gap-10 flex-col text-dsmlcBlack">
+      <div className="flex justify-center items-center h-full gap-10 flex-col dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
         <div className="font-redHat lg:text-4xl md:text-3xl text-2xl md:gap-10 gap-5 flex md:flex-row flex-col md:items-end items-center justify-center">
           <ImageTemplate
-            image={Data.logo?.dark_logo || ""}
+            image={
+              isDarkMode
+                ? Data.logo?.light_logo || ""
+                : Data.logo?.dark_logo || ""
+            }
             name={Data.name}
             type="Logo"
           />
@@ -43,20 +51,20 @@ const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
             return (
               <div
                 key={index}
-                className="flex items-center text-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1 md:h-10 h-9"
+                className="flex items-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1 md:h-10 h-9"
               >
                 {" "}
                 <a href={app.link} target="_blank">
                   <Image
                     className="md:block hidden"
-                    src={app.dark_logo}
+                    src={isDarkMode ? app.light_logo : app.dark_logo}
                     alt={`${app.name} Logo`}
                     width={30}
                     height={30}
                   />
                   <Image
                     className="md:hidden block"
-                    src={app.dark_logo}
+                    src={isDarkMode ? app.light_logo : app.dark_logo}
                     alt={`${app.name} Logo`}
                     width={25}
                     height={25}
@@ -66,6 +74,7 @@ const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
             );
           })}
         </div>
+        <ThemeToggle />
       </div>
     </div>
   );

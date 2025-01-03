@@ -47,14 +47,14 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
         </div>
 
         <button
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-Tangerine/80 text-dsmlcDataOrange p-2 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300 hover:bg-dsmlcTangerine hover:text-dsmlcParchment z-10"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-Tangerine/80 text-dsmlcDataOrange p-2 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300 hover:bg-dsmlcTangerine dark:hover:text-dark-dsmlcParchment hover:text-light-dsmlcParchment z-10"
           onClick={goToPrevious}
           aria-label="Previous image"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-Tangerine/80 text-dsmlcDataOrange p-2 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300 hover:bg-dsmlcTangerine hover:text-dsmlcParchment z-10"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-Tangerine/80 text-dsmlcDataOrange p-2 rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300 hover:bg-dsmlcTangerine dark:hover:text-dark-dsmlcParchment hover:text-light-dsmlcParchment z-10"
           onClick={goToNext}
           aria-label="Next image"
         >

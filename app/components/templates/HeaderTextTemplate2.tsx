@@ -17,7 +17,7 @@ const HeaderTextTemplate2 = ({
           >
             <SubtitleTemplate Data={data.header} />
             <div
-              className="text-dsmlcBlack tracking-wide max-w-3xl font-quicksand lg:text-lg md:text-base text-sm"
+              className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack tracking-wide max-w-3xl font-quicksand lg:text-lg md:text-base text-sm"
               dangerouslySetInnerHTML={{ __html: data.text }}
             ></div>
           </div>

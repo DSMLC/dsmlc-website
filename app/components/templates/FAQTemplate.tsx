@@ -15,7 +15,7 @@ const FAQTemplate = ({ Data }: { Data: FAQTemplateData['data'] }) => {
 
   if (!Data.faq || Data.faq.length === 0) {
     return (
-      <div className="text-center text-dsmlcBlack">No FAQ items available.</div>
+      <div className="text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack">No FAQ items available.</div>
     );
   }
 
@@ -28,7 +28,7 @@ const FAQTemplate = ({ Data }: { Data: FAQTemplateData['data'] }) => {
             className="flex justify-between items-center w-full text-left"
             onClick={() => toggleItem(index)}
           >
-            <span className="font-redHat font-semibold lg:text-lg text-base text-dsmlcBlack">
+            <span className="font-redHat font-semibold lg:text-lg text-base dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
               {item.question}
             </span>
             {openIndex === index ? (
@@ -38,7 +38,7 @@ const FAQTemplate = ({ Data }: { Data: FAQTemplateData['data'] }) => {
             )}
           </button>
           {openIndex === index && (
-            <div className="mt-2 text-dsmlcBlack lg:text-lg text-base">
+            <div className="mt-2 dark:text-dark-dsmlcBlack text-light-dsmlcBlack lg:text-lg text-base">
               {item.answer}
             </div>
           )}

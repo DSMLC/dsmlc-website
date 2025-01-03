@@ -12,7 +12,7 @@ const SubHeaderTextTemplate = ({
         return (
           <div
             key={index}
-            className="text-dsmlcBlack tracking-wide max-w-3xl font-quicksand lg:text-lg md:text-base text-sm h-full"
+            className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack tracking-wide max-w-3xl font-quicksand lg:text-lg md:text-base text-sm h-full"
           >
             <span className="font-bold">{data.header}</span>{" "}
             <span>{data.text}</span>

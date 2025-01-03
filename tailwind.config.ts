@@ -6,6 +6,7 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     extend: {
       backgroundImage: {
@@ -16,10 +17,18 @@ const config: Config = {
       colors: {
         dsmlcDataOrange: "#F86306",
         dsmlcTangerine: "#FF914D",
-        dsmlcParchment: "#F5EACF",
-        dsmlcWhite: "#F2F2F2",
-        dsmlcDarkBlack: "#222222",
-        dsmlcBlack: "#222222",
+        dark: {
+          dsmlcParchment: "#2E2B26",
+          dsmlcEnhancedParchment: "#45413C",
+          dsmlcWhite: "#1A1A1A",
+          dsmlcBlack: "#F5EACF",
+        },
+        light: {
+          dsmlcParchment: "#F5EACF",
+          dsmlcEnhancedParchment: "#D6C8A3",
+          dsmlcWhite: "#F2F2F2",
+          dsmlcBlack: "#222222",
+        },
       },
       fontFamily: {
         redHat: ['"Red Hat Display"', "sans-serif"],

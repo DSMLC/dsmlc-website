@@ -11,7 +11,7 @@ const InfoBubbleTemplate = ({
     <div className="pb-16 grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 w-full max-w-4xl m-auto lg:px-0 px-10">
       {Data.map((section, index) => {
         return (
-          <div key={index} className="bg-dsmlcWhite shadow-lg rounded-3xl p-6 flex items-center">
+          <div key={index} className="bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite shadow-lg rounded-3xl p-6 flex items-center">
             <div className="flex-shrink-0">
               {section.image && (
                 <Image
@@ -24,7 +24,7 @@ const InfoBubbleTemplate = ({
             </div>
             <div className="ml-5 w-0 flex-1">
               <dl>
-                <dt className="text-sm font-medium text-dsmlcBlack truncate font-redHat">
+                <dt className="text-sm font-medium dark:text-dark-dsmlcBlack text-light-dsmlcBlack truncate font-redHat">
                   {section.title}
                 </dt>
                 <dd>

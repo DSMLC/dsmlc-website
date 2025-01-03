@@ -1,11 +1,12 @@
 "use client";
-
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import FooterData from "../../public/data/club_links.json";
+import { useTheme } from "../ThemeProvider";
 
 export default function ContactPage() {
+  const { isDarkMode } = useTheme();
   return (
     <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-48">
       <motion.div
@@ -18,9 +19,9 @@ export default function ContactPage() {
           <h2 className="text-4xl font-extrabold text-dsmlcWhite font-redHat">
             Get in Touch
           </h2>
-          <p className="text-xl text-dsmlcParchment font-quicksand">
-            We&apos;d love to hear from you. Send us a message and we&apos;ll respond as
-            soon as possible.
+          <p className="text-xl dark:text-dark-dsmlcParchment text-light-dsmlcParchment font-quicksand">
+            We&apos;d love to hear from you. Send us a message and we&apos;ll
+            respond as soon as possible.
           </p>
           <div className="space-y-6">
             {/* Social Media Section */}
@@ -30,7 +31,7 @@ export default function ContactPage() {
                   return (
                     <div
                       key={index}
-                      className="flex items-center text-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1"
+                      className="flex items-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1"
                     >
                       <a
                         href={social_media.link}
@@ -38,7 +39,11 @@ export default function ContactPage() {
                         rel="noopener noreferrer"
                       >
                         <Image
-                          src={social_media.dark_logo}
+                          src={
+                            isDarkMode
+                              ? social_media.light_logo
+                              : social_media.dark_logo
+                          }
                           alt={`${social_media.name} Logo`}
                           width={25}
                           height={25}

@@ -40,7 +40,7 @@ const TimelineTemplate1 = ({
 
   return (
     <div className="relative mb-16 text-start grid md:gap-14 gap-7 md:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-fit m-auto items-stretch">
-      <div className="absolute top-0 md:left-1/2 left-6 w-px h-full bg-dsmlcBlack transform -translate-x-1/2"></div>
+      <div className="absolute top-0 md:left-1/2 left-6 w-px h-full dark:bg-dark-dsmlcBlack bg-light-dsmlcBlack transform -translate-x-1/2"></div>
       {Data.map((data, index) => {
         const getFontSize = () => {
           const length = String(data.number).length;
@@ -77,7 +77,7 @@ const TimelineTemplate1 = ({
 
             <div className="flex flex-col gap-7 lg:px-0 px-5 pl-10 lg:pl-5 lg:w-full max-w-4xl w-fit m-auto h-full">
               <div
-                className={`absolute md:left-1/2 left-6 transform -translate-x-1/2 bg-dsmlcParchment text-center ${getFontSize()} text-dsmlcDataOrange font-bold w-12 h-12 flex items-center justify-center rounded-full border-2 border-dsmlcBlack border-solid`}
+                className={`absolute md:left-1/2 left-6 transform -translate-x-1/2 dark:bg-dark-dsmlcParchment bg-light-dsmlcParchment text-center ${getFontSize()} text-dsmlcDataOrange font-bold w-12 h-12 flex items-center justify-center rounded-full border-2 dark:border-dark-dsmlcBlack border-light-dsmlcBlack border-solid`}
               >
                 {" "}
                 {data.number}

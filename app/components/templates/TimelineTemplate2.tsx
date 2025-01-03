@@ -25,7 +25,7 @@ const TimelineSection = ({ data, index }: { data: any; index: number }) => {
       }}
       className="flex flex-col md:gap-5 lg:px-0 px-5 lg:pl-5 md:pt-5 pt-11 lg:w-full max-w-4xl w-fit m-auto h-full text-start"
     >
-      <div className="md:text-2xl text-lg text-dsmlcBlack font-bold flex items-center justify-center">
+      <div className="md:text-2xl text-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack font-bold flex items-center justify-center">
         {data.number}
       </div>
       <SubtitleTemplate3 Data={data.header} />

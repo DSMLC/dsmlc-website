@@ -5,6 +5,7 @@ import "./globals.css";
 import { Header } from "./components/Header";
 import Footer from "./components/Footer";
 import Background from "./components/Background";
+import { ThemeProvider } from "./ThemeProvider";
 
 export const quicksand = Quicksand({ subsets: ["latin"] }); // default font
 export const redHat = Red_Hat_Display({ subsets: ["latin"] });
@@ -20,14 +21,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <body
-        className={`${quicksand.className} relative bg-dsmlcWhite flex flex-col min-h-screen`}
+        className={`${quicksand.className} relative dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite flex flex-col min-h-screen`}
       >
-        <Header />
-        <Background />
-        <main className="flex-grow pt-24">{children}</main>
-        <Footer />
+        <ThemeProvider>
+          <Header />
+          <Background />
+          <main className="flex-grow pt-24">{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );
