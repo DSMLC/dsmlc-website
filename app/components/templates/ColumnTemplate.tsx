@@ -1,6 +1,6 @@
 import React from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
-import ImageTemplate from "./ImageTemplate";
+import ImageTemplate, { ImageType } from "./ImageTemplate";
 import { ColumnTemplateData } from "@/app/DataLoader";
 
 const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
@@ -17,7 +17,7 @@ const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
                 <ImageTemplate
                   image={data.image.imageLink || ""}
                   name={data.image.imageName || ""}
-                  type={data.image.imageType || ""}
+                  type={data.image.imageType as ImageType}
                 />
               )}
             </div>

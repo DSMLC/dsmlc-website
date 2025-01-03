@@ -2,7 +2,7 @@
 import React from "react";
 import Image from "next/image";
 import SocialMediaData from "../../../public/data/club_links.json";
-import ImageTemplate from "./ImageTemplate";
+import ImageTemplate, { ImageType } from "./ImageTemplate";
 import { HeroTemplateData } from "@/app/DataLoader";
 import { useTheme } from "../../ThemeProvider";
 
@@ -19,7 +19,7 @@ const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
                 : Data.logo?.dark_logo || ""
             }
             name={Data.name}
-            type="Logo"
+            type={"Logo" as ImageType}
           />
           <div className="flex flex-col md:text-start text-center">
             {Data.superscript_name && (

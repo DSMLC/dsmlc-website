@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
 import SubHeaderTextTemplate from "./SubHeaderTextTemplate";
 import { TimelineTemplateData1 } from "@/app/DataLoader";
-import ImageTemplate from "./ImageTemplate";
+import ImageTemplate, { ImageType } from "./ImageTemplate";
 
 const TimelineTemplate1 = ({
   Data,
@@ -57,7 +57,7 @@ const TimelineTemplate1 = ({
                   <ImageTemplate
                     image={data.image.imageLink || ""}
                     name={data.image.imageName || ""}
-                    type={data.image.imageType || ""}
+                    type={data.image.imageType as ImageType}
                   />
                 )}
               </div>
@@ -69,7 +69,7 @@ const TimelineTemplate1 = ({
                   <ImageTemplate
                     image={data.image.imageLink || ""}
                     name={data.image.imageName || ""}
-                    type={data.image.imageType || ""}
+                    type={data.image.imageType as ImageType}
                   />
                 )}
               </div>
@@ -104,7 +104,7 @@ const TimelineTemplate1 = ({
                   <ImageTemplate
                     image={data.image.imageLink || ""}
                     name={data.image.imageName || ""}
-                    type={data.image.imageType || ""}
+                    type={data.image.imageType as ImageType}
                   />
                 )}
               </div>
