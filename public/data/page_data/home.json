@@ -4,26 +4,48 @@
     "data": "main_logo"
   },
   {
-    "type": "TitleTemplate1",
-    "data": {
-      "title": "What We Do",
-      "subtitle": "Explore our initiatives that foster practical skills and bridge the gap between theory and real-world applications."
-    }
-  },
-  {
-    "type": "HeaderTextTemplate2",
+    "type": "IncreasingNumbersTemplate",
     "data": [
       {
-        "header": "Workshops",
-        "text": "Our workshops provide interactive learning experiences, covering topics essential to developing technical skills in data science and related fields."
+        "value": 500,
+        "title": "Members"
       },
       {
-        "header": "Competitions",
-        "text": "Our competitions allow participants to demonstrate their knowledge and skills by tackling practical challenges in data science."
+        "value": 1000,
+        "title": "What to put here"
       },
       {
-        "header": "Networking Events",
-        "text": "We host networking events that connect students with professionals and peers, creating opportunities for mentorship and career growth."
+        "value": 10,
+        "title": "What to put here"
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "What We Do",
+          "subtitle": "Explore our initiatives that foster practical skills and bridge the gap between theory and real-world applications."
+        }
+      },
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Workshops",
+            "text": "Our workshops provide interactive learning experiences, covering topics essential to developing technical skills in data science and related fields."
+          },
+          {
+            "header": "Competitions",
+            "text": "Our competitions allow participants to demonstrate their knowledge and skills by tackling practical challenges in data science."
+          },
+          {
+            "header": "Networking Events",
+            "text": "We host networking events that connect students with professionals and peers, creating opportunities for mentorship and career growth."
+          }
+        ]
       }
     ]
   },
@@ -50,67 +72,77 @@
     }
   },
   {
-    "type": "HeaderTextTemplate2",
+    "type": "BackgroundFillTemplate",
     "data": [
       {
-        "header": "Highlights",
-        "text": "Explore some of our recent initiatives and events that have enriched our members' learning experience."
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Highlights",
+            "text": "Explore some of our recent initiatives and events that have enriched our members' learning experience."
+          }
+        ]
+      },
+      {
+        "type": "CarouselTemplate",
+        "data": {
+          "image": [
+            {
+              "imageLink": "/images/events/fall_2024/weflourish.png",
+              "imageName": "Picture of DSMLC's Fall 2024 WeFlourish Event",
+              "imageType": "Banner"
+            },
+            {
+              "imageLink": "/images/events/fall_2024/int_and_app2.png",
+              "imageName": "Picture of DSMLC's Fall 2024 Int and App Event",
+              "imageType": "Banner"
+            },
+            {
+              "imageLink": "/images/events/fall_2024/meet_and_greet.png",
+              "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+              "imageType": "Banner"
+            }
+          ],
+          "interval": 5000
+        }
       }
     ]
   },
   {
-    "type": "CarouselTemplate",
-    "data": {
-      "image": [
-        {
-          "imageLink": "/images/events/fall_2024/weflourish.png",
-          "imageName": "Picture of DSMLC's Fall 2024 WeFlourish Event",
-          "imageType": "Banner"
-        },
-        {
-          "imageLink": "/images/events/fall_2024/int_and_app2.png",
-          "imageName": "Picture of DSMLC's Fall 2024 Int and App Event",
-          "imageType": "Banner"
-        },
-        {
-          "imageLink": "/images/events/fall_2024/meet_and_greet.png",
-          "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-          "imageType": "Banner"
-        }
-      ],
-      "interval": 5000
-    }
-  },
-  {
-    "type": "TimelineTemplate1",
+    "type": "BackgroundFillTemplate",
     "data": [
       {
-        "number": "1",
-        "header": "Annual Competition Recap",
-        "points": [
+        "type": "TimelineTemplate1",
+        "data": [
           {
-            "header": "Overview",
-            "text": "Our recent competition saw an increase in participation and support, featuring impactful sessions and valuable project showcases."
-          }
-        ]
-      },
-      {
-        "number": "2",
-        "header": "Technical Workshop",
-        "points": [
+            "number": "1",
+            "header": "Annual Competition Recap",
+            "points": [
+              {
+                "header": "Overview",
+                "text": "Our recent competition saw an increase in participation and support, featuring impactful sessions and valuable project showcases."
+              }
+            ]
+          },
           {
-            "header": "Overview",
-            "text": "A session focusing on real-world applications of technical skills, offering participants hands-on experience and practical insights."
-          }
-        ]
-      },
-      {
-        "number": "3",
-        "header": "Data Visualization Workshop",
-        "points": [
+            "number": "2",
+            "header": "Technical Workshop",
+            "points": [
+              {
+                "header": "Overview",
+                "text": "A session focusing on real-world applications of technical skills, offering participants hands-on experience and practical insights."
+              }
+            ]
+          },
           {
-            "header": "Overview",
-            "text": "An interactive session on creating effective visual reports, enabling participants to communicate data insights through visualizations."
+            "number": "3",
+            "header": "Data Visualization Workshop",
+            "points": [
+              {
+                "header": "Overview",
+                "text": "An interactive session on creating effective visual reports, enabling participants to communicate data insights through visualizations."
+              }
+            ]
           }
         ]
       }

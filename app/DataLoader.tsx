@@ -18,6 +18,8 @@ import InfoBubbleTemplate from "./components/templates/InfoBubbleTemplate";
 import TitleTemplate2 from "./components/templates/TitleTemplate2";
 import TitleTemplate1 from "./components/templates/TitleTemplate1";
 import CarouselTemplate from "./components/templates/CarouselTemplate";
+import BackgroundFillTemplate from "./components/templates/BackgroundFillTemplate";
+import IncreasingNumbersTemplate from "./components/templates/IncreasingNumbersTemplate";
 
 export interface ApplicationTemplateData {
   type: "ApplicationTemplate";
@@ -34,6 +36,11 @@ export interface ApplicationTemplateData {
     };
     button?: { buttonLink: string; buttonText: string };
   };
+}
+
+export interface BackgroundFillTemplateData {
+  type: "BackgroundFillTemplate";
+  data: PageData[]; // Array of other template data
 }
 
 export interface CarouselTemplateData {
@@ -105,6 +112,14 @@ export interface InfoBubbleTemplateData {
       imageName?: string;
       imageType?: string;
     };
+  }[];
+}
+
+export interface IncreasingNumbersData {
+  type: "IncreasingNumbersTemplate";
+  data: {
+    value: number;
+    title: string;
   }[];
 }
 
@@ -204,9 +219,11 @@ export type PageData =
   | SubHeaderTextTemplateData
   | SubtitleTemplateData1
   | SubtitleTemplateData2
-  | SubtitleTemplateData3;
+  | SubtitleTemplateData3
+  | BackgroundFillTemplateData
+  | IncreasingNumbersData;
 
-const templateMap: {
+export const templateMap: {
   [key in PageData["type"]]?: React.ComponentType<{ Data: any }>;
 } = {
   ColumnTemplate: ColumnTemplate,
@@ -227,6 +244,8 @@ const templateMap: {
   SubtitleTemplate2: SubtitleTemplate2,
   SubtitleTemplate3: SubtitleTemplate3,
   CarouselTemplate: CarouselTemplate,
+  BackgroundFillTemplate: BackgroundFillTemplate,
+  IncreasingNumbersTemplate: IncreasingNumbersTemplate,
 };
 
 const resolveData = (pageData: PageData): any => {

@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@react-three/drei": "^9.120.5",
+    "@react-three/fiber": "^8.17.10",
     "canvas": "^3.0.0-rc2",
     "dsmlc-website": "file:",
     "framer-motion": "^11.11.9",
@@ -16,13 +18,20 @@
     "konva": "^9.3.16",
     "lucide-react": "^0.453.0",
     "next": "14.2.5",
+    "p5": "^1.11.2",
     "react": "^18",
+    "react-countup": "^6.5.3",
     "react-dom": "^18",
     "react-icons": "^5.4.0",
-    "react-konva": "^18.2.10"
+    "react-konva": "^18.2.10",
+    "react-lottie-player": "^2.1.0",
+    "react-tsparticles": "^2.12.0",
+    "three": "^0.172.0",
+    "tsparticles": "^2.12.0"
   },
   "devDependencies": {
     "@types/node": "^20",
+    "@types/p5": "^1.7.6",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",

@@ -6,6 +6,13 @@ import { Header } from "./components/Header";
 import Footer from "./components/Footer";
 import Background from "./components/Background";
 import { ThemeProvider } from "./ThemeProvider";
+import NeuralNetworkScene from "./components/NeuralNetworkScene";
+import dynamic from "next/dynamic";
+
+const NeuralNetworkAnimation = dynamic(
+  () => import("./components/NeuralNetworkAnimation"),
+  { ssr: false }
+);
 
 export const quicksand = Quicksand({ subsets: ["latin"] }); // default font
 export const redHat = Red_Hat_Display({ subsets: ["latin"] });
@@ -28,6 +35,8 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           <Background />
+          <NeuralNetworkScene />
+          <NeuralNetworkAnimation />
           <main className="flex-grow pt-24">{children}</main>
           <Footer />
         </ThemeProvider>

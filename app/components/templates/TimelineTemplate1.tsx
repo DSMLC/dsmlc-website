@@ -36,6 +36,9 @@ const TimelineTemplate1 = ({
     timelineRefs.current.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
+    return () => {
+      observer.disconnect(); 
+    };
   }, []);
 
   return (

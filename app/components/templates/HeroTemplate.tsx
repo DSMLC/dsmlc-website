@@ -5,13 +5,16 @@ import SocialMediaData from "../../../public/data/club_links.json";
 import ImageTemplate, { ImageType } from "./ImageTemplate";
 import { HeroTemplateData } from "@/app/DataLoader";
 import { useTheme } from "../../ThemeProvider";
+import ParticleBackground from "../ParticleBackground";
+import AILottieAnimation from "../AILottieAnimation";
 
 const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
   const { isDarkMode } = useTheme();
   return (
-    <div className="w-full h-[85vh] flex-col">
+    <div className="w-full h-[85vh] flex-col relative">
+      <ParticleBackground />
       <div className="flex justify-center items-center h-full gap-10 flex-col dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-        <div className="font-redHat lg:text-4xl md:text-3xl text-2xl md:gap-10 gap-5 flex md:flex-row flex-col md:items-end items-center justify-center">
+        <div className="bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite rounded-4xl p-8 font-redHat lg:text-4xl md:text-3xl text-2xl md:gap-10 gap-5 flex md:flex-row flex-col md:items-end items-center justify-center">
           <ImageTemplate
             image={
               isDarkMode
@@ -45,6 +48,7 @@ const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
             {Data.description}
           </div>
         )}
+        <AILottieAnimation />
         <div className="flex-row flex gap-10 items-center">
           {Object.values(SocialMediaData.social_media).map((app, index) => {
             return (

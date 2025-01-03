@@ -1,5 +1,7 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import EmptyProfie from "../../../public/images/profile/empty_profile.svg";
 import SubtitleTemplate from "./SubtitleTemplate1";
 import Execs from "../../../public/data/execs.json";
@@ -11,14 +13,17 @@ export const ProfileListTemplate = ({
   Data: ProfileListTemplateData["data"];
 }) => {
   return (
-    <div>
+    <div className="px-4 py-6 md:px-6 lg:px-8">
       {Data.map((roleGroup, index) => {
         return (
           <div
             key={index}
+            style={{ perspective: 1000 }}
             className="flex flex-col gap-10 lg:px-0 py-10 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center"
           >
-            <SubtitleTemplate Data={roleGroup} />
+            <div className="flex items-center justify-center lg:justify-start gap-2">
+              <SubtitleTemplate Data={roleGroup} />
+            </div>
             <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
               {Execs.filter((exec) =>
                 exec.role.some(
@@ -26,9 +31,23 @@ export const ProfileListTemplate = ({
                 )
               ).map((filteredExec, index) => {
                 return (
-                  <div
+                  <motion.div
                     key={index}
-                    className="flex flex-col gap-1 text-center justify-between"
+                    className="
+                      flex flex-col gap-1 text-center justify-between
+                      bg-dark-dsmlcBlack dark:bg-light-dsmlcBlack
+                      p-4 rounded-3xl
+                      transition-shadow
+                      shadow-md
+                      hover:shadow-2xl
+                    "
+                    style={{ transformStyle: "preserve-3d" }}
+                    whileHover={{
+                      scale: 1.07,
+                      rotateX: 8,
+                      rotateY: 8,
+                    }}
+                    transition={{ type: "spring", stiffness: 200, damping: 10 }}
                   >
                     <Image
                       src={filteredExec.profile || EmptyProfie || ""}
@@ -41,9 +60,11 @@ export const ProfileListTemplate = ({
                           : "object-contain p-4"
                       } self-center object-center md:w-32 md:h-32 w-24 h-24 border-4 border-dsmlcTangerine rounded-4xl`}
                     />
-                    <span className="font-bold font-redHat text-xl text-dsmlcTangerine">
+
+                    <span className="font-bold font-redHat text-xl text-dsmlcTangerine mt-2">
                       {filteredExec.name}
-                    </span>{" "}
+                    </span>
+
                     {filteredExec.program && (
                       <span className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack text-sm italic flex flex-wrap items-center justify-center px-2">
                         {filteredExec.program?.year}
@@ -59,23 +80,25 @@ export const ProfileListTemplate = ({
                           )}
                       </span>
                     )}
+
                     {filteredExec.role
                       .filter((role) => role.group === roleGroup)
                       .map((role) =>
                         role.roles.map((roleTitle, index) => (
                           <span
-                            className="border-b-2 w-fit self-center border-dsmlcTangerine dark:text-dark-dsmlcBlack text-light-dsmlcBlack font-semibold"
+                            className="
+                              border-b-2 w-fit self-center border-dsmlcTangerine 
+                              dark:text-dark-dsmlcBlack 
+                              text-light-dsmlcBlack 
+                              font-semibold
+                            "
                             key={index}
                           >
                             {roleTitle}
                           </span>
                         ))
                       )}
-                    {/* {(roleGroup.group === "Operations Team" ||
-                      roleGroup.group === "Admin Team") && (
-                      <div>{filteredExec.bio}</div>
-                    )} */}
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>

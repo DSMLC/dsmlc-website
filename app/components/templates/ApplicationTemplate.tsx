@@ -8,57 +8,58 @@ const ApplicationSection = ({
   Data: ApplicationTemplateData["data"];
 }) => {
   return (
-    <div className="bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite shadow-xl rounded-4xl overflow-hidden max-w-4xl w-fit m-auto mb-16">
-      <div className="p-8 sm:p-12">
-        <h2 className="text-3xl font-bold text-dsmlcDataOrange mb-6 font-quicksand">
-          {Data.title}
-        </h2>
+    <div className="max-w-4xl w-fit m-auto mb-16 p-8 sm:p-12 lg:min-w-[900px]">
+      <h2 className="text-3xl font-bold text-dsmlcDataOrange mb-6 font-quicksand">
+        {Data.title}
+      </h2>
 
-        {Data.descriptions.map((desc, index) => {
-          return (
-            <p key={index} className="text-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack mb-8">
-              {desc}
-            </p>
-          );
-        })}
+      {Data.descriptions.map((desc, index) => {
+        return (
+          <p
+            key={index}
+            className="text-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack mb-8"
+          >
+            {desc}
+          </p>
+        );
+      })}
 
-        <div className="space-y-4 mb-8">
-          {Data.bullets && (
-            <h3 className="text-2xl font-semibold text-dsmlcTangerine font-quicksand">
-              {Data.bullets.bulletsTitle}
-            </h3>
-          )}
-          {Data.bullets?.bullets && (
-            <ul className="list-disc list-inside dark:text-dark-dsmlcBlack text-light-dsmlcBlack space-y-2 pl-4">
-              {Data.bullets.bullets.map((bullet, index) => (
-                <li key={index}>
-                  <span className="font-bold">{bullet.title} </span>
-                  {bullet.text}
-                  <br></br>
-                  <a
-                    className="text-dsmlcDataOrange underline"
-                    href={bullet.link?.link}
-                    target="_blank"
-                  >
-                    {bullet.link?.linkName}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-        <div className="flex justify-center">
-          {Data.button && (
-            <Link
-              href={Data.button.buttonLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-lg text-light-dsmlcWhite dark:text-dark-dsmlcWhite bg-dsmlcDataOrange hover:bg-dsmlcTangerine focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dsmlcTangerine transition duration-150 ease-in-out"
-            >
-              {Data.button.buttonText}
-            </Link>
-          )}
-        </div>
+      <div className="space-y-4 mb-8">
+        {Data.bullets && (
+          <h3 className="text-2xl font-semibold text-dsmlcTangerine font-quicksand">
+            {Data.bullets.bulletsTitle}
+          </h3>
+        )}
+        {Data.bullets?.bullets && (
+          <ul className="list-disc list-inside dark:text-dark-dsmlcBlack text-light-dsmlcBlack space-y-2 pl-4">
+            {Data.bullets.bullets.map((bullet, index) => (
+              <li key={index}>
+                <span className="font-bold">{bullet.title} </span>
+                {bullet.text}
+                <br></br>
+                <a
+                  className="text-dsmlcDataOrange underline"
+                  href={bullet.link?.link}
+                  target="_blank"
+                >
+                  {bullet.link?.linkName}
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <div className="flex justify-center">
+        {Data.button && (
+          <Link
+            href={Data.button.buttonLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-8 py-4 border border-transparent text-lg font-medium rounded-full shadow-lg text-light-dsmlcWhite dark:text-dark-dsmlcWhite bg-dsmlcDataOrange hover:bg-dsmlcTangerine focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dsmlcTangerine transition duration-150 ease-in-out"
+          >
+            {Data.button.buttonText}
+          </Link>
+        )}
       </div>
     </div>
   );
