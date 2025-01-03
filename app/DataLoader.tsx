@@ -46,7 +46,8 @@ export interface BackgroundFillTemplateData {
 export interface CarouselTemplateData {
   type: "CarouselTemplate";
   data: {
-    image: {
+    carousel: {
+      title?: string;
       imageLink?: string;
       imageName?: string;
       imageType?: string;

@@ -19,10 +19,10 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
     clearTimer(); // Make sure we don't stack multiple intervals
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === Data.image.length - 1 ? 0 : prevIndex + 1
+        prevIndex === Data.carousel.length - 1 ? 0 : prevIndex + 1
       );
     }, Data.interval);
-  }, [Data.image.length, Data.interval, clearTimer]);
+  }, [Data.carousel.length, Data.interval, clearTimer]);
 
   useEffect(() => {
     startTimer();
@@ -33,14 +33,14 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
 
   const goToNext = () => {
     setCurrentIndex((current) =>
-      current === Data.image.length - 1 ? 0 : current + 1
+      current === Data.carousel.length - 1 ? 0 : current + 1
     );
     startTimer();
   };
 
   const goToPrevious = () => {
     setCurrentIndex((current) =>
-      current === 0 ? Data.image.length - 1 : current - 1
+      current === 0 ? Data.carousel.length - 1 : current - 1
     );
     startTimer();
   };
@@ -51,7 +51,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
   };
 
   return (
-    <div className="w-full flex justify-center items-center px-4 mb-16">
+    <div className="w-full flex flex-col justify-center items-center px-4 mb-16">
       <div className="relative group w-full max-w-4xl">
         <div className="flex justify-between gap-5 items-center">
           <button
@@ -62,9 +62,9 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
             <ChevronLeft className="w-6 h-6" />
           </button>
           <ImageTemplate
-            image={Data.image[currentIndex].imageLink || ""}
-            name={Data.image[currentIndex].imageName || ""}
-            type={Data.image[currentIndex].imageType as ImageType}
+            image={Data.carousel[currentIndex].imageLink || ""}
+            name={Data.carousel[currentIndex].imageName || ""}
+            type={Data.carousel[currentIndex].imageType as ImageType}
           />
           <button
             className="h-fit text-dsmlcDataOrange p-2 rounded-full opacity-50 group-hover:bg-dsmlcTangerine group-hover:opacity-100 transition-opacity duration-300 dark:hover:text-dark-dsmlcParchment hover:text-light-dsmlcParchment border-2 dark:hover:border-dark-dsmlcParchment hover:border-light-dsmlcParchment border-dsmlcDataOrange"
@@ -73,9 +73,8 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
           >
             <ChevronRight className="w-6 h-6" />
           </button>
-
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-10">
-            {Data.image.map((_, index) => (
+            {Data.carousel.map((_, index) => (
               <button
                 key={index}
                 className={`w-3 h-3 rounded-full transition-all ${
@@ -89,6 +88,9 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
             ))}
           </div>
         </div>
+      </div>
+      <div className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack pt-5">
+        {Data.carousel[currentIndex].title}
       </div>
     </div>
   );

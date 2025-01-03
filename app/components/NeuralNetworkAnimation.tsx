@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from "react";
 import p5 from "p5";
 
 // Helper types
-type Node = { x: number; y: number };
+type Node = { x: number; y: number; size: number };
 type Edge = [number, number];
 
 interface NetworkData {
@@ -45,7 +45,8 @@ function createNetworkData(
       const x = p.random(xRange[0], xRange[1]);
       // small vertical jitter so nodes aren’t perfectly in one line
       const y = layerY + p.random(-15, 15);
-      layerNodes.push({ x, y });
+      const size = p.random(6, 20);
+      layerNodes.push({ x, y, size });
     }
 
     layersData.push(layerNodes);
@@ -192,12 +193,12 @@ const SideNetworksAnimation = () => {
           // Draw nodes in this layer
           const nodeArray = layersData[i];
           for (let n = 0; n < nodeArray.length; n++) {
-            const { x, y } = nodeArray[n];
+            const { x, y, size } = nodeArray[n];
             if (progress >= i) {
               // highlight
               p.fill(255, 145, 77);
               p.noStroke();
-              p.circle(x, y, 8);
+              p.circle(x, y, size);
             }
           }
         }

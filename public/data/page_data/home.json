@@ -86,18 +86,21 @@
       {
         "type": "CarouselTemplate",
         "data": {
-          "image": [
+          "carousel": [
             {
+              "title": "WeFlourish 2024",
               "imageLink": "/images/events/fall_2024/weflourish.png",
               "imageName": "Picture of DSMLC's Fall 2024 WeFlourish Event",
               "imageType": "Banner"
             },
             {
+              "title": "Interview and Application Event 2024",
               "imageLink": "/images/events/fall_2024/int_and_app2.png",
               "imageName": "Picture of DSMLC's Fall 2024 Int and App Event",
               "imageType": "Banner"
             },
             {
+              "title": "Meet and Greet 2024",
               "imageLink": "/images/events/fall_2024/meet_and_greet.png",
               "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
               "imageType": "Banner"
