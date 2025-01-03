@@ -26,9 +26,9 @@ const ThemeToggle = () => {
         className={`dark:translate-x-8 translate-x-0 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite border-light-dsmlcBlack dark:border-dark-dsmlcBlack absolute w-6 h-6 rounded-full border-2 transform transition-transform flex items-center justify-center`}
       >
         {isDarkMode ? (
-          <FaMoon className="text-dsmlcDataOrange" />
+          <FaMoon className="text-dsmlcTangerine" />
         ) : (
-          <FaSun className="text-dsmlcDataOrange" />
+          <FaSun className="text-dsmlcTangerine" />
         )}
       </div>
     </div>

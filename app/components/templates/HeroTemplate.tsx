@@ -5,7 +5,6 @@ import SocialMediaData from "../../../public/data/club_links.json";
 import ImageTemplate from "./ImageTemplate";
 import { HeroTemplateData } from "@/app/DataLoader";
 import { useTheme } from "../../ThemeProvider";
-import ThemeToggle from "../ThemeToggle";
 
 const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
   const { isDarkMode } = useTheme();
@@ -74,7 +73,6 @@ const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
             );
           })}
         </div>
-        <ThemeToggle />
       </div>
     </div>
   );

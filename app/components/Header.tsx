@@ -6,12 +6,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTheme } from "../ThemeProvider";
+import ThemeToggle from "./ThemeToggle";
 
 const NavbarLinksDesktop = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex-row items-center justify-between lg:gap-10 md:gap-3 lg:flex md:flex sm:hidden hidden">
+    <div className="flex-row items-center justify-between lg:gap-10 md:gap-3 lg:flex md:hidden hidden">
       {PagesData.map((page) => {
         return (
           <div key={page.name} className="group relative">
@@ -50,6 +51,7 @@ const NavbarLinksDesktop = () => {
           </div>
         );
       })}
+      <ThemeToggle />
     </div>
   );
 };
@@ -103,7 +105,7 @@ const NavbarLinksPhone = () => {
   }, [sidebarOpen, handleClickOutside]);
 
   return (
-    <div className="items-center lg:hidden md:hidden sm:flex flex">
+    <div className="items-center lg:hidden md:flex flex">
       <button onClick={toggleSidebar}>
         <svg
           className="hover:fill-dsmlcDataOrange dark:fill-dark-dsmlcBlack fill-light-dsmlcBlack transition-all duration-300"
@@ -121,7 +123,7 @@ const NavbarLinksPhone = () => {
       </button>
 
       {sidebarOpen && (
-        <div className="fixed inset-0 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite bg-opacity-50 z-50 ">
+        <div className="fixed inset-0 bg-light-dsmlcWhite bg-opacity-35 z-50 ">
           <div
             ref={sidebarRef}
             className={`overflow-y-auto no-scrollbar overflow-x-hidden fixed top-0 right-0 py-14 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite md:w-80 sm:w-64 w-64 h-full shadow-md z-50 dark:shadow-dark-dsmlcBlack shadow-light-dsmlcBlack ${
@@ -156,75 +158,82 @@ const NavbarLinksPhone = () => {
               </Link>{" "}
             </button>
 
-            <div className="flex flex-col">
-              {PagesData.map((page) => {
-                const isOpen = dropdowns[page.name];
-                return (
-                  <div key={page.name} className="group relative text-lg">
-                    <div className="flex flex-row justify-between">
-                      <button
-                        className="flex-1 min-w-40"
-                        onClick={toggleSidebar}
-                      >
-                        <Link href={page.link}>
-                          <div
-                            className={`${
-                              page.link === pathname ||
-                              pathname.includes(page.link + "/")
-                                ? "text-dsmlcDataOrange"
-                                : ""
-                            }  hover:text-dsmlcDataOrange text-start hover:scale-105 transition-all duration-300 p-5 pl-14 py-3 font-medium`}
-                          >
-                            {page.name}
-                          </div>
-                        </Link>
-                      </button>
-                      {page.type === "dropdown" && (
+            <div className="flex flex-col gap-80">
+              <div>
+                {PagesData.map((page) => {
+                  const isOpen = dropdowns[page.name];
+                  return (
+                    <div key={page.name} className="group relative text-lg">
+                      <div className="flex flex-row justify-between">
                         <button
-                          className="flex-1 text-sm hover:text-dsmlcDataOrange hover:scale-125 transition-all duration-300"
-                          onClick={() => toggleDropdown(page.name)}
+                          className="flex-1 min-w-40"
+                          onClick={toggleSidebar}
                         >
-                          {isOpen ? (
-                            <span className="text-dsmlcDataOrange">▲</span>
-                          ) : (
-                            <span>▼</span>
-                          )}
+                          <Link href={page.link}>
+                            <div
+                              className={`${
+                                page.link === pathname ||
+                                pathname.includes(page.link + "/")
+                                  ? "text-dsmlcDataOrange"
+                                  : ""
+                              }  hover:text-dsmlcDataOrange text-start hover:scale-105 transition-all duration-300 p-5 pl-14 py-3 font-medium`}
+                            >
+                              {page.name}
+                            </div>
+                          </Link>
                         </button>
+                        {page.type === "dropdown" && (
+                          <button
+                            className="flex-1 text-sm hover:text-dsmlcDataOrange hover:scale-125 transition-all duration-300"
+                            onClick={() => toggleDropdown(page.name)}
+                          >
+                            {isOpen ? (
+                              <span className="text-dsmlcDataOrange">▲</span>
+                            ) : (
+                              <span>▼</span>
+                            )}
+                          </button>
+                        )}
+                      </div>
+
+                      {page.type === "dropdown" && isOpen && (
+                        <div className="flex-col text-base justify-center flex min-w-40 rounded-lg ">
+                          {page.dropdown.map((sub) => {
+                            console.log(
+                              `/${page.link}/${sub.link}` + " sublink"
+                            );
+                            return (
+                              <div key={sub.name}>
+                                <button
+                                  className="w-full"
+                                  onClick={toggleSidebar}
+                                >
+                                  <Link href={`${page.link}/${sub.link}`}>
+                                    <div
+                                      className={`${
+                                        `${page.link + sub.link}` === pathname
+                                          ? "text-dsmlcDataOrange"
+                                          : ""
+                                      } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite hover:brightness-110 font-medium`}
+                                    >
+                                      <span className="hover:scale-105 w-full pl-16 text-start transition-all duration-150">
+                                        {sub.name}
+                                      </span>
+                                    </div>
+                                  </Link>
+                                </button>
+                              </div>
+                            );
+                          })}
+                        </div>
                       )}
                     </div>
-
-                    {page.type === "dropdown" && isOpen && (
-                      <div className="flex-col text-base justify-center flex min-w-40 rounded-lg ">
-                        {page.dropdown.map((sub) => {
-                          console.log(`/${page.link}/${sub.link}` + " sublink");
-                          return (
-                            <div key={sub.name}>
-                              <button
-                                className="w-full"
-                                onClick={toggleSidebar}
-                              >
-                                <Link href={`${page.link}/${sub.link}`}>
-                                  <div
-                                    className={`${
-                                      `${page.link + sub.link}` === pathname
-                                        ? "text-dsmlcDataOrange"
-                                        : ""
-                                    } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite hover:brightness-110 font-medium`}
-                                  >
-                                    <span className="hover:scale-105 w-full pl-16 text-start transition-all duration-150">
-                                      {sub.name}
-                                    </span>
-                                  </div>
-                                </Link>
-                              </button>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+              <div className="self-center">
+                <ThemeToggle />{" "}
+              </div>
             </div>
           </div>
         </div>
