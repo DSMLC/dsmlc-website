@@ -10,11 +10,25 @@
       },
       {
         "type": "ProfileListTemplate",
-        "data": [
-          "Admin Team",
-          "Operations Team",
-          "Legacy Executives (Advisory Team)"
-        ]
+        "data": ["Admin Team"]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "ProfileListTemplate",
+        "data": ["Operations Team"]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "ProfileListTemplate",
+        "data": ["Legacy Executives (Advisory Team)"]
       }
     ]
   }
