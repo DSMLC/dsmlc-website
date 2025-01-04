@@ -48,7 +48,7 @@ const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
             {Data.description}
           </div>
         )}
-        <AILottieAnimation />
+        {/* <AILottieAnimation /> */}
         <div className="flex-row flex gap-10 items-center">
           {Object.values(SocialMediaData.social_media).map((app, index) => {
             return (
