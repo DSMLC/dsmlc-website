@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import SubtitleTemplate from "./SubtitleTemplate1";
 import { HeaderTextTemplateData2 } from "@/app/DataLoader";

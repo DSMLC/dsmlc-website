@@ -29,6 +29,15 @@
             "text": "DSMLC organizes a wide range of activities that enrich the educational experience of students and promote professional growth. These initiatives fall into three primary categories: Skills Workshops, Networking Events, and Competitions."
           }
         ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": {
+            "buttonLink": "/about/execs",
+            "buttonText": "Meet the Execs"
+          }
+        }
       }
     ]
   },
@@ -88,6 +97,15 @@
             ]
           }
         ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": {
+            "buttonLink": "/events/workshops",
+            "buttonText": "View All Workshops"
+          }
+        }
       }
     ]
   },
@@ -119,6 +137,15 @@
             "text": "A networking event focused on helping students connect with companies offering internships, giving students valuable tips on securing internships in data science and related fields."
           }
         ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": {
+            "buttonLink": "/events/upcoming",
+            "buttonText": "Register For Upcoming Events"
+          }
+        }
       }
     ]
   },
@@ -133,6 +160,38 @@
             "text": "DSMLC’s final competition give students the opportunity to apply their skills in a real-world context, showcasing their abilities to industry leaders and academic professionals."
           }
         ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": {
+            "buttonLink": "/events/final-comp",
+            "buttonText": "Learn More"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Visionary Lab",
+            "text": "The Visionary Lab connects students with real-world data science experience through projects from local businesses and nonprofits. By tackling these challenges, students gain practical skills and resume-worthy experiences, while partner organizations benefit from innovative, data-driven solutions at no cost. The Visionary Lab bridges the gap between academics and application."
+          }
+        ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": {
+            "buttonLink": "/visionary-lab",
+            "buttonText": "Learn More"
+          }
+        }
       }
     ]
   }

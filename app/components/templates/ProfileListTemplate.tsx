@@ -13,13 +13,13 @@ export const ProfileListTemplate = ({
   Data: ProfileListTemplateData["data"];
 }) => {
   return (
-    <div className="px-4 py-6 md:px-6 lg:px-8">
+    <div className="px-4 md:px-6 lg:px-8">
       {Data.map((roleGroup, index) => {
         return (
           <div
             key={index}
             style={{ perspective: 1000 }}
-            className="flex flex-col gap-10 lg:px-0 py-10 lg:pt-11 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center"
+            className="flex flex-col gap-10 lg:px-0 lg:w-full max-w-4xl w-fit m-auto lg:text-start text-center mb-16"
           >
             <div className="flex items-center justify-center lg:justify-start gap-2">
               <SubtitleTemplate Data={roleGroup} />

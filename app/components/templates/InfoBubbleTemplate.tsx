@@ -1,3 +1,4 @@
+"use client";
 import { InfoBubbleTemplateData } from "@/app/DataLoader";
 import React from "react";
 import Image from "next/image";
@@ -11,7 +12,10 @@ const InfoBubbleTemplate = ({
     <div className="pb-16 grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-5 w-full max-w-4xl m-auto lg:px-0 px-10">
       {Data.map((section, index) => {
         return (
-          <div key={index} className="bg-light-dsmlcParchment dark:bg-dark-dsmlcParchment shadow-lg rounded-3xl p-6 flex items-center">
+          <div
+            key={index}
+            className="bg-light-dsmlcParchment dark:bg-dark-dsmlcParchment shadow-lg rounded-3xl p-6 flex items-center"
+          >
             <div className="flex-shrink-0">
               {section.image && (
                 <Image

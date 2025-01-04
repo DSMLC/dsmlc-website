@@ -1,3 +1,4 @@
+"use client";
 import { SubtitleTemplateData1 } from "@/app/DataLoader";
 import React from "react";
 

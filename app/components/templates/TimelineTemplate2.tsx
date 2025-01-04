@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { motion, useInView } from "framer-motion";
 import SubtitleTemplate3 from "./SubtitleTemplate3";

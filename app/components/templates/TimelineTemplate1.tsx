@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useRef } from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
 import SubHeaderTextTemplate from "./SubHeaderTextTemplate";

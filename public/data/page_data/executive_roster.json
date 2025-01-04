@@ -1,16 +1,21 @@
 [
   {
-    "type": "TitleTemplate1",
-    "data": {
-      "title": "Meet the Team!"
-    }
-  },
-  {
-    "type": "ProfileListTemplate",
+    "type": "BackgroundFillTemplate",
     "data": [
-      "Admin Team",
-      "Operations Team",
-      "Legacy Executives (Advisory Team)"
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Meet the Team!"
+        }
+      },
+      {
+        "type": "ProfileListTemplate",
+        "data": [
+          "Admin Team",
+          "Operations Team",
+          "Legacy Executives (Advisory Team)"
+        ]
+      }
     ]
   }
 ]

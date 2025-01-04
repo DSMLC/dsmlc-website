@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import SubHeaderTextTemplate from "./SubHeaderTextTemplate";
 import SubtitleTemplate3 from "./SubtitleTemplate3";

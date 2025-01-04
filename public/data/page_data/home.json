@@ -28,6 +28,15 @@
             "title": "Event Attendees"
           }
         ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": {
+            "buttonLink": "/contact/membership",
+            "buttonText": "Add Me to the Count!"
+          }
+        }
       }
     ]
   },
@@ -284,7 +293,7 @@
         "data": {
           "button": {
             "buttonLink": "/about/sponsors",
-            "buttonText": "Learn More"
+            "buttonText": "Learn More About Our Sponsorship Packages"
           }
         }
       }

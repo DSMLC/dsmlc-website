@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
 import ImageTemplate, { ImageType } from "./ImageTemplate";
