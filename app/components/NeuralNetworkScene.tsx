@@ -157,7 +157,7 @@ function NeuralNetwork() {
 }
 
 /**
- * NeuralNetworkScene: Wrapper that places the 3D Canvas behind your hero content.
+ * NeuralNetworkScene: Wrapper that places the 3D Canvas behind content
  * Position it absolutely to fill the container.
  */
 export default function NeuralNetworkScene() {

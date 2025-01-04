@@ -189,7 +189,7 @@
         "type": "HeaderTextTemplate2",
         "data": [
           {
-            "header": "Our Sponsors",
+            "header": "Our Sponsors and Collaborations",
             "text": "We extend our heartfelt gratitude to our incredible sponsors! Your unwavering support empowers us to create innovative solutions, provide hands-on learning opportunities, and make a meaningful impact in our community. Together, we are shaping the future of data science and technology."
           }
         ]

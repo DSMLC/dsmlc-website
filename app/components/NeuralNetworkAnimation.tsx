@@ -82,13 +82,23 @@ const SideNetworksAnimation = () => {
       // CONFIG
       const LAYERS = 6; // how many vertical layers
       const LAYER_SPACING = 120; // vertical gap between layers
-      const SCROLL_MAX = 2000; // how many px of scroll to fully highlight
       const MIN_NODES = 2;
       const MAX_NODES = 4;
 
-      // We’ll generate 2 networks: left side, right side.
+      // We'll generate 2 networks: left side, right side.
       let leftNetwork: NetworkData;
       let rightNetwork: NetworkData;
+
+      // Dynamically compute total scrollable height (scrollHeight - window height)
+      function getTotalScrollableHeight() {
+        // The document’s full height minus the viewport height
+        return (
+          Math.max(
+            document.documentElement.scrollHeight,
+            document.body.scrollHeight
+          ) - window.innerHeight
+        );
+      }
 
       p.setup = () => {
         const cnv = p.createCanvas(window.innerWidth, window.innerHeight);
@@ -132,8 +142,15 @@ const SideNetworksAnimation = () => {
         p.clear();
 
         const scrollY = window.scrollY || 0;
-        // progress from 0..(LAYERS -1)
-        const progress = p.map(scrollY, 0, SCROLL_MAX, 0, LAYERS - 1, true);
+        // Calculate how far the user has scrolled as a fraction [0..1]
+        const totalScrollable = getTotalScrollableHeight();
+        const scrollFraction =
+          totalScrollable > 0 ? scrollY / totalScrollable : 1;
+
+        // Map that fraction into the layer range 0..(LAYERS - 1)
+        // so that at scrollFraction=0 we highlight layer 0,
+        // and at scrollFraction=1 we highlight the last layer.
+        const progress = p.map(scrollFraction, 0, 1, 0, LAYERS - 1, true);
 
         // Draw left side
         drawNetwork(p, leftNetwork, progress);
@@ -168,7 +185,7 @@ const SideNetworksAnimation = () => {
 
               if (partial <= 0) {
                 // Not reached this layer’s edges yet
-                p.stroke(60); // dark grey
+                p.stroke(60, 60, 60, 100); // dark grey with low opacity
                 p.line(n1.x, n1.y, n1.x, n1.y);
               } else if (partial >= 1) {
                 // fully highlight edge
