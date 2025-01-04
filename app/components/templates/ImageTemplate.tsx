@@ -26,6 +26,18 @@ const sizeConfig = {
       small: 70,
     },
   },
+  Sponsor: {
+    width: {
+      large: 250,
+      medium: 330,
+      small: 310,
+    },
+    height: {
+      large: 250,
+      medium: 330,
+      small: 310,
+    },
+  },
   Banner: {
     width: {
       large: 1200, // Full-width for large screens
@@ -40,7 +52,7 @@ const sizeConfig = {
   },
 };
 
-export type ImageType = "Pic" | "Logo" | "Banner";
+export type ImageType = "Pic" | "Logo" | "Banner" | "Sponsor";
 
 const getImageClassname = (type: ImageType): string => {
   switch (type) {
@@ -48,6 +60,8 @@ const getImageClassname = (type: ImageType): string => {
       return "object-cover self-center object-center min-w-40 lg:max-w-96 md:max-w-80 max-w-96 max-h-96 border-4 border-dsmlcTangerine rounded-4xl";
     case "Logo":
       return "object-contain";
+    case "Sponsor":
+      return "object-contain min-w-40 lg:max-w-96 md:max-w-80 max-w-96 max-h-96";
     case "Banner":
       return "object-cover self-center object-center min-w-40 w-full lg:h-[600px] md:h-[500px] sm:h-[400px] h-[300px] border-4 border-dsmlcTangerine rounded-4xl w-full";
     default:

@@ -4,19 +4,30 @@
     "data": "main_logo"
   },
   {
-    "type": "IncreasingNumbersTemplate",
+    "type": "BackgroundFillTemplate",
     "data": [
       {
-        "value": 500,
-        "title": "Members"
+        "type": "TitleTemplate2",
+        "data": {
+          "title": "Since our founding of the club in Fall of 2021, we have:"
+        }
       },
       {
-        "value": 1000,
-        "title": "What to put here"
-      },
-      {
-        "value": 10,
-        "title": "What to put here"
+        "type": "IncreasingNumbersTemplate",
+        "data": [
+          {
+            "value": 534,
+            "title": "Club Members"
+          },
+          {
+            "value": 32,
+            "title": "Events Held"
+          },
+          {
+            "value": 1779,
+            "title": "Event Attendees"
+          }
+        ]
       }
     ]
   },
@@ -65,7 +76,7 @@
         "type": "HeaderTextTemplate2",
         "data": [
           {
-            "header": "Upcoming Event",
+            "header": "Upcoming Events",
             "text": "Join us for our next event! This is a great opportunity to connect with others and enhance your knowledge and skills."
           }
         ]
@@ -138,46 +149,6 @@
     "type": "BackgroundFillTemplate",
     "data": [
       {
-        "type": "TimelineTemplate1",
-        "data": [
-          {
-            "number": "1",
-            "header": "Annual Competition Recap",
-            "points": [
-              {
-                "header": "Overview",
-                "text": "Our recent competition saw an increase in participation and support, featuring impactful sessions and valuable project showcases."
-              }
-            ]
-          },
-          {
-            "number": "2",
-            "header": "Technical Workshop",
-            "points": [
-              {
-                "header": "Overview",
-                "text": "A session focusing on real-world applications of technical skills, offering participants hands-on experience and practical insights."
-              }
-            ]
-          },
-          {
-            "number": "3",
-            "header": "Data Visualization Workshop",
-            "points": [
-              {
-                "header": "Overview",
-                "text": "An interactive session on creating effective visual reports, enabling participants to communicate data insights through visualizations."
-              }
-            ]
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "BackgroundFillTemplate",
-    "data": [
-      {
         "type": "HeaderTextTemplate2",
         "data": [
           {
@@ -210,9 +181,52 @@
       }
     ]
   },
+
   {
     "type": "BackgroundFillTemplate",
     "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Our Sponsors",
+            "text": "We extend our heartfelt gratitude to our incredible sponsors! Your unwavering support empowers us to create innovative solutions, provide hands-on learning opportunities, and make a meaningful impact in our community. Together, we are shaping the future of data science and technology."
+          }
+        ]
+      },
+      {
+        "type": "ColumnTemplate",
+        "data": [
+          {
+            "image": {
+              "imageLink": "/images/sponsors/arc_resources.png",
+              "imageName": "arc resources logo",
+              "imageType": "Sponsor"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/sponsors/platform_calgary.png",
+              "imageName": "platform calgary logo",
+              "imageType": "Sponsor"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/sponsors/uofc_data_science.png",
+              "imageName": "uofc data science logo",
+              "imageType": "Sponsor"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/sponsors/uofc_faculty_science.jpg",
+              "imageName": "uofc faculty of science logo",
+              "imageType": "Sponsor"
+            }
+          }
+        ]
+      },
       {
         "type": "HeaderTextTemplate2",
         "data": [

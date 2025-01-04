@@ -59,8 +59,8 @@ export interface CarouselTemplateData {
 export interface ColumnTemplateData {
   type: "ColumnTemplate";
   data: {
-    header: string;
-    text: string;
+    header?: string;
+    text?: string;
     image?: {
       imageLink?: string;
       imageName?: string;
