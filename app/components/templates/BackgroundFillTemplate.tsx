@@ -1,13 +1,41 @@
+"use client";
 import { templateMap } from "@/app/DataLoader";
 import React from "react";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const BackgroundFillTemplate = ({ Data }: { Data: any[] }) => {
+  const ref = useRef(null); // Create a ref for the element
+
   const hasHeaderTextTemplate = Data.some(
     (item) => item.type === "HeaderTextTemplate1"
   );
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        staggerChildren: 0.2, // Stagger children animation
+      },
+    },
+  };
+
+  const childVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
-    <div
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.3 }} // Trigger animation based on scroll
+      variants={containerVariants}
       className={`bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl ${
         hasHeaderTextTemplate
           ? "py-8 sm:py-12"
@@ -22,9 +50,13 @@ const BackgroundFillTemplate = ({ Data }: { Data: any[] }) => {
           return <div key={index}>Unsupported data type: {type}</div>;
         }
 
-        return <TemplateComponent key={index} Data={data} />;
+        return (
+          <motion.div key={index} variants={childVariants}>
+            <TemplateComponent Data={data} />
+          </motion.div>
+        );
       })}
-    </div>
+    </motion.div>
   );
 };
 

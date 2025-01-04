@@ -55,7 +55,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
       <div className="relative group w-full max-w-4xl">
         <div className="flex justify-between gap-5 items-center">
           <button
-            className="h-fit text-dsmlcDataOrange p-2 rounded-full opacity-50 group-hover:bg-dsmlcTangerine group-hover:opacity-100 transition-opacity duration-300 dark:hover:text-dark-dsmlcParchment hover:text-light-dsmlcParchment border-2 dark:hover:border-dark-dsmlcParchment hover:border-light-dsmlcParchment border-dsmlcDataOrange"
+            className="h-fit text-dsmlcTangerine p-2 rounded-full opacity-20 hover:scale-110 group-hover:opacity-100 transition-all duration-300 hover:text-dsmlcDataOrange border-2 hover:border-dsmlcDataOrange border-dsmlcTangerine"
             onClick={goToPrevious}
             aria-label="Previous image"
           >
@@ -67,7 +67,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
             type={Data.carousel[currentIndex].imageType as ImageType}
           />
           <button
-            className="h-fit text-dsmlcDataOrange p-2 rounded-full opacity-50 group-hover:bg-dsmlcTangerine group-hover:opacity-100 transition-opacity duration-300 dark:hover:text-dark-dsmlcParchment hover:text-light-dsmlcParchment border-2 dark:hover:border-dark-dsmlcParchment hover:border-light-dsmlcParchment border-dsmlcDataOrange"
+            className="h-fit text-dsmlcTangerine transition-all p-2 rounded-full opacity-20 hover:scale-110 group-hover:opacity-100 duration-300 hover:text-dsmlcDataOrange border-2 hover:border-dsmlcDataOrange border-dsmlcTangerine"
             onClick={goToNext}
             aria-label="Next image"
           >
@@ -79,8 +79,8 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
                 key={index}
                 className={`w-3 h-3 rounded-full transition-all ${
                   index === currentIndex
-                    ? "bg-dsmlcTangerine scale-125"
-                    : "bg-dsmlcTangerine/50"
+                    ? "bg-dsmlcDataOrange scale-125"
+                    : "bg-dsmlcTangerine opacity-50 scale-75"
                 }`}
                 onClick={() => goToImage(index)}
                 aria-label={`Go to image ${index + 1}`}
