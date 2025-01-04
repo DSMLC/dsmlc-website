@@ -12,12 +12,12 @@ const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
         case 1:
           return "grid-cols-1";
         case 2:
-          return "sm:grid-cols-2 grid-cols-1";
+          return "md:grid-cols-2 grid-cols-1";
         case 3:
-          return "lg:grid-cols-3 sm:grid-cols-2 grid-cols-1";
+          return "lg:grid-cols-3 md:grid-cols-2 grid-cols-1";
       }
     }
-    return "lg:grid-cols-3 sm:grid-cols-2 grid-cols-1";
+    return "lg:grid-cols-3 md:grid-cols-2 grid-cols-1";
   };
 
   const getItemClass = (index: number) => {
@@ -29,9 +29,9 @@ const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
 
     if (isLastRow) {
       if (itemsInLastRow === 1) {
-        return "col-span-full sm:col-span-2 lg:col-span-1 sm:col-start-2 lg:col-start-2";
+        return "col-span-full md:col-span-2 lg:col-span-1 md:col-start-2 lg:col-start-2";
       } else if (itemsInLastRow === 2) {
-        return index % 3 === 0 ? "sm:col-start-2 lg:col-start-2" : "";
+        return index % 3 === 0 ? "md:col-start-2 lg:col-start-2" : "";
       }
     }
 
@@ -45,7 +45,7 @@ const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
       {Data.map((data, index) => (
         <div
           key={index}
-          className={`flex flex-col gap-7 px-5 lg:px-0 lg:pt-11 h-full w-full ${getItemClass(
+          className={`flex flex-col gap-7 px-5 lg:px-0 h-full w-full ${getItemClass(
             index
           )}`}
         >

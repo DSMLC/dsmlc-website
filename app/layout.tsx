@@ -37,7 +37,7 @@ export default function RootLayout({
           <Background />
           <NeuralNetworkScene />
           <NeuralNetworkAnimation />
-          <main className="flex-grow pt-24">{children}</main>
+          <main className="flex-grow pt-32">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

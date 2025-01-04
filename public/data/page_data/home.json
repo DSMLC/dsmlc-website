@@ -189,7 +189,7 @@
         "type": "HeaderTextTemplate2",
         "data": [
           {
-            "header": "Our Sponsors and Collaborations",
+            "header": "Our Sponsors",
             "text": "We extend our heartfelt gratitude to our incredible sponsors! Your unwavering support empowers us to create innovative solutions, provide hands-on learning opportunities, and make a meaningful impact in our community. Together, we are shaping the future of data science and technology."
           }
         ]
@@ -222,6 +222,49 @@
             "image": {
               "imageLink": "/images/sponsors/uofc_faculty_science.jpg",
               "imageName": "uofc faculty of science logo",
+              "imageType": "Sponsor"
+            }
+          }
+        ]
+      },
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Our Collaborators",
+            "text": "We are grateful to collaborate with representatives from various leading organizations through joint projects and guest speaking engagements. These partnerships enrich our initiatives, foster learning, and help us create meaningful impact in the field of data science and technology."
+          }
+        ]
+      },
+      {
+        "type": "ColumnTemplate",
+        "data": [
+          {
+            "image": {
+              "imageLink": "/images/sponsors/alta_ml.png",
+              "imageName": "alta ML logo",
+              "imageType": "Sponsor"
+            }
+          },
+
+          {
+            "image": {
+              "imageLink": "/images/sponsors/teck.png",
+              "imageName": "teck logo",
+              "imageType": "Sponsor"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/sponsors/tacit_edge.png",
+              "imageName": "tacit edge logo",
+              "imageType": "Sponsor"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/sponsors/shopify.png",
+              "imageName": "shopify logo",
               "imageType": "Sponsor"
             }
           }

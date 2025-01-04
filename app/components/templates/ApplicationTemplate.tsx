@@ -25,7 +25,7 @@ const ApplicationSection = ({
           target="_blank"
           rel="noopener noreferrer"
           className={`
-            group relative inline-flex items-center justify-center px-14 py-4 text-lg font-bold tracking-wider text-light-dsmlcBlack
+            group relative inline-flex items-center justify-center px-14 py-4 md:text-lg sm:text-base text-sm font-bold tracking-wider text-light-dsmlcBlack
             rounded-full overflow-hidden shadow-2xl bg-dsmlcTangerine
             transition-all duration-300 ease-out
             focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dsmlcTangerine

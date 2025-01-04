@@ -49,14 +49,14 @@ const IncreasingNumbersTemplate = ({
             containerRefs.current[index] = el;
           }} // Attach refs dynamically
         >
-          <h2 className="text-5xl font-extrabold text-dsmlcTangerine">
+          <h2 className="lg:text-5xl sm:text-4xl text-5xl font-extrabold text-dsmlcTangerine">
             {isVisible[index] ? (
               <CountUp start={0} end={stat.value || 0} duration={4} />
             ) : (
               "0"
             )}
           </h2>
-          <p className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack mt-2">
+          <p className="lg:text-xl sm:text-base text-2xl dark:text-dark-dsmlcBlack text-light-dsmlcBlack mt-2">
             {stat.title}
           </p>
         </div>
