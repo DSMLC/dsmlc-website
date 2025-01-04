@@ -28,7 +28,7 @@ const NavbarLinksDesktop = () => {
               </div>
             </Link>
             {page.type === "dropdown" && (
-              <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-44 shadow-md dark:shadow-dark-dsmlcBlack shadow-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite rounded-lg z-50">
+              <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-44 shadow-md dark:shadow-dark-dsmlcEnhancedParchment shadow-light-dsmlcEnhancedParchment bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite rounded-lg z-50">
                 {page.dropdown.map((sub) => (
                   <div key={sub.name}>
                     <Link href={`${page.link}/${sub.link}`}>
@@ -126,7 +126,7 @@ const NavbarLinksPhone = () => {
         <div className="fixed inset-0 bg-light-dsmlcWhite bg-opacity-35 z-50 ">
           <div
             ref={sidebarRef}
-            className={`overflow-y-auto no-scrollbar overflow-x-hidden fixed top-0 right-0 py-14 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite md:w-80 sm:w-64 w-64 h-full shadow-md z-50 dark:shadow-dark-dsmlcBlack shadow-light-dsmlcBlack ${
+            className={`overflow-y-auto no-scrollbar overflow-x-hidden fixed top-0 right-0 py-14 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite md:w-80 sm:w-64 w-64 h-full shadow-md z-50 dark:shadow-dark-dsmlcEnhancedParchment shadow-light-dsmlcEnhancedParchment ${
               isSliding ? "slide-out" : "slide-in"
             }`}
           >
@@ -199,9 +199,6 @@ const NavbarLinksPhone = () => {
                       {page.type === "dropdown" && isOpen && (
                         <div className="flex-col text-base justify-center flex min-w-40 rounded-lg ">
                           {page.dropdown.map((sub) => {
-                            console.log(
-                              `/${page.link}/${sub.link}` + " sublink"
-                            );
                             return (
                               <div key={sub.name}>
                                 <button

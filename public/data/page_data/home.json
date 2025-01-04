@@ -46,30 +46,44 @@
             "text": "We host networking events that connect students with professionals and peers, creating opportunities for mentorship and career growth."
           }
         ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": {
+            "buttonLink": "/about",
+            "buttonText": "Learn More About Us"
+          }
+        }
       }
     ]
   },
   {
-    "type": "ApplicationTemplate",
-    "data": {
-      "title": "Upcoming Event",
-      "descriptions": [
-        "Join us for our next event! This is a great opportunity to connect with others and enhance your knowledge and skills."
-      ],
-      "bullets": {
-        "bulletsTitle": "Next Event",
-        "bullets": [
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
           {
-            "title": "Networking Night",
-            "text": "An event designed to help attendees expand their network and learn from industry experts, academic mentors, and fellow participants."
+            "header": "Upcoming Event",
+            "text": "Join us for our next event! This is a great opportunity to connect with others and enhance your knowledge and skills."
           }
         ]
       },
-      "button": {
-        "buttonLink": "/events/upcoming",
-        "buttonText": "View All Events"
+      {
+        "type": "SectionedHeaderTemplate",
+        "data": "UpcomingEvents"
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": {
+            "buttonLink": "/events/upcoming",
+            "buttonText": "Register For Events"
+          }
+        }
       }
-    }
+    ]
   },
   {
     "type": "BackgroundFillTemplate",
@@ -107,6 +121,15 @@
             }
           ],
           "interval": 5000
+        }
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": {
+            "buttonLink": "/events",
+            "buttonText": "More Highlights"
+          }
         }
       }
     ]
@@ -152,16 +175,62 @@
     ]
   },
   {
-    "type": "ApplicationTemplate",
-    "data": {
-      "title": "Become a Sponsor",
-      "descriptions": [
-        "Partner with us and connect with the next generation of professionals. Sponsoring our organization provides brand visibility, access to top talent, and engagement opportunities with students and academics."
-      ],
-      "button": {
-        "buttonLink": "/about/sponsors",
-        "buttonText": "Learn More"
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Introducing: Visionary Lab",
+            "text": "The Visionary Lab bridges the gap between academic learning and real-world impact, connecting University of Calgary students with local organizations to solve real-world challenges through data-driven innovation."
+          }
+        ]
+      },
+      {
+        "type": "HeaderTextTemplate1",
+        "data": [
+          {
+            "header": "For Organizations",
+            "text": "Gain access to creative, no-cost solutions for your data challenges while empowering the next generation of talent."
+          },
+          {
+            "header": "For Students",
+            "text": "Transform your classroom knowledge into practical experience that builds your skills, grows your network, and strengthens your resume."
+          }
+        ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": {
+            "buttonLink": "/visionary-lab",
+            "buttonText": "Learn More"
+          }
+        }
       }
-    }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Become a Sponsor",
+            "text": "Partner with us and connect with the next generation of professionals. Sponsoring our organization provides brand visibility, access to top talent, and engagement opportunities with students and academics."
+          }
+        ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": {
+            "buttonLink": "/about/sponsors",
+            "buttonText": "Learn More"
+          }
+        }
+      }
+    ]
   }
 ]

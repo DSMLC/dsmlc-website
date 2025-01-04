@@ -40,7 +40,7 @@ const IncreasingNumbersTemplate = ({
   }, [Data]);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-evenly items-center max-w-4xl m-auto py-10">
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 justify-items-center items-center max-w-4xl m-auto py-10">
       {Data.map((stat, index) => (
         <div
           key={index}
@@ -49,7 +49,7 @@ const IncreasingNumbersTemplate = ({
             containerRefs.current[index] = el;
           }} // Attach refs dynamically
         >
-          <h2 className="text-5xl font-extrabold text-dsmlcDataOrange">
+          <h2 className="text-5xl font-extrabold text-dsmlcTangerine">
             {isVisible[index] ? (
               <CountUp start={0} end={stat.value || 0} duration={4} />
             ) : (

@@ -131,13 +131,15 @@ export interface ProfileListTemplateData {
 
 export interface SectionedHeaderTemplateData {
   type: "SectionedHeaderTemplate";
-  data: {
-    header: string;
-    subheaders: {
-      header: string;
-      text: string;
-    }[];
-  }[];
+  data:
+    | string // e.g., "UpcomingEvents"
+    | {
+        header: string;
+        subheaders: {
+          header: string;
+          text: string;
+        }[];
+      }[];
 }
 
 export interface SubHeaderTextTemplateData {

@@ -51,7 +51,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center px-4 mb-16">
+    <div className="w-full flex flex-col justify-center items-center px-4 mb-10">
       <div className="relative group w-full max-w-4xl">
         <div className="flex justify-between gap-5 items-center">
           <button
