@@ -117,7 +117,7 @@
         "type": "CarouselTemplate",
         "data": {
           "json": "past_events.json",
-          "keys": ["most_recent"]
+          "keys": ["fall_2024"]
         }
       },
       {

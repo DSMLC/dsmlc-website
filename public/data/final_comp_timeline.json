@@ -1,0 +1,64 @@
+{
+  "final_comp_2025": [
+    {
+      "number": "1",
+      "header": "Competition Kickoff",
+      "points": [
+        {
+          "header": "February 16, 2025<br>",
+          "text": "The competition begins with an official kickoff event where students are introduced to project guidelines, expectations, and the timeline."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/final_comp_2024/final_comp_1.JPG",
+        "imageName": "Picture of DSMLC's Final Comp 2024 Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "2",
+      "header": "Project Development Phase",
+      "points": [
+        {
+          "header": "February 16, 2025 - March 22, 2025<br>",
+          "text": "During this phase, students work on constructing their projects, applying skills, conducting research, and collaborating to develop innovative solutions."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/final_comp_2024/final_comp_2.JPG",
+        "imageName": "Picture of DSMLC's Final Comp 2024 Event 1",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "3",
+      "header": "Project Submission & Evaluation",
+      "points": [
+        {
+          "header": "March 22, 2025 - March 25, 2025<br>",
+          "text": "After project development, participants submit their final projects for evaluation by a panel of expert judges who assess innovation, technical execution, and impact."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/final_comp_2024/final_comp_3.jpg",
+        "imageName": "Picture of DSMLC's Final Comp 2024 Event 3",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "4",
+      "header": "Final Symposium & Award Ceremony",
+      "points": [
+        {
+          "header": "March 27, 2025<br>",
+          "text": "Top teams present their projects at a live symposium with sponsors and industry professionals. Winners are announced, and awards are presented."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/final_comp_2024/final_comp_awards.JPG",
+        "imageName": "Picture of DSMLC's Final Comp 2024 Event Awards",
+        "imageType": "Pic"
+      }
+    }
+  ]
+}

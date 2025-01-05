@@ -65,9 +65,12 @@ const IncreasingNumbersTemplate = ({
           >
             <h2 className="lg:text-5xl sm:text-4xl text-5xl font-extrabold text-dsmlcTangerine group-hover:text-dsmlcDataOrange">
               {isVisible[index] ? (
-                <CountUp start={0} end={stat.value || 0} duration={4} />
+                <>
+                  <CountUp start={0} end={stat.value || 0} duration={4} />
+                  {stat.unit}
+                </>
               ) : (
-                "0"
+                `0${stat.unit}`
               )}
             </h2>
             <p className="lg:text-xl sm:text-base text-2xl dark:text-dark-dsmlcBlack text-light-dsmlcBlack mt-2">

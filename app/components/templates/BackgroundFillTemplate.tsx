@@ -40,7 +40,7 @@ const BackgroundFillTemplate = ({
       ref={ref}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.2 }} // Trigger animation based on scroll
+      viewport={{ once: true, margin: "-100px 0px -100px 0px" }} // Trigger animation based on scroll
       variants={containerVariants}
       className={`bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl ${
         hasHeaderTextTemplate

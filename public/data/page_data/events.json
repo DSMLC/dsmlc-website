@@ -1,120 +1,191 @@
 [
   {
-    "type": "TitleTemplate1",
-    "data": {
-      "title": "Fall 2024"
-    }
-  },
-  {
-    "type": "TimelineTemplate1",
+    "type": "BackgroundFillTemplate",
     "data": [
       {
-        "number": "11/01",
-        "header": "WeFlourish",
-        "points": [
-          {
-            "text": "WeFlourish"
-          }
-        ],
-        "image": {
-          "imageLink": "/images/events/fall_2024/weflourish.png",
-          "imageName": "Picture of DSMLC's Fall 2024 WeFlourish Event",
-          "imageType": "Pic"
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Events",
+          "subtitle": "Explore, Connect, and Compete in the World of Data Science and Machine Learning."
         }
       },
       {
-        "number": "10/29",
-        "header": "Interviews and Applications Night",
-        "points": [
+        "type": "HeaderTextSubSectionTemplate",
+        "data": [
           {
-            "text": "TO BE FILLED"
+            "title": "A Closer Look at Our Events",
+            "subSection": [
+              {
+                "header": "Workshops: ",
+                "text": "Hands-on sessions on topics like machine learning, Power BI, SQL, and more. Tailored for all experience levels, our workshops help members gain practical, industry-relevant skills."
+              },
+              {
+                "header": "Networking Events: ",
+                "text": "Opportunities to meet professionals from industry and academia. Get career insights, internship tips, and build valuable connections."
+              },
+              {
+                "header": "Competitions: ",
+                "text": "Challenge yourself with real-world problems, collaborate with peers, and present your work to industry leaders and academic experts."
+              },
+              {
+                "header": "Socials: ",
+                "text": "Engage with fellow members in a relaxed setting and build friendships with like-minded peers in data science and machine learning."
+              }
+            ]
           }
-        ],
-        "image": {
-          "imageLink": "/images/events/fall_2024/int_and_app2.png",
-          "imageName": "Picture of DSMLC's Fall 2024 Int and App Event",
-          "imageType": "Pic"
+        ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": [
+          {
+            "link": "/events/upcoming",
+            "name": "Register For Upcoming Events"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Winter 2025"
         }
       },
       {
-        "number": "10/24",
-        "header": "Inro to Python Data Visualization Workshop",
-        "points": [
-          {
-            "text": "Explored the exciting world of Python Data Visualization and Manipulation, diving into libraries like Matplotlib, Plotly, Seaborn, and tools such as Pandas and NumPy."
-          }
-        ],
-        "image": {
-          "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
-          "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-          "imageType": "Pic"
-        }
-      },
-      {
-        "number": "09/27",
-        "header": "Fall Meet and Greet",
-        "points": [
-          {
-            "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
-          }
-        ],
-        "image": {
-          "imageLink": "/images/events/fall_2024/meet_and_greet.png",
-          "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-          "imageType": "Pic"
-        }
-      },
-      {
-        "number": "09/11",
-        "header": "Science Pancake Breakfast",
-        "points": [
-          {
-            "text": "TO BE FILLED"
-          }
-        ],
-        "image": {
-          "imageLink": "/images/events/fall_2024/pancakes.jpg",
-          "imageName": "Picture of DSMLC's Fall 2024 Pancake Breakfast Event",
-          "imageType": "Pic"
+        "type": "TimelineTemplate1",
+        "data": {
+          "json": "past_events.json",
+          "keys": ["fall_2025"]
         }
       }
     ]
   },
   {
-    "type": "TitleTemplate1",
-    "data": {
-      "title": "Winter 2024"
-    }
-  },
-  {
-    "type": "TimelineTemplate1",
+    "type": "BackgroundFillTemplate",
     "data": [
       {
-        "number": "09/27",
-        "header": "DSMLC Annual Final Competition",
-        "points": [
-          {
-            "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
-          }
-        ],
-        "image": {
-          "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
-          "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-          "imageType": "Pic"
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Fall 2024"
         }
       },
       {
-        "number": "03/23",
-        "header": "Fall Meet and Greet",
-        "points": [
-          {
-            "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
-          }
-        ],
-        "image": {
-          "imageLink": "/images/events/fall_2024/meet_and_greet.png",
-          "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-          "imageType": "Pic"
+        "type": "TimelineTemplate1",
+        "data": {
+          "json": "past_events.json",
+          "keys": ["fall_2024"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Winter 2024"
+        }
+      },
+      {
+        "type": "TimelineTemplate1",
+        "data": {
+          "json": "past_events.json",
+          "keys": ["winter_2024"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Fall 2023"
+        }
+      },
+      {
+        "type": "TimelineTemplate1",
+        "data": {
+          "json": "past_events.json",
+          "keys": ["fall_2023"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Winter 2023"
+        }
+      },
+      {
+        "type": "TimelineTemplate1",
+        "data": {
+          "json": "past_events.json",
+          "keys": ["winter_2023"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Fall 2022"
+        }
+      },
+      {
+        "type": "TimelineTemplate1",
+        "data": {
+          "json": "past_events.json",
+          "keys": ["fall_2022"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Winter 2022"
+        }
+      },
+      {
+        "type": "TimelineTemplate1",
+        "data": {
+          "json": "past_events.json",
+          "keys": ["winter_2022"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Fall 2021"
+        }
+      },
+      {
+        "type": "TimelineTemplate1",
+        "data": {
+          "json": "past_events.json",
+          "keys": ["fall_2021"]
         }
       }
     ]

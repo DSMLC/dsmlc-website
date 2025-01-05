@@ -79,7 +79,7 @@ const TimelineTemplate1 = ({
 
             <div className="flex flex-col gap-7 lg:px-0 px-5 lg:w-full max-w-4xl w-fit m-auto h-full">
               <div
-                className={`absolute md:left-1/2 left-6 transform -translate-x-1/2 dark:bg-dark-dsmlcParchment bg-light-dsmlcParchment text-center ${getFontSize()} text-dsmlcDataOrange font-bold w-12 h-12 flex items-center justify-center rounded-full border-2 dark:border-dark-dsmlcBlack border-light-dsmlcBlack border-solid`}
+                className={`absolute md:left-1/2 left-6 transform -translate-x-1/2 dark:bg-dark-dsmlcParchment bg-light-dsmlcParchment text-center ${getFontSize()} text-dsmlcDataOrange font-bold min-w-12 min-h-12 flex items-center p-2 justify-center rounded-full border-2 dark:border-dark-dsmlcBlack border-light-dsmlcBlack border-solid`}
               >
                 {" "}
                 {data.number}

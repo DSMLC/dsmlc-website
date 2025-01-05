@@ -1,144 +1,179 @@
 [
   {
-    "type": "TitleTemplate1",
-    "data": {
-      "title": "DSMLC Annual Final Competition"
-    }
-  },
-  {
-    "type": "CarouselTemplate",
-    "data": {
-      "carousel": [
-        {
-          "imageLink": "/images/events/final_comp_2024/final_comp_1.JPG",
-          "imageName": "Picture of DSMLC's Final Comp 2024 Event",
-          "imageType": "Banner"
-        },
-        {
-          "imageLink": "/images/events/final_comp_2024/final_comp_2.JPG",
-          "imageName": "Picture of DSMLC's Final Comp 2024 Event 1",
-          "imageType": "Banner"
-        },
-        {
-          "imageLink": "/images/events/final_comp_2024/final_comp_3.jpg",
-          "imageName": "Picture of DSMLC's Final Comp 2024 Event 3",
-          "imageType": "Banner"
-        },
-        {
-          "imageLink": "/images/events/final_comp_2024/final_comp_awards.JPG",
-          "imageName": "Picture of DSMLC's Final Comp 2024 Event Awards",
-          "imageType": "Banner"
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "DSMLC Annual Final Competition"
         }
-      ],
-      "interval": 5000
-    }
-  },
-  {
-    "type": "HeaderTextTemplate1",
-    "data": [
-      {
-        "header": "Introduction and Background",
-        "text": "The Data Science and Machine Learning Club at the University of Calgary hosts an annual competition to give students an opportunity to showcase their programming and data science skills. Open to university students, it provides a platform to demonstrate their abilities using a comprehensive dataset in front of the broader community. This competition involves data science tasks including visualization, manipulation, and analysis, applying classroom concepts to real-world data."
       },
       {
-        "header": "Benefits and Recognition",
-        "text": "Participation in this competition allows students to gain recognition for their achievements, build their portfolios, and make valuable connections that support their career development in data science."
-      }
-    ]
-  },
-  {
-    "type": "TimelineTemplate2",
-    "data": [
-      {
-        "number": "1",
-        "header": "DSMLC Final Competition 2023",
-        "points": [
+        "type": "HeaderTextTemplate2",
+        "data": [
           {
-            "header": "Overview",
-            "text": "The inaugural competition attracted 37 attendees and 7 participants, with sponsorship from ARC Resources and a keynote by Dr. Xuewen Lu, bringing valuable academic insights."
-          }
-        ]
-      },
-      {
-        "number": "2",
-        "header": "DSMLC Final Competition 2024",
-        "points": [
-          {
-            "header": "Overview",
-            "text": "In 2024, attendance more than doubled to 78 attendees, marking a 210% increase. Keynote speaker Renee Matsalla from Tacit Edge discussed data science in product management, enhancing the event’s industry relevance."
-          }
-        ]
-      }
-    ]
-  },
-  
-  {
-    "type": "TimelineTemplate1",
-    "data": [
-      {
-        "number": "1",
-        "header": "Competition Kickoff",
-        "points": [
-          {
-            "header": "Date",
-            "text": "February 16, 2025"
+            "header": "Introduction and Background",
+            "text": "The Data Science and Machine Learning Club at the University of Calgary hosts an annual competition to give students an opportunity to showcase their programming and data science skills. Open to university students, it provides a platform to demonstrate their abilities using a comprehensive dataset in front of the broader community. This competition involves data science tasks including visualization, manipulation, and analysis, applying classroom concepts to real-world data."
           },
           {
-            "header": "Description",
-            "text": "The competition begins with an official kickoff event where students are introduced to project guidelines, expectations, and the timeline."
+            "header": "Benefits and Recognition",
+            "text": "Participation in this competition allows students to gain recognition for their achievements, build their portfolios, and make valuable connections that support their career development in data science."
           }
         ]
       },
       {
-        "number": "2",
-        "header": "Project Development Phase",
-        "points": [
+        "type": "CarouselTemplate",
+        "data": [
           {
-            "header": "Date",
-            "text": "February 16, 2025 - March 22, 2025"
+            "image": {
+              "imageLink": "/images/events/final_comp_2024/final_comp_1.JPG",
+              "imageName": "Picture of DSMLC's Final Comp 2024 Event",
+              "imageType": "Banner"
+            }
           },
           {
-            "header": "Description",
-            "text": "During this phase, students work on constructing their projects, applying skills, conducting research, and collaborating to develop innovative solutions."
+            "image": {
+              "imageLink": "/images/events/final_comp_2024/final_comp_2.JPG",
+              "imageName": "Picture of DSMLC's Final Comp 2024 Event 1",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/final_comp_2024/final_comp_3.jpg",
+              "imageName": "Picture of DSMLC's Final Comp 2024 Event 3",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/final_comp_2024/final_comp_awards.JPG",
+              "imageName": "Picture of DSMLC's Final Comp 2024 Event Awards",
+              "imageType": "Banner"
+            }
           }
         ]
       },
       {
-        "number": "3",
-        "header": "Project Submission & Evaluation",
-        "points": [
+        "type": "ApplicationTemplate",
+        "data": [
           {
-            "header": "Date",
-            "text": "March 22, 2025 - March 25, 2025"
-          },
-          {
-            "header": "Description",
-            "text": "After project development, participants submit their final projects for evaluation by a panel of expert judges who assess innovation, technical execution, and impact."
-          }
-        ]
-      },
-      {
-        "number": "4",
-        "header": "Final Symposium & Award Ceremony",
-        "points": [
-          {
-            "header": "Date",
-            "text": "March 27, 2025"
-          },
-          {
-            "header": "Description",
-            "text": "Top teams present their projects at a live symposium with sponsors and industry professionals. Winners are announced, and awards are presented."
+            "link": "/events/upcoming",
+            "name": "Register For the Annual Final Competition"
           }
         ]
       }
     ]
   },
   {
-    "type": "HeaderTextTemplate1",
+    "type": "BackgroundFillTemplate",
     "data": [
       {
-        "header": "In-Person Symposium",
-        "text": "The competition culminates in an in-person symposium, where participants present their work to a panel of judges, peers, and industry professionals. This event provides a valuable networking opportunity, recognition for accomplishments, and experience in presenting work to a broader audience."
+        "type": "TimelineTemplate2",
+        "data": [
+          {
+            "number": "1",
+            "header": "DSMLC Final Competition 2023",
+            "points": [
+              {
+                "header": "Overview:",
+                "text": "Our inaugural competition was a resounding success, featuring sponsorship from ARC Resources and an inspiring keynote address by Dr. Xuewen Lu, who shared valuable academic insights into the field of data science."
+              }
+            ]
+          },
+          {
+            "number": "2",
+            "header": "DSMLC Final Competition 2024",
+            "points": [
+              {
+                "header": "Overview:",
+                "text": "The 2024 competition reached new heights with keynote speaker Renee Matsalla from Tacit Edge. Her discussion on data science in product management added an industry-focused perspective, making the event highly relevant for attendees."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "IncreasingNumbersTemplate",
+        "data": [
+          {
+            "value": 37,
+            "title": "2023 Attendees"
+          },
+          {
+            "value": 78,
+            "title": "2024 Attendees"
+          },
+          {
+            "value": 210,
+            "title": "Attendance Increase",
+            "unit": "%"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "2025 Annual Final Competition Timeline"
+          }
+        ]
+      },
+      {
+        "type": "TimelineTemplate1",
+        "data": {
+          "json": "final_comp_timeline.json",
+          "keys": ["final_comp_2025"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Annual Final Competition Sponsorship Package",
+            "text": "Make a lasting impact by supporting our marquee event of the year! The Annual Final Competition brings students, academia, and industry together for a showcase of talent, innovation, and creativity. This sponsorship aligns your brand with excellence and provides unique engagement opportunities."
+          }
+        ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": [
+          {
+            "link": "/about/sponsors",
+            "name": "Learn More About Our Sponsorship Packages"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Our Sponsors",
+            "text": "We extend our heartfelt gratitude to our incredible sponsors! Your unwavering support empowers us to create innovative solutions, provide hands-on learning opportunities, and make a meaningful impact in our community. Together, we are shaping the future of data science and technology."
+          }
+        ]
+      },
+      {
+        "type": "ColumnTemplate",
+        "data": {
+          "json": "sponsorsInfo.json",
+          "keys": ["sponsors"]
+        }
       }
     ]
   }

@@ -1,7 +1,23 @@
 {
-  "most_recent": [
+  "winter_2025": [
     {
-      "number": "11/01",
+      "number": "",
+      "header": "",
+      "points": [
+        {
+          "text": ""
+        }
+      ],
+      "image": {
+        "imageLink": "",
+        "imageName": "",
+        "imageType": ""
+      }
+    }
+  ],
+  "fall_2024": [
+    {
+      "number": "Nov. 1",
       "header": "WeFlourish",
       "points": [
         {
@@ -67,6 +83,186 @@
       "image": {
         "imageLink": "/images/events/fall_2024/pancakes.jpg",
         "imageName": "Picture of DSMLC's Fall 2024 Pancake Breakfast Event",
+        "imageType": "Pic"
+      }
+    }
+  ],
+  "winter_2024": [
+    {
+      "number": "09/27",
+      "header": "DSMLC Annual Final Competition",
+      "points": [
+        {
+          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "03/23",
+      "header": "Fall Meet and Greet",
+      "points": [
+        {
+          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    }
+  ],
+  "fall_2023": [
+    {
+      "number": "09/27",
+      "header": "DSMLC Annual Final Competition",
+      "points": [
+        {
+          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "03/23",
+      "header": "Fall Meet and Greet",
+      "points": [
+        {
+          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    }
+  ],
+  "winter_2023": [
+    {
+      "number": "09/27",
+      "header": "DSMLC Annual Final Competition",
+      "points": [
+        {
+          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "03/23",
+      "header": "Fall Meet and Greet",
+      "points": [
+        {
+          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    }
+  ],
+  "fall_2022": [
+    {
+      "number": "09/27",
+      "header": "DSMLC Annual Final Competition",
+      "points": [
+        {
+          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "03/23",
+      "header": "Fall Meet and Greet",
+      "points": [
+        {
+          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    }
+  ],
+  "winter_2022": [
+    {
+      "number": "09/27",
+      "header": "DSMLC Annual Final Competition",
+      "points": [
+        {
+          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "03/23",
+      "header": "Fall Meet and Greet",
+      "points": [
+        {
+          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    }
+  ],
+  "fall_2021": [
+    {
+      "number": "09/27",
+      "header": "DSMLC Annual Final Competition",
+      "points": [
+        {
+          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "03/23",
+      "header": "Fall Meet and Greet",
+      "points": [
+        {
+          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
         "imageType": "Pic"
       }
     }

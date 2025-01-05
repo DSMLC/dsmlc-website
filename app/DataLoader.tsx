@@ -128,6 +128,7 @@ export interface IncreasingNumbersData {
   data: {
     value: number;
     title: string;
+    unit?: string;
   }[];
 }
 

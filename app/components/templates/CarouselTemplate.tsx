@@ -55,7 +55,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
       <div className="relative group w-full max-w-4xl">
         <div className="flex justify-between gap-5 items-center">
           <button
-            className="h-fit text-dsmlcTangerine p-2 rounded-full opacity-20 hover:scale-110 group-hover:opacity-100 transition-all duration-300 hover:text-dsmlcDataOrange border-2 hover:border-dsmlcDataOrange border-dsmlcTangerine"
+            className="h-fit text-dsmlcTangerine p-2 rounded-full opacity-50 hover:scale-110 group-hover:opacity-100 transition-all duration-300 hover:text-dsmlcDataOrange border-2 hover:border-dsmlcDataOrange border-dsmlcTangerine"
             onClick={goToPrevious}
             aria-label="Previous image"
           >
@@ -69,7 +69,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
             />
           )}
           <button
-            className="h-fit text-dsmlcTangerine transition-all p-2 rounded-full opacity-20 hover:scale-110 group-hover:opacity-100 duration-300 hover:text-dsmlcDataOrange border-2 hover:border-dsmlcDataOrange border-dsmlcTangerine"
+            className="h-fit text-dsmlcTangerine transition-all p-2 rounded-full opacity-50 hover:scale-110 group-hover:opacity-100 duration-300 hover:text-dsmlcDataOrange border-2 hover:border-dsmlcDataOrange border-dsmlcTangerine"
             onClick={goToNext}
             aria-label="Next image"
           >
@@ -94,7 +94,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
       <div className="dark:text-dark-dsmlcBlack text-xl text-light-dsmlcBlack pt-5 flex flex-col gap-5 text-center">
         {Data[currentIndex].header}
         {Data[currentIndex].points?.map((point, index) => (
-          <span key={index} className="text-base">
+          <span key={index} className="text-base min-h-20">
             <span className="font-bold">{point.header}</span>
             {point.text}
           </span>

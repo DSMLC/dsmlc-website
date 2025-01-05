@@ -58,13 +58,13 @@ export type ImageType = "Pic" | "Logo" | "Banner" | "Sponsor";
 const getImageClassname = (type: ImageType): string => {
   switch (type) {
     case "Pic":
-      return "object-cover self-center object-center min-w-40 lg:max-w-96 md:max-w-80 max-w-96 max-h-96 border-2 border-dsmlcTangerine rounded-4xl";
+      return "object-cover self-center object-center min-w-40 h-[300px] max-w-80 border-2 border-dsmlcTangerine rounded-4xl";
     case "Logo":
       return "object-contain";
     case "Sponsor":
       return "object-contain min-w-40 lg:max-w-96 md:max-w-48 max-w-96 max-h-96";
     case "Banner":
-      return "object-cover self-center object-center min-w-40 w-full lg:h-[600px] md:h-[500px] sm:h-[400px] h-[300px] border-4 border-dsmlcTangerine rounded-4xl w-full";
+      return "object-cover self-center object-center min-w-40 h-[400px] w-full border-4 border-dsmlcTangerine rounded-4xl";
     default:
       return "";
   }
