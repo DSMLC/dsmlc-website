@@ -24,10 +24,10 @@
           }
         ]
       },
-      "button": {
+      "button": [{
         "buttonLink": "https://suuofc.campuslabs.ca/engage/event/274906",
         "buttonText": "Register"
-      }
+      }]
     }
   },
   {
@@ -48,10 +48,10 @@
           }
         ]
       },
-      "button": {
+      "button": [{
         "buttonLink": "https://suuofc.campuslabs.ca/engage/event/277138",
         "buttonText": "Register"
-      }
+      }]
     }
   }
 ]

@@ -32,10 +32,12 @@
       {
         "type": "ApplicationTemplate",
         "data": {
-          "button": {
-            "buttonLink": "/contact/membership",
-            "buttonText": "Add Me to the Count!"
-          }
+          "button": [
+            {
+              "buttonLink": "/contact/membership",
+              "buttonText": "Add Me to the Count!"
+            }
+          ]
         }
       }
     ]
@@ -70,10 +72,12 @@
       {
         "type": "ApplicationTemplate",
         "data": {
-          "button": {
-            "buttonLink": "/about",
-            "buttonText": "Learn More About Us"
-          }
+          "button": [
+            {
+              "buttonLink": "/about",
+              "buttonText": "Learn More About Us"
+            }
+          ]
         }
       }
     ]
@@ -97,10 +101,12 @@
       {
         "type": "ApplicationTemplate",
         "data": {
-          "button": {
-            "buttonLink": "/events/upcoming",
-            "buttonText": "Register For Events"
-          }
+          "button": [
+            {
+              "buttonLink": "/events/upcoming",
+              "buttonText": "Register For Events"
+            }
+          ]
         }
       }
     ]
@@ -146,10 +152,12 @@
       {
         "type": "ApplicationTemplate",
         "data": {
-          "button": {
-            "buttonLink": "/events",
-            "buttonText": "More Highlights"
-          }
+          "button": [
+            {
+              "buttonLink": "/events",
+              "buttonText": "More Highlights"
+            }
+          ]
         }
       }
     ]
@@ -182,10 +190,12 @@
       {
         "type": "ApplicationTemplate",
         "data": {
-          "button": {
-            "buttonLink": "/visionary-lab",
-            "buttonText": "Learn More"
-          }
+          "button": [
+            {
+              "buttonLink": "/visionary-lab",
+              "buttonText": "Learn More"
+            }
+          ]
         }
       }
     ]
@@ -291,10 +301,12 @@
       {
         "type": "ApplicationTemplate",
         "data": {
-          "button": {
-            "buttonLink": "/about/sponsors",
-            "buttonText": "Learn More About Our Sponsorship Packages"
-          }
+          "button": [
+            {
+              "buttonLink": "/about/sponsors",
+              "buttonText": "Learn More About Our Sponsorship Packages"
+            }
+          ]
         }
       }
     ]

@@ -34,7 +34,7 @@ export interface ApplicationTemplateData {
         link?: { linkName: string; link: string };
       }[];
     };
-    button?: { buttonLink: string; buttonText: string };
+    button?: { buttonLink: string; buttonText: string }[];
   };
 }
 

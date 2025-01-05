@@ -17,7 +17,7 @@ const SectionedHeaderTemplate = ({
     ? Data
     : [];
   return (
-    <div className="flex flex-col w-full items-center pb-16 gap-10">
+    <div className="flex flex-col w-full items-center pb-8 gap-10">
       {currentData.map((data, index) => {
         return (
           <div

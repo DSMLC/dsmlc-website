@@ -1,270 +1,262 @@
 [
   {
-    "type": "TitleTemplate1",
-    "data": {
-      "title": "Sponsorship Opportunities",
-      "subtitle": "Partner with DSMLC and connect with the next generation of data science and machine learning professionals."
-    }
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Sponsorship Opportunities",
+          "subtitle": "Your support helps us create impactful opportunities for the next generation of data science and machine learning leaders."
+        }
+      },
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Why Sponsorship Matters",
+            "text": "Sponsoring the Data Science and Machine Learning Club (DSMLC) at the University of Calgary is more than just a partnership; it’s an investment in the future. Your sponsorship enables us to host educational workshops, engaging competitions, and valuable networking events. Together, we inspire innovation and empower students to make a difference in their academic and professional journeys."
+          }
+        ]
+      },
+      {
+        "type": "SectionedHeaderTemplate",
+        "data": [
+          {
+            "header": "We offer two unique sponsorship packages:",
+            "subheaders": [
+              {
+                "text": "Regular Program Club Activities Sponsorship Package"
+              },
+              {
+                "text": "Annual Final Competition Sponsorship Package"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": [
+            {
+              "buttonLink": "https://drive.google.com/file/d/1EEX-c5iE_3ZXbn79-o1CyWvqBYZMHrB4/view?usp=sharing",
+              "buttonText": "Regular Package"
+            },
+            {
+              "buttonLink": "https://drive.google.com/file/d/1eZgpEZoi7_OGqxZatHgXK8dkSYkezfds/view?usp=sharing",
+              "buttonText": "Final Competition Package"
+            }
+          ]
+        }
+      }
+    ]
   },
   {
-    "type": "ApplicationTemplate",
-    "data": {
-      "title": "Sponsorship Benefits",
-      "descriptions": [
-        "Sponsoring DSMLC presents a unique opportunity to engage with the next generation of data science and machine learning professionals. By partnering with us, sponsors will receive several benefits that enhance brand visibility, provide direct access to talent, and offer meaningful engagement with the data science community."
-      ],
-      "bullets": {
-        "bulletsTitle": "Key Benefits",
-        "bullets": [
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
           {
-            "title": "Brand Visibility",
-            "text": "Your company’s logo will be featured on event promotional materials, including posters, flyers, and social media, positioning your brand in front of a targeted group of students pursuing careers in data science and machine learning."
+            "header": "Sponsorship Benefits",
+            "text": "Sponsoring DSMLC presents a unique opportunity to engage with the next generation of data science and machine learning professionals. By partnering with us, sponsors will receive several benefits that enhance brand visibility, provide direct access to talent, and offer meaningful engagement with the data science community."
+          }
+        ]
+      },
+      {
+        "type": "SectionedHeaderTemplate",
+        "data": [
+          {
+            "header": "Brand Visibility",
+            "subheaders": [
+              {
+                "text": "Your company’s logo will be featured on event promotional materials, including posters, flyers, and social media, positioning your brand in front of a targeted group of students pursuing careers in data science and machine learning."
+              }
+            ]
           },
           {
-            "title": "Direct Access to Top Talent",
-            "text": "DSMLC members are some of the brightest and most driven students at the University of Calgary. As a sponsor, you will have opportunities to connect directly with students through our events, competitions, and workshops, providing access to potential interns and future employees."
+            "header": "Direct Access to Top Talent",
+            "subheaders": [
+              {
+                "text": "DSMLC members are some of the brightest and most driven students at the University of Calgary. As a sponsor, you will have opportunities to connect directly with students through our events, competitions, and workshops, providing access to potential interns and future employees."
+              }
+            ]
           },
           {
-            "title": "Industry Engagement",
-            "text": "By supporting DSMLC, your company demonstrates a commitment to advancing education and innovation in data science and machine learning. Your sponsorship directly contributes to developing future professionals equipped to tackle real-world challenges."
+            "header": "Industry Engagement",
+            "subheaders": [
+              {
+                "text": "By supporting DSMLC, your company demonstrates a commitment to advancing education and innovation in data science and machine learning. Your sponsorship directly contributes to developing future professionals equipped to tackle real-world challenges."
+              }
+            ]
           },
           {
-            "title": "Networking Opportunities",
-            "text": "Sponsors are invited to attend DSMLC events, where they can engage with students and professionals, fostering valuable connections within the academic and data science communities."
+            "header": "Networking Opportunities",
+            "subheaders": [
+              {
+                "text": "Sponsors are invited to attend DSMLC events, where they can engage with students and professionals, fostering valuable connections within the academic and data science communities."
+              }
+            ]
           },
           {
-            "title": "Exclusive Benefits",
-            "text": "Higher-tier sponsorships include exclusive opportunities, such as speaking engagements, event MC roles, and recognition in opening and closing ceremonies, allowing your company to stand out as a leader in supporting student education and professional growth."
+            "header": "Exclusive Benefits",
+            "subheaders": [
+              {
+                "text": "Higher-tier sponsorships include exclusive opportunities, such as speaking engagements, event MC roles, and recognition in opening and closing ceremonies, allowing your company to stand out as a leader in supporting student education and professional growth."
+              }
+            ]
           }
         ]
       }
-    }
+    ]
   },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Regular Program Club Activities Sponsorship Package",
+            "text": "Support DSMLC’s year-round workshops, socials, and competitions. This package includes a variety of events such as skills workshops, internship nights, and our innovative Visionary Lab initiative. Be part of shaping future talent and making data science accessible to all students."
+          }
+        ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": [
+            {
+              "buttonLink": "https://drive.google.com/file/d/1EEX-c5iE_3ZXbn79-o1CyWvqBYZMHrB4/view?usp=sharing",
+              "buttonText": "Regular Package"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Annual Final Competition Sponsorship Package",
+            "text": "Make a lasting impact by supporting our marquee event of the year! The Annual Final Competition brings students, academia, and industry together for a showcase of talent, innovation, and creativity. This sponsorship aligns your brand with excellence and provides unique engagement opportunities."
+          }
+        ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": [
+            {
+              "buttonLink": "https://drive.google.com/file/d/1eZgpEZoi7_OGqxZatHgXK8dkSYkezfds/view?usp=sharing",
+              "buttonText": "Final Competition Package"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Our Sponsors",
+            "text": "We are grateful to our sponsors for their invaluable support. Your logo could be here!"
+          }
+        ]
+      },
+      {
+        "type": "ColumnTemplate",
+        "data": [
+          {
+            "image": {
+              "imageLink": "/images/sponsors/arc_resources.png",
+              "imageName": "arc resources logo",
+              "imageType": "Sponsor"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/sponsors/platform_calgary.png",
+              "imageName": "platform calgary logo",
+              "imageType": "Sponsor"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/sponsors/uofc_data_science.png",
+              "imageName": "uofc data science logo",
+              "imageType": "Sponsor"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/sponsors/uofc_faculty_science.jpg",
+              "imageName": "uofc faculty of science logo",
+              "imageType": "Sponsor"
+            }
+          }
+        ]
+      }
+    ]
+  },
+
   {
     "type": "HeaderTextTemplate1",
     "data": [
       {
-        "header": "Sponsorship Tiers",
-        "text": "We offer three levels of sponsorship to suit a range of company needs and objectives. Each level provides unique benefits that increase with the level of investment."
+        "header": "What Our Sponsors Say",
+        "text": "We love hearing from our sponsors about their experiences working with DSMLC. If you’ve partnered with us before, we’d love to feature your testimonial!"
       }
     ]
   },
   {
-    "type": "TimelineTemplate1",
+    "type": "BackgroundFillTemplate",
     "data": [
       {
-        "number": "1",
-        "header": "Gold Sponsor - $2,500+",
-        "points": [
+        "type": "SectionedHeaderTemplate",
+        "data": [
           {
-            "header": "Benefits",
-            "text": "Large company logo on all event promotional materials, acknowledgment during opening and closing ceremonies, two complimentary tickets to events, recognition on our social media pages, opportunity to MC the event, booth at the event, exclusive partnership for the next event."
+            "header": "For custom sponsorship packages or inquiries, please reach out:",
+            "subheaders": [
+              {
+                "header": "Email: ",
+                "text": "datascienceclub@ucalgary.ca"
+              },
+              {
+                "header": "LinkedIn: ",
+                "text": "UofC Data Science and Machine Learning Club"
+              },
+              {
+                "header": "Phone:",
+                "text": "(780) 880-1466"
+              }
+            ]
           }
         ]
       },
       {
-        "number": "2",
-        "header": "Silver Sponsor - $1,000 - $2,499",
-        "points": [
-          {
-            "header": "Benefits",
-            "text": "Medium company logo on event posters and flyers, acknowledgment during opening and closing ceremonies, one complimentary ticket to events, recognition on our social media pages, opportunity to MC the event, speaking opportunity at the next event."
-          }
-        ]
-      },
-      {
-        "number": "3",
-        "header": "Bronze Sponsor - $300 - $999",
-        "points": [
-          {
-            "header": "Benefits",
-            "text": "Small company logo on event posters and flyers, acknowledgment during opening and closing ceremonies, recognition on our social media pages."
-          }
-        ]
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": [
+            {
+              "buttonLink": "mailto:datascienceclub@ucalgary.ca",
+              "buttonText": "Email Us"
+            },
+            {
+              "buttonLink": "https://www.linkedin.com/company/uofc-dsmlc/posts/?feedView=all",
+              "buttonText": "LinkedIn"
+            }
+          ]
+        }
       }
     ]
-  },
-  {
-    "type": "TitleTemplate1",
-    "data": {
-      "title": "DSMLC Final Competition Sponsorship",
-      "subtitle": "Support our annual competition and connect with the next generation of data science and machine learning talent."
-    }
-  },
-  {
-    "type": "HeaderTextTemplate1",
-    "data": [
-      {
-        "header": "Sponsorship Tiers",
-        "text": "The DSMLC Final Competition offers three sponsorship levels—Gold, Silver, and Bronze. Each level provides unique benefits and engagement opportunities to maximize brand visibility and interaction with students and professionals."
-      }
-    ]
-  },
-  {
-    "type": "TimelineTemplate1",
-    "data": [
-      {
-        "number": "1",
-        "header": "Gold Sponsor - $2,500+",
-        "points": [
-          {
-            "header": "Overview",
-            "text": "Exceptional brand visibility and exclusive engagement opportunities, ideal for businesses seeking maximum exposure and meaningful connections with the student and professional community."
-          }
-        ]
-      },
-      {
-        "number": "2",
-        "header": "Silver Sponsor - $1,000 - $2,499",
-        "points": [
-          {
-            "header": "Overview",
-            "text": "Prominent recognition through acknowledgments and brand placement, perfect for businesses looking to solidify their influence within the data science community."
-          }
-        ]
-      },
-      {
-        "number": "3",
-        "header": "Bronze Sponsor - $300 - $999",
-        "points": [
-          {
-            "header": "Overview",
-            "text": "A great entry-level opportunity for businesses aiming for early-stage engagement and brand recognition among aspiring data science professionals."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "HeaderTextTemplate1",
-    "data": [
-      {
-        "header": "Sponsorship Tier Details",
-        "text": "Each sponsorship level offers specific benefits designed to provide brand visibility, networking, and engagement opportunities. The following table summarizes the benefits for each tier."
-      }
-    ]
-  },
-  {
-    "type": "TimelineTemplate1",
-    "data": [
-      {
-        "number": "1",
-        "header": "Gold Sponsor Benefits",
-        "points": [
-          {
-            "header": "Exclusive Partnership",
-            "text": "Exclusive partnership for the final competition and other events."
-          },
-          {
-            "header": "Dataset Choice",
-            "text": "Choice to have own dataset used for the competition."
-          },
-          {
-            "header": "Booth Presence",
-            "text": "Booth at the event."
-          },
-          {
-            "header": "Large Logo Placement",
-            "text": "Large company logo on all event promotional materials."
-          },
-          {
-            "header": "Complimentary Tickets",
-            "text": "Two complimentary tickets to the event."
-          },
-          {
-            "header": "MC Opportunity",
-            "text": "Opportunity to MC the event."
-          },
-          {
-            "header": "Speaking Opportunity",
-            "text": "Speaking opportunity at the next event."
-          },
-          {
-            "header": "Acknowledgment",
-            "text": "Acknowledgment during opening and closing ceremonies."
-          },
-          {
-            "header": "Logo on Posters & Flyers",
-            "text": "Company logo on posters and flyers."
-          },
-          {
-            "header": "Social Media Recognition",
-            "text": "Recognition on social media pages."
-          }
-        ]
-      },
-      {
-        "number": "2",
-        "header": "Silver Sponsor Benefits",
-        "points": [
-          {
-            "header": "Medium Logo Placement",
-            "text": "Medium company logo on event posters and flyers."
-          },
-          {
-            "header": "Complimentary Ticket",
-            "text": "One complimentary ticket to the event."
-          },
-          {
-            "header": "MC Opportunity",
-            "text": "Opportunity to MC the event."
-          },
-          {
-            "header": "Speaking Opportunity",
-            "text": "Speaking opportunity at the next event."
-          },
-          {
-            "header": "Acknowledgment",
-            "text": "Acknowledgment during opening and closing ceremonies."
-          },
-          {
-            "header": "Logo on Posters & Flyers",
-            "text": "Company logo on posters and flyers."
-          },
-          {
-            "header": "Social Media Recognition",
-            "text": "Recognition on social media pages."
-          }
-        ]
-      },
-      {
-        "number": "3",
-        "header": "Bronze Sponsor Benefits",
-        "points": [
-          {
-            "header": "Small Logo Placement",
-            "text": "Small company logo on event posters and flyers."
-          },
-          {
-            "header": "Acknowledgment",
-            "text": "Acknowledgment during opening and closing ceremonies."
-          },
-          {
-            "header": "Social Media Recognition",
-            "text": "Recognition on social media pages."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "ApplicationTemplate",
-    "data": {
-      "title": "Contact Information",
-      "descriptions": [
-        "For more information about sponsorship opportunities, or to discuss a custom sponsorship package, please contact us."
-      ],
-      "bullets": {
-        "bulletsTitle": "Contact Information:",
-        "bullets": [
-          { "title": "Email:", "text": "datascienceclub@ucalgary.ca" },
-          { "title": "Phone:", "text": "(780) 880-1466" }
-        ]
-      },
-      "button": {
-        "buttonLink": "mailto:datascienceclub@ucalgary.ca",
-        "buttonText": "Email Us"
-      }
-    }
   }
 ]

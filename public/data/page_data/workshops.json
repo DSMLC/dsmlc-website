@@ -24,10 +24,10 @@
           }
         ]
       },
-      "button": {
+      "button": [{
         "buttonLink": "https://suuofc.campuslabs.ca/engage/event/278202",
         "buttonText": "Register"
-      }
+      }]
     }
   },
   {

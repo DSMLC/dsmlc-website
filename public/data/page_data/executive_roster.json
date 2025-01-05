@@ -5,9 +5,39 @@
       {
         "type": "TitleTemplate1",
         "data": {
-          "title": "Meet the Team!"
+          "title": "Meet the Team!",
+          "subtitle": "Get to know the leaders behind the Data Science and Machine Learning Club! We're a passionate group dedicated to building a thriving community of data enthusiasts."
         }
       },
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Ready to make an impact? ",
+            "text": "Join the Executive Team to shape the future, organize impactful events, and develop your leadership skills."
+          }
+        ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "button": [
+            {
+              "buttonLink": "/contact/executive",
+              "buttonText": "Join the Exec Team"
+            },
+            {
+              "buttonLink": "/visionary-lab/student-program",
+              "buttonText": "Join the Visionary Lab"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
       {
         "type": "ProfileListTemplate",
         "data": ["Admin Team"]

@@ -376,10 +376,10 @@
           { "title": "Phone:", "text": "(780) 880-1466" }
         ]
       },
-      "button": {
+      "button": [{
         "buttonLink": "mailto:datascienceclub@ucalgary.ca",
         "buttonText": "Get Started"
-      }
+      }]
     }
   },
   {

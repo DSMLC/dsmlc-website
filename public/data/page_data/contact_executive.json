@@ -62,10 +62,10 @@
           }
         ]
       },
-      "button": {
+      "button": [{
         "buttonLink": "https://forms.gle/1gf3dtyjecYHpUQaA",
         "buttonText": "Apply Now"
-      }
+      }]
     }
   }
 ]
