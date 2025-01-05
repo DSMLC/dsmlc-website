@@ -227,7 +227,10 @@ export type PageData =
   | IncreasingNumbersData;
 
 export const templateMap: {
-  [key in PageData["type"]]?: React.ComponentType<{ Data: any }>;
+  [key in PageData["type"]]?: React.ComponentType<{
+    Data: any;
+    templateMap?: any;
+  }>;
 } = {
   ColumnTemplate: ColumnTemplate,
   TitleTemplate1: TitleTemplate1,
@@ -276,6 +279,15 @@ const DataLoader = ({ pageData }: { pageData: PageData }) => {
 
   if (!resolvedData) {
     return <div>Data not found for {pageData.type}</div>;
+  }
+
+  if (pageData.type === "BackgroundFillTemplate") {
+    return (
+      <TemplateComponent
+        Data={resolvedData}
+        templateMap={templateMap} // Only pass map for this template
+      />
+    );
   }
 
   return <TemplateComponent Data={resolvedData} />;

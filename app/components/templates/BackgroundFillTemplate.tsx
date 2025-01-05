@@ -1,10 +1,16 @@
 "use client";
-import { templateMap } from "@/app/DataLoader";
 import React from "react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
+import { BackgroundFillTemplateData } from "@/app/DataLoader";
 
-const BackgroundFillTemplate = ({ Data }: { Data: any[] }) => {
+const BackgroundFillTemplate = ({
+  Data,
+  templateMap,
+}: {
+  Data: BackgroundFillTemplateData["data"];
+  templateMap?: { [key: string]: React.ComponentType<{ Data: any }> };
+}) => {
   const ref = useRef(null); // Create a ref for the element
 
   const hasHeaderTextTemplate = Data.some(
@@ -44,7 +50,8 @@ const BackgroundFillTemplate = ({ Data }: { Data: any[] }) => {
     >
       {Data.map((item, index) => {
         const { type, data } = item;
-        const TemplateComponent = templateMap[type as keyof typeof templateMap];
+        const TemplateComponent =
+          templateMap && templateMap[type as keyof typeof templateMap];
 
         if (!TemplateComponent) {
           return <div key={index}>Unsupported data type: {type}</div>;
