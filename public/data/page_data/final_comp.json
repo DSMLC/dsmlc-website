@@ -71,32 +71,7 @@
       }
     ]
   },
-  {
-    "type": "ApplicationTemplate",
-    "data": {
-      "title": "Competition Categories",
-      "descriptions": [
-        "The competition is structured into three categories, allowing participants to compete in areas that best showcase their skills and interests."
-      ],
-      "bullets": {
-        "bulletsTitle": "Categories",
-        "bullets": [
-          {
-            "title": "Data Visualization",
-            "text": "Focuses on creating compelling and informative visualizations that communicate insights and patterns in the data."
-          },
-          {
-            "title": "Machine Learning Approach",
-            "text": "Involves applying machine learning algorithms, including data cleaning, pre-processing, algorithm selection, and results evaluation."
-          },
-          {
-            "title": "Research Proposal Approach",
-            "text": "Encourages participants to formulate and present a research proposal based on data analysis, identifying trends and presenting a concise research question."
-          }
-        ]
-      }
-    }
-  },
+  
   {
     "type": "TimelineTemplate1",
     "data": [

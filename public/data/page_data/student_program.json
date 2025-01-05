@@ -174,15 +174,5 @@
         ]
       }
     ]
-  },
-  {
-    "type": "ApplicationTemplate",
-    "data": {
-      "title": "Getting Started",
-      "descriptions": [
-        "We are currently not looking for any students",
-        "Check back with us another time!"
-      ]
-    }
   }
 ]

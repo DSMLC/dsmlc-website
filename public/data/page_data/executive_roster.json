@@ -14,24 +14,22 @@
         "data": [
           {
             "header": "Ready to make an impact? ",
-            "text": "Join the Executive Team to shape the future, organize impactful events, and develop your leadership skills."
+            "text": "Join the Executive Team or the Visionary Lab Team to shape the future, organize impactful events, and develop your leadership skills."
           }
         ]
       },
       {
         "type": "ApplicationTemplate",
-        "data": {
-          "button": [
-            {
-              "buttonLink": "/contact/executive",
-              "buttonText": "Join the Exec Team"
-            },
-            {
-              "buttonLink": "/visionary-lab/student-program",
-              "buttonText": "Join the Visionary Lab"
-            }
-          ]
-        }
+        "data": [
+          {
+            "link": "/contact/executive",
+            "name": "Join the Exec Team"
+          },
+          {
+            "link": "/visionary-lab/student-program",
+            "name": "Join the Visionary Lab"
+          }
+        ]
       }
     ]
   },

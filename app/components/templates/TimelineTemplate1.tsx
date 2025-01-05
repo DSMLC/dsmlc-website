@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
-import SubHeaderTextTemplate from "./SubHeaderTextTemplate";
+import HeaderTextTemplate4 from "./HeaderTextTemplate3";
 import { TimelineTemplateData1 } from "@/app/DataLoader";
 import ImageTemplate, { ImageType } from "./ImageTemplate";
 
@@ -36,7 +36,7 @@ const TimelineTemplate1 = ({
       if (ref) observer.observe(ref);
     });
     return () => {
-      observer.disconnect(); 
+      observer.disconnect();
     };
   }, []);
 
@@ -96,7 +96,7 @@ const TimelineTemplate1 = ({
                 }`}
               >
                 <SubtitleTemplate3 Data={data.header} />
-                <SubHeaderTextTemplate Data={data.points} />
+                <HeaderTextTemplate4 Data={data.points} />
               </div>
             </div>
 

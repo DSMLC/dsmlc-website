@@ -1,0 +1,14 @@
+{
+  "club_members": {
+    "value": 534,
+    "title": "Club Members"
+  },
+  "events_held": {
+    "value": 32,
+    "title": "Events Held"
+  },
+  "event_attendees": {
+    "value": 1779,
+    "title": "Event Attendees"
+  }
+}

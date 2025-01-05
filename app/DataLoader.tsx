@@ -1,19 +1,20 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import ColumnTemplate from "./components/templates/ColumnTemplate";
 import TimelineTemplate1 from "./components/templates/TimelineTemplate1";
 import FAQTemplate from "./components/templates/FAQTemplate";
 import ApplicationTemplate from "./components/templates/ApplicationTemplate";
 import HeroTemplate from "./components/templates/HeroTemplate";
-import HeaderTextTemplate2 from "./components/templates/HeaderTextTemplate2";
+import HeaderTextSubSectionTemplate from "./components/templates/HeaderTextSubSectionTemplate";
 import HeaderTextTemplate1 from "./components/templates/HeaderTextTemplate1";
+import HeaderTextTemplate2 from "./components/templates/HeaderTextTemplate2";
+import HeaderTextTemplate3 from "./components/templates/HeaderTextTemplate3";
+import HeaderTextTemplate4 from "./components/templates/HeaderTextTemplate4";
 import TimelineTemplate2 from "./components/templates/TimelineTemplate2";
 import { ProfileListTemplate } from "./components/templates/ProfileListTemplate";
-import SectionedHeaderTemplate from "./components/templates/SectionedHeaderTemplate";
-import SubHeaderTextTemplate from "./components/templates/SubHeaderTextTemplate";
 import SubtitleTemplate1 from "./components/templates/SubtitleTemplate1";
 import SubtitleTemplate2 from "./components/templates/SubtitleTemplate2";
 import SubtitleTemplate3 from "./components/templates/SubtitleTemplate3";
-import logoData from "../public/data/logo.json";
 import InfoBubbleTemplate from "./components/templates/InfoBubbleTemplate";
 import TitleTemplate2 from "./components/templates/TitleTemplate2";
 import TitleTemplate1 from "./components/templates/TitleTemplate1";
@@ -23,19 +24,7 @@ import IncreasingNumbersTemplate from "./components/templates/IncreasingNumbersT
 
 export interface ApplicationTemplateData {
   type: "ApplicationTemplate";
-  data: {
-    title: string;
-    descriptions: string[];
-    bullets?: {
-      bulletsTitle?: string;
-      bullets?: {
-        title: string;
-        text: string;
-        link?: { linkName: string; link: string };
-      }[];
-    };
-    button?: { buttonLink: string; buttonText: string }[];
-  };
+  data: { link: string; name: string }[];
 }
 
 export interface BackgroundFillTemplateData {
@@ -46,14 +35,17 @@ export interface BackgroundFillTemplateData {
 export interface CarouselTemplateData {
   type: "CarouselTemplate";
   data: {
-    carousel: {
-      title?: string;
+    header: string;
+    points: {
+      header: string;
+      text: string;
+    }[];
+    image?: {
       imageLink?: string;
       imageName?: string;
       imageType?: string;
-    }[];
-    interval?: number;
-  };
+    };
+  }[];
 }
 
 export interface ColumnTemplateData {
@@ -87,6 +79,21 @@ export interface HeaderTextTemplateData2 {
   data: { header: string; text: string }[];
 }
 
+export interface HeaderTextTemplateData3 {
+  type: "HeaderTextTemplate3";
+  data: { header: string; text: string }[];
+}
+
+export interface HeaderTextTemplateData4 {
+  type: "HeaderTextTemplate4";
+  data: { header: string; text?: string[] }[];
+}
+
+export interface HeaderTextSubSectionTemplateData {
+  type: "HeaderTextSubSectionTemplate";
+  data: { title: string; subSection: { header: string; text?: string }[] }[];
+}
+
 export interface HeroTemplateData {
   type: "HeroTemplate";
   data: {
@@ -100,7 +107,7 @@ export interface HeroTemplateData {
       light_logo: string;
       dark_logo: string;
     };
-  };
+  }[];
 }
 
 export interface InfoBubbleTemplateData {
@@ -127,24 +134,6 @@ export interface IncreasingNumbersData {
 export interface ProfileListTemplateData {
   type: "ProfileListTemplate";
   data: string[];
-}
-
-export interface SectionedHeaderTemplateData {
-  type: "SectionedHeaderTemplate";
-  data:
-    | string // e.g., "UpcomingEvents"
-    | {
-        header: string;
-        subheaders: {
-          header: string;
-          text: string;
-        }[];
-      }[];
-}
-
-export interface SubHeaderTextTemplateData {
-  type: "SubHeaderTextTemplate";
-  data: { header: string; text: string }[];
 }
 
 export interface SubtitleTemplateData1 {
@@ -215,11 +204,12 @@ export type PageData =
   | ApplicationTemplateData
   | HeroTemplateData
   | InfoBubbleTemplateData
+  | HeaderTextSubSectionTemplateData
   | HeaderTextTemplateData1
   | HeaderTextTemplateData2
+  | HeaderTextTemplateData3
+  | HeaderTextTemplateData4
   | ProfileListTemplateData
-  | SectionedHeaderTemplateData
-  | SubHeaderTextTemplateData
   | SubtitleTemplateData1
   | SubtitleTemplateData2
   | SubtitleTemplateData3
@@ -241,11 +231,12 @@ export const templateMap: {
   ApplicationTemplate: ApplicationTemplate,
   HeroTemplate: HeroTemplate,
   InfoBubbleTemplate: InfoBubbleTemplate,
+  HeaderTextSubSectionTemplate: HeaderTextSubSectionTemplate,
   HeaderTextTemplate1: HeaderTextTemplate1,
   HeaderTextTemplate2: HeaderTextTemplate2,
+  HeaderTextTemplate3: HeaderTextTemplate3,
+  HeaderTextTemplate4: HeaderTextTemplate4,
   ProfileListTemplate: ProfileListTemplate,
-  SectionedHeaderTemplate: SectionedHeaderTemplate,
-  SubHeaderTextTemplate: SubHeaderTextTemplate,
   SubtitleTemplate1: SubtitleTemplate1,
   SubtitleTemplate2: SubtitleTemplate2,
   SubtitleTemplate3: SubtitleTemplate3,
@@ -254,27 +245,67 @@ export const templateMap: {
   IncreasingNumbersTemplate: IncreasingNumbersTemplate,
 };
 
-const resolveData = (pageData: PageData): any => {
-  if (pageData.type === "HeroTemplate" && typeof pageData.data === "string") {
-    const logoKey = pageData.data;
-    const heroData = logoData[logoKey];
+const resolveData = async (pageData: PageData): Promise<any> => {
+  if (
+    typeof pageData.data === "object" &&
+    pageData.data !== null &&
+    "json" in pageData.data &&
+    "keys" in pageData.data
+  ) {
+    const { json, keys } = pageData.data as unknown as {
+      json: string;
+      keys: string[];
+    };
 
-    if (heroData) {
-      return heroData;
-    } else {
-      console.error(`Logo data for key "${logoKey}" not found.`);
-      return null;
+    if (json.endsWith(".json")) {
+      try {
+        const importedData = await import(`../public/data/${json}`);
+        const combinedData = keys
+          .map((key) => importedData.default?.[key])
+          .filter(Boolean);
+        return combinedData.flat();
+      } catch (error) {
+        console.error(`Error loading JSON file: ${json}`, error);
+        return null;
+      }
     }
   }
+
+  if (
+    pageData.type === "BackgroundFillTemplate" &&
+    Array.isArray(pageData.data)
+  ) {
+    const resolvedNestedData = await Promise.all(
+      pageData.data.map(async (nestedPageData: PageData) => {
+        const resolvedNested = await resolveData(nestedPageData);
+        return { ...nestedPageData, data: resolvedNested };
+      })
+    );
+    return resolvedNestedData;
+  }
+
   return pageData.data;
 };
 
 const DataLoader = ({ pageData }: { pageData: PageData }) => {
+  const [resolvedData, setResolvedData] = useState<any>(null);
   const TemplateComponent = templateMap[pageData.type];
-  const resolvedData = resolveData(pageData);
+
+  useEffect(() => {
+    const loadData = async () => {
+      const data = await resolveData(pageData);
+      setResolvedData(data);
+    };
+
+    loadData();
+  }, [pageData]);
 
   if (!TemplateComponent) {
     return <div>Unsupported data type</div>;
+  }
+
+  if (resolvedData === null) {
+    return <div>Loading...</div>;
   }
 
   if (!resolvedData) {

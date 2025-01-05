@@ -13,11 +13,11 @@ const ApplicationSection = ({
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); 
 
-  if (!Data?.button || !Array.isArray(Data.button)) return null;
+  if (!Data || !Array.isArray(Data)) return null;
 
   return (
     <div className="max-w-4xl w-full m-auto p-3 sm:p-5 flex md:flex-row flex-col gap-5 items-center">
-      {Data.button.map((button, index) => (
+      {Data.map((button, index) => (
         <motion.div
           key={index}
           className="w-full flex justify-center"
@@ -26,7 +26,7 @@ const ApplicationSection = ({
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
         >
           <Link
-            href={button.buttonLink}
+            href={button.link}
             target="_blank"
             rel="noopener noreferrer"
             className={`group relative inline-flex items-center justify-center px-14 py-4 
@@ -37,7 +37,7 @@ const ApplicationSection = ({
             onMouseEnter={() => setHoveredIndex(index)} 
             onMouseLeave={() => setHoveredIndex(null)}
           >
-            <span className="relative z-10">{button.buttonText}</span>
+            <span className="relative z-10">{button.name}</span>
             <motion.span
               className="absolute right-4 transform -translate-y-1/2"
               initial={{ x: -10, opacity: 0 }}

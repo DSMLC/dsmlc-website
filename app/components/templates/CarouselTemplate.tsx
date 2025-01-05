@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useRef, useCallback } from "react";
-import ImageTemplate, { ImageType } from "./ImageTemplate";
+import ImageTemplate from "./ImageTemplate";
 import { CarouselTemplateData } from "@/app/DataLoader";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -19,10 +19,10 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
     clearTimer(); // Make sure we don't stack multiple intervals
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === Data.carousel.length - 1 ? 0 : prevIndex + 1
+        prevIndex === Data.length - 1 ? 0 : prevIndex + 1
       );
-    }, Data.interval);
-  }, [Data.carousel.length, Data.interval, clearTimer]);
+    }, 5000);
+  }, [Data.length, 5000, clearTimer]);
 
   useEffect(() => {
     startTimer();
@@ -33,14 +33,14 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
 
   const goToNext = () => {
     setCurrentIndex((current) =>
-      current === Data.carousel.length - 1 ? 0 : current + 1
+      current === Data.length - 1 ? 0 : current + 1
     );
     startTimer();
   };
 
   const goToPrevious = () => {
     setCurrentIndex((current) =>
-      current === 0 ? Data.carousel.length - 1 : current - 1
+      current === 0 ? Data.length - 1 : current - 1
     );
     startTimer();
   };
@@ -61,11 +61,13 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
-          <ImageTemplate
-            image={Data.carousel[currentIndex].imageLink || ""}
-            name={Data.carousel[currentIndex].imageName || ""}
-            type={Data.carousel[currentIndex].imageType as ImageType}
-          />
+          {Data[currentIndex].image && (
+            <ImageTemplate
+              image={Data[currentIndex].image.imageLink || ""}
+              name={Data[currentIndex].image.imageName || ""}
+              type={"Banner"}
+            />
+          )}
           <button
             className="h-fit text-dsmlcTangerine transition-all p-2 rounded-full opacity-20 hover:scale-110 group-hover:opacity-100 duration-300 hover:text-dsmlcDataOrange border-2 hover:border-dsmlcDataOrange border-dsmlcTangerine"
             onClick={goToNext}
@@ -74,7 +76,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
             <ChevronRight className="w-6 h-6" />
           </button>
           <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-10">
-            {Data.carousel.map((_, index) => (
+            {Data.map((_, index) => (
               <button
                 key={index}
                 className={`w-3 h-3 rounded-full transition-all ${
@@ -89,8 +91,14 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
           </div>
         </div>
       </div>
-      <div className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack pt-5">
-        {Data.carousel[currentIndex].title}
+      <div className="dark:text-dark-dsmlcBlack text-xl text-light-dsmlcBlack pt-5 flex flex-col gap-5 text-center">
+        {Data[currentIndex].header}
+        {Data[currentIndex].points?.map((point, index) => (
+          <span key={index} className="text-base">
+            <span className="font-bold">{point.header}</span>
+            {point.text}
+          </span>
+        ))}
       </div>
     </div>
   );

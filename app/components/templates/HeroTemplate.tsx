@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import SocialMediaData from "../../../public/data/club_links.json";
+import { socialMedia } from "../Footer";
 import ImageTemplate, { ImageType } from "./ImageTemplate";
 import { HeroTemplateData } from "@/app/DataLoader";
 import { useTheme } from "../../ThemeProvider";
@@ -10,6 +10,7 @@ import AILottieAnimation from "../AILottieAnimation";
 
 const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
   const { isDarkMode } = useTheme();
+  const heroData  = Data[0];
   return (
     <div className="w-full h-[85vh] flex-col relative">
       <ParticleBackground />
@@ -18,39 +19,39 @@ const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
           <ImageTemplate
             image={
               isDarkMode
-                ? Data.logo?.light_logo || ""
-                : Data.logo?.dark_logo || ""
+                ? heroData.logo?.light_logo || ""
+                : heroData.logo?.dark_logo || ""
             }
-            name={Data.name}
+            name={heroData.name}
             type={"Logo" as ImageType}
           />
           <div className="flex flex-col md:text-start text-center">
-            {Data.superscript_name && (
+            {heroData.superscript_name && (
               <span
                 dangerouslySetInnerHTML={{
-                  __html: Data.superscript_name,
+                  __html: heroData.superscript_name,
                 }}
                 className="md:text-sm text-xs font-light"
               ></span>
             )}
-            {Data.name_styled && (
+            {heroData.name_styled && (
               <span
                 dangerouslySetInnerHTML={{
-                  __html: Data.name_styled,
+                  __html: heroData.name_styled,
                 }}
                 className="uppercase lg:text-5xl md:text-4xl text-2xl"
               ></span>
             )}
           </div>
         </div>
-        {Data.description && (
+        {heroData.description && (
           <div className="font-quicksand lg:text-xl md:text-lg text-base lg:w-1/3 sm:w-1/2 w-3/4 text-center">
-            {Data.description}
+            {heroData.description}
           </div>
         )}
         {/* <AILottieAnimation /> */}
         <div className="flex-row flex gap-10 items-center">
-          {Object.values(SocialMediaData.social_media).map((app, index) => {
+          {Object.values(socialMedia).map((app, index) => {
             return (
               <div
                 key={index}

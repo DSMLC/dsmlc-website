@@ -2,7 +2,7 @@
 import React from "react";
 import { motion, useInView } from "framer-motion";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
-import HeaderTextTemplate3 from "./SubHeaderTextTemplate";
+import HeaderTextTemplate3 from "./HeaderTextTemplate3";
 import { TimelineTemplateData2 } from "@/app/DataLoader";
 
 const TimelineSection = ({ data, index }: { data: any; index: number }) => {

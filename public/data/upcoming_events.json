@@ -1,20 +1,22 @@
-[
-  {
-    "header": "January 5th, 2024",
-    "subheaders": [
-      {
-        "header": "Networking Night:",
-        "text": "An event designed to help attendees expand their network and learn from industry experts, academic mentors, and fellow participants."
-      }
-    ]
-  },
-  {
-    "header": "January 25th, 2024",
-    "subheaders": [
-      {
-        "header": "Meet and Greet:",
-        "text": "Provide regular feedback throughout the project lifecycle to ensure alignment with organizational goals."
-      }
-    ]
-  }
-]
+{
+  "upcoming": [
+    {
+      "title": "January 13th, 2025",
+      "subSection": [
+        {
+          "header": "Networking Night:",
+          "text": "An event designed to help attendees expand their network and learn from industry experts, academic mentors, and fellow participants."
+        }
+      ]
+    },
+    {
+      "title": "January 25th, 2025",
+      "subSection": [
+        {
+          "header": "Meet and Greet:",
+          "text": "An event designed to help attendees expand their network."
+        }
+      ]
+    }
+  ]
+}

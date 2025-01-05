@@ -4,8 +4,21 @@ import FooterData from "../../public/data/club_links.json";
 import Image from "next/image";
 import { useTheme } from "../ThemeProvider";
 
+export const socialMedia = [
+  FooterData.discord,
+  FooterData.insta,
+  FooterData.linkedin,
+  FooterData.linktree,
+];
+
 const Footer = () => {
   const { isDarkMode } = useTheme();
+
+  const links = [
+    FooterData.membership,
+    FooterData.workshops,
+    FooterData.clubhub,
+  ];
   return (
     <div className="static bottom-0 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite dark:text-dark-dsmlcBlack text-light-dsmlcBlack w-full p-5 flex lg:flex-row flex-col lg:gap-2 gap-5 text-base justify-evenly items-center h-full min-h-24 border-t-2 border-dsmlcTangerine">
       <div className="text-center">
@@ -18,11 +31,11 @@ const Footer = () => {
           href={`mailto:${FooterData.email_section.link}`}
           target="_blank"
         >
-          {FooterData.email_section.link}
+          {FooterData.email_section.text}
         </a>
       </div>
       <div className="flex md:flex-row lg:w-1/2 md:w-full md:gap-12 md:justify-center lg:justify-evenly gap-5 w-fit flex-col items-center">
-        {Object.values(FooterData.links_section).map((links, index) => {
+        {Object.values(links).map((links, index) => {
           return (
             <a
               key={index}
@@ -36,7 +49,7 @@ const Footer = () => {
         })}{" "}
       </div>
       <div className="flex flex-row gap-5">
-        {Object.values(FooterData.social_media).map((social_media, index) => {
+        {Object.values(socialMedia).map((social_media, index) => {
           return (
             <div
               key={index}

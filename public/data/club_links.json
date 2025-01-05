@@ -1,47 +1,59 @@
 {
   "email_section": {
     "name": "Email",
-    "link": "datascienceclub@ucalgary.ca",
+    "link": "mailto:datascienceclub@ucalgary.ca",
+    "header": "Email: ",
+    "text": "datascienceclub@ucalgary.ca",
     "description": "Have questions? Email us at "
   },
-  "links_section": {
-    "membership": {
-      "name": "Membership Form",
-      "link": "https://docs.google.com/forms/d/e/1FAIpQLScOGIqKjOxzu458lKIFtV3Kr3-Tf1jUvB4PyRZIXMxbvjEjHA/viewform"
-    },
-    "workshops": {
-      "name": "Past Workshops",
-      "link": "https://drive.google.com/drive/folders/16I8AbsThFneWuxmp7N1n7UYInOtn9baK"
-    },
-    "clubhub": {
-      "name": "SU ClubHub",
-      "link": "https://suuofc.campuslabs.ca/engage/organization/dsmlc"
-    }
+  "membership": {
+    "name": "Membership Form",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScOGIqKjOxzu458lKIFtV3Kr3-Tf1jUvB4PyRZIXMxbvjEjHA/viewform"
   },
-  "social_media": {
-    "discord": {
-      "name": "Discord",
-      "link": "https://discord.gg/NPCUa4rAdZ ",
-      "dark_logo": "/images/dark_discord.svg",
-      "light_logo": "/images/light_discord.svg"
-    },
-    "insta": {
-      "name": "Instagram",
-      "link": "https://www.instagram.com/dsmlc.uofc/?hl=en",
-      "dark_logo": "/images/dark_instagram.svg",
-      "light_logo": "/images/light_instagram.svg"
-    },
-    "linkedin": {
-      "name": "LinkedIn",
-      "link": "https://www.linkedin.com/company/uofc-dsmlc/",
-      "dark_logo": "/images/dark_linkedin.svg",
-      "light_logo": "/images/light_linkedin.svg"
-    },
-    "linktree": {
-      "name": "Linktree",
-      "link": "https://linktr.ee/dsmlc",
-      "dark_logo": "/images/dark_linktree.svg",
-      "light_logo": "/images/light_linktree.svg"
-    }
+  "workshops": {
+    "name": "Past Workshops",
+    "link": "https://drive.google.com/drive/folders/16I8AbsThFneWuxmp7N1n7UYInOtn9baK"
+  },
+  "clubhub": {
+    "name": "SU ClubHub",
+    "link": "https://suuofc.campuslabs.ca/engage/organization/dsmlc"
+  },
+  "discord": {
+    "name": "Discord",
+    "link": "https://discord.gg/NPCUa4rAdZ ",
+    "dark_logo": "/images/dark_discord.svg",
+    "light_logo": "/images/light_discord.svg"
+  },
+  "insta": {
+    "name": "Instagram",
+    "link": "https://www.instagram.com/dsmlc.uofc/?hl=en",
+    "dark_logo": "/images/dark_instagram.svg",
+    "light_logo": "/images/light_instagram.svg"
+  },
+  "linkedin": {
+    "name": "LinkedIn",
+    "link": "https://www.linkedin.com/company/uofc-dsmlc/",
+    "header": "LinkedIn: ",
+    "text": "UofC Data Science and Machine Learning Club",
+    "dark_logo": "/images/dark_linkedin.svg",
+    "light_logo": "/images/light_linkedin.svg"
+  },
+  "linktree": {
+    "name": "Linktree",
+    "link": "https://linktr.ee/dsmlc",
+    "dark_logo": "/images/dark_linktree.svg",
+    "light_logo": "/images/light_linktree.svg"
+  },
+  "phone": {
+    "header": "Phone: ",
+    "text": "(780) 880-1466"
+  },
+  "regular_package": {
+    "link": "https://drive.google.com/file/d/1EEX-c5iE_3ZXbn79-o1CyWvqBYZMHrB4/view?usp=sharing",
+    "name": "Regular Package"
+  },
+  "final_comp_package": {
+    "link": "https://drive.google.com/file/d/1eZgpEZoi7_OGqxZatHgXK8dkSYkezfds/view?usp=sharing",
+    "name": "Final Competition Package"
   }
 }

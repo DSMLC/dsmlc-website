@@ -1,0 +1,63 @@
+{
+  "sponsors": [
+    {
+      "image": {
+        "imageLink": "/images/sponsors/arc_resources.png",
+        "imageName": "arc resources logo",
+        "imageType": "Sponsor"
+      }
+    },
+    {
+      "image": {
+        "imageLink": "/images/sponsors/platform_calgary.png",
+        "imageName": "platform calgary logo",
+        "imageType": "Sponsor"
+      }
+    },
+    {
+      "image": {
+        "imageLink": "/images/sponsors/uofc_data_science.png",
+        "imageName": "uofc data science logo",
+        "imageType": "Sponsor"
+      }
+    },
+    {
+      "image": {
+        "imageLink": "/images/sponsors/uofc_faculty_science.jpg",
+        "imageName": "uofc faculty of science logo",
+        "imageType": "Sponsor"
+      }
+    }
+  ],
+  "collabs": [
+    {
+      "image": {
+        "imageLink": "/images/sponsors/alta_ml.png",
+        "imageName": "alta ML logo",
+        "imageType": "Sponsor"
+      }
+    },
+
+    {
+      "image": {
+        "imageLink": "/images/sponsors/teck.png",
+        "imageName": "teck logo",
+        "imageType": "Sponsor"
+      }
+    },
+    {
+      "image": {
+        "imageLink": "/images/sponsors/tacit_edge.png",
+        "imageName": "tacit edge logo",
+        "imageType": "Sponsor"
+      }
+    },
+    {
+      "image": {
+        "imageLink": "/images/sponsors/shopify.png",
+        "imageName": "shopify logo",
+        "imageType": "Sponsor"
+      }
+    }
+  ]
+}

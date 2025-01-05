@@ -1,7 +1,10 @@
 [
   {
     "type": "HeroTemplate",
-    "data": "main_logo"
+    "data": {
+      "json": "logo.json",
+      "keys": ["main_logo"]
+    }
   },
   {
     "type": "BackgroundFillTemplate",
@@ -14,31 +17,19 @@
       },
       {
         "type": "IncreasingNumbersTemplate",
-        "data": [
-          {
-            "value": 534,
-            "title": "Club Members"
-          },
-          {
-            "value": 32,
-            "title": "Events Held"
-          },
-          {
-            "value": 1779,
-            "title": "Event Attendees"
-          }
-        ]
+        "data": {
+          "json": "club_stats.json",
+          "keys": ["club_members", "events_held", "event_attendees"]
+        }
       },
       {
         "type": "ApplicationTemplate",
-        "data": {
-          "button": [
-            {
-              "buttonLink": "/contact/membership",
-              "buttonText": "Add Me to the Count!"
-            }
-          ]
-        }
+        "data": [
+          {
+            "link": "/contact/membership",
+            "name": "Add Me to the Count!"
+          }
+        ]
       }
     ]
   },
@@ -71,14 +62,12 @@
       },
       {
         "type": "ApplicationTemplate",
-        "data": {
-          "button": [
-            {
-              "buttonLink": "/about",
-              "buttonText": "Learn More About Us"
-            }
-          ]
-        }
+        "data": [
+          {
+            "link": "/about",
+            "name": "Learn More About Us"
+          }
+        ]
       }
     ]
   },
@@ -95,19 +84,20 @@
         ]
       },
       {
-        "type": "SectionedHeaderTemplate",
-        "data": "UpcomingEvents"
+        "type": "HeaderTextSubSectionTemplate",
+        "data": {
+          "json": "upcoming_events.json",
+          "keys": ["upcoming"]
+        }
       },
       {
         "type": "ApplicationTemplate",
-        "data": {
-          "button": [
-            {
-              "buttonLink": "/events/upcoming",
-              "buttonText": "Register For Events"
-            }
-          ]
-        }
+        "data": [
+          {
+            "link": "/events/upcoming",
+            "name": "Register For Events"
+          }
+        ]
       }
     ]
   },
@@ -126,39 +116,18 @@
       {
         "type": "CarouselTemplate",
         "data": {
-          "carousel": [
-            {
-              "title": "WeFlourish 2024",
-              "imageLink": "/images/events/fall_2024/weflourish.png",
-              "imageName": "Picture of DSMLC's Fall 2024 WeFlourish Event",
-              "imageType": "Banner"
-            },
-            {
-              "title": "Interview and Application Event 2024",
-              "imageLink": "/images/events/fall_2024/int_and_app2.png",
-              "imageName": "Picture of DSMLC's Fall 2024 Int and App Event",
-              "imageType": "Banner"
-            },
-            {
-              "title": "Meet and Greet 2024",
-              "imageLink": "/images/events/fall_2024/meet_and_greet.png",
-              "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-              "imageType": "Banner"
-            }
-          ],
-          "interval": 5000
+          "json": "past_events.json",
+          "keys": ["most_recent"]
         }
       },
       {
         "type": "ApplicationTemplate",
-        "data": {
-          "button": [
-            {
-              "buttonLink": "/events",
-              "buttonText": "More Highlights"
-            }
-          ]
-        }
+        "data": [
+          {
+            "link": "/events",
+            "name": "More Highlights"
+          }
+        ]
       }
     ]
   },
@@ -189,14 +158,12 @@
       },
       {
         "type": "ApplicationTemplate",
-        "data": {
-          "button": [
-            {
-              "buttonLink": "/visionary-lab",
-              "buttonText": "Learn More"
-            }
-          ]
-        }
+        "data": [
+          {
+            "link": "/visionary-lab",
+            "name": "Learn More"
+          }
+        ]
       }
     ]
   },
@@ -215,36 +182,10 @@
       },
       {
         "type": "ColumnTemplate",
-        "data": [
-          {
-            "image": {
-              "imageLink": "/images/sponsors/arc_resources.png",
-              "imageName": "arc resources logo",
-              "imageType": "Sponsor"
-            }
-          },
-          {
-            "image": {
-              "imageLink": "/images/sponsors/platform_calgary.png",
-              "imageName": "platform calgary logo",
-              "imageType": "Sponsor"
-            }
-          },
-          {
-            "image": {
-              "imageLink": "/images/sponsors/uofc_data_science.png",
-              "imageName": "uofc data science logo",
-              "imageType": "Sponsor"
-            }
-          },
-          {
-            "image": {
-              "imageLink": "/images/sponsors/uofc_faculty_science.jpg",
-              "imageName": "uofc faculty of science logo",
-              "imageType": "Sponsor"
-            }
-          }
-        ]
+        "data": {
+          "json": "sponsorsInfo.json",
+          "keys": ["sponsors"]
+        }
       },
       {
         "type": "HeaderTextTemplate2",
@@ -257,37 +198,10 @@
       },
       {
         "type": "ColumnTemplate",
-        "data": [
-          {
-            "image": {
-              "imageLink": "/images/sponsors/alta_ml.png",
-              "imageName": "alta ML logo",
-              "imageType": "Sponsor"
-            }
-          },
-
-          {
-            "image": {
-              "imageLink": "/images/sponsors/teck.png",
-              "imageName": "teck logo",
-              "imageType": "Sponsor"
-            }
-          },
-          {
-            "image": {
-              "imageLink": "/images/sponsors/tacit_edge.png",
-              "imageName": "tacit edge logo",
-              "imageType": "Sponsor"
-            }
-          },
-          {
-            "image": {
-              "imageLink": "/images/sponsors/shopify.png",
-              "imageName": "shopify logo",
-              "imageType": "Sponsor"
-            }
-          }
-        ]
+        "data": {
+          "json": "sponsorsInfo.json",
+          "keys": ["collabs"]
+        }
       },
       {
         "type": "HeaderTextTemplate2",
@@ -300,14 +214,12 @@
       },
       {
         "type": "ApplicationTemplate",
-        "data": {
-          "button": [
-            {
-              "buttonLink": "/about/sponsors",
-              "buttonText": "Learn More About Our Sponsorship Packages"
-            }
-          ]
-        }
+        "data": [
+          {
+            "link": "/about/sponsors",
+            "name": "Learn More About Our Sponsorship Packages"
+          }
+        ]
       }
     ]
   }

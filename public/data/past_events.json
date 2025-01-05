@@ -1,0 +1,74 @@
+{
+  "most_recent": [
+    {
+      "number": "11/01",
+      "header": "WeFlourish",
+      "points": [
+        {
+          "text": "WeFlourish"
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/weflourish.png",
+        "imageName": "Picture of DSMLC's Fall 2024 WeFlourish Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "10/29",
+      "header": "Interviews and Applications Night",
+      "points": [
+        {
+          "text": "TO BE FILLED"
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/int_and_app2.png",
+        "imageName": "Picture of DSMLC's Fall 2024 Int and App Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "10/24",
+      "header": "Inro to Python Data Visualization Workshop",
+      "points": [
+        {
+          "text": "Explored the exciting world of Python Data Visualization and Manipulation, diving into libraries like Matplotlib, Plotly, Seaborn, and tools such as Pandas and NumPy."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "09/27",
+      "header": "Fall Meet and Greet",
+      "points": [
+        {
+          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
+        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "09/11",
+      "header": "Science Pancake Breakfast",
+      "points": [
+        {
+          "text": "TO BE FILLED"
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/pancakes.jpg",
+        "imageName": "Picture of DSMLC's Fall 2024 Pancake Breakfast Event",
+        "imageType": "Pic"
+      }
+    }
+  ]
+}
