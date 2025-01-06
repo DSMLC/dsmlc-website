@@ -1,16 +1,15 @@
 "use client";
 import React from "react";
-import Image from "next/image";
-import { socialMedia } from "../Footer";
 import ImageTemplate, { ImageType } from "./ImageTemplate";
 import { HeroTemplateData } from "@/app/DataLoader";
 import { useTheme } from "../../ThemeProvider";
 import ParticleBackground from "../ParticleBackground";
 import AILottieAnimation from "../AILottieAnimation";
+import SocialLinksTemplate from "./SocialLinksTemplate";
 
 const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
   const { isDarkMode } = useTheme();
-  const heroData  = Data[0];
+  const heroData = Data[0];
   return (
     <div className="w-full h-[85vh] flex-col relative">
       <ParticleBackground />
@@ -50,34 +49,7 @@ const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
           </div>
         )}
         {/* <AILottieAnimation /> */}
-        <div className="flex-row flex gap-10 items-center">
-          {Object.values(socialMedia).map((app, index) => {
-            return (
-              <div
-                key={index}
-                className="flex items-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1 md:h-10 h-9"
-              >
-                {" "}
-                <a href={app.link} target="_blank">
-                  <Image
-                    className="md:block hidden"
-                    src={isDarkMode ? app.light_logo : app.dark_logo}
-                    alt={`${app.name} Logo`}
-                    width={30}
-                    height={30}
-                  />
-                  <Image
-                    className="md:hidden block"
-                    src={isDarkMode ? app.light_logo : app.dark_logo}
-                    alt={`${app.name} Logo`}
-                    width={25}
-                    height={25}
-                  />
-                </a>
-              </div>
-            );
-          })}
-        </div>
+        <SocialLinksTemplate />
       </div>
     </div>
   );

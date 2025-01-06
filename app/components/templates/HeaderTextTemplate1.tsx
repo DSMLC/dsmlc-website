@@ -41,7 +41,7 @@ const HeaderTextTemplate = ({
               } xl:w-5/6 lg:w-11/12 w-full h-full dark:bg-dark-dsmlcParchment bg-light-dsmlcParchment`}
             ></div>
             <div className="relative z-10 flex flex-col items-center px-4 py-16 lg:py-20">
-              <div className="text-start lg:text-3xl md:text-2xl text-xl font-bold font-redHat text-dsmlcDataOrange mb-7">
+              <div className="text-start lg:text-3xl md:text-2xl text-xl font-bold font-redHat text-dsmlcTangerine mb-7">
                 {data.header}
               </div>
               <div

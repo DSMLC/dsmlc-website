@@ -1,18 +1,9 @@
 "use client";
 import React from "react";
 import FooterData from "../../public/data/club_links.json";
-import Image from "next/image";
-import { useTheme } from "../ThemeProvider";
-
-export const socialMedia = [
-  FooterData.discord,
-  FooterData.insta,
-  FooterData.linkedin,
-  FooterData.linktree,
-];
+import SocialLinksTemplate from "./templates/SocialLinksTemplate";
 
 const Footer = () => {
-  const { isDarkMode } = useTheme();
 
   const links = [
     FooterData.membership,
@@ -48,29 +39,7 @@ const Footer = () => {
           );
         })}{" "}
       </div>
-      <div className="flex flex-row gap-5">
-        {Object.values(socialMedia).map((social_media, index) => {
-          return (
-            <div
-              key={index}
-              className="flex items-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1"
-            >
-              <a href={social_media.link} target="_blank">
-                <Image
-                  src={
-                    isDarkMode
-                      ? social_media.light_logo
-                      : social_media.dark_logo
-                  }
-                  alt={`${social_media.name} Logo`}
-                  width={25}
-                  height={25}
-                />
-              </a>
-            </div>
-          );
-        })}
-      </div>
+      <SocialLinksTemplate />
     </div>
   );
 };

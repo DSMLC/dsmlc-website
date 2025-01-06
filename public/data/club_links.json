@@ -7,7 +7,7 @@
     "description": "Have questions? Email us at "
   },
   "membership": {
-    "name": "Membership Form",
+    "name": "Become a Member Now!",
     "link": "https://docs.google.com/forms/d/e/1FAIpQLScOGIqKjOxzu458lKIFtV3Kr3-Tf1jUvB4PyRZIXMxbvjEjHA/viewform"
   },
   "workshops": {
@@ -27,6 +27,8 @@
   "insta": {
     "name": "Instagram",
     "link": "https://www.instagram.com/dsmlc.uofc/?hl=en",
+    "header": "Instagram: ",
+    "text": "@dsmlc.uofc",
     "dark_logo": "/images/dark_instagram.svg",
     "light_logo": "/images/light_instagram.svg"
   },

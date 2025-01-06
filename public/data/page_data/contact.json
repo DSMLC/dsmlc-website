@@ -1,0 +1,61 @@
+[
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "TitleTemplate2",
+        "data": {
+          "title": "Get in Touch",
+          "subtitle": "We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+        }
+      },
+      {
+        "type": "HeaderTextTemplate4",
+        "data": [
+          {
+            "header": "Have questions? Contact us!"
+          }
+        ]
+      },
+      {
+        "type": "HeaderTextTemplate3",
+        "data": {
+          "json": "club_links.json",
+          "keys": ["email_section", "linkedin", "insta", "phone"]
+        }
+      },
+      {
+        "type": "SocialLinksTemplate",
+        "data": {}
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "json": "club_links.json",
+          "keys": ["email_section", "linkedin"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "TitleTemplate2",
+        "data": {
+          "title": "Sponsorship Inquires",
+          "subtitle": "Learn more about sponsorship opportunities and the benefits of partnering with DSMLC."
+        }
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": [
+          {
+            "link": "/about/sponsors",
+            "name": "Learn More About Our Sponsorship Packages"
+          }
+        ]
+      }
+    ]
+  }
+]

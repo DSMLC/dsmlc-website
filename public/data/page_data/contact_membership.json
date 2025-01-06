@@ -1,0 +1,67 @@
+[
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "TitleTemplate2",
+        "data": {
+          "title": "Become a Member",
+          "subtitle": "Join our community and unlock exclusive benefits"
+        }
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "json": "club_links.json",
+          "keys": ["membership"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "HeaderTextTemplate4",
+        "data": [
+          {
+            "header": "Who Can Join?",
+            "text": [
+              "Open to all University of Calgary students, regardless of experience or background."
+            ]
+          },
+          {
+            "header": "Why Join?",
+            "text": [
+              "Skill Development: Participate in hands-on workshops on tools like Python, SQL, and more.",
+              "Networking Opportunities: Connect with professionals, professors, and peers.",
+              "Competitions: Showcase your talents in real-world data challenges.",
+              "Community: Collaborate, learn, and grow with like-minded individuals.",
+              "No Cost! Completely free!"
+            ]
+          },
+          {
+            "header": "How to Join?",
+            "text": [
+              "Fill out our membership form above",
+              "Follow us on Instagram or LinkedIn for updates. Join our Discord to engage with the Data Science and Machine Learning Community!"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "SocialLinksTemplate",
+        "data": {}
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": [
+          {
+            "link": "/about",
+            "name": "Learn More"
+          }
+        ]
+      }
+    ]
+  }
+]

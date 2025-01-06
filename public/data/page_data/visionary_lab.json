@@ -53,11 +53,29 @@
     ]
   },
   {
-    "type": "BackgroundFillTemplate",
+    "type": "BackgroundFillTemplate2",
     "data": [
       {
         "type": "ProfileListTemplate",
-        "data": ["Visionary Lab Board", "Project Managers", "Advisors"]
+        "data": ["Visionary Lab Board"]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "ProfileListTemplate",
+        "data": ["Project Managers"]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "ProfileListTemplate",
+        "data": ["Advisors"]
       }
     ]
   }

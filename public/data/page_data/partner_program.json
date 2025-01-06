@@ -418,8 +418,12 @@
         "type": "HeaderTextTemplate3",
         "data": {
           "json": "club_links.json",
-          "keys": ["email_section", "linkedin", "phone"]
+          "keys": ["email_section", "linkedin", "insta", "phone"]
         }
+      },
+      {
+        "type": "SocialLinksTemplate",
+        "data": {}
       },
       {
         "type": "ApplicationTemplate",

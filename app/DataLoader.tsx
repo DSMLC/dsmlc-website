@@ -21,6 +21,8 @@ import TitleTemplate1 from "./components/templates/TitleTemplate1";
 import CarouselTemplate from "./components/templates/CarouselTemplate";
 import BackgroundFillTemplate from "./components/templates/BackgroundFillTemplate";
 import IncreasingNumbersTemplate from "./components/templates/IncreasingNumbersTemplate";
+import BackgroundFillTemplate2 from "./components/templates/BackgroundFillTemplate2";
+import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
 
 export interface ImageData {
   imageLink?: string;
@@ -36,7 +38,12 @@ export interface ApplicationTemplateData {
 
 export interface BackgroundFillTemplateData {
   type: "BackgroundFillTemplate";
-  data: PageData[]; // Array of other template data
+  data: PageData[];
+}
+
+export interface BackgroundFillTemplateData2 {
+  type: "BackgroundFillTemplate2";
+  data: PageData[];
 }
 
 export interface CarouselTemplateData {
@@ -185,6 +192,11 @@ export interface TitleTemplateData2 {
   };
 }
 
+export interface SocialLinksTemplateData {
+  type: "SocialLinksTemplate";
+  data: {};
+}
+
 export type PageData =
   | ColumnTemplateData
   | CarouselTemplateData
@@ -206,6 +218,8 @@ export type PageData =
   | SubtitleTemplateData2
   | SubtitleTemplateData3
   | BackgroundFillTemplateData
+  | BackgroundFillTemplateData2
+  | SocialLinksTemplateData
   | IncreasingNumbersData;
 
 export const templateMap: {
@@ -234,7 +248,9 @@ export const templateMap: {
   SubtitleTemplate3: SubtitleTemplate3,
   CarouselTemplate: CarouselTemplate,
   BackgroundFillTemplate: BackgroundFillTemplate,
+  BackgroundFillTemplate2: BackgroundFillTemplate2,
   IncreasingNumbersTemplate: IncreasingNumbersTemplate,
+  SocialLinksTemplate: SocialLinksTemplate,
 };
 
 const resolveData = async (pageData: PageData): Promise<any> => {
@@ -280,7 +296,8 @@ const resolveData = async (pageData: PageData): Promise<any> => {
   }
 
   if (
-    pageData.type === "BackgroundFillTemplate" &&
+    (pageData.type === "BackgroundFillTemplate" ||
+      pageData.type === "BackgroundFillTemplate2") &&
     Array.isArray(pageData.data)
   ) {
     const resolvedNestedData = await Promise.all(
@@ -320,7 +337,10 @@ const DataLoader = ({ pageData }: { pageData: PageData }) => {
     return <div>Data not found for {pageData.type}</div>;
   }
 
-  if (pageData.type === "BackgroundFillTemplate") {
+  if (
+    pageData.type === "BackgroundFillTemplate" ||
+    pageData.type === "BackgroundFillTemplate2"
+  ) {
     return (
       <TemplateComponent
         Data={resolvedData}

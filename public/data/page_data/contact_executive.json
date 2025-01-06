@@ -1,11 +1,12 @@
 [
   {
-    "type": "BackgroundFillTemplate",
+    "type": "BackgroundFillTemplate2",
     "data": [
       {
         "type": "TitleTemplate2",
         "data": {
-          "title": "Join Our Executive Team"
+          "title": "Join Our Executive Team",
+          "subtitle": "Join Our Community as an Executive"
         }
       },
       {
@@ -13,7 +14,7 @@
         "data": [
           {
             "title": "Welcome to Our Team!",
-            "text": "Join us to collaborate in data science!",
+            "text": "Join us to collaborate!",
             "image": {
               "imageLink": "/images/heart.svg",
               "imageName": "heart logo",
@@ -40,6 +41,15 @@
           }
         ]
       },
+      {
+        "type": "SocialLinksTemplate",
+        "data": {}
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
       {
         "type": "HeaderTextTemplate4",
         "data": {

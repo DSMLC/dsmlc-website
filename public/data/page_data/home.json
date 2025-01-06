@@ -7,7 +7,7 @@
     }
   },
   {
-    "type": "BackgroundFillTemplate",
+    "type": "BackgroundFillTemplate2",
     "data": [
       {
         "type": "TitleTemplate2",
@@ -132,7 +132,7 @@
     ]
   },
   {
-    "type": "BackgroundFillTemplate",
+    "type": "BackgroundFillTemplate2",
     "data": [
       {
         "type": "HeaderTextTemplate2",

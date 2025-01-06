@@ -34,7 +34,7 @@
     ]
   },
   {
-    "type": "BackgroundFillTemplate",
+    "type": "BackgroundFillTemplate2",
     "data": [
       {
         "type": "ProfileListTemplate",
@@ -43,7 +43,7 @@
     ]
   },
   {
-    "type": "BackgroundFillTemplate",
+    "type": "BackgroundFillTemplate2",
     "data": [
       {
         "type": "ProfileListTemplate",
@@ -52,7 +52,7 @@
     ]
   },
   {
-    "type": "BackgroundFillTemplate",
+    "type": "BackgroundFillTemplate2",
     "data": [
       {
         "type": "ProfileListTemplate",

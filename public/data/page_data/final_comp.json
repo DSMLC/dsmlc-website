@@ -158,7 +158,7 @@
     ]
   },
   {
-    "type": "BackgroundFillTemplate",
+    "type": "BackgroundFillTemplate2",
     "data": [
       {
         "type": "HeaderTextTemplate2",
