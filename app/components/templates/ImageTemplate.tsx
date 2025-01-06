@@ -70,6 +70,10 @@ const getImageClassname = (type: ImageType): string => {
   }
 };
 
+const loaderProp = ({ src }: { src: string }) => {
+  return src;
+};
+
 const ImageTemplate = ({
   image,
   name,
@@ -93,6 +97,7 @@ const ImageTemplate = ({
             alt={`${name} ${type}`}
             width={width.large}
             height={height.large}
+            loader={loaderProp}
           />
           <Image
             className={`${imageClassname} lg:hidden md:block hidden`}
@@ -100,6 +105,7 @@ const ImageTemplate = ({
             alt={`${name} ${type}`}
             width={width.medium}
             height={height.medium}
+            loader={loaderProp}
           />
           <Image
             className={`${imageClassname} md:hidden block`}
@@ -107,6 +113,7 @@ const ImageTemplate = ({
             alt={`${name} ${type}`}
             width={width.small}
             height={height.small}
+            loader={loaderProp}
           />
         </>
       )}
