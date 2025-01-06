@@ -49,7 +49,7 @@ const HeroTemplate = ({ Data }: { Data: HeroTemplateData["data"] }) => {
           </div>
         )}
         {/* <AILottieAnimation /> */}
-        <SocialLinksTemplate />
+        <SocialLinksTemplate Data={""} />
       </div>
     </div>
   );

@@ -4,7 +4,6 @@ import FooterData from "../../public/data/club_links.json";
 import SocialLinksTemplate from "./templates/SocialLinksTemplate";
 
 const Footer = () => {
-
   const links = [
     FooterData.membership,
     FooterData.workshops,
@@ -26,20 +25,20 @@ const Footer = () => {
         </a>
       </div>
       <div className="flex md:flex-row lg:w-1/2 md:w-full md:gap-12 md:justify-center lg:justify-evenly gap-5 w-fit flex-col items-center">
-        {Object.values(links).map((links, index) => {
+        {Object.values(links).map((link, index) => {
           return (
             <a
               key={index}
               className="font-semibold pb-1 border-b-2 border-dsmlcDataOrange hover:text-dsmlcDataOrange transition-all duration-300 font-redHat w-fit"
-              href={links.link}
+              href={link.link}
               target="_blank"
             >
-              {links.name}
+              {link.name}
             </a>
           );
-        })}{" "}
+        })}
       </div>
-      <SocialLinksTemplate />
+      <SocialLinksTemplate Data={""} />
     </div>
   );
 };
