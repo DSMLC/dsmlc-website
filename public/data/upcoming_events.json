@@ -1,38 +1,33 @@
 {
-  "final_comp": [],
-  "workshops": [
+  "final_comp": [
     {
-      "title": "January 19th, 2025",
+      "title": "February 16th, 2025",
       "subSection": [
         {
-          "header": "Workshop:",
-          "text": "workshop on data science"
-        },
-        {
-          "header": "Location:",
-          "text": "Online on Zoom"
+          "header": "Final Competition",
+          "text": "Registration Opens Soon!"
         }
       ]
     }
   ],
-  "other_events": [
+  "final_comp_register": [
     {
-      "title": "January 13th, 2025",
-      "subSection": [
-        {
-          "header": "Networking Night:",
-          "text": "An event designed to help attendees expand their network and learn from industry experts, academic mentors, and fellow participants."
-        }
-      ]
-    },
+      "link": "#",
+      "name": "No Events At the Moment"
+    }
+  ],
+  "workshops": [],
+  "workshops_register": [
     {
-      "title": "January 25th, 2025",
-      "subSection": [
-        {
-          "header": "Meet and Greet:",
-          "text": "An event designed to help attendees expand their network."
-        }
-      ]
+      "link": "#",
+      "name": "No Events At the Moment"
+    }
+  ],
+  "other_events": [],
+  "other_events_register": [
+    {
+      "link": "#",
+      "name": "No Events At the Moment"
     }
   ]
 }

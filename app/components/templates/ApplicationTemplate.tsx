@@ -11,7 +11,7 @@ const ApplicationSection = ({
 }: {
   Data: ApplicationTemplateData["data"];
 }) => {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null); 
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   if (!Data || !Array.isArray(Data)) return null;
 
@@ -27,36 +27,52 @@ const ApplicationSection = ({
         >
           <Link
             href={button.link}
-            target="_blank"
-            rel="noopener noreferrer"
+            target={button.link !== "#" ? "_blank" : undefined}
+            rel={button.link !== "#" ? "noopener noreferrer" : undefined}
             className={`group relative inline-flex items-center justify-center px-14 py-4 
-              md:text-lg sm:text-base text-sm font-bold tracking-wider text-light-dsmlcBlack
-              rounded-full overflow-hidden shadow-2xl bg-dsmlcTangerine
-              transition-all duration-300 ease-out
-              focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-dsmlcTangerine`}
-            onMouseEnter={() => setHoveredIndex(index)} 
-            onMouseLeave={() => setHoveredIndex(null)}
+    md:text-lg sm:text-base text-sm font-bold tracking-wider ${
+      button.link === "#"
+        ? "text-gray-400 bg-gray-300 cursor-not-allowed"
+        : "text-light-dsmlcBlack bg-dsmlcTangerine shadow-2xl transition-all duration-300 ease-out"
+    } 
+    rounded-full overflow-hidden 
+    focus:outline-none focus:ring-2 focus:ring-offset-2 ${
+      button.link === "#"
+        ? "focus:ring-transparent"
+        : "focus:ring-dsmlcTangerine"
+    }`}
+            onMouseEnter={() => button.link !== "#" && setHoveredIndex(index)}
+            onMouseLeave={() => button.link !== "#" && setHoveredIndex(null)}
+            onClick={(e) => {
+              if (button.link === "#") {
+                e.preventDefault(); // Prevent click action if the link is disabled
+              }
+            }}
           >
             <span className="relative z-10">{button.name}</span>
-            <motion.span
-              className="absolute right-4 transform -translate-y-1/2"
-              initial={{ x: -10, opacity: 0 }}
-              animate={{
-                x: hoveredIndex === index ? 0 : -10,
-                opacity: hoveredIndex === index ? 1 : 0,
-              }}
-              transition={{ duration: 0.2 }}
-            >
-              <ArrowRight className="w-6 h-6" />
-            </motion.span>
-            <motion.span
-              className="absolute inset-0 z-0 bg-dsmlcTangerine opacity-20"
-              initial={{ scale: 0 }}
-              animate={{
-                scale: hoveredIndex === index ? 1.5 : 0,
-              }}
-              transition={{ duration: 0.4 }}
-            />
+            {button.link !== "#" && (
+              <>
+                <motion.span
+                  className="absolute right-4 transform -translate-y-1/2"
+                  initial={{ x: -10, opacity: 0 }}
+                  animate={{
+                    x: hoveredIndex === index ? 0 : -10,
+                    opacity: hoveredIndex === index ? 1 : 0,
+                  }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <ArrowRight className="w-6 h-6" />
+                </motion.span>
+                <motion.span
+                  className="absolute inset-0 z-0 bg-dsmlcTangerine opacity-20"
+                  initial={{ scale: 0 }}
+                  animate={{
+                    scale: hoveredIndex === index ? 1.5 : 0,
+                  }}
+                  transition={{ duration: 0.4 }}
+                />
+              </>
+            )}
           </Link>
         </motion.div>
       ))}

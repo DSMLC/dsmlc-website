@@ -3,11 +3,41 @@
     "type": "BackgroundFillTemplate",
     "data": [
       {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Upcoming Events",
+          "subtitle": "Join us for our next event! This is a great opportunity to connect with others and enhance your knowledge and skills."
+        }
+      },
+      {
         "type": "HeaderTextTemplate2",
         "data": [
           {
-            "header": "Upcoming Events",
-            "text": "Join us for our next event! This is a great opportunity to connect with others and enhance your knowledge and skills."
+            "header": "Come Join Us",
+            "text": "Expand your knowledge, connect with industry professionals, and engage with peers who share your passion for data science and machine learning. From skill-building workshops to networking nights and our flagship Final Competition, each event is designed to inspire growth and foster meaningful connections. Don’t miss out on the opportunity to learn, collaborate, and take your career to the next level!"
+          }
+        ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": [
+          {
+            "link": "/events",
+            "name": "Checkout Past Events"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "DSMLC's Annual Final Competition",
+            "text": "The DSMLC Annual Final Competition is your chance to showcase your data science and machine learning expertise, compete for top prizes, and make a lasting impact in the industry."
           }
         ]
       },
@@ -15,17 +45,71 @@
         "type": "HeaderTextSubSectionTemplate",
         "data": {
           "json": "upcoming_events.json",
-          "keys": ["final_comp", "workshops", "other_events"]
+          "keys": ["final_comp"]
         }
       },
       {
         "type": "ApplicationTemplate",
+        "data": {
+          "json": "upcoming_events.json",
+          "keys": ["final_comp_register"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
         "data": [
           {
-            "link": "/events/upcoming",
-            "name": "Register For Events"
+            "header": "Workshops",
+            "text": "Come join us for upcoming workshop sessions that DSMLC hosts for its members."
           }
         ]
+      },
+      {
+        "type": "HeaderTextSubSectionTemplate",
+        "data": {
+          "json": "upcoming_events.json",
+          "keys": ["workshops"]
+        }
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "json": "upcoming_events.json",
+          "keys": ["workshops_register"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Other Events",
+            "text": "From Networking Nights that connect students with professionals to Movie Nights for casual fun and relaxation, we ensure a balance of professional growth and community engagement."
+          }
+        ]
+      },
+      {
+        "type": "HeaderTextSubSectionTemplate",
+        "data": {
+          "json": "upcoming_events.json",
+          "keys": ["other_events"]
+        }
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": {
+          "json": "upcoming_events.json",
+          "keys": ["other_events_register"]
+        }
       }
     ]
   }

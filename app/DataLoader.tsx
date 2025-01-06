@@ -269,8 +269,13 @@ const resolveData = async (pageData: PageData): Promise<any> => {
         // Sort combinedData by the date
         if (json === "upcoming_events.json") {
           combinedData = combinedData.sort((a, b) => {
-            const dateA = new Date(a.title.replace(/(\d+)(st|nd|rd|th)/, "$1"));
-            const dateB = new Date(b.title.replace(/(\d+)(st|nd|rd|th)/, "$1"));
+            const dateA = a.title
+              ? new Date(a.title.replace(/(\d+)(st|nd|rd|th)/, "$1"))
+              : new Date(0); // Default to an old date if title is missing
+            const dateB = b.title
+              ? new Date(b.title.replace(/(\d+)(st|nd|rd|th)/, "$1"))
+              : new Date(0); // Default to an old date if title is missing
+
             return dateA.getTime() - dateB.getTime();
           });
         }
