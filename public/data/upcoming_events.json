@@ -1,5 +1,21 @@
 {
-  "upcoming": [
+  "final_comp": [],
+  "workshops": [
+    {
+      "title": "January 19th, 2025",
+      "subSection": [
+        {
+          "header": "Workshop:",
+          "text": "workshop on data science"
+        },
+        {
+          "header": "Location:",
+          "text": "Online on Zoom"
+        }
+      ]
+    }
+  ],
+  "other_events": [
     {
       "title": "January 13th, 2025",
       "subSection": [

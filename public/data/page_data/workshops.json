@@ -1,9 +1,207 @@
 [
   {
-    "type": "TitleTemplate1",
-    "data": {
-      "title": "Workshops",
-      "subtitle": "Explore the workshop sessions that DSMLC hosts for its members."
-    }
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Workshops",
+          "subtitle": "Explore the workshop sessions that DSMLC hosts for its members."
+        }
+      },
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Introduction to Our Workshops",
+            "text": "Our workshops are at the heart of the Data Science and Machine Learning Club (DSMLC). Designed for students of all experience levels, they provide hands-on opportunities to learn essential skills in data science and machine learning. Whether you're a complete beginner or looking to expand your expertise, our workshops offer something for everyone."
+          }
+        ]
+      },
+      {
+        "type": "CarouselTemplate",
+        "data": [
+          {
+            "header": "Workshop 1",
+            "points": [
+              {
+                "text": "About Workshop 1"
+              }
+            ],
+            "image": {
+              "imageLink": "/images/events/final_comp_2024/final_comp_1.JPG",
+              "imageName": "Picture of DSMLC's Final Comp 2024 Event",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "header": "Workshop 2",
+            "points": [
+              {
+                "text": "About Workshop 2"
+              }
+            ],
+            "image": {
+              "imageLink": "/images/events/final_comp_2024/final_comp_2.JPG",
+              "imageName": "Picture of DSMLC's Final Comp 2024 Event 1",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "header": "Workshop 3",
+            "points": [
+              {
+                "text": "About Workshop 3"
+              }
+            ],
+            "image": {
+              "imageLink": "/images/events/final_comp_2024/final_comp_3.jpg",
+              "imageName": "Picture of DSMLC's Final Comp 2024 Event 3",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "header": "Workshop 4",
+            "points": [
+              {
+                "text": "About Workshop 4"
+              }
+            ],
+            "image": {
+              "imageLink": "/images/events/final_comp_2024/final_comp_awards.JPG",
+              "imageName": "Picture of DSMLC's Final Comp 2024 Event Awards",
+              "imageType": "Banner"
+            }
+          }
+        ]
+      },
+      {
+        "type": "HeaderTextTemplate4",
+        "data": [
+          {
+            "header": "Why You Should Attend",
+            "text": [
+              "Gain hands-on experience with data science and machine learning tools and techniques, helping you prepare for real-world challenges.",
+              "Our workshops are tailored to build the foundational and advanced skills you'll need to excel in the DSMLC Final Competition. By attending, you'll be better equipped to create impactful projects and stand out to industry experts.",
+              "Receive a certificate of participation for attending our workshops, a valuable addition to your resume or LinkedIn profile.",
+              "Every live workshop you attend increases your chances of being part of the prize pool giveaway. The more workshops you attend fully live, the higher your odds of winning exclusive prizes."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Upcoming Workshops",
+            "text": "Explore the latest opportunities to expand your skills and connect with peers. Here's a list of our upcoming hands-on workshops designed to empower you with practical knowledge in data science and machine learning."
+          }
+        ]
+      },
+      {
+        "type": "HeaderTextSubSectionTemplate",
+        "data": {
+          "json": "upcoming_events.json",
+          "keys": ["workshops"]
+        }
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": [
+          {
+            "link": "/events/upcoming",
+            "name": "Register For Upcoming Workshops"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Previous Recorded Workshops",
+            "text": "Since Fall 2021, our club has organized a series of impactful workshops designed to equip students with essential data science and machine learning skills. These workshops have covered topics ranging from introductory programming and data visualization to advanced machine learning techniques and tools. Explore our recorded sessions to revisit these enriching learning experiences."
+          }
+        ]
+      },
+      {
+        "type": "HeaderTextSubSectionTemplate",
+        "data": {
+          "json": "recorded_workshops.json",
+          "keys": ["previous_workshops"]
+        }
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": [
+          {
+            "link": "https://drive.google.com/drive/folders/16I8AbsThFneWuxmp7N1n7UYInOtn9baK?usp=drive_link",
+            "name": "View Recordings"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "FAQTemplate",
+        "data": {
+          "header": "Frequently Asked Questions",
+          "faq": [
+            {
+              "question": "Who can attend the workshops?",
+              "answer": "Our workshops are open to all students, regardless of their academic background or experience level."
+            },
+            {
+              "question": "Do I need prior experience in data science or machine learning?",
+              "answer": "No prior experience is required! Our workshops are designed to accommodate all skill levels, from beginners to advanced learners."
+            },
+            {
+              "question": "How can I register for the workshops?",
+              "answer": "Registration details will be shared on our social media platforms and through our mailing list. Follow us on Instagram (@dsmlc.uofc) for updates."
+            },
+            {
+              "question": "Will I receive a certificate for attending the workshops?",
+              "answer": "Yes! Participants who attend the workshops fully will receive a certificate of participation. Recorded workshops will not count."
+            },
+            {
+              "question": "What do I need to bring to the workshop?",
+              "answer": "A laptop is recommended, as most workshops involve hands-on activities. We'll provide any additional materials or software instructions beforehand."
+            },
+            {
+              "question": "Can I attend the workshops online?",
+              "answer": "Yes! Some workshops may offer virtual attendance options. Check the event details for more information."
+            },
+            {
+              "question": "Are there any fees to attend the workshops?",
+              "answer": "All of our workshops are free for anyone of any skill level to join!"
+            },
+            {
+              "question": "How does attending workshops increase my chances of winning prizes?",
+              "answer": "Each workshop you attend fully live earns you an entry into the prize pool giveaway. The more workshops you attend, the higher your chances of winning! Recorded workshops will not count."
+            },
+            {
+              "question": "How do the workshops help with the Final Competition?",
+              "answer": "Our workshops are designed to teach you the skills and knowledge needed for the Final Competition, including tools and techniques you'll use in your project submissions."
+            },
+            {
+              "question": "Will the workshops be recorded?",
+              "answer": "Our online workshops over Zoom will be recorded, however our in person workshops may or may not be recorded."
+            }
+          ]
+        }
+      }
+    ]
   }
 ]

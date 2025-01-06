@@ -1,9 +1,32 @@
 [
   {
-    "type": "TitleTemplate1",
-    "data": {
-      "title": "Upcoming Events",
-      "subtitle": "Discover upcoming events hosted by DSMLC, offering networking, learning, and global opportunities."
-    }
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Upcoming Events",
+            "text": "Join us for our next event! This is a great opportunity to connect with others and enhance your knowledge and skills."
+          }
+        ]
+      },
+      {
+        "type": "HeaderTextSubSectionTemplate",
+        "data": {
+          "json": "upcoming_events.json",
+          "keys": ["final_comp", "workshops", "other_events"]
+        }
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": [
+          {
+            "link": "/events/upcoming",
+            "name": "Register For Events"
+          }
+        ]
+      }
+    ]
   }
 ]

@@ -5,7 +5,8 @@
       {
         "type": "TitleTemplate1",
         "data": {
-          "title": "DSMLC Annual Final Competition"
+          "title": "DSMLC Annual Final Competition",
+          "subtitle": "The DSMLC Annual Final Competition is your chance to showcase your data science and machine learning expertise, compete for top prizes, and make a lasting impact in the industry."
         }
       },
       {
@@ -173,6 +174,71 @@
         "data": {
           "json": "sponsorsInfo.json",
           "keys": ["sponsors"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "FAQTemplate",
+        "data": {
+          "header": "Frequently Asked Questions",
+          "faq": [
+            {
+              "question": "What is the Final Competition?",
+              "answer": "The Final Competition is an annual event where students showcase their skills in data science and machine learning by working on real-world datasets. It provides a platform to learn, innovate, and network with peers and industry professionals."
+            },
+            {
+              "question": "Who can participate in the competition?",
+              "answer": "The competition is open to all students, regardless of their academic background or level of experience. Participation can be as an individual or as part of a team, depending on the year's rules."
+            },
+            {
+              "question": "What are the categories of the competition?",
+              "answer": "Participants can compete in various categories, such as Data Visualization, Machine Learning, and Research Proposal. Each category focuses on different skill sets, offering opportunities to highlight unique talents."
+            },
+            {
+              "question": "What tools or programming languages can I use?",
+              "answer": "Participants are free to use any programming language or software they are comfortable with. Popular tools include Python, R, Tableau, and Excel, but creativity and originality are the key factors."
+            },
+            {
+              "question": "Can I use additional datasets?",
+              "answer": "Most competitions allow the use of supplementary datasets, as long as they are open-source and properly cited. Specific rules about additional data will be outlined in the competition guidelines."
+            },
+            {
+              "question": "What are the benefits of participating?",
+              "answer": "The competition offers hands-on experience with real-world data, helps build your portfolio, provides networking opportunities with industry professionals, and offers the chance to win awards and recognition."
+            },
+            {
+              "question": "How are submissions evaluated?",
+              "answer": "Submissions are typically judged on creativity, technical skill, clarity, relevance to the competition's theme, and the ability to effectively communicate findings. Detailed judging criteria may vary each year."
+            },
+            {
+              "question": "Is there an in-person event associated with the competition?",
+              "answer": "The competition often concludes with an in-person symposium or presentation event, where participants can showcase their work to a panel of judges, peers, and industry representatives."
+            },
+            {
+              "question": "Do I need prior experience to participate?",
+              "answer": "No prior experience is necessary! The competition is designed to be inclusive, and participants can gain valuable skills throughout the process. Workshops and resources may also be provided to help you prepare."
+            },
+            {
+              "question": "Are there any prizes for the competition?",
+              "answer": "Yes, prizes are usually awarded to winners in each category. These may include certificates, cash prizes, or other awards based on the competition's sponsorship and structure."
+            },
+            {
+              "question": "How do I register for the competition?",
+              "answer": "Registration details are shared via club announcements, social media platforms, and emails. Keep an eye on these channels for deadlines and sign-up instructions."
+            },
+            {
+              "question": "Can I work with a team?",
+              "answer": "Team participation is usually allowed and encouraged, though specific rules about team size and registration vary each year."
+            },
+            {
+              "question": "What is the timeline for the competition?",
+              "answer": "The timeline varies each year but typically includes a registration period, project submission deadlines, judging phases, and a final presentation event. Be sure to check the official competition details for this year’s schedule."
+            }
+          ]
         }
       }
     ]

@@ -261,10 +261,21 @@ const resolveData = async (pageData: PageData): Promise<any> => {
     if (json.endsWith(".json")) {
       try {
         const importedData = await import(`../public/data/${json}`);
-        const combinedData = keys
+        let combinedData = keys
           .map((key) => importedData.default?.[key])
-          .filter(Boolean);
-        return combinedData.flat();
+          .filter(Boolean)
+          .flat();
+
+        // Sort combinedData by the date
+        if (json === "upcoming_events.json") {
+          combinedData = combinedData.sort((a, b) => {
+            const dateA = new Date(a.title.replace(/(\d+)(st|nd|rd|th)/, "$1"));
+            const dateB = new Date(b.title.replace(/(\d+)(st|nd|rd|th)/, "$1"));
+            return dateA.getTime() - dateB.getTime();
+          });
+        }
+
+        return combinedData;
       } catch (error) {
         console.error(`Error loading JSON file: ${json}`, error);
         return null;

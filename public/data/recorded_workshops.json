@@ -1,0 +1,64 @@
+{
+  "previous_workshops": [
+    {
+      "title": "Fall 2021 - Winter 2022",
+      "subSection": [
+        {
+          "header": "0.1 Intro to Python: ",
+          "text": "An introductory workshop on Python programming fundamentals."
+        },
+        {
+          "header": "0.2 Intro to Pandas: ",
+          "text": "An introduction to the Pandas library, focusing on data manipulation and analysis."
+        }
+      ]
+    },
+    {
+      "title": "Fall 2022 - Winter 2023",
+      "subSection": [
+        {
+          "header": "0.3 Intro to Data Visualization: ",
+          "text": "Workshop on data visualization techniques and tools."
+        },
+        {
+          "header": "0.4 Intro to Supervised Learning Pt.1: ",
+          "text": "Part 1 of an introduction to supervised learning concepts in machine learning."
+        },
+        {
+          "header": "0.5 Intro to Supervised Learning Pt.2: ",
+          "text": "Part 2 of an introduction to supervised learning concepts in machine learning."
+        }
+      ]
+    },
+    {
+      "title": "Fall 2023 - Winter 2024",
+      "subSection": [
+        {
+          "header": "0.6 Intro to SQL: ",
+          "text": "An introduction to SQL for managing and querying databases."
+        },
+        {
+          "header": "0.7 Intro to Power BI: ",
+          "text": "A beginner’s guide to Power BI for data visualization and business intelligence."
+        },
+        {
+          "header": "0.8 Machine Learning Algorithmic Approaches by Khizer: ",
+          "text": "Workshop covering different algorithmic approaches in machine learning."
+        }
+      ]
+    },
+    {
+      "title": "Fall 2024 - Winter 2025",
+      "subSection": [
+        {
+          "header": "0.9 Data Visualization and Manipulation Using Python: ",
+          "text": "Workshop on advanced data visualization and manipulation techniques using Python."
+        },
+        {
+          "header": "1.0 Clouds and Bussiness",
+          "text": "Master SQL and PySpark for efficient data management, explore a real-world retail sales case study, and practice live SQL querying using Google Colab."
+        }
+      ]
+    }
+  ]
+}
