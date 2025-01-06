@@ -4,12 +4,14 @@ import SubtitleTemplate3 from "./SubtitleTemplate3";
 import HeaderTextTemplate4 from "./HeaderTextTemplate3";
 import { TimelineTemplateData1 } from "@/app/DataLoader";
 import ImageTemplate, { ImageType } from "./ImageTemplate";
+import { useTheme } from "@/app/ThemeProvider";
 
 const TimelineTemplate1 = ({
   Data,
 }: {
   Data: TimelineTemplateData1["data"];
 }) => {
+  const { isDarkMode } = useTheme();
   const timelineRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
@@ -50,6 +52,10 @@ const TimelineTemplate1 = ({
           if (length === 3) return "text-md"; // Smaller size for 3 characters
           return "text-sm"; // Smallest size for 4 or more characters
         };
+        const imageLink =
+          isDarkMode && data.image?.imageDarkMode
+            ? data.image.imageDarkMode
+            : data.image?.imageLink;
 
         return (
           <React.Fragment key={index}>
@@ -57,7 +63,7 @@ const TimelineTemplate1 = ({
               <div className="flex justify-center items-center">
                 {data.image && (
                   <ImageTemplate
-                    image={data.image.imageLink || ""}
+                    image={imageLink || ""}
                     name={data.image.imageName || ""}
                     type={data.image.imageType as ImageType}
                   />
@@ -69,7 +75,7 @@ const TimelineTemplate1 = ({
               <div className="flex justify-center items-center md:hidden">
                 {data.image && (
                   <ImageTemplate
-                    image={data.image.imageLink || ""}
+                    image={imageLink || ""}
                     name={data.image.imageName || ""}
                     type={data.image.imageType as ImageType}
                   />
@@ -104,7 +110,7 @@ const TimelineTemplate1 = ({
               <div className="md:flex hidden justify-center items-center">
                 {data.image && (
                   <ImageTemplate
-                    image={data.image.imageLink || ""}
+                    image={imageLink || ""}
                     name={data.image.imageName || ""}
                     type={data.image.imageType as ImageType}
                   />

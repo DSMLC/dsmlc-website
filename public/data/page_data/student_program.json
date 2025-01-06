@@ -1,177 +1,233 @@
 [
   {
-    "type": "TitleTemplate1",
-    "data": {
-      "title": "Visionary Lab Student Program"
-    }
-  },
-  {
-    "type": "HeaderTextTemplate2",
+    "type": "BackgroundFillTemplate",
     "data": [
       {
-        "header": "Student Involvement",
-        "text": "Students are the driving force behind the Visionary Lab, participating actively in real-world data science projects that enhance their academic and professional development. <br><br>Their roles include:"
-      }
-    ]
-  },
-  {
-    "type": "TimelineTemplate2",
-    "data": [
-      {
-        "number": "1",
-        "header": "Project Team Members",
-        "points": [
-          {
-            "header": "Execution of Tasks:",
-            "text": "Applying data science knowledge to execute project tasks."
-          },
-          {
-            "header": "Collaboration:",
-            "text": "Working closely with team members and partner organizations."
-          },
-          {
-            "header": "Problem Solving:",
-            "text": "Utilizing analytical skills to find innovative solutions."
-          },
-          {
-            "header": "Communication:",
-            "text": "Ensuring clear and consistent communication with all stakeholders and project managers."
-          }
-        ]
-      },
-      {
-        "number": 2,
-        "header": "Project Managers",
-        "points": [
-          {
-            "header": "Leadership:",
-            "text": "Coordinating efforts and ensuring timely completion of tasks."
-          },
-          {
-            "header": "Mentorship:",
-            "text": "Mentoring junior team members and fostering skill development."
-          },
-          {
-            "header": "Quality Assurance:",
-            "text": "Ensuring work meets the high standards of the Visionary Lab and partner expectations."
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "ColumnTemplate",
-    "data": [
-      {
-        "header": "Hands-on Experience:",
-        "text": "Gaining practical experience in applying data science concepts to real-world problems.",
-        "image": {
-          "imageLink": "/images/dark_visionary_logo.png",
-          "imageName": "visionary lab logo",
-          "imageType": "Logo"
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Visionary Lab Student Program",
+          "subtitle": "For Students"
         }
       },
       {
-        "header": "Skill Development:",
-        "text": " Developing critical skills in data analysis, project management, teamwork, and problem-solving.",
-        "image": {
-          "imageLink": "/images/dark_visionary_logo.png",
-          "imageName": "visionary lab logo",
-          "imageType": "Logo"
-        }
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Student Involvement",
+            "text": "Students are the driving force behind the Visionary Lab, participating actively in real-world data science projects that enhance their academic and professional development. <br><br>Their roles include:"
+          }
+        ]
       },
       {
-        "header": "Professional Growth:",
-        "text": "Building industry connections and gaining insights into career paths in data science.",
-        "image": {
-          "imageLink": "/images/dark_visionary_logo.png",
-          "imageName": "visionary lab logo",
-          "imageType": "Logo"
-        }
+        "type": "TimelineTemplate2",
+        "data": [
+          {
+            "number": "1",
+            "header": "Project Team Members",
+            "points": [
+              {
+                "header": "Execution of Tasks:",
+                "text": "Applying data science knowledge to execute project tasks."
+              },
+              {
+                "header": "Collaboration:",
+                "text": "Working closely with team members and partner organizations."
+              },
+              {
+                "header": "Problem Solving:",
+                "text": "Utilizing analytical skills to find innovative solutions."
+              },
+              {
+                "header": "Communication:",
+                "text": "Ensuring clear and consistent communication with all stakeholders and project managers."
+              }
+            ]
+          },
+          {
+            "number": 2,
+            "header": "Project Managers",
+            "points": [
+              {
+                "header": "Leadership:",
+                "text": "Coordinating efforts and ensuring timely completion of tasks."
+              },
+              {
+                "header": "Mentorship:",
+                "text": "Mentoring junior team members and fostering skill development."
+              },
+              {
+                "header": "Quality Assurance:",
+                "text": "Ensuring work meets the high standards of the Visionary Lab and partner expectations."
+              }
+            ]
+          }
+        ]
       }
     ]
   },
   {
-    "type": "HeaderTextTemplate2",
+    "type": "BackgroundFillTemplate",
     "data": [
       {
-        "header": "Project Examples",
-        "text": "Our projects span a wide range of data science applications, tailored to meet the specific needs of partner organizations. <br><br> Here are a few examples of what the Visionary Lab can do:"
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Why Participate?"
+          }
+        ]
+      },
+      {
+        "type": "ColumnTemplate",
+        "data": [
+          {
+            "header": "Hands-on Experience:",
+            "text": "Gaining practical experience in applying data science concepts to real-world problems.",
+            "image": {
+              "imageLink": "/images/dark_visionary_logo.png",
+              "imageDarkMode": "/images/light_visionary_logo.png",
+              "imageName": "visionary lab logo",
+              "imageType": "Logo"
+            }
+          },
+          {
+            "header": "Skill Development:",
+            "text": " Developing critical skills in data analysis, project management, teamwork, and problem-solving.",
+            "image": {
+              "imageLink": "/images/dark_visionary_logo.png",
+              "imageDarkMode": "/images/light_visionary_logo.png",
+              "imageName": "visionary lab logo",
+              "imageType": "Logo"
+            }
+          },
+          {
+            "header": "Professional Growth:",
+            "text": "Building industry connections and gaining insights into career paths in data science.",
+            "image": {
+              "imageLink": "/images/dark_visionary_logo.png",
+              "imageDarkMode": "/images/light_visionary_logo.png",
+              "imageName": "visionary lab logo",
+              "imageType": "Logo"
+            }
+          }
+        ]
       }
     ]
   },
   {
-    "type": "TimelineTemplate2",
+    "type": "BackgroundFillTemplate",
     "data": [
       {
-        "number": "1",
-        "header": "Customer Data Analysis",
-        "points": [
+        "type": "HeaderTextTemplate2",
+        "data": [
           {
-            "header": "Example:",
-            "text": "A retail business seeking to understand customer purchasing patterns."
-          },
-          {
-            "header": "Potential Outcome:",
-            "text": "Analyzing transaction data to identify key purchasing trends and customer segments, leading to targeted marketing strategies that could increase sales."
+            "header": "Project Examples",
+            "text": "Our projects span a wide range of data science applications, tailored to meet the specific needs of partner organizations. <br><br> Here are a few examples of what the Visionary Lab can do:"
           }
         ]
       },
       {
-        "number": 2,
-        "header": "Predictive Sales Modeling",
-        "points": [
+        "type": "TimelineTemplate2",
+        "data": [
           {
-            "header": "Example:",
-            "text": "A small business looking to forecast future sales."
+            "number": "1",
+            "header": "Customer Data Analysis",
+            "points": [
+              {
+                "header": "Example:",
+                "text": "A retail business seeking to understand customer purchasing patterns."
+              },
+              {
+                "header": "Potential Outcome:",
+                "text": "Analyzing transaction data to identify key purchasing trends and customer segments, leading to targeted marketing strategies that could increase sales."
+              }
+            ]
           },
           {
-            "header": "Potential Outcome:",
-            "text": "Developing a predictive model to forecast sales trends accurately, allowing the business to optimize inventory management and reduce costs."
+            "number": 2,
+            "header": "Predictive Sales Modeling",
+            "points": [
+              {
+                "header": "Example:",
+                "text": "A small business looking to forecast future sales."
+              },
+              {
+                "header": "Potential Outcome:",
+                "text": "Developing a predictive model to forecast sales trends accurately, allowing the business to optimize inventory management and reduce costs."
+              }
+            ]
+          },
+          {
+            "number": 3,
+            "header": "Operational Efficiency Improvement",
+            "points": [
+              {
+                "header": "Example:",
+                "text": "A manufacturing company aiming to improve production efficiency."
+              },
+              {
+                "header": "Potential Outcome:",
+                "text": "Analyzing production data to identify bottlenecks and inefficiencies, resulting in recommendations that could improve production efficiency."
+              }
+            ]
+          },
+          {
+            "number": 4,
+            "header": "Market Research and Analysis",
+            "points": [
+              {
+                "header": "Example:",
+                "text": "A non-profit organization seeking to understand the needs of its target demographic."
+              },
+              {
+                "header": "Potential Outcome:",
+                "text": "Conducting a comprehensive analysis of survey data, providing insights that could help the organization tailor its programs to better serve its community."
+              }
+            ]
+          },
+          {
+            "number": 5,
+            "header": "Social Media Sentiment Analysis",
+            "points": [
+              {
+                "header": "Example:",
+                "text": "A company wanting to gauge public sentiment about their brand."
+              },
+              {
+                "header": "Potential Outcome:",
+                "text": "Using natural language processing to analyze social media mentions, providing a detailed report on public sentiment and actionable recommendations for improving brand perception."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate2",
+        "data": {
+          "title": "Getting Started"
+        }
+      },
+      {
+        "type": "HeaderTextTemplate4",
+        "data": [
+          {
+            "text": [
+              "To start working with the Visionary Lab, fill the application form to express your interest. You may apply as a project manager or a project team member",
+              "Once your application is submitted and reviewed, our team will contact you if you got accepted into the next stage."
+            ]
           }
         ]
       },
       {
-        "number": 3,
-        "header": "Operational Efficiency Improvement",
-        "points": [
-          {
-            "header": "Example:",
-            "text": "A manufacturing company aiming to improve production efficiency."
-          },
-          {
-            "header": "Potential Outcome:",
-            "text": "Analyzing production data to identify bottlenecks and inefficiencies, resulting in recommendations that could improve production efficiency."
-          }
-        ]
-      },
-      {
-        "number": 4,
-        "header": "Market Research and Analysis",
-        "points": [
-          {
-            "header": "Example:",
-            "text": "A non-profit organization seeking to understand the needs of its target demographic."
-          },
-          {
-            "header": "Potential Outcome:",
-            "text": "Conducting a comprehensive analysis of survey data, providing insights that could help the organization tailor its programs to better serve its community."
-          }
-        ]
-      },
-      {
-        "number": 5,
-        "header": "Social Media Sentiment Analysis",
-        "points": [
-          {
-            "header": "Example:",
-            "text": "A company wanting to gauge public sentiment about their brand."
-          },
-          {
-            "header": "Potential Outcome:",
-            "text": "Using natural language processing to analyze social media mentions, providing a detailed report on public sentiment and actionable recommendations for improving brand perception."
-          }
-        ]
+        "type": "ApplicationTemplate",
+        "data": {
+          "json": "applications.json",
+          "keys": ["visionary_lab_manager", "visionary_lab_member"]
+        }
       }
     ]
   }

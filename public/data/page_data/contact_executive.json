@@ -1,39 +1,85 @@
 [
   {
-    "type": "TitleTemplate2",
-    "data": {
-      "title": "Join Our Executive Team"
-    }
-  },
-  {
-    "type": "InfoBubbleTemplate",
+    "type": "BackgroundFillTemplate",
     "data": [
       {
-        "title": "Welcome to Our Team!",
-        "text": "Join us to collaborate in data science!",
-        "image": {
-          "imageLink": "/images/heart.svg",
-          "imageName": "heart logo",
-          "imageType": "Logo"
+        "type": "TitleTemplate2",
+        "data": {
+          "title": "Join Our Executive Team"
         }
       },
       {
-        "title": "Who We Are",
-        "text": "We’re passionate data scientists.",
-        "image": {
-          "imageLink": "/images/flask.svg",
-          "imageName": "flask logo",
-          "imageType": "Logo"
+        "type": "InfoBubbleTemplate",
+        "data": [
+          {
+            "title": "Welcome to Our Team!",
+            "text": "Join us to collaborate in data science!",
+            "image": {
+              "imageLink": "/images/heart.svg",
+              "imageName": "heart logo",
+              "imageType": "Logo"
+            }
+          },
+          {
+            "title": "Who We Are",
+            "text": "We’re passionate data scientists.",
+            "image": {
+              "imageLink": "/images/flask.svg",
+              "imageName": "flask logo",
+              "imageType": "Logo"
+            }
+          },
+          {
+            "title": "Why Join Us?",
+            "text": "Build Projects and develop your skills!",
+            "image": {
+              "imageLink": "/images/fire.svg",
+              "imageName": "fire logo",
+              "imageType": "Logo"
+            }
+          }
+        ]
+      },
+      {
+        "type": "HeaderTextTemplate4",
+        "data": {
+          "json": "applications.json",
+          "keys": ["exec_positions"]
         }
       },
       {
-        "title": "Why Join Us?",
-        "text": "Build Projects and develop your skills!",
-        "image": {
-          "imageLink": "/images/fire.svg",
-          "imageName": "fire logo",
-          "imageType": "Logo"
+        "type": "ApplicationTemplate",
+        "data": {
+          "json": "applications.json",
+          "keys": ["apply_exec_button"]
         }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Meet the Team! ",
+            "text": "Get to know the leaders behind the Data Science and Machine Learning Club! We're a passionate group dedicated to building a thriving community of data enthusiasts."
+          }
+        ]
+      },
+      {
+        "type": "ApplicationTemplate",
+        "data": [
+          {
+            "link": "/about/execs",
+            "name": "Meet the Exec Team"
+          },
+          {
+            "link": "/visionary-lab/student-program",
+            "name": "Join the Visionary Lab"
+          }
+        ]
       }
     ]
   }

@@ -22,6 +22,13 @@ import CarouselTemplate from "./components/templates/CarouselTemplate";
 import BackgroundFillTemplate from "./components/templates/BackgroundFillTemplate";
 import IncreasingNumbersTemplate from "./components/templates/IncreasingNumbersTemplate";
 
+export interface ImageData {
+  imageLink?: string;
+  imageDarkMode?: string;
+  imageName?: string;
+  imageType?: string;
+}
+
 export interface ApplicationTemplateData {
   type: "ApplicationTemplate";
   data: { link: string; name: string }[];
@@ -40,11 +47,7 @@ export interface CarouselTemplateData {
       header: string;
       text: string;
     }[];
-    image?: {
-      imageLink?: string;
-      imageName?: string;
-      imageType?: string;
-    };
+    image?: ImageData;
   }[];
 }
 
@@ -53,11 +56,7 @@ export interface ColumnTemplateData {
   data: {
     header?: string;
     text?: string;
-    image?: {
-      imageLink?: string;
-      imageName?: string;
-      imageType?: string;
-    };
+    image?: ImageData;
   }[];
 }
 
@@ -115,11 +114,7 @@ export interface InfoBubbleTemplateData {
   data: {
     title: string;
     text: string;
-    image?: {
-      imageLink?: string;
-      imageName?: string;
-      imageType?: string;
-    };
+    image?: ImageData;
   }[];
 }
 
@@ -161,11 +156,7 @@ export interface TimelineTemplateData1 {
       header: string;
       text: string;
     }[];
-    image?: {
-      imageLink?: string;
-      imageName?: string;
-      imageType?: string;
-    };
+    image?: ImageData;
   }[];
 }
 

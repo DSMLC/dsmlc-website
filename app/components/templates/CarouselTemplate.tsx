@@ -3,8 +3,10 @@ import React, { useState, useEffect, useRef, useCallback } from "react";
 import ImageTemplate from "./ImageTemplate";
 import { CarouselTemplateData } from "@/app/DataLoader";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useTheme } from "@/app/ThemeProvider";
 
 const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
+  const { isDarkMode } = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -50,6 +52,11 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
     startTimer();
   };
 
+  const imageLink =
+    isDarkMode && Data[currentIndex].image?.imageDarkMode
+      ? Data[currentIndex].image.imageDarkMode
+      : Data[currentIndex].image?.imageLink;
+
   return (
     <div className="w-full flex flex-col justify-center items-center px-4 mb-10">
       <div className="relative group w-full max-w-4xl">
@@ -63,7 +70,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
           </button>
           {Data[currentIndex].image && (
             <ImageTemplate
-              image={Data[currentIndex].image.imageLink || ""}
+              image={imageLink || ""}
               name={Data[currentIndex].image.imageName || ""}
               type={"Banner"}
             />

@@ -3,8 +3,10 @@ import React from "react";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
 import ImageTemplate, { ImageType } from "./ImageTemplate";
 import { ColumnTemplateData } from "@/app/DataLoader";
+import { useTheme } from "@/app/ThemeProvider";
 
 const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
+  const { isDarkMode } = useTheme();
   const itemCount = Data.length;
 
   const getGridClass = () => {
@@ -43,31 +45,37 @@ const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
     <div
       className={`pb-16 text-center grid gap-14 ${getGridClass()} w-full max-w-6xl mx-auto items-stretch justify-items-center`}
     >
-      {Data.map((data, index) => (
-        <div
-          key={index}
-          className={`flex flex-col gap-7 px-5 lg:px-0 h-full w-full ${getItemClass(
-            index
-          )}`}
-        >
-          <div className="flex justify-center">
-            {data.image && (
-              <ImageTemplate
-                image={data.image.imageLink || ""}
-                name={data.image.imageName || ""}
-                type={data.image.imageType as ImageType}
-              />
+      {Data.map((data, index) => {
+        const imageLink =
+          isDarkMode && data.image?.imageDarkMode
+            ? data.image.imageDarkMode
+            : data.image?.imageLink;
+        return (
+          <div
+            key={index}
+            className={`flex flex-col gap-7 px-5 lg:px-0 h-full w-full ${getItemClass(
+              index
+            )}`}
+          >
+            <div className="flex justify-center">
+              {data.image && (
+                <ImageTemplate
+                  image={imageLink || ""}
+                  name={data.image.imageName || ""}
+                  type={data.image.imageType as ImageType}
+                />
+              )}
+            </div>
+            {data.header && <SubtitleTemplate3 Data={data.header} />}
+            {data.text && (
+              <div
+                className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack tracking-wide font-quicksand lg:text-lg md:text-base text-sm h-full"
+                dangerouslySetInnerHTML={{ __html: data.text }}
+              ></div>
             )}
           </div>
-          {data.header && <SubtitleTemplate3 Data={data.header} />}
-          {data.text && (
-            <div
-              className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack tracking-wide font-quicksand lg:text-lg md:text-base text-sm h-full"
-              dangerouslySetInnerHTML={{ __html: data.text }}
-            ></div>
-          )}
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

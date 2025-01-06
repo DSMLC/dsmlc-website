@@ -2,11 +2,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import FooterData from "../../public/data/club_links.json";
+import { socialMedia } from "../components/Footer";
 import { useTheme } from "../ThemeProvider";
 
 export default function ContactPage() {
   const { isDarkMode } = useTheme();
+
   return (
     <div className="flex items-center justify-center px-4 sm:px-6 lg:px-8 py-48">
       <motion.div
@@ -26,33 +27,31 @@ export default function ContactPage() {
           <div className="space-y-6">
             {/* Social Media Section */}
             <div className="flex flex-row gap-5">
-              {Object.values(FooterData.social_media).map(
-                (social_media, index) => {
-                  return (
-                    <div
-                      key={index}
-                      className="flex items-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1"
+              {Object.values(socialMedia).map((social_media, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="flex items-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack hover:bg-dsmlcTangerine transition-all duration-300 rounded p-1"
+                  >
+                    <a
+                      href={social_media.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
-                      <a
-                        href={social_media.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Image
-                          src={
-                            isDarkMode
-                              ? social_media.light_logo
-                              : social_media.dark_logo
-                          }
-                          alt={`${social_media.name} Logo`}
-                          width={25}
-                          height={25}
-                        />
-                      </a>
-                    </div>
-                  );
-                }
-              )}
+                      <Image
+                        src={
+                          isDarkMode
+                            ? social_media.light_logo
+                            : social_media.dark_logo
+                        }
+                        alt={`${social_media.name} Logo`}
+                        width={25}
+                        height={25}
+                      />
+                    </a>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
