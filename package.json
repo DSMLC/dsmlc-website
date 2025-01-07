@@ -11,6 +11,7 @@
   "dependencies": {
     "@react-three/drei": "^9.120.5",
     "@react-three/fiber": "^8.17.10",
+    "@supabase/supabase-js": "^2.47.10",
     "canvas": "^3.0.0-rc2",
     "dsmlc-website": "file:",
     "framer-motion": "^11.11.9",

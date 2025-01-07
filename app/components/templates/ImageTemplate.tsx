@@ -70,10 +70,6 @@ const getImageClassname = (type: ImageType): string => {
   }
 };
 
-const loaderProp = ({ src }: { src: string }) => {
-  return src;
-};
-
 const ImageTemplate = ({
   image,
   name,
@@ -97,7 +93,6 @@ const ImageTemplate = ({
             alt={`${name} ${type}`}
             width={width.large}
             height={height.large}
-            loader={loaderProp}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             loading="lazy"
           />
@@ -108,7 +103,6 @@ const ImageTemplate = ({
             width={width.medium}
             height={height.medium}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            loader={loaderProp}
             loading="lazy"
           />
           <Image
@@ -117,7 +111,6 @@ const ImageTemplate = ({
             alt={`${name} ${type}`}
             width={width.small}
             height={height.small}
-            loader={loaderProp}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             loading="lazy"
           />

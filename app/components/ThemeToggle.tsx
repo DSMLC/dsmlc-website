@@ -2,6 +2,7 @@
 import React from "react";
 import { useTheme } from "../ThemeProvider";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { updateButtonClicksDatabase } from "../Backend";
 
 const ThemeToggle = () => {
   const { isDarkMode, setIsDarkMode } = useTheme();
@@ -9,9 +10,11 @@ const ThemeToggle = () => {
   const toggleDarkMode = () => {
     if (isDarkMode) {
       document.documentElement.classList.remove("dark");
+      updateButtonClicksDatabase("Toggle To Light Mode");
       setIsDarkMode(false);
     } else {
       document.documentElement.classList.add("dark");
+      updateButtonClicksDatabase("Toggle To Dark Mode");
       setIsDarkMode(true);
     }
   };

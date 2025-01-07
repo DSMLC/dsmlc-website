@@ -6,6 +6,7 @@ import ClubLinks from "../../../public/data/club_links.json";
 import { useTheme } from "../../ThemeProvider";
 import { motion } from "framer-motion";
 import { SocialLinksTemplateData } from "@/app/DataLoader";
+import { updateButtonClicksDatabase } from "@/app/Backend";
 
 export const socialMedia = [
   ClubLinks.discord,
@@ -55,6 +56,7 @@ const SocialLinksTemplate = ({
           >
             <a
               href={app.link}
+              onClick={() => updateButtonClicksDatabase(`Go ${app.name}`)}
               target="_blank"
               rel="noopener noreferrer"
               aria-label={`${app.name} profile`}

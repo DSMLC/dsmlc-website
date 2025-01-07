@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import PagesData from "../../public/data/pages.json";
 import LogoData from "../../public/data/logo.json";
 import Link from "next/link";
@@ -7,6 +7,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useTheme } from "../ThemeProvider";
 import ThemeToggle from "./ThemeToggle";
+import { updateButtonClicksDatabase } from "../Backend";
 
 const NavbarLinksDesktop = () => {
   const pathname = usePathname();
@@ -16,7 +17,10 @@ const NavbarLinksDesktop = () => {
       {PagesData.map((page) => {
         return (
           <div key={page.name} className="group relative">
-            <Link href={page.link}>
+            <Link
+              onClick={() => updateButtonClicksDatabase(`Go ${page.link}`)}
+              href={page.link}
+            >
               <div
                 className={`${
                   page.link === pathname || pathname.includes(page.link + "/")
@@ -31,7 +35,14 @@ const NavbarLinksDesktop = () => {
               <div className="flex-col justify-center absolute left-1/2 transform -translate-x-1/2 hidden group-hover:flex min-w-44 shadow-md dark:shadow-dark-dsmlcEnhancedParchment shadow-light-dsmlcEnhancedParchment bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite rounded-lg z-50">
                 {page.dropdown.map((sub) => (
                   <div key={sub.name}>
-                    <Link href={`${page.link}/${sub.link}`}>
+                    <Link
+                      onClick={() =>
+                        updateButtonClicksDatabase(
+                          `Go ${page.link}/${sub.link}`
+                        )
+                      }
+                      href={`${page.link}/${sub.link}`}
+                    >
                       <div
                         className={`${
                           `${page.link + sub.link}` === pathname
@@ -64,33 +75,39 @@ const NavbarLinksPhone = () => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
 
-  const toggleSidebar = () => {
+  const toggleSidebar = useCallback(() => {
     if (sidebarOpen) {
       setIsSliding(true);
       setTimeout(() => {
         setSidebarOpen(false);
         setIsSliding(false);
       }, 400);
+      updateButtonClicksDatabase("Close Side Bar");
     } else {
       setSidebarOpen(true);
+      updateButtonClicksDatabase("Open Side Bar");
     }
-  };
+  }, [sidebarOpen]);
 
   const toggleDropdown = (page: string) => {
+    updateButtonClicksDatabase("Toggle Dropdown");
     setDropdowns((prev) => ({
       ...prev,
       [page]: !prev[page],
     }));
   };
 
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      sidebarRef.current &&
-      !sidebarRef.current.contains(event.target as Node)
-    ) {
-      toggleSidebar();
-    }
-  };
+  const handleClickOutside = useCallback(
+    (event: MouseEvent) => {
+      if (
+        sidebarRef.current &&
+        !sidebarRef.current.contains(event.target as Node)
+      ) {
+        toggleSidebar();
+      }
+    },
+    [toggleSidebar]
+  );
 
   useEffect(() => {
     if (sidebarOpen) {
@@ -131,7 +148,10 @@ const NavbarLinksPhone = () => {
             }`}
           >
             <button className="w-full mb-5" onClick={toggleSidebar}>
-              <Link href={"/"}>
+              <Link
+                onClick={() => updateButtonClicksDatabase(`Go Home`)}
+                href={"/"}
+              >
                 <div className="flex flex-col gap-3 items-center transition-colors duration-300">
                   <Image
                     src={
@@ -169,7 +189,12 @@ const NavbarLinksPhone = () => {
                           className="flex-1 min-w-40"
                           onClick={toggleSidebar}
                         >
-                          <Link href={page.link}>
+                          <Link
+                            onClick={() =>
+                              updateButtonClicksDatabase(`Go ${page.link}`)
+                            }
+                            href={page.link}
+                          >
                             <div
                               className={`${
                                 page.link === pathname ||
@@ -205,7 +230,14 @@ const NavbarLinksPhone = () => {
                                   className="w-full"
                                   onClick={toggleSidebar}
                                 >
-                                  <Link href={`${page.link}/${sub.link}`}>
+                                  <Link
+                                    onClick={() =>
+                                      updateButtonClicksDatabase(
+                                        `Go ${page.link}/${sub.link}`
+                                      )
+                                    }
+                                    href={`${page.link}/${sub.link}`}
+                                  >
                                     <div
                                       className={`${
                                         `${page.link + sub.link}` === pathname
@@ -245,7 +277,7 @@ export const Header = () => {
     <div className="bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite w-full fixed h-24 border-b-2 border-dsmlcTangerine z-40">
       <div className="p-5 px-10 m-auto max-w-7xl flex flex-row dark:text-dark-dsmlcBlack text-light-dsmlcBlack font-redHat justify-between">
         <div className="lg:hidden md:hidden sm:flex flex"></div>
-        <Link href={"/"}>
+        <Link onClick={() => updateButtonClicksDatabase("Go Home")} href={"/"}>
           <div className="flex flex-row gap-3 items-center flex-end">
             <Image
               src={

@@ -1,5 +1,6 @@
 "use client";
 
+import { updateButtonClicksDatabase } from "@/app/Backend";
 import { ApplicationTemplateData } from "@/app/DataLoader";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -44,6 +45,7 @@ const ApplicationSection = ({
             onMouseEnter={() => button.link !== "#" && setHoveredIndex(index)}
             onMouseLeave={() => button.link !== "#" && setHoveredIndex(null)}
             onClick={(e) => {
+              updateButtonClicksDatabase(button.name);
               if (button.link === "#") {
                 e.preventDefault(); // Prevent click action if the link is disabled
               }

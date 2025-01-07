@@ -2,6 +2,7 @@
 import React from "react";
 import FooterData from "../../public/data/club_links.json";
 import SocialLinksTemplate from "./templates/SocialLinksTemplate";
+import { updateButtonClicksDatabase } from "../Backend";
 
 const Footer = () => {
   const links = [
@@ -17,6 +18,9 @@ const Footer = () => {
           <br />
         </span>
         <a
+          onClick={() =>
+            updateButtonClicksDatabase(`Go ${FooterData.email_section.name}`)
+          }
           className="font-semibold pb-1 border-b-2 border-dsmlcDataOrange hover:text-dsmlcDataOrange transition-all duration-300 font-redHat"
           href={`mailto:${FooterData.email_section.link}`}
           target="_blank"
@@ -28,6 +32,7 @@ const Footer = () => {
         {Object.values(links).map((link, index) => {
           return (
             <a
+              onClick={() => updateButtonClicksDatabase(`Go ${link.name}`)}
               key={index}
               className="font-semibold pb-1 border-b-2 border-dsmlcDataOrange hover:text-dsmlcDataOrange transition-all duration-300 font-redHat w-fit"
               href={link.link}
