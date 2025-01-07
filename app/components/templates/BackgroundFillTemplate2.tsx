@@ -52,7 +52,7 @@ const BackgroundFillTemplate2 = ({
         hasHeaderTextTemplate
           ? "py-8 sm:py-12"
           : "max-w-4xl w-fit m-auto p-8 sm:p-12"
-      } mb-16 lg:min-w-[900px]`}
+      } mb-16 lg:min-w-[900px] min-w-full`}
     >
       <motion.div
         className="absolute inset-0 z-0"

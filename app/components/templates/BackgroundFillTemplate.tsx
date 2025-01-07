@@ -46,7 +46,7 @@ const BackgroundFillTemplate = ({
         hasHeaderTextTemplate
           ? "py-8 sm:py-12"
           : "max-w-4xl w-fit m-auto p-8 sm:p-12"
-      } mb-16 lg:min-w-[900px]`}
+      } mb-16 lg:min-w-[900px] min-w-full`}
     >
       {Data.map((item, index) => {
         const { type, data } = item;

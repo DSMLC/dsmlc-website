@@ -118,7 +118,7 @@
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/career_panel_part2.png",
+        "imageLink": "/images/events/fall_2024/htc.webp",
         "imageName": "Picture of DSMLC's Career Panel Event Part 2",
         "imageType": "Pic"
       }
@@ -287,7 +287,7 @@
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/exec_team_srs.png",
+        "imageLink": "/images/events/winter_2024/meet_and_greet.webp",
         "imageName": "Picture of DSMLC's Winter 2024 Meet and Greet",
         "imageType": "Pic"
       }
@@ -304,10 +304,9 @@
         }
       ],
       "image": {
-        "imageLink": "/images/dark_logo.png",
-        "imageDarkMode": "/images/light_logo.png",
-        "imageName": "visionary lab logo",
-        "imageType": "Logo"
+        "imageLink": "/images/events/fall_2023/int_and_research.webp",
+        "imageName": "Picture of DSMLC's Winter 2024 Meet and Greet",
+        "imageType": "Pic"
       }
     },
     {

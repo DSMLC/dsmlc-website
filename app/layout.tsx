@@ -6,7 +6,7 @@ import { Header } from "./components/Header";
 import Footer from "./components/Footer";
 import Background from "./components/Background";
 import { ThemeProvider } from "./ThemeProvider";
-import NeuralNetworkScene from "./components/NeuralNetworkScene";
+import MovingCircles2DBounce from "./components/MovingCircles2DBounce";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 
@@ -49,7 +49,7 @@ export default function RootLayout({
         <ThemeProvider>
           <Header />
           <Background />
-          <NeuralNetworkScene />
+          <MovingCircles2DBounce />
           <NeuralNetworkAnimation />
           <main className="flex-grow pt-32">{children}</main>
           <Footer />
