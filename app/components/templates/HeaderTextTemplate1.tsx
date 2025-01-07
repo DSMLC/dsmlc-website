@@ -20,7 +20,7 @@ const HeaderTextTemplate = ({
           visible: {
             opacity: 1,
             x: 0,
-            transition: { duration: 0.8, ease: "easeOut" },
+            transition: { duration: 1, ease: "easeOut" },
           },
         };
 
@@ -29,8 +29,11 @@ const HeaderTextTemplate = ({
             key={index}
             className="mb-14 relative"
             initial="hidden"
-            whileInView="visible" 
-            viewport={{ once: true, amount: 0.8 }} // Animate when 80% of the element is visible
+            whileInView="visible"
+            viewport={{
+              once: true,
+              amount: 0.5, 
+            }}
             variants={slideInVariants}
           >
             <div
