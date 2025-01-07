@@ -24,9 +24,9 @@ const NavbarLinksDesktop = () => {
               <div
                 className={`${
                   page.link === pathname || pathname.includes(page.link + "/")
-                    ? "text-dsmlcDataOrange"
+                    ? "text-dsmlcTangerine"
                     : ""
-                }  hover:text-dsmlcDataOrange hover:scale-105 transition-all duration-300 p-2 lg:pr-2 md:pr-5 font-medium`}
+                }  hover:text-dsmlcTangerine hover:scale-105 transition-all duration-300 p-2 lg:pr-2 md:pr-5 font-medium`}
               >
                 {page.name}
               </div>
@@ -46,9 +46,9 @@ const NavbarLinksDesktop = () => {
                       <div
                         className={`${
                           `${page.link + sub.link}` === pathname
-                            ? "text-dsmlcDataOrange"
+                            ? "text-dsmlcTangerine"
                             : ""
-                        } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite hover:brightness-110 font-medium`}
+                        } hover:text-dsmlcTangerine flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite hover:brightness-110 font-medium`}
                       >
                         <span className="hover:scale-105 transition-all duration-150">
                           {sub.name}
@@ -125,7 +125,7 @@ const NavbarLinksPhone = () => {
     <div className="items-center lg:hidden md:flex flex">
       <button onClick={toggleSidebar}>
         <svg
-          className="hover:fill-dsmlcDataOrange dark:fill-dark-dsmlcBlack fill-light-dsmlcBlack transition-all duration-300"
+          className="hover:fill-dsmlcTangerine dark:fill-dark-dsmlcBlack fill-light-dsmlcBlack transition-all duration-300"
           width="40"
           height="40"
           viewBox="0 0 100 100"
@@ -199,9 +199,9 @@ const NavbarLinksPhone = () => {
                               className={`${
                                 page.link === pathname ||
                                 pathname.includes(page.link + "/")
-                                  ? "text-dsmlcDataOrange"
+                                  ? "text-dsmlcTangerine"
                                   : ""
-                              }  hover:text-dsmlcDataOrange text-start hover:scale-105 transition-all duration-300 p-5 pl-14 py-3 font-medium`}
+                              }  hover:text-dsmlcTangerine text-start hover:scale-105 transition-all duration-300 p-5 pl-14 py-3 font-medium`}
                             >
                               {page.name}
                             </div>
@@ -209,11 +209,11 @@ const NavbarLinksPhone = () => {
                         </button>
                         {page.type === "dropdown" && (
                           <button
-                            className="flex-1 text-sm hover:text-dsmlcDataOrange hover:scale-125 transition-all duration-300"
+                            className="flex-1 text-sm hover:text-dsmlcTangerine hover:scale-125 transition-all duration-300"
                             onClick={() => toggleDropdown(page.name)}
                           >
                             {isOpen ? (
-                              <span className="text-dsmlcDataOrange">▲</span>
+                              <span className="text-dsmlcTangerine">▲</span>
                             ) : (
                               <span>▼</span>
                             )}
@@ -241,9 +241,9 @@ const NavbarLinksPhone = () => {
                                     <div
                                       className={`${
                                         `${page.link + sub.link}` === pathname
-                                          ? "text-dsmlcDataOrange"
+                                          ? "text-dsmlcTangerine"
                                           : ""
-                                      } hover:text-dsmlcDataOrange flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite hover:brightness-110 font-medium`}
+                                      } hover:text-dsmlcTangerine flex flex-col transition-all duration-150 justify-evenly items-center p-2 rounded-lg bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite hover:brightness-110 font-medium`}
                                     >
                                       <span className="hover:scale-105 w-full pl-16 text-start transition-all duration-150">
                                         {sub.name}
