@@ -8,6 +8,7 @@ import Background from "./components/Background";
 import { ThemeProvider } from "./ThemeProvider";
 import NeuralNetworkScene from "./components/NeuralNetworkScene";
 import dynamic from "next/dynamic";
+import Script from "next/script";
 
 const NeuralNetworkAnimation = dynamic(
   () => import("./components/NeuralNetworkAnimation"),
@@ -29,6 +30,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-NJX31X00DN"
+        ></Script>
+        <Script id="google-analytics">
+          {`
+        window.dataLayer = window.dataLayer || []; function gtag()
+      {dataLayer.push(arguments);}
+      gtag('js', new Date()); gtag('config', 'G-NJX31X00DN');
+      `}
+        </Script>
+      </head>
       <body
         className={`${quicksand.className} overflow-x-hidden relative dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite flex flex-col min-h-screen`}
       >
