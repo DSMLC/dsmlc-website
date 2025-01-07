@@ -330,7 +330,11 @@ const DataLoader = ({ pageData }: { pageData: PageData }) => {
   }
 
   if (resolvedData === null) {
-    return <div>Loading...</div>;
+    return (
+      <div className="w-screen text-center font-redHat font-bold text-xl text-dark-dsmlcBlack dark:text-dark-dsmlcBlack">
+        Loading...
+      </div>
+    );
   }
 
   if (!resolvedData) {
