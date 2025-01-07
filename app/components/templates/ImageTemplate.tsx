@@ -98,6 +98,7 @@ const ImageTemplate = ({
             width={width.large}
             height={height.large}
             loader={loaderProp}
+            loading="lazy"
           />
           <Image
             className={`${imageClassname} lg:hidden md:block hidden`}
@@ -106,6 +107,7 @@ const ImageTemplate = ({
             width={width.medium}
             height={height.medium}
             loader={loaderProp}
+            loading="lazy"
           />
           <Image
             className={`${imageClassname} md:hidden block`}
@@ -114,6 +116,7 @@ const ImageTemplate = ({
             width={width.small}
             height={height.small}
             loader={loaderProp}
+            loading="lazy"
           />
         </>
       )}
