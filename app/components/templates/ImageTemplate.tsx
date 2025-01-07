@@ -5,14 +5,14 @@ import Image from "next/image";
 const sizeConfig = {
   Pic: {
     width: {
-      large: 999,
-      medium: 999,
-      small: 999,
+      large: 600,
+      medium: 400,
+      small: 300,
     },
     height: {
-      large: 999,
-      medium: 999,
-      small: 999,
+      large: 300,
+      medium: 200,
+      small: 150,
     },
   },
   Logo: {
@@ -98,6 +98,7 @@ const ImageTemplate = ({
             width={width.large}
             height={height.large}
             loader={loaderProp}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             loading="lazy"
           />
           <Image
@@ -106,6 +107,7 @@ const ImageTemplate = ({
             alt={`${name} ${type}`}
             width={width.medium}
             height={height.medium}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             loader={loaderProp}
             loading="lazy"
           />
@@ -116,6 +118,7 @@ const ImageTemplate = ({
             width={width.small}
             height={height.small}
             loader={loaderProp}
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             loading="lazy"
           />
         </>
