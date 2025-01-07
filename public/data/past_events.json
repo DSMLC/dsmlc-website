@@ -2,63 +2,165 @@
   "winter_2025": [
     {
       "number": "TBD",
-      "header": "TBD",
+      "header": "LIST IN PROGRESS",
       "points": [
         {
-          "text": "TBD"
+          "header": "Upcoming Events: ",
+          "text": "Winter 2025 events will be coming in the near future."
         }
-      ]
+      ],
+      "image": {
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
+      }
     }
   ],
   "fall_2024": [
     {
-      "number": "Nov. 1",
-      "header": "WeFlourish",
+      "number": "Dec. 5",
+      "header": "DSMLC Unplugged",
       "points": [
         {
-          "text": "WeFlourish"
+          "header": "Event Overview: ",
+          "text": "Wrap up the semester with DSMLC Unplugged. A casual gathering to relax, reflect, and recharge for upcoming challenges."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/unplugged.jpg",
+        "imageName": "Picture of DSMLC's Unplugged Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "Nov. 29",
+      "header": "Clouds and Businesses: Enhancing ETL with SQL and PySpark",
+      "points": [
+        {
+          "header": "Workshop Details: ",
+          "text": "Delve into ETL processes with SQL and PySpark to discover how businesses leverage cloud technologies effectively."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/cloud_etl.png",
+        "imageName": "Picture of DSMLC's ETL Workshop",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "Nov. 25",
+      "header": "DSMLC x UCalgary Study Abroad: Data Science without Borders",
+      "points": [
+        {
+          "header": "Event Focus: ",
+          "text": "Learn about studying abroad and how global opportunities can enrich your knowledge in data science."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/study_abroad.jpg",
+        "imageName": "Picture of DSMLC's Study Abroad Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "Nov. 25",
+      "header": "“Data Digest” Begins",
+      "points": [
+        {
+          "header": "Program Start: ",
+          "text": "The Data Digest series begins, delivering curated insights and updates on data science to keep you informed. Check it out on our Instagram!"
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/data_digest.png",
+        "imageName": "Picture of DSMLC's Data Digest Series",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "Nov. 21",
+      "header": "DSMLC Networking Night",
+      "points": [
+        {
+          "header": "Event Details: ",
+          "text": "Connect with industry professionals, alumni, and peers at DSMLC's Networking Night to expand your career opportunities."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/networking_night.jpg",
+        "imageName": "Picture of DSMLC's Networking Night Event",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "Nov. 1",
+      "header": "WeFlourish with DSMLC and other CPSC Clubs",
+      "points": [
+        {
+          "header": "Collaboration Highlights: ",
+          "text": "Collaborate with DSMLC and CPSC clubs at WeFlourish. Engage in activities that promote personal and academic growth."
         }
       ],
       "image": {
         "imageLink": "/images/events/fall_2024/weflourish.png",
-        "imageName": "Picture of DSMLC's Fall 2024 WeFlourish Event",
+        "imageName": "Picture of DSMLC's WeFlourish Event",
         "imageType": "Pic"
       }
     },
     {
-      "number": "10/29",
-      "header": "Interviews and Applications Night",
+      "number": "Oct. 30",
+      "header": "DSMLC x HTC Career Panel Discussion: Part 2",
       "points": [
         {
-          "text": "TO BE FILLED"
+          "header": "Event Description: ",
+          "text": "Join us for the second evening of panel discussions with HTC industry leaders on career opportunities and professional growth in tech."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/int_and_app2.png",
-        "imageName": "Picture of DSMLC's Fall 2024 Int and App Event",
+        "imageLink": "/images/events/fall_2024/career_panel_part2.png",
+        "imageName": "Picture of DSMLC's Career Panel Event Part 2",
         "imageType": "Pic"
       }
     },
     {
-      "number": "10/24",
-      "header": "Inro to Python Data Visualization Workshop",
+      "number": "Oct. 29",
+      "header": "DSMLC x HTC Career Panel Discussion: Part 1",
       "points": [
         {
-          "text": "Explored the exciting world of Python Data Visualization and Manipulation, diving into libraries like Matplotlib, Plotly, Seaborn, and tools such as Pandas and NumPy."
+          "header": "Event Description: ",
+          "text": "Join us for the first evening of panel discussions with HTC industry leaders on career opportunities and professional growth in tech."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageLink": "/images/events/fall_2024/career_panel_part1.png",
+        "imageName": "Picture of DSMLC's Career Panel Event Part 1",
         "imageType": "Pic"
       }
     },
     {
-      "number": "09/27",
-      "header": "Fall Meet and Greet",
+      "number": "Oct. 24",
+      "header": "Data Visualization in Python Workshop",
       "points": [
         {
-          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+          "header": "Workshop Overview: ",
+          "text": "Discover Python for data visualization and manipulation using tools like Matplotlib, Plotly, Pandas, and NumPy."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
+      }
+    },
+    {
+      "number": "Sep. 27",
+      "header": "DSMLC Fall 2024 Meet and Greet",
+      "points": [
+        {
+          "header": "Event Highlights: ",
+          "text": "Thank you for joining us at our Meet & Greet! We explored exciting topics in data science and machine learning while networking with peers."
         }
       ],
       "image": {
@@ -68,11 +170,27 @@
       }
     },
     {
-      "number": "09/11",
-      "header": "Science Pancake Breakfast",
+      "number": "Sep. 16 - 18",
+      "header": "SU Fall 2024 Clubs Week",
       "points": [
         {
-          "text": "TO BE FILLED"
+          "header": "Event Details: ",
+          "text": "Explore our booth during SU Fall Clubs Week! Meet us in the MacHall Courtyard to learn about DSMLC and our activities."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/clubs_week.PNG",
+        "imageName": "Picture of DSMLC's Fall 2024 Clubs Week Booth",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "Sep. 11",
+      "header": "Science Pancake Breakfast with DSMLC",
+      "points": [
+        {
+          "header": "Event Details: ",
+          "text": "Join us for the Science Pancake Breakfast to kickstart the semester with delicious pancakes and great conversations!"
         }
       ],
       "image": {
@@ -84,181 +202,374 @@
   ],
   "winter_2024": [
     {
-      "number": "09/27",
-      "header": "DSMLC Annual Final Competition",
+      "number": "Apr. 5",
+      "header": "Machine Learning Workshop",
       "points": [
         {
-          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+          "header": "Workshop Overview: ",
+          "text": "Dive into the fundamentals of machine learning with this hands-on workshop, perfect for beginners and enthusiasts."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
+      }
+    },
+    {
+      "number": "Mar. 27",
+      "header": "DSMLC Annual Final Competition 2024 - Symposium",
+      "points": [
+        {
+          "header": "Event Highlights: ",
+          "text": "Celebrate the achievements of DSMLC competition participants at our annual symposium. Join us for inspiring talks and networking."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/winter_2024/final_comp_2024/final_comp_2.JPG",
+        "imageName": "Picture of DSMLC's Winter 2024 Final Competition Symposium",
         "imageType": "Pic"
       }
     },
     {
-      "number": "03/23",
-      "header": "Fall Meet and Greet",
+      "number": "Mar. 21",
+      "header": "Power BI Workshop",
       "points": [
         {
-          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+          "header": "Workshop Overview: ",
+          "text": "Learn the ins and outs of Power BI to create compelling data visualizations and reports in this beginner-friendly workshop."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageLink": "/images/events/winter_2024/power_bi.png",
+        "imageName": "Picture of DSMLC's Winter 2024 Power BI Workshop",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "Feb. 26 - Mar. 22",
+      "header": "DSMLC Annual Final Competition 2024",
+      "points": [
+        {
+          "header": "Competition Details: ",
+          "text": "Put your data science skills to the test in our annual final competition. Collaborate, innovate, and compete for top honors!"
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/winter_2024/final_comp_2024/comp_6.JPEG",
+        "imageName": "Picture of DSMLC's Winter 2024 Final Competition",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "Feb. 15",
+      "header": "SQL Workshop",
+      "points": [
+        {
+          "header": "Workshop Details: ",
+          "text": "Master SQL for querying and managing data in this hands-on workshop designed for students and professionals alike."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/winter_2024/final_comp_2024/comp_8.JPG",
+        "imageName": "Picture of DSMLC's Winter 2024 SQL Workshop",
+        "imageType": "Pic"
+      }
+    },
+    {
+      "number": "Jan. 30",
+      "header": "DSMLC Winter Meet and Greet",
+      "points": [
+        {
+          "header": "Event Highlights: ",
+          "text": "Meet the DSMLC team and learn about our mission, upcoming events, and how you can get involved."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/fall_2024/exec_team_srs.png",
+        "imageName": "Picture of DSMLC's Winter 2024 Meet and Greet",
         "imageType": "Pic"
       }
     }
   ],
   "fall_2023": [
     {
-      "number": "09/27",
-      "header": "DSMLC Annual Final Competition",
+      "number": "Nov. 9",
+      "header": "DSMLC Internship and Research Tips Information Night",
       "points": [
         {
-          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+          "header": "Event Overview: ",
+          "text": "Gain valuable insights on internships and research opportunities in data science and machine learning. Learn from experienced professionals and alumni."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-        "imageType": "Pic"
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
       }
     },
     {
-      "number": "03/23",
-      "header": "Fall Meet and Greet",
+      "number": "Sep. 22",
+      "header": "SU Fall 2023 Clubs Week",
       "points": [
         {
-          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+          "header": "Event Highlights: ",
+          "text": "Visit us at Booth #105 in the MacHall Courtyard during SU Clubs Week! Learn more about DSMLC and our exciting events for the semester."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-        "imageType": "Pic"
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
       }
     }
   ],
   "winter_2023": [
     {
-      "number": "09/27",
-      "header": "DSMLC Annual Final Competition",
+      "number": "Mar. 31",
+      "header": "DSMLC Annual Final Competition 2023 - Symposium",
       "points": [
         {
-          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+          "header": "Event Highlights: ",
+          "text": "Celebrate the conclusion of the DSMLC Annual Final Competition with an engaging symposium featuring project presentations and networking."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageLink": "/images/events/winter_2023/comp_4.JPG",
+        "imageName": "Picture of DSMLC's Winter 2023 Final Competition Symposium",
         "imageType": "Pic"
       }
     },
     {
-      "number": "03/23",
-      "header": "Fall Meet and Greet",
+      "number": "Feb. 28",
+      "header": "Intro to Supervised Learning using Python Workshop (Part 2)",
       "points": [
         {
-          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+          "header": "Workshop Overview: ",
+          "text": "Continue your journey into supervised learning with Python. Learn practical techniques and tools to build predictive models."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
+      }
+    },
+    {
+      "number": "Feb. 17 - Mar. 24",
+      "header": "DSMLC Annual Final Competition 2023",
+      "points": [
+        {
+          "header": "Competition Details: ",
+          "text": "Participate in our flagship data science competition. Showcase your skills, collaborate with peers, and compete for exciting prizes."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/events/winter_2023/comp_3.JPG",
+        "imageName": "Picture of DSMLC's Winter 2023 Annual Final Competition",
         "imageType": "Pic"
+      }
+    },
+    {
+      "number": "Feb. 15",
+      "header": "DSMLC Industry Night",
+      "points": [
+        {
+          "header": "Event Overview: ",
+          "text": "Engage with industry experts from ARC Resources Ltd., Shopify, and AltaML in a panel discussion and Q&A session on career opportunities."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
       }
     }
   ],
   "fall_2022": [
     {
-      "number": "09/27",
-      "header": "DSMLC Annual Final Competition",
+      "number": "Nov. 30",
+      "header": "DSMLC Research Night",
       "points": [
         {
-          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+          "header": "Event Overview: ",
+          "text": "Discover exciting research opportunities in data science and machine learning. Learn from academic and industry experts."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-        "imageType": "Pic"
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
       }
     },
     {
-      "number": "03/23",
-      "header": "Fall Meet and Greet",
+      "number": "Nov. 16",
+      "header": "Intro to Supervised Learning using Python Workshop (Part 1)",
       "points": [
         {
-          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+          "header": "Workshop Overview: ",
+          "text": "Begin your journey into supervised learning with Python. Learn key concepts and techniques to build machine learning models."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-        "imageType": "Pic"
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
+      }
+    },
+    {
+      "number": "Oct. 19",
+      "header": "DSMLC Fall Meet and Greet",
+      "points": [
+        {
+          "header": "Event Highlights: ",
+          "text": "Thank you for joining us for the DSMLC Fall Meet and Greet! We shared our vision, upcoming events, and exciting opportunities."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
+      }
+    },
+    {
+      "number": "Sep. 23",
+      "header": "SU Fall 2022 Clubs Week",
+      "points": [
+        {
+          "header": "Event Highlights: ",
+          "text": "Visit us at the MacHall Courtyard during SU Clubs Week to learn more about DSMLC and our plans for the semester."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
       }
     }
   ],
   "winter_2022": [
     {
-      "number": "09/27",
-      "header": "DSMLC Annual Final Competition",
+      "number": "Mar. 18",
+      "header": "DSMLC Industry Night",
       "points": [
         {
-          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+          "header": "Event Overview: ",
+          "text": "Connect with industry professionals in data science and machine learning. Gain insights into career paths and opportunities in the field."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-        "imageType": "Pic"
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
       }
     },
     {
-      "number": "03/23",
-      "header": "Fall Meet and Greet",
+      "number": "Mar. 4",
+      "header": "Intro to Data Visualization Workshop",
       "points": [
         {
-          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+          "header": "Workshop Overview: ",
+          "text": "Learn the fundamentals of data visualization using Python. Explore tools and libraries to create compelling visualizations."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-        "imageType": "Pic"
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
+      }
+    },
+    {
+      "number": "Feb. 18",
+      "header": "DSMLC Winter Meet and Greet",
+      "points": [
+        {
+          "header": "Event Highlights: ",
+          "text": "Meet the DSMLC team and learn about our mission, upcoming events, and how you can get involved."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
       }
     }
   ],
   "fall_2021": [
     {
-      "number": "09/27",
-      "header": "DSMLC Annual Final Competition",
+      "number": "Nov. 17",
+      "header": "DSMLC Industry Night",
       "points": [
         {
-          "text": "The Data Science and Machine Learning Club (DSMLC) had the honor of hosting our annual Final Competition last Wednesday!"
+          "header": "Event Overview: ",
+          "text": "Hear from industry experts at TECK Resources Limited about career opportunities and the evolving landscape of data science and machine learning."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/intro_python_workshop.jpg",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-        "imageType": "Pic"
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
       }
     },
     {
-      "number": "03/23",
-      "header": "Fall Meet and Greet",
+      "number": "Nov. 14",
+      "header": "Intro to Pandas Workshop",
       "points": [
         {
-          "text": "A heartfelt thank you to everyone who attended the DSMLC Fall 2024 Meet & Greet! 🙌 We explored exciting, cutting-edge topics in data science and machine learning, and we’re eager to dive deeper in our upcoming workshops."
+          "header": "Workshop Overview: ",
+          "text": "Master the basics of Pandas, a powerful Python library for data manipulation and analysis. Perfect for beginners and enthusiasts."
         }
       ],
       "image": {
-        "imageLink": "/images/events/fall_2024/meet_and_greet.png",
-        "imageName": "Picture of DSMLC's Fall 2024 Meet and Greet Event",
-        "imageType": "Pic"
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
+      }
+    },
+    {
+      "number": "Oct. 20",
+      "header": "Python Crash Course Workshop",
+      "points": [
+        {
+          "header": "Workshop Details: ",
+          "text": "Get up to speed with Python in this crash course designed to introduce essential programming concepts and practical applications."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
+      }
+    },
+    {
+      "number": "Oct. 6",
+      "header": "DSMLC Fall Meet and Greet",
+      "points": [
+        {
+          "header": "Event Highlights: ",
+          "text": "Join us on Discord for our Fall Meet and Greet. Learn about DSMLC, connect with peers, and discover our upcoming events."
+        }
+      ],
+      "image": {
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "visionary lab logo",
+        "imageType": "Logo"
       }
     }
   ]

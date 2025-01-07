@@ -64,7 +64,7 @@ const getImageClassname = (type: ImageType): string => {
     case "Sponsor":
       return "object-contain min-w-40 lg:max-w-96 md:max-w-48 max-w-96 max-h-96";
     case "Banner":
-      return "object-cover self-center object-center min-w-40 h-[400px] w-full border-4 border-dsmlcTangerine rounded-4xl";
+      return "object-cover self-center object-center min-w-40 h-[400px] border-4 border-dsmlcTangerine rounded-4xl";
     default:
       return "";
   }
@@ -92,7 +92,7 @@ const ImageTemplate = ({
       {image && (
         <>
           <Image
-            className={`${imageClassname} lg:block hidden`}
+            className={`${imageClassname} lg:block hidden `}
             src={image}
             alt={`${name} ${type}`}
             width={width.large}

@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${quicksand.className} relative dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite flex flex-col min-h-screen`}
+        className={`${quicksand.className} overflow-x-hidden relative dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite flex flex-col min-h-screen`}
       >
         <ThemeProvider>
           <Header />

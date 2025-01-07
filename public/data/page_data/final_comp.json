@@ -27,28 +27,28 @@
         "data": [
           {
             "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_1.JPG",
+              "imageLink": "/images/events/winter_2024/final_comp_2024/comp_5.JPG",
               "imageName": "Picture of DSMLC's Final Comp 2024 Event",
               "imageType": "Banner"
             }
           },
           {
             "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_2.JPG",
+              "imageLink": "/images/events/winter_2024/final_comp_2024/comp_9.JPG",
               "imageName": "Picture of DSMLC's Final Comp 2024 Event 1",
               "imageType": "Banner"
             }
           },
           {
             "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_3.jpg",
+              "imageLink": "/images/events/winter_2024/final_comp_2024/comp_10.JPG",
               "imageName": "Picture of DSMLC's Final Comp 2024 Event 3",
               "imageType": "Banner"
             }
           },
           {
             "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_awards.JPG",
+              "imageLink": "/images/events/winter_2024/final_comp_2024/comp_11.JPG",
               "imageName": "Picture of DSMLC's Final Comp 2024 Event Awards",
               "imageType": "Banner"
             }
@@ -175,6 +175,54 @@
           "json": "sponsorsInfo.json",
           "keys": ["sponsors"]
         }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Winners of Final Competition 2024",
+          "subtitle": "Congratulations! Ananya Jain & Angie Shin, Shakiba Allahbakhsh, Tosin Boyede & Sejal Chikhale"
+        }
+      },
+      {
+        "type": "CarouselTemplate",
+        "data": [
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2024/final_comp_2024/comp_6.JPEG",
+              "imageName": "Picture of DSMLC's power bi workshop",
+              "imageType": "Banner"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Winners of Final Competition 2023",
+          "subtitle": "Congratulations! Ibtassam Rasheed, Aleksander Berezowski, Ibrahim Ahmed & Maher Edriss"
+        }
+      },
+      {
+        "type": "CarouselTemplate",
+        "data": [
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2023/comp_3.JPG",
+              "imageName": "Picture of DSMLC's power bi workshop",
+              "imageType": "Banner"
+            }
+          }
+        ]
       }
     ]
   },

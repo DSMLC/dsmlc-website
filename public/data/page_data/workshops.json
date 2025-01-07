@@ -22,54 +22,9 @@
         "type": "CarouselTemplate",
         "data": [
           {
-            "header": "Workshop 1",
-            "points": [
-              {
-                "text": "About Workshop 1"
-              }
-            ],
             "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_1.JPG",
-              "imageName": "Picture of DSMLC's Final Comp 2024 Event",
-              "imageType": "Banner"
-            }
-          },
-          {
-            "header": "Workshop 2",
-            "points": [
-              {
-                "text": "About Workshop 2"
-              }
-            ],
-            "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_2.JPG",
-              "imageName": "Picture of DSMLC's Final Comp 2024 Event 1",
-              "imageType": "Banner"
-            }
-          },
-          {
-            "header": "Workshop 3",
-            "points": [
-              {
-                "text": "About Workshop 3"
-              }
-            ],
-            "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_3.jpg",
-              "imageName": "Picture of DSMLC's Final Comp 2024 Event 3",
-              "imageType": "Banner"
-            }
-          },
-          {
-            "header": "Workshop 4",
-            "points": [
-              {
-                "text": "About Workshop 4"
-              }
-            ],
-            "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_awards.JPG",
-              "imageName": "Picture of DSMLC's Final Comp 2024 Event Awards",
+              "imageLink": "/images/events/winter_2024/power_bi.png",
+              "imageName": "Picture of DSMLC's power bi workshop",
               "imageType": "Banner"
             }
           }

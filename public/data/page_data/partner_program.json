@@ -70,6 +70,16 @@
               "imageName": "visionary lab logo",
               "imageType": "Logo"
             }
+          },
+          {
+            "header": "Community Impact:",
+            "text": "Collaborate on projects that not only address your organization's challenges but also create a meaningful impact in the local community.",
+            "image": {
+              "imageLink": "/images/dark_visionary_logo.png",
+              "imageDarkMode": "/images/light_visionary_logo.png",
+              "imageName": "visionary lab logo",
+              "imageType": "Logo"
+            }
           }
         ]
       }

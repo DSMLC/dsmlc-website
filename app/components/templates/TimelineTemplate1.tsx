@@ -85,7 +85,7 @@ const TimelineTemplate1 = ({
 
             <div className="flex flex-col gap-7 lg:px-0 px-5 lg:w-full max-w-4xl w-fit m-auto h-full">
               <div
-                className={`absolute md:left-1/2 left-6 transform -translate-x-1/2 dark:bg-dark-dsmlcParchment bg-light-dsmlcParchment text-center ${getFontSize()} text-dsmlcDataOrange font-bold min-w-12 min-h-12 flex items-center p-2 justify-center rounded-full border-2 dark:border-dark-dsmlcBlack border-light-dsmlcBlack border-solid`}
+                className={`absolute break-words max-w-20 md:left-1/2 left-6 transform -translate-x-1/2 dark:bg-dark-dsmlcParchment bg-light-dsmlcParchment text-center ${getFontSize()} text-dsmlcDataOrange font-bold min-w-12 min-h-12 flex items-center p-2 justify-center rounded-full border-2 dark:border-dark-dsmlcBlack border-light-dsmlcBlack border-solid`}
               >
                 {" "}
                 {data.number}
@@ -97,8 +97,8 @@ const TimelineTemplate1 = ({
                 }}
                 className={`flex flex-col gap-7 lg:px-0 px-5 lg:w-full max-w-4xl w-fit m-auto h-full transform transition-all duration-1000 ease-in-out opacity-0 ${
                   index % 2 === 0
-                    ? "sm:translate-x-full md:pl-10 lg:pl-5 pl-10"
-                    : "sm:-translate-x-full md:pr-10 lg:pr-5 pl-10"
+                    ? "sm:translate-x-full md:pl-10 lg:pl-7 pl-14"
+                    : "sm:-translate-x-full md:pr-10 lg:pr-5 pl-14"
                 }`}
               >
                 <SubtitleTemplate3 Data={data.header} />

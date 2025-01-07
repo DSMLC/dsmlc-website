@@ -10,6 +10,60 @@
         }
       },
       {
+        "type": "CarouselTemplate",
+        "data": [
+          {
+            "image": {
+              "imageLink": "/images/events/fall_2024/exec_team_thumbs.png",
+              "imageName": "Picture of DSMLC's Exec Team Thumbs Up",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2023/comp_4.JPG",
+              "imageName": "Picture of DSMLC's Final Comp 2024 Event 1, Exec Team",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2024/final_comp_2024/final_comp_3.jpg",
+              "imageName": "Picture of DSMLC's Final Comp 2024 Event Exec Team",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/fall_2024/exec_pic.JPG",
+              "imageName": "Picture of DSMLC's Meet and Greet Exec Team",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2024/final_comp_2024/exec3.JPG",
+              "imageName": "Picture of DSMLC's Meet and Greet Exec Team",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2024/final_comp_2024/exec2.JPG",
+              "imageName": "Picture of DSMLC's Meet and Greet Exec Team",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2024/final_comp_2024/exec.JPG",
+              "imageName": "Picture of DSMLC's Meet and Greet Exec Team",
+              "imageType": "Banner"
+            }
+          }
+        ]
+      },
+      {
         "type": "HeaderTextTemplate2",
         "data": [
           {

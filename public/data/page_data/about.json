@@ -99,6 +99,18 @@
         ]
       },
       {
+        "type": "CarouselTemplate",
+        "data": [
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2024/power_bi.png",
+              "imageName": "Picture of DSMLC's power bi workshop",
+              "imageType": "Banner"
+            }
+          }
+        ]
+      },
+      {
         "type": "ApplicationTemplate",
         "data": [
           {
@@ -139,6 +151,39 @@
         ]
       },
       {
+        "type": "CarouselTemplate",
+        "data": [
+          {
+            "image": {
+              "imageLink": "/images/events/fall_2024/career_panel_part1b.png",
+              "imageName": "Picture of DSMLC's career panel event",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/fall_2024/networking_night.jpg",
+              "imageName": "Picture of DSMLC's netowrking night",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/fall_2024/unplugged.jpg",
+              "imageName": "Picture of DSMLC's meet and greet",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2023/comp_1.JPG",
+              "imageName": "Picture of DSMLC's final comp 2023",
+              "imageType": "Banner"
+            }
+          }
+        ]
+      },
+      {
         "type": "ApplicationTemplate",
         "data": [
           {
@@ -166,28 +211,28 @@
         "data": [
           {
             "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_1.JPG",
+              "imageLink": "/images/events/winter_2024/final_comp_2024/final_comp_1.JPG",
               "imageName": "Picture of DSMLC's Final Comp 2024 Event",
               "imageType": "Banner"
             }
           },
           {
             "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_2.JPG",
+              "imageLink": "/images/events/winter_2024/final_comp_2024/final_comp_2.JPG",
               "imageName": "Picture of DSMLC's Final Comp 2024 Event 1",
               "imageType": "Banner"
             }
           },
           {
             "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_3.jpg",
+              "imageLink": "/images/events/winter_2024/final_comp_2024/final_comp_3.jpg",
               "imageName": "Picture of DSMLC's Final Comp 2024 Event 3",
               "imageType": "Banner"
             }
           },
           {
             "image": {
-              "imageLink": "/images/events/final_comp_2024/final_comp_awards.JPG",
+              "imageLink": "/images/events/winter_2024/final_comp_2024/final_comp_awards.JPG",
               "imageName": "Picture of DSMLC's Final Comp 2024 Event Awards",
               "imageType": "Banner"
             }

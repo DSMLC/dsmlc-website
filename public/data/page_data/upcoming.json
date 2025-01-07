@@ -10,6 +10,18 @@
         }
       },
       {
+        "type": "CarouselTemplate",
+        "data": [
+          {
+            "image": {
+              "imageLink": "/images/events/fall_2024/meet_and_greet.png",
+              "imageName": "Picture of DSMLC's power bi workshop",
+              "imageType": "Banner"
+            }
+          }
+        ]
+      },
+      {
         "type": "HeaderTextTemplate2",
         "data": [
           {
