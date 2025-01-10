@@ -9,6 +9,7 @@ import { ThemeProvider } from "./ThemeProvider";
 import MovingCircles2DBounce from "./components/MovingCircles2DBounce";
 import dynamic from "next/dynamic";
 import Script from "next/script";
+import NetlifyIdentityProvider from "./NetlifyIdentityProvider";
 
 const NeuralNetworkAnimation = dynamic(
   () => import("./components/NeuralNetworkAnimation"),
@@ -50,8 +51,10 @@ export default function RootLayout({
           <Header />
           <Background />
           <MovingCircles2DBounce />
-          <NeuralNetworkAnimation />
-          <main className="flex-grow pt-32">{children}</main>
+          <NeuralNetworkAnimation />{" "}
+          <NetlifyIdentityProvider>
+            <main className="flex-grow pt-32">{children}</main>{" "}
+          </NetlifyIdentityProvider>
           <Footer />
         </ThemeProvider>
       </body>

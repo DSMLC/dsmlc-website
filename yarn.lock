@@ -1866,7 +1866,7 @@ draco3d@^1.4.1:
     "@react-three/fiber" "^8.17.10"
     "@supabase/supabase-js" "^2.47.10"
     canvas "^3.0.0-rc2"
-    dsmlc-website "file:../../../AppData/Local/Yarn/Cache/v6/npm-dsmlc-website-0.1.0-0a1d9ad7-4a32-4385-8e2e-4321da140c5a-1736541400231/node_modules/dsmlc-website"
+    dsmlc-website "file:../../../AppData/Local/Yarn/Cache/v6/npm-dsmlc-website-0.1.0-41ee2bec-531c-4a74-a50c-3d5bfe9025fa-1736544096561/node_modules/dsmlc-website"
     framer-motion "^11.11.9"
     googleapis "^144.0.0"
     konva "^9.3.16"
@@ -4319,6 +4319,11 @@ netlify-cms-widget-text@^2.4.1:
   integrity sha512-fFuHtID0GfjFwugEyQmHld2nKFe8p42NnvXsayneldcl1YL2jIOk1oastJV1sRx1FB7BIyj1WzJWoaWXNMWwng==
   dependencies:
     react-textarea-autosize "^8.0.0"
+
+netlify-identity-widget@^1.9.2:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/netlify-identity-widget/-/netlify-identity-widget-1.9.2.tgz#4339c9155fc4c2570ae3ddd61825d952b574b02e"
+  integrity sha512-IbS1JHhs7BflCCvp3C9f6tmNSZqbyBhZ4Gs5+Qxt4IlPybTOVv0PqJ4TAsA7uxh1R+oXOAmk0OOMAkEaPYeCtA==
 
 next@14.2.5:
   version "14.2.5"
