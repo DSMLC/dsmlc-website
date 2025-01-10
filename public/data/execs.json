@@ -16,7 +16,7 @@
       "programs": ["Computer Science", "Business"],
       "year": "4th Year"
     },
-    "bio": "I like learning about cultures and languages, travelling the world, painting and animating cityscapes, recording everything for my future self to see, and keeping things aesthetic :D"
+    "bio": "I like learning about cultures and languages, travelling the world, painting and animating cityscapes, working out, recording everything for my future self to see, and keeping things aesthetic :D"
   },
   {
     "name": "Rayyan Zuberi",
@@ -259,6 +259,7 @@
         "roles": ["VP Outreach"]
       }
     ],
+    "profile": "/images/profile/lucy_li.jpeg",
     "program": {
       "programs": ["Business Analytics"]
     }
