@@ -46,6 +46,7 @@
         "roles": ["Board Chairman"]
       }
     ],
+    "profile": "/images/profile/evan_poulson.jpg",
     "program": {
       "programs": ["Computer Science", "Data Science"],
       "year": "2nd Year"
