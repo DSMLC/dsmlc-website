@@ -5,16 +5,14 @@
       "name": "No Positions Available For Managers"
     }
   ],
-  "visionary_lab_member": [
-    {
-      "link": "#",
-      "name": "No Positions Available For Members"
-    }
-  ],
+  "visionary_lab_member": [],
   "exec_positions": [
     {
       "header": "Current Positions Available: ",
       "text": []
+    },
+    {
+      "header": "Hello"
     }
   ],
   "apply_exec_button": [
