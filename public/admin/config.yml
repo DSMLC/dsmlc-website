@@ -2,7 +2,7 @@ backend:
   # 1) The "git-gateway" backend is typical if you're deploying on Netlify
   # 2) Make sure to enable Identity + Git Gateway in your Netlify site settings
   name: git-gateway
-  branch: main # or "master" or whatever your default branch is called
+  branch: master
 
 media_folder: "public/images" # Where uploaded images would go inside your repo
 public_folder: "/images" # Public URL for the images
