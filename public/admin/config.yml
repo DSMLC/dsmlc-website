@@ -17,7 +17,7 @@ collections:
     files:
       - label: "Applications JSON"
         name: "applications"
-        file: "data/applications.json"
+        file: "public/data/applications.json"
 
         # fields define the editing form for each part of the JSON
         fields:
@@ -64,7 +64,7 @@ collections:
     files:
       - label: "Upcoming Events JSON"
         name: "upcoming_events"
-        file: "data/upcoming_events.json"
+        file: "public/data/upcoming_events.json"
 
         fields:
           - label: "Final Competition"
