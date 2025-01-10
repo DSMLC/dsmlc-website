@@ -1,0 +1,113 @@
+backend:
+  # 1) The "git-gateway" backend is typical if you're deploying on Netlify
+  # 2) Make sure to enable Identity + Git Gateway in your Netlify site settings
+  name: git-gateway
+  branch: main # or "master" or whatever your default branch is called
+
+media_folder: "public/images" # Where uploaded images would go inside your repo
+public_folder: "/images" # Public URL for the images
+
+collections:
+  # -----------------------------------------------------------
+  # 1) Manage "applications.json"
+  # -----------------------------------------------------------
+  - name: "applications"
+    label: "Applications"
+    # The "files" collection type means we explicitly define each file
+    files:
+      - label: "Applications JSON"
+        name: "applications"
+        file: "data/applications.json"
+
+        # fields define the editing form for each part of the JSON
+        fields:
+          - label: "Visionary Lab Manager"
+            name: "visionary_lab_manager"
+            widget: "list"
+            fields:
+              - { label: "Link", name: "link", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+
+          - label: "Visionary Lab Member"
+            name: "visionary_lab_member"
+            widget: "list"
+            fields:
+              - { label: "Link", name: "link", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+
+          - label: "Exec Positions"
+            name: "exec_positions"
+            widget: "list"
+            fields:
+              - { label: "Header", name: "header", widget: "string" }
+              # "text" is an array, so let's treat it as a list of strings
+              - label: "Text"
+                name: "text"
+                widget: "list"
+                field:
+                  label: "Item"
+                  name: "item"
+                  widget: "string"
+
+          - label: "Apply Exec Button"
+            name: "apply_exec_button"
+            widget: "list"
+            fields:
+              - { label: "Link", name: "link", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+
+  # -----------------------------------------------------------
+  # 2) Manage "upcoming_events.json"
+  # -----------------------------------------------------------
+  - name: "upcoming_events"
+    label: "Upcoming Events"
+    files:
+      - label: "Upcoming Events JSON"
+        name: "upcoming_events"
+        file: "data/upcoming_events.json"
+
+        fields:
+          - label: "Final Competition"
+            name: "final_comp"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Sub Section"
+                name: "subSection"
+                widget: "list"
+                fields:
+                  - { label: "Header", name: "header", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Final Competition Register"
+            name: "final_comp_register"
+            widget: "list"
+            fields:
+              - { label: "Link", name: "link", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+
+          - label: "Workshops"
+            name: "workshops"
+            widget: "list"
+            fields:
+              - { label: "Item", name: "item", widget: "string" }
+
+          - label: "Workshops Register"
+            name: "workshops_register"
+            widget: "list"
+            fields:
+              - { label: "Link", name: "link", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
+
+          - label: "Other Events"
+            name: "other_events"
+            widget: "list"
+            fields:
+              - { label: "Item", name: "item", widget: "string" }
+
+          - label: "Other Events Register"
+            name: "other_events_register"
+            widget: "list"
+            fields:
+              - { label: "Link", name: "link", widget: "string" }
+              - { label: "Name", name: "name", widget: "string" }
