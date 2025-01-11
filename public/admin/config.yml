@@ -34,7 +34,8 @@ collections:
                   label: "Button Name",
                   name: "name",
                   widget: "select",
-                  options: - "No Positions Available for Managers"
+                  options: 
+                    - "No Positions Available for Managers"
                     - "Apply Now!",
                   default: "No Positions Available for Managers",
                 }
@@ -54,7 +55,8 @@ collections:
                   label: "Button Name",
                   name: "name",
                   widget: "select",
-                  options: - "No Positions Available for Members"
+                  options: 
+                    - "No Positions Available for Members"
                     - "Apply Now!",
                   default: "No Positions Available for Members",
                 }
@@ -68,7 +70,8 @@ collections:
                   label: "Header Text",
                   name: "header",
                   widget: "select",
-                  options: - "No Positions Available Right Now."
+                  options: 
+                    - "No Positions Available Right Now."
                     - "Current Positions Available:",
                   default: "Current Positions Available: ",
                 }
@@ -94,7 +97,8 @@ collections:
                   label: "Button Name",
                   name: "name",
                   widget: "select",
-                  options: - "No Positions Available"
+                  options: 
+                    - "No Positions Available"
                     - "Apply Now!",
                   default: "No Positions Available",
                 }
@@ -125,7 +129,7 @@ collections:
       widget: "object"
       fields:
         - { label: "Number of Event Attendees", name: "value", widget: "number" }
-        - { label: "Event Attendees Field", widget: "string", default: "Event Attendees", read_only: true  }
+        - { label: "Event Attendees Field", name: "title", widget: "string", default: "Event Attendees", read_only: true  }
   # -----------------------------------------------------------
   # 2) Manage "upcoming_events.json"
   # -----------------------------------------------------------
