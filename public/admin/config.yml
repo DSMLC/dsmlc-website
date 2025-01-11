@@ -3,7 +3,7 @@ backend:
   branch: master
 
 media_folder: "public/images" # Where uploaded images would go inside your repo
-public_folder: "/images" # Public URL for the images
+public_folder: "/images"      # Public URL for the images
 
 collections:
   # -----------------------------------------------------------
@@ -11,71 +11,57 @@ collections:
   # -----------------------------------------------------------
   - name: "applications"
     label: "Applications"
-    # The "files" collection type means we explicitly define each file
     files:
       - label: "Applications JSON"
         name: "applications"
         file: "public/data/applications.json"
-
-        # fields define the editing form for each part of the JSON
         fields:
           - label: "Visionary Lab Manager"
             name: "visionary_lab_manager"
             widget: "list"
             max: 1
             fields:
-              - {
-                  label: "Application Form Link",
-                  name: "link",
-                  widget: "string",
-                  default: "#",
-                }
-              - {
-                  label: "Button Name",
-                  name: "name",
-                  widget: "select",
-                  default: "No Positions Available for Managers",
-                  options: 
-                    - "No Positions Available for Manager"
-                    - "Apply Now!"
-                }
+              - label: "Application Form Link"
+                name: "link"
+                widget: "string"
+                default: "#"
+              - label: "Button Name"
+                name: "name"
+                widget: "select"
+                options:
+                  - "No Positions Available for Manager"
+                  - "Apply Now!"
+                default: "No Positions Available for Manager"
 
           - label: "Visionary Lab Member"
             name: "visionary_lab_member"
             widget: "list"
             max: 1
             fields:
-              - {
-                  label: "Application Form Link",
-                  name: "link",
-                  widget: "string",
-                  default: "#",
-                }
-              - {
-                  label: "Button Name",
-                  name: "name",
-                  widget: "select",
-                  default: "No Positions Available for Members",
-                  options: 
-                    - "No Positions Available for Members"
-                    - "Apply Now!"
-                }
+              - label: "Application Form Link"
+                name: "link"
+                widget: "string"
+                default: "#"
+              - label: "Button Name"
+                name: "name"
+                widget: "select"
+                options:
+                  - "No Positions Available for Members"
+                  - "Apply Now!"
+                default: "No Positions Available for Members"
 
           - label: "Exec Positions"
             name: "exec_positions"
             widget: "list"
             max: 1
             fields:
-              - {
-                  label: "Header Text",
-                  name: "header",
-                  widget: "select",
-                  default: "Current Positions Available: ",
-                  options: 
-                    - "No Positions Available Right Now."
-                    - "Current Positions Available:"
-                }
-              # "text" is an array, so let's treat it as a list of strings
+              - label: "Header Text"
+                name: "header"
+                widget: "select"
+                options:
+                  - "No Positions Available Right Now."
+                  - "Current Positions Available:"
+                default: "Current Positions Available:"
               - label: "List of Exec Positions Available"
                 name: "text"
                 widget: "list"
@@ -83,59 +69,74 @@ collections:
                   label: "Exec Position Name"
                   name: "item"
                   widget: "string"
+
           - label: "Apply Exec Button"
             name: "apply_exec_button"
             widget: "list"
             fields:
-              - {
-                  label: "Application Form Link",
-                  name: "link",
-                  widget: "string",
-                  default: "#",
-                }
-              - {
-                  label: "Button Name",
-                  name: "name",
-                  widget: "select",
-                  default: "No Positions Available",
-                  options: 
-                    - "No Positions Available"
-                    - "Apply Now!"
-                }
+              - label: "Application Form Link"
+                name: "link"
+                widget: "string"
+                default: "#"
+              - label: "Button Name"
+                name: "name"
+                widget: "select"
+                options:
+                  - "No Positions Available"
+                  - "Apply Now!"
+                default: "No Positions Available"
 
   # -----------------------------------------------------------
   # 2) Manage "club_stats.json"
   # -----------------------------------------------------------
   - name: "club_stats"
     label: "Club Stats"
-    files: 
+    files:
       - label: "Upcoming Events JSON"
         name: "upcoming_events"
         file: "public/data/upcoming_events.json"
-
         fields:
           - label: "Club Members"
             name: "club_members"
             widget: "object"
             fields:
-              - { label: "Number of Members", name: "value", widget: "number" }
-              - { label: "Club Members Field", name: "title", widget: "string", default: "Club Members", read_only: true}
-          
+              - label: "Number of Members"
+                name: "value"
+                widget: "number"
+              - label: "Club Members Field"
+                name: "title"
+                widget: "string"
+                default: "Club Members"
+                read_only: true
+
           - label: "Events Held"
             name: "events_held"
             widget: "object"
             fields:
-              - { label: "Number of Events Held", name: "value", widget: "number" }
-              - { label: "Events Held Field", name: "title", widget: "string", default: "Events Held", read_only: true }
-          
+              - label: "Number of Events Held"
+                name: "value"
+                widget: "number"
+              - label: "Events Held Field"
+                name: "title"
+                widget: "string"
+                default: "Events Held"
+                read_only: true
+
           - label: "Event Attendees"
             name: "event_attendees"
             widget: "object"
             fields:
-              - { label: "Number of Event Attendees", name: "value", widget: "number" }
-              - { label: "Event Attendees Field", name: "title", widget: "string", default: "Event Attendees", read_only: true  }
+              - label: "Number of Event Attendees"
+                name: "value"
+                widget: "number"
+              - label: "Event Attendees Field"
+                name: "title"
+                widget: "string"
+                default: "Event Attendees"
+                read_only: true
+
   # -----------------------------------------------------------
-  # 2) Manage "upcoming_events.json"
+  # 3) Manage "upcoming_events.json"
   # -----------------------------------------------------------
   - name: "upcoming_events"
     label: "Upcoming Events"
@@ -143,49 +144,70 @@ collections:
       - label: "Upcoming Events JSON"
         name: "upcoming_events"
         file: "public/data/upcoming_events.json"
-
         fields:
           - label: "Final Competition"
             name: "final_comp"
             widget: "list"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
+              - label: "Title"
+                name: "title"
+                widget: "string"
               - label: "Sub Section"
                 name: "subSection"
                 widget: "list"
                 fields:
-                  - { label: "Header", name: "header", widget: "string" }
-                  - { label: "Text", name: "text", widget: "text" }
+                  - label: "Header"
+                    name: "header"
+                    widget: "string"
+                  - label: "Text"
+                    name: "text"
+                    widget: "text"
 
           - label: "Final Competition Register"
             name: "final_comp_register"
             widget: "list"
             fields:
-              - { label: "Link", name: "link", widget: "string" }
-              - { label: "Name", name: "name", widget: "string" }
+              - label: "Link"
+                name: "link"
+                widget: "string"
+              - label: "Name"
+                name: "name"
+                widget: "string"
 
           - label: "Workshops"
             name: "workshops"
             widget: "list"
             fields:
-              - { label: "Item", name: "item", widget: "string" }
+              - label: "Item"
+                name: "item"
+                widget: "string"
 
           - label: "Workshops Register"
             name: "workshops_register"
             widget: "list"
             fields:
-              - { label: "Link", name: "link", widget: "string" }
-              - { label: "Name", name: "name", widget: "string" }
+              - label: "Link"
+                name: "link"
+                widget: "string"
+              - label: "Name"
+                name: "name"
+                widget: "string"
 
           - label: "Other Events"
             name: "other_events"
             widget: "list"
             fields:
-              - { label: "Item", name: "item", widget: "string" }
+              - label: "Item"
+                name: "item"
+                widget: "string"
 
           - label: "Other Events Register"
             name: "other_events_register"
             widget: "list"
             fields:
-              - { label: "Link", name: "link", widget: "string" }
-              - { label: "Name", name: "name", widget: "string" }
+              - label: "Link"
+                name: "link"
+                widget: "string"
+              - label: "Name"
+                name: "name"
+                widget: "string"
