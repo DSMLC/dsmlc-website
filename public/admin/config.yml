@@ -25,6 +25,7 @@ collections:
                 name: "link"
                 widget: "string"
                 default: "#"
+                required: true
               - label: "Button Name"
                 name: "name"
                 widget: "select"
@@ -32,6 +33,7 @@ collections:
                   - "No Positions Available for Manager"
                   - "Apply Now!"
                 default: "No Positions Available for Manager"
+                required: true
 
           - label: "Visionary Lab Member"
             name: "visionary_lab_member"
@@ -42,6 +44,7 @@ collections:
                 name: "link"
                 widget: "string"
                 default: "#"
+                required: true
               - label: "Button Name"
                 name: "name"
                 widget: "select"
@@ -49,6 +52,7 @@ collections:
                   - "No Positions Available for Members"
                   - "Apply Now!"
                 default: "No Positions Available for Members"
+                required: true
 
           - label: "Exec Positions"
             name: "exec_positions"
@@ -62,6 +66,7 @@ collections:
                   - "No Positions Available Right Now."
                   - "Current Positions Available:"
                 default: "Current Positions Available:"
+                required: true
               - label: "List of Exec Positions Available"
                 name: "text"
                 widget: "list"
@@ -78,6 +83,7 @@ collections:
                 name: "link"
                 widget: "string"
                 default: "#"
+                required: true
               - label: "Button Name"
                 name: "name"
                 widget: "select"
@@ -85,6 +91,7 @@ collections:
                   - "No Positions Available"
                   - "Apply Now!"
                 default: "No Positions Available"
+                required: true
 
   # -----------------------------------------------------------
   # 2) Manage "club_stats.json"
@@ -92,9 +99,9 @@ collections:
   - name: "club_stats"
     label: "Club Stats"
     files:
-      - label: "Upcoming Events JSON"
-        name: "upcoming_events"
-        file: "public/data/upcoming_events.json"
+      - label: "Club Stats JSON"
+        name: "club_stats"
+        file: "public/data/club_stats.json"
         fields:
           - label: "Club Members"
             name: "club_members"
@@ -107,6 +114,7 @@ collections:
                 name: "title"
                 widget: "string"
                 default: "Club Members"
+                required: true
                 read_only: true
 
           - label: "Events Held"
@@ -120,6 +128,7 @@ collections:
                 name: "title"
                 widget: "string"
                 default: "Events Held"
+                required: true
                 read_only: true
 
           - label: "Event Attendees"
@@ -133,6 +142,7 @@ collections:
                 name: "title"
                 widget: "string"
                 default: "Event Attendees"
+                required: true
                 read_only: true
 
   # -----------------------------------------------------------
