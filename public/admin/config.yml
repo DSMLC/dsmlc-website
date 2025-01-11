@@ -35,8 +35,8 @@ collections:
                   name: "name",
                   widget: "select",
                   options: 
-                    - "No Positions Available for Managers"
-                    - "Apply Now!",
+                    - "No Positions Available for Manager"
+                    - "Apply Now!"
                   default: "No Positions Available for Managers",
                 }
 
@@ -57,7 +57,7 @@ collections:
                   widget: "select",
                   options: 
                     - "No Positions Available for Members"
-                    - "Apply Now!",
+                    - "Apply Now!"
                   default: "No Positions Available for Members",
                 }
 
@@ -72,7 +72,7 @@ collections:
                   widget: "select",
                   options: 
                     - "No Positions Available Right Now."
-                    - "Current Positions Available:",
+                    - "Current Positions Available:"
                   default: "Current Positions Available: ",
                 }
               # "text" is an array, so let's treat it as a list of strings
@@ -99,7 +99,7 @@ collections:
                   widget: "select",
                   options: 
                     - "No Positions Available"
-                    - "Apply Now!",
+                    - "Apply Now!"
                   default: "No Positions Available",
                 }
 
