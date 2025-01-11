@@ -103,9 +103,9 @@ collections:
   # 2) Manage "club_stats.json"
   # -----------------------------------------------------------
   - name: "club_stats"
-  label: "Club Stats"
-  file: "public/data/club_stats.json"
-  fields:
+    label: "Club Stats"
+    file: "public/data/club_stats.json"
+    fields:
     - label: "Club Members"
       name: "club_members"
       widget: "object"
