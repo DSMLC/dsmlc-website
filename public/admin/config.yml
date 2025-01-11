@@ -1,6 +1,4 @@
 backend:
-  # 1) The "git-gateway" backend is typical if you're deploying on Netlify
-  # 2) Make sure to enable Identity + Git Gateway in your Netlify site settings
   name: git-gateway
   branch: master
 
@@ -24,38 +22,110 @@ collections:
           - label: "Visionary Lab Manager"
             name: "visionary_lab_manager"
             widget: "list"
+            max: 1
             fields:
-              - { label: "Link", name: "link", widget: "string" }
-              - { label: "Name", name: "name", widget: "string" }
+              - {
+                  label: "Application Form Link",
+                  name: "link",
+                  widget: "string",
+                  default: "#",
+                }
+              - {
+                  label: "Button Name",
+                  name: "name",
+                  widget: "select",
+                  options: - "No Positions Available for Managers"
+                    - "Apply Now!",
+                  default: "No Positions Available for Managers",
+                }
 
           - label: "Visionary Lab Member"
             name: "visionary_lab_member"
             widget: "list"
+            max: 1
             fields:
-              - { label: "Link", name: "link", widget: "string" }
-              - { label: "Name", name: "name", widget: "string" }
+              - {
+                  label: "Application Form Link",
+                  name: "link",
+                  widget: "string",
+                  default: "#",
+                }
+              - {
+                  label: "Button Name",
+                  name: "name",
+                  widget: "select",
+                  options: - "No Positions Available for Members"
+                    - "Apply Now!",
+                  default: "No Positions Available for Members",
+                }
 
           - label: "Exec Positions"
             name: "exec_positions"
             widget: "list"
+            max: 1
             fields:
-              - { label: "Header", name: "header", widget: "string" }
+              - {
+                  label: "Header Text",
+                  name: "header",
+                  widget: "select",
+                  options: - "No Positions Available Right Now."
+                    - "Current Positions Available:",
+                  default: "Current Positions Available: ",
+                }
               # "text" is an array, so let's treat it as a list of strings
-              - label: "Text"
+              - label: "List of Exec Positions Available"
                 name: "text"
                 widget: "list"
                 field:
-                  label: "Item"
+                  label: "Exec Position Name"
                   name: "item"
                   widget: "string"
-
           - label: "Apply Exec Button"
             name: "apply_exec_button"
             widget: "list"
             fields:
-              - { label: "Link", name: "link", widget: "string" }
-              - { label: "Name", name: "name", widget: "string" }
+              - {
+                  label: "Application Form Link",
+                  name: "link",
+                  widget: "string",
+                  default: "#",
+                }
+              - {
+                  label: "Button Name",
+                  name: "name",
+                  widget: "select",
+                  options: - "No Positions Available"
+                    - "Apply Now!",
+                  default: "No Positions Available",
+                }
 
+  # -----------------------------------------------------------
+  # 2) Manage "club_stats.json"
+  # -----------------------------------------------------------
+  - name: "club_stats"
+  label: "Club Stats"
+  file: "public/data/club_stats.json"
+  fields:
+    - label: "Club Members"
+      name: "club_members"
+      widget: "object"
+      fields:
+        - { label: "Number of Members", name: "value", widget: "number" }
+        - { label: "Club Members Field", name: "title", widget: "string", default: "Club Members", read_only: true}
+      
+    - label: "Events Held"
+      name: "events_held"
+      widget: "object"
+      fields:
+        - { label: "Number of Events Held", name: "value", widget: "number" }
+        - { label: "Events Held Field", name: "title", widget: "string", default: "Events Held", read_only: true }
+      
+    - label: "Event Attendees"
+      name: "event_attendees"
+      widget: "object"
+      fields:
+        - { label: "Number of Event Attendees", name: "value", widget: "number" }
+        - { label: "Event Attendees Field", widget: "string", default: "Event Attendees", read_only: true  }
   # -----------------------------------------------------------
   # 2) Manage "upcoming_events.json"
   # -----------------------------------------------------------
