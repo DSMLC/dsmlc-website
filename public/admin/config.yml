@@ -495,3 +495,39 @@ collections:
               - label: "Name"
                 name: "name"
                 widget: "string"
+  - name: "sponsors"
+      label: "Sponsors"
+      folder: "content/sponsors"
+      create: true
+      slug: "{{slug}}"
+
+      fields:
+        - label: "Sponsor Name"
+          name: "name"
+          widget: "string"
+
+        - label: "Sponsor Logo"
+          name: "logo"
+          widget: "image"
+
+          # Override media folder for THIS field
+          media_folder: "public/images/sponsors"  # where the file is placed in your repo
+          public_folder: "/images/sponsors"
+  - name: "profile"
+      label: "Profile"
+      folder: "content/profile"
+      create: true
+      slug: "{{slug}}"
+
+      fields:
+        - label: "Profile Name"
+          name: "name"
+          widget: "string"
+
+        - label: "Profile Picture"
+          name: "picture"
+          widget: "image"
+
+          # Override media folder for THIS field
+          media_folder: "public/images/profile"  # where the file is placed in your repo
+          public_folder: "/images/profile"
