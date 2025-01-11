@@ -144,9 +144,280 @@ collections:
                 default: "Event Attendees"
                 required: true
                 read_only: true
-
   # -----------------------------------------------------------
   # 3) Manage "upcoming_events.json"
+  # -----------------------------------------------------------
+  - name: "contact_links"
+    label: "Contact / Links"
+    file: "public/data/contact_links.json"
+    fields:
+      # 1) Email Section
+      - label: "Email Section"
+        name: "email_section"
+        widget: "object"
+        fields:
+          - label: "Section Name"
+            name: "name"
+            widget: "string"
+            default: "Email"
+            read_only: true
+            required: true
+          - label: "Email Link"
+            name: "link"
+            widget: "string"
+            default: "mailto:datascienceclub@ucalgary.ca"
+            required: true
+          - label: "Email Label"
+            name: "header"
+            widget: "string"
+            default: "Email: "
+            read_only: true
+            required: true
+          - label: "Email Text"
+            name: "text"
+            widget: "string"
+            default: "datascienceclub@ucalgary.ca"
+            required: true
+          - label: "Description"
+            name: "description"
+            widget: "text"
+            default: "Have questions? Email us at "
+
+      # 2) Membership
+      - label: "Membership Section"
+        name: "membership"
+        widget: "object"
+        fields:
+          - label: "Button Text"
+            name: "name"
+            widget: "string"
+            default: "Become a Member Now!"
+            required: true
+          - label: "Form Link"
+            name: "link"
+            widget: "string"
+            default: "https://docs.google.com/forms/d/e/1FAIpQLScOGIqKjOxzu458lKIFtV3Kr3-Tf1jUvB4PyRZIXMxbvjEjHA/viewform"
+            required: true
+
+      # 3) Workshops
+      - label: "Workshops Section"
+        name: "workshops"
+        widget: "object"
+        fields:
+          - label: "Button Text"
+            name: "name"
+            widget: "string"
+            default: "Past Workshops"
+            required: true
+            read_only: true
+          - label: "Workshops Link"
+            name: "link"
+            widget: "string"
+            default: "https://drive.google.com/drive/folders/16I8AbsThFneWuxmp7N1n7UYInOtn9baK"
+            required: true
+
+      # 4) SU ClubHub
+      - label: "ClubHub Section"
+        name: "clubhub"
+        widget: "object"
+        fields:
+          - label: "Button Text"
+            name: "name"
+            widget: "string"
+            default: "SU ClubHub"
+            read_only: true
+            required: true
+          - label: "ClubHub Link"
+            name: "link"
+            widget: "string"
+            default: "https://suuofc.campuslabs.ca/engage/organization/dsmlc"
+            required: true
+
+      # 5) Discord
+      - label: "Discord"
+        name: "discord"
+        widget: "object"
+        fields:
+          - label: "Platform Name"
+            name: "name"
+            widget: "string"
+            default: "Discord"
+            read_only: true
+            required: true
+
+          - label: "Invitation Link"
+            name: "link"
+            widget: "string"
+            required: true
+
+          - label: "Dark Logo Path"
+            name: "dark_logo"
+            widget: "string"
+            required: true
+
+          - label: "Light Logo Path"
+            name: "light_logo"
+            widget: "string"
+            required: true
+
+      # 6) Instagram
+      - label: "Instagram"
+        name: "insta"
+        widget: "object"
+        fields:
+          - label: "Platform Name"
+            name: "name"
+            widget: "string"
+            default: "Instagram"
+            read_only: true
+            required: true
+
+          - label: "Profile Link"
+            name: "link"
+            widget: "string"
+            default: "https://www.instagram.com/dsmlc.uofc/?hl=en"
+            required: true
+
+          - label: "Section Label"
+            name: "header"
+            widget: "string"
+            default: "Instagram: "
+            read_only: true
+            required: true
+
+          - label: "Handle"
+            name: "text"
+            widget: "string"
+            required: true
+
+          - label: "Dark Logo Path"
+            name: "dark_logo"
+            widget: "string"
+            required: true
+
+          - label: "Light Logo Path"
+            name: "light_logo"
+            widget: "string"
+            required: true
+
+      # 7) LinkedIn
+      - label: "LinkedIn"
+        name: "linkedin"
+        widget: "object"
+        fields:
+          - label: "Platform Name"
+            name: "name"
+            widget: "string"
+            default: "LinkedIn"
+            read_only: true
+            required: true
+
+          - label: "Profile Link"
+            name: "link"
+            widget: "string"
+            required: true
+
+          - label: "Section Label"
+            name: "header"
+            widget: "string"
+            default: "LinkedIn: "
+            read_only: true
+            required: true
+
+          - label: "Profile Title"
+            name: "text"
+            widget: "string"
+            required: true
+
+          - label: "Dark Logo Path"
+            name: "dark_logo"
+            widget: "string"
+            required: true
+
+          - label: "Light Logo Path"
+            name: "light_logo"
+            widget: "string"
+            required: true
+
+      # 8) Linktree
+      - label: "Linktree"
+        name: "linktree"
+        widget: "object"
+        fields:
+          - label: "Platform Name"
+            name: "name"
+            widget: "string"
+            default: "Linktree"
+            read_only: true
+            required: true
+
+          - label: "Linktree Link"
+            name: "link"
+            widget: "string"
+            required: true
+
+          - label: "Dark Logo Path"
+            name: "dark_logo"
+            widget: "string"
+            required: true
+
+          - label: "Light Logo Path"
+            name: "light_logo"
+            widget: "string"
+            required: true
+
+      # 9) Phone
+      - label: "Phone Section"
+        name: "phone"
+        widget: "object"
+        fields:
+          - label: "Phone Label"
+            name: "header"
+            widget: "string"
+            default: "Phone: "
+            read_only: true
+            required: true
+          - label: "Phone Number"
+            name: "text"
+            widget: "string"
+            required: true
+
+      # 10) Regular Package
+      - label: "Regular Competition Package"
+        name: "regular_package"
+        widget: "object"
+        fields:
+          - label: "Package Link"
+            name: "link"
+            widget: "string"
+            default: "https://drive.google.com/file/d/1EEX-c5iE_3ZXbn79-o1CyWvqBYZMHrB4/view?usp=sharing"
+            required: true
+          - label: "Package Name"
+            name: "name"
+            widget: "string"
+            default: "Regular Package"
+            read_only: true
+            required: true
+
+      # 11) Final Competition Package
+      - label: "Final Competition Package"
+        name: "final_comp_package"
+        widget: "object"
+        fields:
+          - label: "Package Link"
+            name: "link"
+            widget: "string"
+            default: "https://drive.google.com/file/d/1eZgpEZoi7_OGqxZatHgXK8dkSYkezfds/view?usp=sharing"
+            required: true
+          - label: "Package Name"
+            name: "name"
+            widget: "string"
+            default: "Final Competition Package"
+            read_only: true
+            required: true
+
+  # -----------------------------------------------------------
+  # 6) Manage "upcoming_events.json"
   # -----------------------------------------------------------
   - name: "upcoming_events"
     label: "Upcoming Events"
