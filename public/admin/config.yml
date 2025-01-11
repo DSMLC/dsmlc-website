@@ -145,14 +145,14 @@ collections:
                 required: true
                 read_only: true
   # -----------------------------------------------------------
-  # 3) Manage "upcoming_events.json"
+  # 3) Manage "club_links.json"
   # -----------------------------------------------------------
-  - name: "contact_links"
-    label: "Contact / Links"
+  - name: "club_links"
+    label: "Club Links"
     files:
-      - label: "Club Stats JSON"
-        name: "club_stats"
-        file: "public/data/contact_links.json"
+      - label: "Club Links JSON"
+        name: "club_links"
+        file: "public/data/club_links.json"
         fields:
           # 1) Email Section
           - label: "Email Section"
