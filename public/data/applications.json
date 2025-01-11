@@ -2,13 +2,18 @@
   "visionary_lab_manager": [
     {
       "link": "#",
-      "name": "No Positions Available For Managers"
+      "name": "No Positions Available for Manager"
     }
   ],
-  "visionary_lab_member": [],
+  "visionary_lab_member": [
+    {
+      "link": "#",
+      "name": "No Positions Available for Members"
+    }
+  ],
   "exec_positions": [
     {
-      "header": "Current Positions Available: ",
+      "header": "No Positions Available Right Now.",
       "text": []
     }
   ],
