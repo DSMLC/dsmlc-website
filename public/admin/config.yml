@@ -112,28 +112,28 @@ collections:
       - label: "Upcoming Events JSON"
         name: "upcoming_events"
         file: "public/data/upcoming_events.json"
-        
+
         fields:
-        - label: "Club Members"
-          name: "club_members"
-          widget: "object"
-          fields:
-            - { label: "Number of Members", name: "value", widget: "number" }
-            - { label: "Club Members Field", name: "title", widget: "string", default: "Club Members", read_only: true}
+          - label: "Club Members"
+            name: "club_members"
+            widget: "object"
+            fields:
+              - { label: "Number of Members", name: "value", widget: "number" }
+              - { label: "Club Members Field", name: "title", widget: "string", default: "Club Members", read_only: true}
           
-        - label: "Events Held"
-          name: "events_held"
-          widget: "object"
-          fields:
-            - { label: "Number of Events Held", name: "value", widget: "number" }
-            - { label: "Events Held Field", name: "title", widget: "string", default: "Events Held", read_only: true }
+          - label: "Events Held"
+            name: "events_held"
+            widget: "object"
+            fields:
+              - { label: "Number of Events Held", name: "value", widget: "number" }
+              - { label: "Events Held Field", name: "title", widget: "string", default: "Events Held", read_only: true }
           
-        - label: "Event Attendees"
-          name: "event_attendees"
-          widget: "object"
-          fields:
-            - { label: "Number of Event Attendees", name: "value", widget: "number" }
-            - { label: "Event Attendees Field", name: "title", widget: "string", default: "Event Attendees", read_only: true  }
+          - label: "Event Attendees"
+            name: "event_attendees"
+            widget: "object"
+            fields:
+              - { label: "Number of Event Attendees", name: "value", widget: "number" }
+              - { label: "Event Attendees Field", name: "title", widget: "string", default: "Event Attendees", read_only: true  }
   # -----------------------------------------------------------
   # 2) Manage "upcoming_events.json"
   # -----------------------------------------------------------
