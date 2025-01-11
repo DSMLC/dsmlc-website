@@ -34,10 +34,10 @@ collections:
                   label: "Button Name",
                   name: "name",
                   widget: "select",
+                  default: "No Positions Available for Managers",
                   options: 
                     - "No Positions Available for Manager"
                     - "Apply Now!"
-                  default: "No Positions Available for Managers",
                 }
 
           - label: "Visionary Lab Member"
@@ -55,10 +55,10 @@ collections:
                   label: "Button Name",
                   name: "name",
                   widget: "select",
+                  default: "No Positions Available for Members",
                   options: 
                     - "No Positions Available for Members"
                     - "Apply Now!"
-                  default: "No Positions Available for Members",
                 }
 
           - label: "Exec Positions"
@@ -70,10 +70,10 @@ collections:
                   label: "Header Text",
                   name: "header",
                   widget: "select",
+                  default: "Current Positions Available: ",
                   options: 
                     - "No Positions Available Right Now."
                     - "Current Positions Available:"
-                  default: "Current Positions Available: ",
                 }
               # "text" is an array, so let's treat it as a list of strings
               - label: "List of Exec Positions Available"
@@ -97,10 +97,10 @@ collections:
                   label: "Button Name",
                   name: "name",
                   widget: "select",
+                  default: "No Positions Available",
                   options: 
                     - "No Positions Available"
                     - "Apply Now!"
-                  default: "No Positions Available",
                 }
 
   # -----------------------------------------------------------
