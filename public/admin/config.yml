@@ -551,27 +551,27 @@ collections:
             name: "sponsors"
             widget: "list"
             fields:
-              - name: "image"
-                label: "Image"
+              - label: "Image"
+                name: "image"
                 widget: "object"
                 fields:
-                  - name: "imageLink"
-                    label: "Image Path Link"
+                  - label: "Image Path Link"
+                    name: "imageLink"
                     widget: "string"
 
-                  - name: "imageName"
-                    label: "Image Name"
+                  - label: "Image Name"
+                    name: "imageName"
                     widget: "string"
 
-                  - name: "imageType (Read Only. Do not Change)"
-                    label: "Image Type"
+                  - label: "Image Type (Read Only. Do not Change)"
+                    name: "imageType"
                     widget: "string"
                     default: "Sponsor"
                     required: true
                     read_only: true
 
-                  - name: "upload"
-                    label: "Upload Image"
+                  - label: "Upload Image"
+                    name: "upload"
                     widget: "image"
                     media_folder: "/public/images/sponsors"
                     public_folder: "/images/sponsors"
@@ -583,23 +583,23 @@ collections:
                 label: "Image"
                 widget: "object"
                 fields:
-                  - name: "imageLink"
-                    label: "Image Path Link"
+                  - label: "Image Path Link"
+                    name: "imageLink"
                     widget: "string"
 
-                  - name: "imageName"
-                    label: "Image Name"
+                  - label: "Image Name"
+                    name: "imageName"
                     widget: "string"
 
-                  - name: "imageType (Read Only. Do not Change)"
-                    label: "Image Type"
+                  - label: "Image Type (Read Only. Do not Change)"
+                    name: "imageType"
                     widget: "string"
                     default: "Sponsor"
                     required: true
                     read_only: true
 
-                  - name: "upload"
-                    label: "Upload Image"
+                  - label: "Upload Image"
+                    name: "upload"
                     widget: "image"
                     media_folder: "/public/images/sponsors"
                     public_folder: "/images/sponsors"
