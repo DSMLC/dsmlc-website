@@ -10,13 +10,32 @@
       ]
     }
   ],
-  "final_comp_register": [],
-  "workshops": [],
-  "workshops_register": [],
+  "final_comp_register": [
+    {
+      "link": "#",
+      "name": "#"
+    }
+  ],
+  "workshops": [
+    {
+      "item": "#"
+    }
+  ],
+  "workshops_register": [
+    {
+      "link": "#",
+      "name": "#"
+    }
+  ],
   "other_events": [
     {
       "item": "January 28, 2025: DSMLC Unplugged: Come meet friends interested in Data Science and Machine Learning!"
     }
   ],
-  "other_events_register": []
+  "other_events_register": [
+    {
+      "link": "#",
+      "name": "#"
+    }
+  ]
 }
