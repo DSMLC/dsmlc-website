@@ -154,7 +154,7 @@
       {
         "type": "ColumnTemplate",
         "data": {
-          "json": "sponsorsInfo.json",
+          "json": "sponsors_info.json",
           "keys": ["sponsors"]
         }
       }
