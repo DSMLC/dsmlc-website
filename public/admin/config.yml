@@ -542,7 +542,6 @@ collections:
     folder: "content/sponsors"
     create: true
     slug: "{{slug}}"
-
     fields:
       - label: "Sponsor Name"
         name: "name"
@@ -552,9 +551,10 @@ collections:
         name: "logo"
         widget: "image"
 
-        # Override media folder for THIS field
-        media_folder: "public/images/sponsors"  # where the file is placed in your repo
+        media_folder: "/public/images/sponsors"
         public_folder: "/images/sponsors"
+
+        
   - name: "profile"
     label: "Profile"
     folder: "content/profile"
@@ -570,6 +570,5 @@ collections:
         name: "picture"
         widget: "image"
 
-        # Override media folder for THIS field
-        media_folder: "public/images/profile"  # where the file is placed in your repo
+        media_folder: "/public/images/profile"
         public_folder: "/images/profile"
