@@ -110,7 +110,7 @@ collections:
               - label: "Number of Members"
                 name: "value"
                 widget: "number"
-              - label: "Club Members Field"
+              - label: "Club Members Field (Read Only. Do not Change)"
                 name: "title"
                 widget: "string"
                 default: "Club Members"
@@ -121,7 +121,7 @@ collections:
             name: "events_held"
             widget: "object"
             fields:
-              - label: "Number of Events Held"
+              - label: "Number of Events Held (Read Only. Do not Change)"
                 name: "value"
                 widget: "number"
               - label: "Events Held Field"
@@ -135,7 +135,7 @@ collections:
             name: "event_attendees"
             widget: "object"
             fields:
-              - label: "Number of Event Attendees"
+              - label: "Number of Event Attendees (Read Only. Do not Change)"
                 name: "value"
                 widget: "number"
               - label: "Event Attendees Field"
@@ -159,7 +159,7 @@ collections:
             name: "email_section"
             widget: "object"
             fields:
-              - label: "Section Name"
+              - label: "Section Name (Read Only. Do not Change)"
                 name: "name"
                 widget: "string"
                 default: "Email"
@@ -170,7 +170,7 @@ collections:
                 widget: "string"
                 default: "mailto:datascienceclub@ucalgary.ca"
                 required: true
-              - label: "Email Label"
+              - label: "Email Label (Read Only. Do not Change)"
                 name: "header"
                 widget: "string"
                 default: "Email: "
@@ -207,7 +207,7 @@ collections:
             name: "workshops"
             widget: "object"
             fields:
-              - label: "Button Text"
+              - label: "Button Text (Read Only. Do not Change)"
                 name: "name"
                 widget: "string"
                 default: "Past Workshops"
@@ -224,7 +224,7 @@ collections:
             name: "clubhub"
             widget: "object"
             fields:
-              - label: "Button Text"
+              - label: "Button Text (Read Only. Do not Change)"
                 name: "name"
                 widget: "string"
                 default: "SU ClubHub"
@@ -241,7 +241,7 @@ collections:
             name: "discord"
             widget: "object"
             fields:
-              - label: "Platform Name"
+              - label: "Platform Name (Read Only. Do not Change)"
                 name: "name"
                 widget: "string"
                 default: "Discord"
@@ -268,7 +268,7 @@ collections:
             name: "insta"
             widget: "object"
             fields:
-              - label: "Platform Name"
+              - label: "Platform Name (Read Only. Do not Change)"
                 name: "name"
                 widget: "string"
                 default: "Instagram"
@@ -281,7 +281,7 @@ collections:
                 default: "https://www.instagram.com/dsmlc.uofc/?hl=en"
                 required: true
 
-              - label: "Section Label"
+              - label: "Section Label (Read Only. Do not Change)"
                 name: "header"
                 widget: "string"
                 default: "Instagram: "
@@ -308,7 +308,7 @@ collections:
             name: "linkedin"
             widget: "object"
             fields:
-              - label: "Platform Name"
+              - label: "Platform Name (Read Only. Do not Change)"
                 name: "name"
                 widget: "string"
                 default: "LinkedIn"
@@ -320,7 +320,7 @@ collections:
                 widget: "string"
                 required: true
 
-              - label: "Section Label"
+              - label: "Section Label (Read Only. Do not Change)"
                 name: "header"
                 widget: "string"
                 default: "LinkedIn: "
@@ -347,7 +347,7 @@ collections:
             name: "linktree"
             widget: "object"
             fields:
-              - label: "Platform Name"
+              - label: "Platform Name (Read Only. Do not Change)"
                 name: "name"
                 widget: "string"
                 default: "Linktree"
@@ -374,7 +374,7 @@ collections:
             name: "phone"
             widget: "object"
             fields:
-              - label: "Phone Label"
+              - label: "Phone Label (Read Only. Do not Change)"
                 name: "header"
                 widget: "string"
                 default: "Phone: "
@@ -395,7 +395,7 @@ collections:
                 widget: "string"
                 default: "https://drive.google.com/file/d/1EEX-c5iE_3ZXbn79-o1CyWvqBYZMHrB4/view?usp=sharing"
                 required: true
-              - label: "Package Name"
+              - label: "Package Name (Read Only. Do not Change)"
                 name: "name"
                 widget: "string"
                 default: "Regular Package"
@@ -412,7 +412,7 @@ collections:
                 widget: "string"
                 default: "https://drive.google.com/file/d/1eZgpEZoi7_OGqxZatHgXK8dkSYkezfds/view?usp=sharing"
                 required: true
-              - label: "Package Name"
+              - label: "Package Name (Read Only. Do not Change)"
                 name: "name"
                 widget: "string"
                 default: "Final Competition Package"
@@ -537,24 +537,73 @@ collections:
                 default: "No Events At the Moment"
                 required: true
   
-  - name: "sponsors"
-    label: "Sponsors"
-    folder: "content/sponsors"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - label: "Sponsor Name"
-        name: "name"
-        widget: "string"
+  # -----------------------------------------------------------
+  # 6) Manage "sponsors_info.json"
+  # -----------------------------------------------------------
+  - name: "sponsors_info"
+    label: "Sponsors Info"
+    files:
+      - label: "Sponsors Info JSON"
+          name: "sponsors_info"
+          file: "public/data/sponsors_info.json"
+          fields:
+            - label: "Sponsors Image Path List"
+              name: "sponsors"
+              widget: "list"
+              fields:
+                - name: "image"
+                  label: "Image"
+                  widget: "object"
+                  fields:
+                    - name: "imageLink"
+                      label: "Image Path Link"
+                      widget: "string"
 
-      - label: "Sponsor Logo"
-        name: "logo"
-        widget: "image"
+                    - name: "imageName"
+                      label: "Image Name"
+                      widget: "string"
 
-        media_folder: "/public/images/sponsors"
-        public_folder: "/images/sponsors"
+                    - name: "imageType (Read Only. Do not Change)"
+                      label: "Image Type"
+                      widget: "string"
+                      default: "Sponsor"
+                      required: true
+                      read_only: true
 
-        
+                    - name: "upload"
+                      label: "Upload Image"
+                      widget: "image"
+                      media_folder: "/public/images/sponsors"
+                      public_folder: "/images/sponsors"
+            - label: "Collabs Image Path List"
+              name: "collabs"
+              widget: "list"
+              fields:
+                - name: "image"
+                  label: "Image"
+                  widget: "object"
+                  fields:
+                    - name: "imageLink"
+                      label: "Image Path Link"
+                      widget: "string"
+
+                    - name: "imageName"
+                      label: "Image Name"
+                      widget: "string"
+
+                    - name: "imageType (Read Only. Do not Change)"
+                      label: "Image Type"
+                      widget: "string"
+                      default: "Sponsor"
+                      required: true
+                      read_only: true
+
+                    - name: "upload"
+                      label: "Upload Image"
+                      widget: "image"
+                      media_folder: "/public/images/sponsors"
+                      public_folder: "/images/sponsors"
+            
   - name: "profile"
     label: "Profile"
     folder: "content/profile"
