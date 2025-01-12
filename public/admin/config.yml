@@ -547,6 +547,12 @@ collections:
         name: "sponsors_info"
         file: "public/data/sponsors_info.json"
         fields:
+          - label: "Upload Image"
+            name: "upload"
+            widget: "image"
+            media_folder: "/public/images/sponsors"
+            public_folder: "/images/sponsors"
+
           - label: "Sponsors Image Path List"
             name: "sponsors"
             widget: "list"
@@ -569,12 +575,6 @@ collections:
                     default: "Sponsor"
                     required: true
                     read_only: true
-
-                  - label: "Upload Image"
-                    name: "upload"
-                    widget: "image"
-                    media_folder: "/public/images/sponsors"
-                    public_folder: "/images/sponsors"
           - label: "Collabs Image Path List"
             name: "collabs"
             widget: "list"
@@ -597,12 +597,6 @@ collections:
                     default: "Sponsor"
                     required: true
                     read_only: true
-
-                  - label: "Upload Image"
-                    name: "upload"
-                    widget: "image"
-                    media_folder: "/public/images/sponsors"
-                    public_folder: "/images/sponsors"
             
   - name: "profile"
     label: "Profile"
