@@ -544,65 +544,65 @@ collections:
     label: "Sponsors Info"
     files:
       - label: "Sponsors Info JSON"
-          name: "sponsors_info"
-          file: "public/data/sponsors_info.json"
-          fields:
-            - label: "Sponsors Image Path List"
-              name: "sponsors"
-              widget: "list"
-              fields:
-                - name: "image"
-                  label: "Image"
-                  widget: "object"
-                  fields:
-                    - name: "imageLink"
-                      label: "Image Path Link"
-                      widget: "string"
+        name: "sponsors_info"
+        file: "public/data/sponsors_info.json"
+        fields:
+          - label: "Sponsors Image Path List"
+            name: "sponsors"
+            widget: "list"
+            fields:
+              - name: "image"
+                label: "Image"
+                widget: "object"
+                fields:
+                  - name: "imageLink"
+                    label: "Image Path Link"
+                    widget: "string"
 
-                    - name: "imageName"
-                      label: "Image Name"
-                      widget: "string"
+                  - name: "imageName"
+                    label: "Image Name"
+                    widget: "string"
 
-                    - name: "imageType (Read Only. Do not Change)"
-                      label: "Image Type"
-                      widget: "string"
-                      default: "Sponsor"
-                      required: true
-                      read_only: true
+                  - name: "imageType (Read Only. Do not Change)"
+                    label: "Image Type"
+                    widget: "string"
+                    default: "Sponsor"
+                    required: true
+                    read_only: true
 
-                    - name: "upload"
-                      label: "Upload Image"
-                      widget: "image"
-                      media_folder: "/public/images/sponsors"
-                      public_folder: "/images/sponsors"
-            - label: "Collabs Image Path List"
-              name: "collabs"
-              widget: "list"
-              fields:
-                - name: "image"
-                  label: "Image"
-                  widget: "object"
-                  fields:
-                    - name: "imageLink"
-                      label: "Image Path Link"
-                      widget: "string"
+                  - name: "upload"
+                    label: "Upload Image"
+                    widget: "image"
+                    media_folder: "/public/images/sponsors"
+                    public_folder: "/images/sponsors"
+          - label: "Collabs Image Path List"
+            name: "collabs"
+            widget: "list"
+            fields:
+              - name: "image"
+                label: "Image"
+                widget: "object"
+                fields:
+                  - name: "imageLink"
+                    label: "Image Path Link"
+                    widget: "string"
 
-                    - name: "imageName"
-                      label: "Image Name"
-                      widget: "string"
+                  - name: "imageName"
+                    label: "Image Name"
+                    widget: "string"
 
-                    - name: "imageType (Read Only. Do not Change)"
-                      label: "Image Type"
-                      widget: "string"
-                      default: "Sponsor"
-                      required: true
-                      read_only: true
+                  - name: "imageType (Read Only. Do not Change)"
+                    label: "Image Type"
+                    widget: "string"
+                    default: "Sponsor"
+                    required: true
+                    read_only: true
 
-                    - name: "upload"
-                      label: "Upload Image"
-                      widget: "image"
-                      media_folder: "/public/images/sponsors"
-                      public_folder: "/images/sponsors"
+                  - name: "upload"
+                    label: "Upload Image"
+                    widget: "image"
+                    media_folder: "/public/images/sponsors"
+                    public_folder: "/images/sponsors"
             
   - name: "profile"
     label: "Profile"
