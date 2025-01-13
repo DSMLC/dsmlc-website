@@ -23,7 +23,17 @@
       "name": "No Events At the Moment"
     }
   ],
-  "other_events": [],
+  "other_events": [
+    {
+      "title": "January 28, 2025",
+      "subSection": [
+        {
+          "header": "DSMLC Unplugged",
+          "text": "Come meet friends interested in Data Science and Machine Learning!"
+        }
+      ]
+    }
+  ],
   "other_events_register": [
     {
       "link": "#",
