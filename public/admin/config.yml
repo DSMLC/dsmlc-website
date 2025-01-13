@@ -609,6 +609,12 @@ collections:
         name: "execs"
         file: "public/data/execs.json"
         fields:
+          - label: "Upload Image"
+            name: "upload"
+            widget: "image"
+            media_folder: "/public/images/execs"
+            public_folder: "/images/execs"
+
           - label: "Executives"
             name: "execs"
             widget: "list"
@@ -633,16 +639,19 @@ collections:
                       - "Visionary Lab Board"
                     default: "Admin Team"
                     required: true
+
                   - label: "Roles List In Category"
                     name: "roles"
                     widget: "list"
                     field:
-                      label: "Role"
-                      name: "role"
-                      widget: "string"
+                      - label: "Role"
+                        name: "role"
+                        widget: "string"
+
               - label: "Profile Image Path Link"
                 name: "profile"
                 widget: "string"
+
               - label: "University Program"
                 name: "program"
                 widget: "object"
