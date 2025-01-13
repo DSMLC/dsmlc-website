@@ -643,9 +643,9 @@ collections:
                     name: "roles"
                     widget: "list"
                     field:
-                      - label: "Role"
-                        name: "role"
-                        widget: "string"
+                      label: "Role"
+                      name: "role"
+                      widget: "string"
 
               - label: "Profile Image Path Link"
                 name: "profile"
