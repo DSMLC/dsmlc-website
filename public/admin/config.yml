@@ -420,7 +420,7 @@ collections:
                 required: true
 
   # -----------------------------------------------------------
-  # 6) Manage "upcoming_events.json"
+  # 4) Manage "upcoming_events.json"
   # -----------------------------------------------------------
   - name: "upcoming_events"
     label: "Upcoming Events"
@@ -538,7 +538,7 @@ collections:
                 required: true
   
   # -----------------------------------------------------------
-  # 7) Manage "sponsors_info.json"
+  # 5) Manage "sponsors_info.json"
   # -----------------------------------------------------------
   - name: "sponsors_info"
     label: "Sponsors Info"
@@ -599,7 +599,7 @@ collections:
                     read_only: true
             
   # -----------------------------------------------------------
-  # 8) Manage "execs.json"
+  # 6) Manage "execs.json"
   # -----------------------------------------------------------
   - name: "execs"
     label: "Execs Info"
@@ -669,3 +669,462 @@ collections:
               - label: "Bio (Not currently shown.)"
                 name: "bio"
                 widget: "text"
+
+  # -----------------------------------------------------------
+  # 7) Manage "past_events.json"
+  # -----------------------------------------------------------
+  - name: "past_events"
+    label: "Past Events"
+     files:
+      - label: "Past Events Info JSON"
+        name: "past_events"
+        file: "public/data/past_events.json"
+        fields:
+
+          # ==========================
+          # Example for WINTER 2025
+          # ==========================
+          - label: "Winter 2025"
+            name: "winter_2025"
+            widget: "list"
+            fields:
+              - label: "Date of Event (i.e. Dec. 5)"
+                name: "number"
+                widget: "string"
+
+              - label: "Title of Event (i.e. DSMLC Unplugged)"
+                name: "header"
+                widget: "string"
+
+              - label: "Points Of Event"
+                name: "points"
+                widget: "list"
+                fields:
+                  - label: "Header (i.e. Event Overview: )"
+                    name: "header"
+                    default: "Event Overview: "
+                    widget: "string"
+                  - label: "Description of Event"
+                    name: "text"
+                    widget: "string"
+
+              - label: "Upload Image"
+                name: "upload"
+                widget: "image"
+                media_folder: "/public/images/events/winter_2025"
+                public_folder: "/images/events/winter_2025"
+
+              - label: "Image for winter 2025"
+                name: "image"
+                widget: "object"
+                fields:
+                  - label: "Image Light Mode Path Link"
+                    name: "imageLink"
+                    widget: "string"
+                  - label: "Image Dark Mode Path Link"
+                    name: "imageDarkMode"
+                    widget: "string"
+                    required: false
+                  - label: "Image Name"
+                    name: "imageName"
+                    widget: "string"
+                  - label: "Image Type"
+                    name: "imageType"
+                    widget: "select"
+                    required: true
+                    default: "Pic"
+                    options:
+                      - "Pic"
+                      - "Logo"
+
+          # ==========================
+          # Example for FALL 2024
+          # ==========================
+          - label: "Fall 2024"
+            name: "fall_2024"
+            widget: "list"
+            fields:
+              - label: "Date of Event (i.e. Dec. 5)"
+                name: "number"
+                widget: "string"
+
+              - label: "Title of Event (i.e. DSMLC Unplugged)"
+                name: "header"
+                widget: "string"
+
+              - label: "Points Of Event"
+                name: "points"
+                widget: "list"
+                fields:
+                  - label: "Header (i.e. Event Overview: )"
+                    name: "header"
+                    default: "Event Overview: "
+                    widget: "string"
+                  - label: "Description of Event"
+                    name: "text"
+                    widget: "string"
+
+              - label: "Upload Image"
+                name: "upload"
+                widget: "image"
+                media_folder: "/public/images/events/fall_2024"
+                public_folder: "/images/events/fall_2024"
+
+              - label: "Image for Fall 2024"
+                name: "image"
+                widget: "object"
+                fields:
+                  - label: "Image Light Mode Path Link"
+                    name: "imageLink"
+                    widget: "string"
+                  - label: "Image Dark Mode Path Link"
+                    name: "imageDarkMode"
+                    widget: "string"
+                    required: false
+                  - label: "Image Name"
+                    name: "imageName"
+                    widget: "string"
+                  - label: "Image Type"
+                    name: "imageType"
+                    widget: "select"
+                    required: true
+                    default: "Pic"
+                    options:
+                      - "Pic"
+                      - "Logo"
+                  
+          # ==========================
+          # Example for WINTER 2024 TODO
+          # ==========================
+          - label: "Winter 2024"
+            name: "winter_2024"
+            widget: "list"
+            fields:
+              - label: "Date of Event (i.e. Dec. 5)"
+                name: "number"
+                widget: "string"
+
+              - label: "Title of Event (i.e. DSMLC Unplugged)"
+                name: "header"
+                widget: "string"
+
+              - label: "Points Of Event"
+                name: "points"
+                widget: "list"
+                fields:
+                  - label: "Header (i.e. Event Overview: )"
+                    name: "header"
+                    default: "Event Overview: "
+                    widget: "string"
+                  - label: "Description of Event"
+                    name: "text"
+                    widget: "string"
+
+              - label: "Upload Image"
+                name: "upload"
+                widget: "image"
+                media_folder: "/public/images/events/winter_2024"
+                public_folder: "/images/events/winter_2024"
+
+              - label: "Image for winter 2024"
+                name: "image"
+                widget: "object"
+                fields:
+                  - label: "Image Light Mode Path Link"
+                    name: "imageLink"
+                    widget: "string"
+                  - label: "Image Dark Mode Path Link"
+                    name: "imageDarkMode"
+                    widget: "string"
+                    required: false
+                  - label: "Image Name"
+                    name: "imageName"
+                    widget: "string"
+                  - label: "Image Type"
+                    name: "imageType"
+                    widget: "select"
+                    required: true
+                    default: "Pic"
+                    options:
+                      - "Pic"
+                      - "Logo"
+
+          # ==========================
+          # Example for FALL 2023
+          # ==========================
+          - label: "Fall 2023"
+            name: "fall_2023"
+            widget: "list"
+            fields:
+              - label: "Date of Event (i.e. Dec. 5)"
+                name: "number"
+                widget: "string"
+
+              - label: "Title of Event (i.e. DSMLC Unplugged)"
+                name: "header"
+                widget: "string"
+
+              - label: "Points Of Event"
+                name: "points"
+                widget: "list"
+                fields:
+                  - label: "Header (i.e. Event Overview: )"
+                    name: "header"
+                    default: "Event Overview: "
+                    widget: "string"
+                  - label: "Description of Event"
+                    name: "text"
+                    widget: "string"
+
+              - label: "Upload Image"
+                name: "upload"
+                widget: "image"
+                media_folder: "/public/images/events/fall_2023"
+                public_folder: "/images/events/fall_2023"
+
+              - label: "Image for Fall 2023"
+                name: "image"
+                widget: "object"
+                fields:
+                  - label: "Image Light Mode Path Link"
+                    name: "imageLink"
+                    widget: "string"
+                  - label: "Image Dark Mode Path Link"
+                    name: "imageDarkMode"
+                    widget: "string"
+                    required: false
+                  - label: "Image Name"
+                    name: "imageName"
+                    widget: "string"
+                  - label: "Image Type"
+                    name: "imageType"
+                    widget: "select"
+                    required: true
+                    default: "Pic"
+                    options:
+                      - "Pic"
+                      - "Logo"
+
+          # ==========================
+          # Example for WINTER 2023
+          # ==========================
+          - label: "Winter 2023"
+            name: "winter_2023"
+            widget: "list"
+            fields:
+              - label: "Date of Event (i.e. Dec. 5)"
+                name: "number"
+                widget: "string"
+
+              - label: "Title of Event (i.e. DSMLC Unplugged)"
+                name: "header"
+                widget: "string"
+
+              - label: "Points Of Event"
+                name: "points"
+                widget: "list"
+                fields:
+                  - label: "Header (i.e. Event Overview: )"
+                    name: "header"
+                    default: "Event Overview: "
+                    widget: "string"
+                  - label: "Description of Event"
+                    name: "text"
+                    widget: "string"
+
+              - label: "Upload Image"
+                name: "upload"
+                widget: "image"
+                media_folder: "/public/images/events/winter_2023"
+                public_folder: "/images/events/winter_2023"
+
+              - label: "Image for winter 2023"
+                name: "image"
+                widget: "object"
+                fields:
+                  - label: "Image Light Mode Path Link"
+                    name: "imageLink"
+                    widget: "string"
+                  - label: "Image Dark Mode Path Link"
+                    name: "imageDarkMode"
+                    widget: "string"
+                    required: false
+                  - label: "Image Name"
+                    name: "imageName"
+                    widget: "string"
+                  - label: "Image Type"
+                    name: "imageType"
+                    widget: "select"
+                    required: true
+                    default: "Pic"
+                    options:
+                      - "Pic"
+                      - "Logo"
+          
+          # ==========================
+          # Example for FALL 2022
+          # ==========================
+          - label: "Fall 2022"
+            name: "fall_2022"
+            widget: "list"
+            fields:
+              - label: "Date of Event (i.e. Dec. 5)"
+                name: "number"
+                widget: "string"
+
+              - label: "Title of Event (i.e. DSMLC Unplugged)"
+                name: "header"
+                widget: "string"
+
+              - label: "Points Of Event"
+                name: "points"
+                widget: "list"
+                fields:
+                  - label: "Header (i.e. Event Overview: )"
+                    name: "header"
+                    default: "Event Overview: "
+                    widget: "string"
+                  - label: "Description of Event"
+                    name: "text"
+                    widget: "string"
+
+              - label: "Upload Image"
+                name: "upload"
+                widget: "image"
+                media_folder: "/public/images/events/fall_2022"
+                public_folder: "/images/events/fall_2022"
+
+              - label: "Image for Fall 2022"
+                name: "image"
+                widget: "object"
+                fields:
+                  - label: "Image Light Mode Path Link"
+                    name: "imageLink"
+                    widget: "string"
+                  - label: "Image Dark Mode Path Link"
+                    name: "imageDarkMode"
+                    widget: "string"
+                    required: false
+                  - label: "Image Name"
+                    name: "imageName"
+                    widget: "string"
+                  - label: "Image Type"
+                    name: "imageType"
+                    widget: "select"
+                    required: true
+                    default: "Pic"
+                    options:
+                      - "Pic"
+                      - "Logo"
+
+          # ==========================
+          # Example for WINTER 2022
+          # ==========================
+          - label: "Winter 2022"
+            name: "winter_2022"
+            widget: "list"
+            fields:
+              - label: "Date of Event (i.e. Dec. 5)"
+                name: "number"
+                widget: "string"
+
+              - label: "Title of Event (i.e. DSMLC Unplugged)"
+                name: "header"
+                widget: "string"
+
+              - label: "Points Of Event"
+                name: "points"
+                widget: "list"
+                fields:
+                  - label: "Header (i.e. Event Overview: )"
+                    name: "header"
+                    default: "Event Overview: "
+                    widget: "string"
+                  - label: "Description of Event"
+                    name: "text"
+                    widget: "string"
+
+              - label: "Upload Image"
+                name: "upload"
+                widget: "image"
+                media_folder: "/public/images/events/winter_2022"
+                public_folder: "/images/events/winter_2022"
+
+              - label: "Image for winter 2022"
+                name: "image"
+                widget: "object"
+                fields:
+                  - label: "Image Light Mode Path Link"
+                    name: "imageLink"
+                    widget: "string"
+                  - label: "Image Dark Mode Path Link"
+                    name: "imageDarkMode"
+                    widget: "string"
+                    required: false
+                  - label: "Image Name"
+                    name: "imageName"
+                    widget: "string"
+                  - label: "Image Type"
+                    name: "imageType"
+                    widget: "select"
+                    required: true
+                    default: "Pic"
+                    options:
+                      - "Pic"
+                      - "Logo"
+
+          # ==========================
+          # Example for FALL 2021
+          # ==========================
+          - label: "Fall 2021"
+            name: "fall_2021"
+            widget: "list"
+            fields:
+              - label: "Date of Event (i.e. Dec. 5)"
+                name: "number"
+                widget: "string"
+
+              - label: "Title of Event (i.e. DSMLC Unplugged)"
+                name: "header"
+                widget: "string"
+
+              - label: "Points Of Event"
+                name: "points"
+                widget: "list"
+                fields:
+                  - label: "Header (i.e. Event Overview: )"
+                    name: "header"
+                    default: "Event Overview: "
+                    widget: "string"
+                  - label: "Description of Event"
+                    name: "text"
+                    widget: "string"
+
+              - label: "Upload Image"
+                name: "upload"
+                widget: "image"
+                media_folder: "/public/images/events/fall_2021"
+                public_folder: "/images/events/fall_2021"
+
+              - label: "Image for Fall 2021"
+                name: "image"
+                widget: "object"
+                fields:
+                  - label: "Image Light Mode Path Link"
+                    name: "imageLink"
+                    widget: "string"
+                  - label: "Image Dark Mode Path Link"
+                    name: "imageDarkMode"
+                    widget: "string"
+                    required: false
+                  - label: "Image Name"
+                    name: "imageName"
+                    widget: "string"
+                  - label: "Image Type"
+                    name: "imageType"
+                    widget: "select"
+                    required: true
+                    default: "Pic"
+                    options:
+                      - "Pic"
+                      - "Logo"
