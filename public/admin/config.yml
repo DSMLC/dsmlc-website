@@ -538,7 +538,7 @@ collections:
                 required: true
   
   # -----------------------------------------------------------
-  # 6) Manage "sponsors_info.json"
+  # 7) Manage "sponsors_info.json"
   # -----------------------------------------------------------
   - name: "sponsors_info"
     label: "Sponsors Info"
@@ -598,20 +598,66 @@ collections:
                     required: true
                     read_only: true
             
-  - name: "profile"
-    label: "Profile"
-    folder: "content/profile"
-    create: true
-    slug: "{{slug}}"
+  # -----------------------------------------------------------
+  # 8) Manage "execs.json"
+  # -----------------------------------------------------------
+  collections:
+  - name: "execs"
+    label: "Execs Info"
+    file: "public/data/execs.json"
+    # Tells Netlify CMS to parse and write JSON in this single file.
+    # (No leading slash needed, because this is a direct file path in your repo.)
 
     fields:
-      - label: "Profile Name"
-        name: "name"
-        widget: "string"
+      - label: "Executives"
+        name: "execs"          # Matches the JSON key "execs"
+        widget: "list"
+        fields:
+          - label: "Name"
+            name: "name"
+            widget: "string"
 
-      - label: "Profile Picture"
-        name: "picture"
-        widget: "image"
+          - label: "Category and Role"
+            name: "role"
+            widget: "list"
+            fields:
+              - label: "Group Category (First 3 are exec roles, second 3 are VL roles)"
+                name: "group"
+                widget: "select"
+                options:
+                  - "Admin Team"
+                  - "Operations Team"
+                  - "Legacy Executives (Advisory Team)"
+                  - "Project Managers"
+                  - "Advisors"
+                  - "Visionary Lab Board"
+                default: "Admin Team"
+                required: true
+              - label: "Roles List In Category"
+                name: "roles"
+                widget: "list"
+                field:
+                  label: "Role"
+                  name: "role"
+                  widget: "string"
+          - label: "Profile Image Path Link"
+            name: "profile"
+            widget: "string"
+          - label: "University Program"
+            name: "program"
+            widget: "object"
+            fields:
+              - label: "List of Program(s)"
+                name: "programs"
+                widget: "list"
+                field:
+                  label: "Program Name"
+                  name: "program"
+                  widget: "string"
+              - label: "University Year"
+                name: "year"
+                widget: "string"
 
-        media_folder: "/public/images/profile"
-        public_folder: "/images/profile"
+          - label: "Bio (Not currently shown.)"
+            name: "bio"
+            widget: "text"

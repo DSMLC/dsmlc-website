@@ -25,15 +25,17 @@ export const ProfileListTemplate = ({
               <SubtitleTemplate Data={roleGroup} />
             </div>
             <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
-              {Execs.filter((exec) =>
-                exec.role.some(
-                  (role) => role.group == roleGroup && role.roles.length > 0
+              {Execs.execs
+                .filter((exec) =>
+                  exec.role.some(
+                    (role) => role.group == roleGroup && role.roles.length > 0
+                  )
                 )
-              ).map((filteredExec, index) => {
-                return (
-                  <motion.div
-                    key={index}
-                    className="
+                .map((filteredExec, index) => {
+                  return (
+                    <motion.div
+                      key={index}
+                      className="
                       flex flex-col gap-1 text-center justify-between
                       bg-dark-dsmlcBlack dark:bg-light-dsmlcBlack
                       p-4 rounded-3xl
@@ -41,66 +43,73 @@ export const ProfileListTemplate = ({
                       shadow-md
                       hover:shadow-2xl
                     "
-                    style={{ transformStyle: "preserve-3d" }}
-                    whileHover={{
-                      scale: 1.07,
-                      rotateX: 8,
-                      rotateY: 8,
-                    }}
-                    transition={{ type: "spring", stiffness: 200, damping: 10 }}
-                  >
-                    <Image
-                      src={filteredExec.profile || EmptyProfie || ""}
-                      alt="Executive Profile Picture"
-                      width={999}
-                      height={999}
-                      className={`${
-                        filteredExec.profile
-                          ? "object-cover"
-                          : "object-contain p-4"
-                      } self-center object-center md:w-32 md:h-32 w-24 h-24 border-4 border-dsmlcTangerine rounded-4xl`}
-                    />
+                      style={{ transformStyle: "preserve-3d" }}
+                      whileHover={{
+                        scale: 1.07,
+                        rotateX: 8,
+                        rotateY: 8,
+                      }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 200,
+                        damping: 10,
+                      }}
+                    >
+                      <Image
+                        src={filteredExec.profile || EmptyProfie || ""}
+                        alt="Executive Profile Picture"
+                        width={999}
+                        height={999}
+                        className={`${
+                          filteredExec.profile
+                            ? "object-cover"
+                            : "object-contain p-4"
+                        } self-center object-center md:w-32 md:h-32 w-24 h-24 border-4 border-dsmlcTangerine rounded-4xl`}
+                      />
 
-                    <span className="font-bold font-redHat text-xl text-dsmlcTangerine mt-2">
-                      {filteredExec.name}
-                    </span>
-
-                    {filteredExec.program && (
-                      <span className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack text-sm italic flex flex-wrap items-center justify-center px-2">
-                        {filteredExec.program?.year}
-                        {filteredExec.program?.programs?.length > 0 &&
-                          filteredExec.program?.programs.map(
-                            (program, index) => {
-                              return (
-                                <div key={index} className="w-full text-center">
-                                  {program}
-                                </div>
-                              );
-                            }
-                          )}
+                      <span className="font-bold font-redHat text-xl text-dsmlcTangerine mt-2">
+                        {filteredExec.name}
                       </span>
-                    )}
 
-                    {filteredExec.role
-                      .filter((role) => role.group === roleGroup)
-                      .map((role) =>
-                        role.roles.map((roleTitle, index) => (
-                          <span
-                            className="
+                      {filteredExec.program && (
+                        <span className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack text-sm italic flex flex-wrap items-center justify-center px-2">
+                          {filteredExec.program?.year}
+                          {filteredExec.program?.programs?.length > 0 &&
+                            filteredExec.program?.programs.map(
+                              (program, index) => {
+                                return (
+                                  <div
+                                    key={index}
+                                    className="w-full text-center"
+                                  >
+                                    {program}
+                                  </div>
+                                );
+                              }
+                            )}
+                        </span>
+                      )}
+
+                      {filteredExec.role
+                        .filter((role) => role.group === roleGroup)
+                        .map((role) =>
+                          role.roles.map((roleTitle, index) => (
+                            <span
+                              className="
                               border-b-2 w-fit self-center border-dsmlcTangerine 
                               dark:text-dark-dsmlcBlack 
                               text-light-dsmlcBlack 
                               font-semibold
                             "
-                            key={index}
-                          >
-                            {roleTitle}
-                          </span>
-                        ))
-                      )}
-                  </motion.div>
-                );
-              })}
+                              key={index}
+                            >
+                              {roleTitle}
+                            </span>
+                          ))
+                        )}
+                    </motion.div>
+                  );
+                })}
             </div>
           </div>
         );
