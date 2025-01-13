@@ -675,7 +675,7 @@ collections:
   # -----------------------------------------------------------
   - name: "past_events"
     label: "Past Events"
-     files:
+    files:
       - label: "Past Events Info JSON"
         name: "past_events"
         file: "public/data/past_events.json"
