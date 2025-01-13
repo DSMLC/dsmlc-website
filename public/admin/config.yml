@@ -460,9 +460,9 @@ collections:
                 name: "name"
                 widget: "select"
                 options:
-                  - "No Events At the Moment"
-                  - "Register to Event"
-                default: "No Events At the Moment"
+                  - "Registrations Closed At the Moment"
+                  - "Register for Event"
+                default: "Registrations Closed At the Moment"
                 required: true
 
           - label: "Workshops Event List"
@@ -496,9 +496,9 @@ collections:
                 name: "name"
                 widget: "select"
                 options:
-                  - "No Events At the Moment"
-                  - "Register to Event"
-                default: "No Events At the Moment"
+                  - "Registrations Closed At the Moment"
+                  - "Register for Event"
+                default: "Registrations Closed At the Moment"
                 required: true
 
           - label: "Other Events List"
@@ -532,9 +532,9 @@ collections:
                 name: "name"
                 widget: "select"
                 options:
-                  - "No Events At the Moment"
-                  - "Register to Event"
-                default: "No Events At the Moment"
+                  - "Registrations Closed At the Moment"
+                  - "Register for Event"
+                default: "Registrations Closed At the Moment"
                 required: true
   
   # -----------------------------------------------------------
