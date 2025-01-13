@@ -604,60 +604,60 @@ collections:
   collections:
   - name: "execs"
     label: "Execs Info"
-    file: "public/data/execs.json"
-    # Tells Netlify CMS to parse and write JSON in this single file.
-    # (No leading slash needed, because this is a direct file path in your repo.)
-
-    fields:
-      - label: "Executives"
-        name: "execs"          # Matches the JSON key "execs"
-        widget: "list"
+    files:
+      - label: "Execs Info JSON"
+        name: "execs"
+        file: "public/data/execs.json"
         fields:
-          - label: "Name"
-            name: "name"
-            widget: "string"
-
-          - label: "Category and Role"
-            name: "role"
+          - label: "Executives"
+            name: "execs"
             widget: "list"
             fields:
-              - label: "Group Category (First 3 are exec roles, second 3 are VL roles)"
-                name: "group"
-                widget: "select"
-                options:
-                  - "Admin Team"
-                  - "Operations Team"
-                  - "Legacy Executives (Advisory Team)"
-                  - "Project Managers"
-                  - "Advisors"
-                  - "Visionary Lab Board"
-                default: "Admin Team"
-                required: true
-              - label: "Roles List In Category"
-                name: "roles"
-                widget: "list"
-                field:
-                  label: "Role"
-                  name: "role"
-                  widget: "string"
-          - label: "Profile Image Path Link"
-            name: "profile"
-            widget: "string"
-          - label: "University Program"
-            name: "program"
-            widget: "object"
-            fields:
-              - label: "List of Program(s)"
-                name: "programs"
-                widget: "list"
-                field:
-                  label: "Program Name"
-                  name: "program"
-                  widget: "string"
-              - label: "University Year"
-                name: "year"
+              - label: "Name"
+                name: "name"
                 widget: "string"
 
-          - label: "Bio (Not currently shown.)"
-            name: "bio"
-            widget: "text"
+              - label: "Category and Role"
+                name: "role"
+                widget: "list"
+                fields:
+                  - label: "Group Category (First 3 are exec roles, second 3 are VL roles)"
+                    name: "group"
+                    widget: "select"
+                    options:
+                      - "Admin Team"
+                      - "Operations Team"
+                      - "Legacy Executives (Advisory Team)"
+                      - "Project Managers"
+                      - "Advisors"
+                      - "Visionary Lab Board"
+                    default: "Admin Team"
+                    required: true
+                  - label: "Roles List In Category"
+                    name: "roles"
+                    widget: "list"
+                    field:
+                      label: "Role"
+                      name: "role"
+                      widget: "string"
+              - label: "Profile Image Path Link"
+                name: "profile"
+                widget: "string"
+              - label: "University Program"
+                name: "program"
+                widget: "object"
+                fields:
+                  - label: "List of Program(s)"
+                    name: "programs"
+                    widget: "list"
+                    field:
+                      label: "Program Name"
+                      name: "program"
+                      widget: "string"
+                  - label: "University Year"
+                    name: "year"
+                    widget: "string"
+
+              - label: "Bio (Not currently shown.)"
+                name: "bio"
+                widget: "text"
