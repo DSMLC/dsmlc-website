@@ -611,8 +611,8 @@ collections:
           - label: "Upload Image"
             name: "upload"
             widget: "image"
-            media_folder: "/public/images/execs"
-            public_folder: "/images/execs"
+            media_folder: "/public/images/profile"
+            public_folder: "/images/profile"
 
           - label: "Executives"
             name: "execs"
