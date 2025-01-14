@@ -637,7 +637,6 @@ collections:
                       - "Advisors"
                       - "Visionary Lab Board"
                     default: "Admin Team"
-                    required: true
 
                   - label: "Roles List In Category"
                     name: "roles"
