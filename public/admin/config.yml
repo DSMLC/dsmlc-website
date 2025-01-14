@@ -613,6 +613,7 @@ collections:
             widget: "image"
             media_folder: "/public/images/profile"
             public_folder: "/images/profile"
+            required: false
 
           - label: "Executives"
             name: "execs"
@@ -645,29 +646,36 @@ collections:
                       label: "Role"
                       name: "role"
                       widget: "string"
+                      required: false
 
               - label: "Profile Image Path Link"
                 name: "profile"
                 widget: "string"
+                required: false
 
               - label: "University Program"
                 name: "program"
                 widget: "object"
+                required: false
                 fields:
                   - label: "List of Program(s)"
                     name: "programs"
                     widget: "list"
+                    required: false
                     field:
                       label: "Program Name"
                       name: "program"
                       widget: "string"
+                      required: false
                   - label: "University Year"
                     name: "year"
                     widget: "string"
+                    required: false
 
               - label: "Bio (Not currently shown.)"
                 name: "bio"
                 widget: "text"
+                required: false
 
   # -----------------------------------------------------------
   # 7) Manage "past_events.json"
