@@ -5,16 +5,23 @@
       "role": [
         {
           "group": "Admin Team",
-          "roles": ["President"]
+          "roles": [
+            "President"
+          ]
         },
         {
           "group": "Project Managers",
-          "roles": ["2024 Project Manager"]
+          "roles": [
+            "2024 Project Manager"
+          ]
         }
       ],
       "profile": "/images/profile/gabriel_rodriguez.jpg",
       "program": {
-        "programs": ["Computer Science", "Business"],
+        "programs": [
+          "Computer Science",
+          "Business"
+        ],
         "year": "4th Year"
       },
       "bio": "I like learning about cultures and languages, travelling the world, painting and animating cityscapes, working out, recording everything for my future self to see, and keeping things aesthetic :D"
@@ -24,32 +31,46 @@
       "role": [
         {
           "group": "Admin Team",
-          "roles": ["Presidential Advisor"]
+          "roles": [
+            "Presidential Advisor"
+          ]
         },
         {
           "group": "Advisors",
-          "roles": ["Advisor"]
+          "roles": [
+            "Advisor"
+          ]
         }
       ],
       "program": {
-        "programs": ["Medical Student (MD)"]
-      }
+        "programs": [
+          "Medical Student (MD)"
+        ]
+      },
+      "profile": "/images/profile/rayyan_zuberi.webp"
     },
     {
       "name": "Evan Poulson",
       "role": [
         {
           "group": "Admin Team",
-          "roles": ["VP General Events"]
+          "roles": [
+            "VP General Events"
+          ]
         },
         {
           "group": "Visionary Lab Board",
-          "roles": ["Board Chairman"]
+          "roles": [
+            "Board Chairman"
+          ]
         }
       ],
       "profile": "/images/profile/evan_poulson.jpg",
       "program": {
-        "programs": ["Computer Science", "Data Science"],
+        "programs": [
+          "Computer Science",
+          "Data Science"
+        ],
         "year": "2nd Year"
       },
       "bio": "Hi I'm Evan, a 2nd year Comp Sci/Data Sci Major! I'm really big into basketball and snowboarding, and I also enjoy learning about history and different cultures!"
@@ -59,16 +80,22 @@
       "role": [
         {
           "group": "Admin Team",
-          "roles": ["Jr. VP Events"]
+          "roles": [
+            "Jr. VP Events"
+          ]
         },
         {
           "group": "Visionary Lab Board",
-          "roles": ["Board of Directors"]
+          "roles": [
+            "Board of Directors"
+          ]
         }
       ],
       "profile": "/images/profile/adrian_julve.jpg",
       "program": {
-        "programs": ["Data Science"],
+        "programs": [
+          "Data Science"
+        ],
         "year": "2nd Year"
       },
       "bio": "I love being active and I'm all about improving myself physically and mentally. You can frequently catch me in the gym or hiking up a mountain! I'm also big into car culture and video games!"
@@ -78,15 +105,21 @@
       "role": [
         {
           "group": "Admin Team",
-          "roles": ["Jr. VP Events"]
+          "roles": [
+            "Jr. VP Events"
+          ]
         },
         {
           "group": "Visionary Lab Board",
-          "roles": ["Board of Directors"]
+          "roles": [
+            "Board of Directors"
+          ]
         }
       ],
       "program": {
-        "programs": ["Data Science"],
+        "programs": [
+          "Data Science"
+        ],
         "year": "2nd Year"
       },
       "bio": "Hi, I'm Aimen! I'm passionate problem-solving through data and the future of AI. During my free time, I'm an avid reader and enjoy exploring topics in literature and psychology."
@@ -96,15 +129,22 @@
       "role": [
         {
           "group": "Admin Team",
-          "roles": ["VP Outreach"]
+          "roles": [
+            "VP Outreach"
+          ]
         },
         {
           "group": "Visionary Lab Board",
-          "roles": ["Board of Directors"]
+          "roles": [
+            "Board of Directors"
+          ]
         }
       ],
       "program": {
-        "programs": ["Computer Science", "Finance"],
+        "programs": [
+          "Computer Science",
+          "Finance"
+        ],
         "year": "2nd Year"
       },
       "bio": "I love to hike, and do summits in the mountains. I love technology and am always excited about the future of cybernetics, and also love to workout and lose braincells play Rainbow 6ix Seige"
@@ -114,11 +154,15 @@
       "role": [
         {
           "group": "Admin Team",
-          "roles": ["Jr. VP Outreach"]
+          "roles": [
+            "Jr. VP Outreach"
+          ]
         }
       ],
       "program": {
-        "programs": ["Computer Science"],
+        "programs": [
+          "Computer Science"
+        ],
         "year": "2nd Year"
       },
       "bio": "Passionate about physics and math, and lvoe incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing"
@@ -128,15 +172,21 @@
       "role": [
         {
           "group": "Admin Team",
-          "roles": ["Jr. VP Outreach"]
+          "roles": [
+            "Jr. VP Outreach"
+          ]
         },
         {
           "group": "Visionary Lab Board",
-          "roles": ["Board of Directors"]
+          "roles": [
+            "Board of Directors"
+          ]
         }
       ],
       "program": {
-        "programs": ["Business"],
+        "programs": [
+          "Business"
+        ],
         "year": "2nd Year"
       },
       "profile": "/images/profile/ian_mccourtie.jpg",
@@ -147,15 +197,21 @@
       "role": [
         {
           "group": "Operations Team",
-          "roles": ["VP Operations"]
+          "roles": [
+            "VP Operations"
+          ]
         },
         {
           "group": "Advisors",
-          "roles": ["Advisor"]
+          "roles": [
+            "Advisor"
+          ]
         }
       ],
       "program": {
-        "programs": ["Software Engineering"],
+        "programs": [
+          "Software Engineering"
+        ],
         "year": "6th Year"
       },
       "profile": "/images/profile/maheen_hossain.jpg"
@@ -165,11 +221,15 @@
       "role": [
         {
           "group": "Operations Team",
-          "roles": ["Jr. VP Operations"]
+          "roles": [
+            "Jr. VP Operations"
+          ]
         }
       ],
       "program": {
-        "programs": ["Computer Science"],
+        "programs": [
+          "Computer Science"
+        ],
         "year": "3rd Year"
       },
       "profile": "/images/profile/joseph_tandyo.jpg",
@@ -180,19 +240,27 @@
       "role": [
         {
           "group": "Operations Team",
-          "roles": ["Tech Lead"]
+          "roles": [
+            "Tech Lead"
+          ]
         },
         {
           "group": "Visionary Lab Board",
-          "roles": ["Board of Directors"]
+          "roles": [
+            "Board of Directors"
+          ]
         },
         {
           "group": "Project Managers",
-          "roles": ["2024 Project Manager"]
+          "roles": [
+            "2024 Project Manager"
+          ]
         }
       ],
       "program": {
-        "programs": ["Computer Science"],
+        "programs": [
+          "Computer Science"
+        ],
         "year": "6th Year"
       },
       "profile": "/images/profile/jason_nguyen.jpg"
@@ -202,7 +270,9 @@
       "role": [
         {
           "group": "Operations Team",
-          "roles": ["Competition Director"]
+          "roles": [
+            "Competition Director"
+          ]
         }
       ]
     },
@@ -211,11 +281,15 @@
       "role": [
         {
           "group": "Operations Team",
-          "roles": ["Jr. Competition Director"]
+          "roles": [
+            "Jr. Competition Director"
+          ]
         }
       ],
       "program": {
-        "programs": ["Business"],
+        "programs": [
+          "Business"
+        ],
         "year": "2nd Year"
       },
       "profile": "/images/profile/dheeraj_jaswal.jpg",
@@ -226,7 +300,9 @@
       "role": [
         {
           "group": "Operations Team",
-          "roles": ["Workshop Director"]
+          "roles": [
+            "Workshop Director"
+          ]
         }
       ]
     },
@@ -235,19 +311,28 @@
       "role": [
         {
           "group": "Operations Team",
-          "roles": ["Workshop Director"]
+          "roles": [
+            "Workshop Director"
+          ]
         },
         {
           "group": "Visionary Lab Board",
-          "roles": ["Board of Directors"]
+          "roles": [
+            "Board of Directors"
+          ]
         },
         {
           "group": "Project Managers",
-          "roles": ["2024 Project Manager"]
+          "roles": [
+            "2024 Project Manager"
+          ]
         }
       ],
       "program": {
-        "programs": ["Computer Science", "Business"],
+        "programs": [
+          "Computer Science",
+          "Business"
+        ],
         "year": "3rd Year"
       },
       "profile": "/images/profile/andrey_dimanchev.jpg",
@@ -258,12 +343,16 @@
       "role": [
         {
           "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Outreach"]
+          "roles": [
+            "VP Outreach"
+          ]
         }
       ],
       "profile": "/images/profile/lucy_li.jpeg",
       "program": {
-        "programs": ["Business Analytics"]
+        "programs": [
+          "Business Analytics"
+        ]
       }
     },
     {
@@ -271,7 +360,9 @@
       "role": [
         {
           "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Finance"]
+          "roles": [
+            "VP Finance"
+          ]
         }
       ]
     },
@@ -280,7 +371,9 @@
       "role": [
         {
           "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Operations"]
+          "roles": [
+            "VP Operations"
+          ]
         }
       ]
     },
@@ -289,15 +382,21 @@
       "role": [
         {
           "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Operations"]
+          "roles": [
+            "VP Operations"
+          ]
         },
         {
           "group": "Advisors",
-          "roles": ["Advisor"]
+          "roles": [
+            "Advisor"
+          ]
         }
       ],
       "program": {
-        "programs": ["Cellular Molecular Microbial Biology"]
+        "programs": [
+          "Cellular Molecular Microbial Biology"
+        ]
       }
     },
     {
@@ -305,7 +404,9 @@
       "role": [
         {
           "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Communications"]
+          "roles": [
+            "VP Communications"
+          ]
         }
       ]
     }
