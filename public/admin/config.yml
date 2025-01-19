@@ -2,6 +2,8 @@ backend:
   name: git-gateway
   branch: master
 
+publish_mode: editorial_workflow
+
 media_folder: "public/images" # Where uploaded images would go inside your repo
 public_folder: "/images"      # Public URL for the images
 
@@ -93,12 +95,13 @@ collections:
                 default: "No Positions Available"
                 required: true
 
+  
+  - name: "club_stats"
+    label: "Club Information"
+    files:
   # -----------------------------------------------------------
   # 2) Manage "club_stats.json"
   # -----------------------------------------------------------
-  - name: "club_stats"
-    label: "Club Stats"
-    files:
       - label: "Club Stats JSON"
         name: "club_stats"
         file: "public/data/club_stats.json"
@@ -144,12 +147,144 @@ collections:
                 default: "Event Attendees"
                 required: true
                 read_only: true
+
+  # -----------------------------------------------------------
+  # 5) Manage "sponsors_info.json"
+  # -----------------------------------------------------------
+      - label: "Sponsors Info JSON"
+        name: "sponsors_info"
+        file: "public/data/sponsors_info.json"
+        fields:
+          - label: "Upload Image"
+            name: "upload"
+            widget: "image"
+            media_folder: "/public/images/sponsors"
+            public_folder: "/images/sponsors"
+
+          - label: "Sponsors Image Path List"
+            name: "sponsors"
+            widget: "list"
+            fields:
+              - label: "Image"
+                name: "image"
+                widget: "object"
+                fields:
+                  - label: "Image Path Link"
+                    name: "imageLink"
+                    widget: "string"
+
+                  - label: "Image Name"
+                    name: "imageName"
+                    widget: "string"
+
+                  - label: "Image Type (Read Only. Do not Change)"
+                    name: "imageType"
+                    widget: "string"
+                    default: "Sponsor"
+                    required: true
+                    read_only: true
+          - label: "Collabs Image Path List"
+            name: "collabs"
+            widget: "list"
+            fields:
+              - name: "image"
+                label: "Image"
+                widget: "object"
+                fields:
+                  - label: "Image Path Link"
+                    name: "imageLink"
+                    widget: "string"
+
+                  - label: "Image Name"
+                    name: "imageName"
+                    widget: "string"
+
+                  - label: "Image Type (Read Only. Do not Change)"
+                    name: "imageType"
+                    widget: "string"
+                    default: "Sponsor"
+                    required: true
+                    read_only: true
+
+  # -----------------------------------------------------------
+  # 6) Manage "execs.json"
+  # -----------------------------------------------------------
+      - label: "Execs Info JSON"
+        name: "execs"
+        file: "public/data/execs.json"
+        fields:
+          - label: "Upload Image"
+            name: "upload"
+            widget: "image"
+            media_folder: "/public/images/profile"
+            public_folder: "/images/profile"
+            required: false
+
+          - label: "Executives"
+            name: "execs"
+            widget: "list"
+            fields:
+              - label: "Name"
+                name: "name"
+                widget: "string"
+
+              - label: "Category and Role"
+                name: "role"
+                widget: "list"
+                fields:
+                  - label: "Group Category (First 3 are exec roles, second 3 are VL roles)"
+                    name: "group"
+                    widget: "select"
+                    options:
+                      - "Admin Team"
+                      - "Operations Team"
+                      - "Legacy Executives (Advisory Team)"
+                      - "Project Managers"
+                      - "Advisors"
+                      - "Visionary Lab Board"
+                    default: "Admin Team"
+
+                  - label: "Roles List In Category"
+                    name: "roles"
+                    widget: "list"
+                    field:
+                      label: "Role"
+                      name: "role"
+                      widget: "string"
+                      required: false
+
+              - label: "Profile Image Path Link"
+                name: "profile"
+                widget: "string"
+                required: false
+
+              - label: "University Program"
+                name: "program"
+                widget: "object"
+                required: false
+                fields:
+                  - label: "List of Program(s)"
+                    name: "programs"
+                    widget: "list"
+                    required: false
+                    field:
+                      label: "Program Name"
+                      name: "program"
+                      widget: "string"
+                      required: false
+                  - label: "University Year"
+                    name: "year"
+                    widget: "string"
+                    required: false
+
+              - label: "Bio (Not currently shown.)"
+                name: "bio"
+                widget: "text"
+                required: false
+
   # -----------------------------------------------------------
   # 3) Manage "club_links.json"
   # -----------------------------------------------------------
-  - name: "club_links"
-    label: "Club Links"
-    files:
       - label: "Club Links JSON"
         name: "club_links"
         file: "public/data/club_links.json"
@@ -536,146 +671,6 @@ collections:
                   - "Register for Event"
                 default: "Registrations Closed At the Moment"
                 required: true
-  
-  # -----------------------------------------------------------
-  # 5) Manage "sponsors_info.json"
-  # -----------------------------------------------------------
-  - name: "sponsors_info"
-    label: "Sponsors Info"
-    files:
-      - label: "Sponsors Info JSON"
-        name: "sponsors_info"
-        file: "public/data/sponsors_info.json"
-        fields:
-          - label: "Upload Image"
-            name: "upload"
-            widget: "image"
-            media_folder: "/public/images/sponsors"
-            public_folder: "/images/sponsors"
-
-          - label: "Sponsors Image Path List"
-            name: "sponsors"
-            widget: "list"
-            fields:
-              - label: "Image"
-                name: "image"
-                widget: "object"
-                fields:
-                  - label: "Image Path Link"
-                    name: "imageLink"
-                    widget: "string"
-
-                  - label: "Image Name"
-                    name: "imageName"
-                    widget: "string"
-
-                  - label: "Image Type (Read Only. Do not Change)"
-                    name: "imageType"
-                    widget: "string"
-                    default: "Sponsor"
-                    required: true
-                    read_only: true
-          - label: "Collabs Image Path List"
-            name: "collabs"
-            widget: "list"
-            fields:
-              - name: "image"
-                label: "Image"
-                widget: "object"
-                fields:
-                  - label: "Image Path Link"
-                    name: "imageLink"
-                    widget: "string"
-
-                  - label: "Image Name"
-                    name: "imageName"
-                    widget: "string"
-
-                  - label: "Image Type (Read Only. Do not Change)"
-                    name: "imageType"
-                    widget: "string"
-                    default: "Sponsor"
-                    required: true
-                    read_only: true
-            
-  # -----------------------------------------------------------
-  # 6) Manage "execs.json"
-  # -----------------------------------------------------------
-  - name: "execs"
-    label: "Execs Info"
-    files:
-      - label: "Execs Info JSON"
-        name: "execs"
-        file: "public/data/execs.json"
-        fields:
-          - label: "Upload Image"
-            name: "upload"
-            widget: "image"
-            media_folder: "/public/images/profile"
-            public_folder: "/images/profile"
-            required: false
-
-          - label: "Executives"
-            name: "execs"
-            widget: "list"
-            fields:
-              - label: "Name"
-                name: "name"
-                widget: "string"
-
-              - label: "Category and Role"
-                name: "role"
-                widget: "list"
-                fields:
-                  - label: "Group Category (First 3 are exec roles, second 3 are VL roles)"
-                    name: "group"
-                    widget: "select"
-                    options:
-                      - "Admin Team"
-                      - "Operations Team"
-                      - "Legacy Executives (Advisory Team)"
-                      - "Project Managers"
-                      - "Advisors"
-                      - "Visionary Lab Board"
-                    default: "Admin Team"
-
-                  - label: "Roles List In Category"
-                    name: "roles"
-                    widget: "list"
-                    field:
-                      label: "Role"
-                      name: "role"
-                      widget: "string"
-                      required: false
-
-              - label: "Profile Image Path Link"
-                name: "profile"
-                widget: "string"
-                required: false
-
-              - label: "University Program"
-                name: "program"
-                widget: "object"
-                required: false
-                fields:
-                  - label: "List of Program(s)"
-                    name: "programs"
-                    widget: "list"
-                    required: false
-                    field:
-                      label: "Program Name"
-                      name: "program"
-                      widget: "string"
-                      required: false
-                  - label: "University Year"
-                    name: "year"
-                    widget: "string"
-                    required: false
-
-              - label: "Bio (Not currently shown.)"
-                name: "bio"
-                widget: "text"
-                required: false
 
   # -----------------------------------------------------------
   # 7) Manage "past_events.json"
