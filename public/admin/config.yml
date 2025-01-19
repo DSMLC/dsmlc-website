@@ -773,6 +773,7 @@ collections:
                 widget: "image"
                 media_folder: "/public/images/events/fall_2024"
                 public_folder: "/images/events/fall_2024"
+                required: false
 
               - label: "Image for Fall 2024"
                 name: "image"
@@ -829,6 +830,7 @@ collections:
                 widget: "image"
                 media_folder: "/public/images/events/winter_2024"
                 public_folder: "/images/events/winter_2024"
+                required: false
 
               - label: "Image for winter 2024"
                 name: "image"
@@ -885,6 +887,7 @@ collections:
                 widget: "image"
                 media_folder: "/public/images/events/fall_2023"
                 public_folder: "/images/events/fall_2023"
+                required: false
 
               - label: "Image for Fall 2023"
                 name: "image"
@@ -941,6 +944,7 @@ collections:
                 widget: "image"
                 media_folder: "/public/images/events/winter_2023"
                 public_folder: "/images/events/winter_2023"
+                required: false
 
               - label: "Image for winter 2023"
                 name: "image"
@@ -997,6 +1001,7 @@ collections:
                 widget: "image"
                 media_folder: "/public/images/events/fall_2022"
                 public_folder: "/images/events/fall_2022"
+                required: false
 
               - label: "Image for Fall 2022"
                 name: "image"
@@ -1053,6 +1058,7 @@ collections:
                 widget: "image"
                 media_folder: "/public/images/events/winter_2022"
                 public_folder: "/images/events/winter_2022"
+                required: false
 
               - label: "Image for winter 2022"
                 name: "image"
@@ -1109,7 +1115,8 @@ collections:
                 widget: "image"
                 media_folder: "/public/images/events/fall_2021"
                 public_folder: "/images/events/fall_2021"
-
+                required: false
+                
               - label: "Image for Fall 2021"
                 name: "image"
                 widget: "object"
