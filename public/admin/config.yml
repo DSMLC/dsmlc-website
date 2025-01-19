@@ -8,7 +8,7 @@ media_folder: "public/images" # Where uploaded images would go inside your repo
 public_folder: "/images"      # Public URL for the images
 
 collections:
-  - name: "applications"
+  - name: "events_applications"
     label: "Events and Application Forms"
     files:
   # -----------------------------------------------------------
@@ -95,7 +95,7 @@ collections:
                 default: "No Positions Available"
                 required: true
   # -----------------------------------------------------------
-  # 4) Manage "upcoming_events.json"
+  # 2) Manage "upcoming_events.json"
   # -----------------------------------------------------------
       - label: "Upcoming Events JSON"
         name: "upcoming_events"
@@ -210,7 +210,7 @@ collections:
                 required: true
 
   # -----------------------------------------------------------
-  # 7) Manage "past_events.json"
+  # 3) Manage "past_events.json"
   # -----------------------------------------------------------
       - label: "Past Events Info JSON"
         name: "past_events"
@@ -218,7 +218,7 @@ collections:
         fields:
 
           # ==========================
-          # Example for WINTER 2025
+          # WINTER 2025
           # ==========================
           - label: "Winter 2025"
             name: "winter_2025"
@@ -275,7 +275,7 @@ collections:
                       - "Logo"
 
           # ==========================
-          # Example for FALL 2024
+          # FALL 2024
           # ==========================
           - label: "Fall 2024"
             name: "fall_2024"
@@ -332,7 +332,7 @@ collections:
                       - "Logo"
                   
           # ==========================
-          # Example for WINTER 2024 TODO
+          # WINTER 2024
           # ==========================
           - label: "Winter 2024"
             name: "winter_2024"
@@ -389,7 +389,7 @@ collections:
                       - "Logo"
 
           # ==========================
-          # Example for FALL 2023
+          # FALL 2023
           # ==========================
           - label: "Fall 2023"
             name: "fall_2023"
@@ -446,7 +446,7 @@ collections:
                       - "Logo"
 
           # ==========================
-          # Example for WINTER 2023
+          # WINTER 2023
           # ==========================
           - label: "Winter 2023"
             name: "winter_2023"
@@ -503,7 +503,7 @@ collections:
                       - "Logo"
           
           # ==========================
-          # Example for FALL 2022
+          # FALL 2022
           # ==========================
           - label: "Fall 2022"
             name: "fall_2022"
@@ -560,7 +560,7 @@ collections:
                       - "Logo"
 
           # ==========================
-          # Example for WINTER 2022
+          # WINTER 2022
           # ==========================
           - label: "Winter 2022"
             name: "winter_2022"
@@ -617,7 +617,7 @@ collections:
                       - "Logo"
 
           # ==========================
-          # Example for FALL 2021
+          # FALL 2021
           # ==========================
           - label: "Fall 2021"
             name: "fall_2021"
@@ -673,12 +673,11 @@ collections:
                       - "Pic"
                       - "Logo"
 
-  
-  - name: "club_stats"
+  - name: "club_info"
     label: "Club Information"
     files:
   # -----------------------------------------------------------
-  # 2) Manage "club_stats.json"
+  # 4) Manage "club_stats.json"
   # -----------------------------------------------------------
       - label: "Club Stats JSON"
         name: "club_stats"
@@ -862,7 +861,7 @@ collections:
                 required: false
 
   # -----------------------------------------------------------
-  # 3) Manage "club_links.json"
+  # 7) Manage "club_links.json"
   # -----------------------------------------------------------
       - label: "Club Links JSON"
         name: "club_links"
