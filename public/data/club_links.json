@@ -1,28 +1,38 @@
 {
   "email_section": {
-    "name": "Email",
+    "name": "Emai",
     "link": "mailto:datascienceclub@ucalgary.ca",
     "header": "Email: ",
     "text": "datascienceclub@ucalgary.ca",
     "description": "Have questions? Email us at "
   },
-  "membership": {
-    "name": "Become a Member Now!",
-    "link": "https://docs.google.com/forms/d/e/1FAIpQLScOGIqKjOxzu458lKIFtV3Kr3-Tf1jUvB4PyRZIXMxbvjEjHA/viewform"
-  },
-  "workshops": {
-    "name": "Past Workshops",
-    "link": "https://drive.google.com/drive/folders/16I8AbsThFneWuxmp7N1n7UYInOtn9baK"
-  },
-  "clubhub": {
-    "name": "SU ClubHub",
-    "link": "https://suuofc.campuslabs.ca/engage/organization/dsmlc"
+  "regular_package": {
+    "link": "https://drive.google.com/file/d/1EEX-c5iE_3ZXbn79-o1CyWvqBYZMHrB4/view?usp=sharing",
+    "name": "Regular Package"
   },
   "discord": {
     "name": "Discord",
     "link": "https://discord.gg/NPCUa4rAdZ ",
     "dark_logo": "/images/dark_discord.svg",
     "light_logo": "/images/light_discord.svg"
+  },
+  "workshops": {
+    "name": "Past Workshops",
+    "link": "https://drive.google.com/drive/folders/16I8AbsThFneWuxmp7N1n7UYInOtn9baK"
+  },
+  "phone": {
+    "header": "Phone: ",
+    "text": "(780) 880-1466"
+  },
+  "membership": {
+    "name": "Become a Member Now!",
+    "link": "https://docs.google.com/forms/d/e/1FAIpQLScOGIqKjOxzu458lKIFtV3Kr3-Tf1jUvB4PyRZIXMxbvjEjHA/viewform"
+  },
+  "linktree": {
+    "name": "Linktree",
+    "link": "https://linktr.ee/dsmlc",
+    "dark_logo": "/images/dark_linktree.svg",
+    "light_logo": "/images/light_linktree.svg"
   },
   "insta": {
     "name": "Instagram",
@@ -40,19 +50,9 @@
     "dark_logo": "/images/dark_linkedin.svg",
     "light_logo": "/images/light_linkedin.svg"
   },
-  "linktree": {
-    "name": "Linktree",
-    "link": "https://linktr.ee/dsmlc",
-    "dark_logo": "/images/dark_linktree.svg",
-    "light_logo": "/images/light_linktree.svg"
-  },
-  "phone": {
-    "header": "Phone: ",
-    "text": "(780) 880-1466"
-  },
-  "regular_package": {
-    "link": "https://drive.google.com/file/d/1EEX-c5iE_3ZXbn79-o1CyWvqBYZMHrB4/view?usp=sharing",
-    "name": "Regular Package"
+  "clubhub": {
+    "name": "SU ClubHub",
+    "link": "https://suuofc.campuslabs.ca/engage/organization/dsmlc"
   },
   "final_comp_package": {
     "link": "https://drive.google.com/file/d/1eZgpEZoi7_OGqxZatHgXK8dkSYkezfds/view?usp=sharing",
