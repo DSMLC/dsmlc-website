@@ -23,7 +23,7 @@ collections:
             widget: "list"
             max: 1
             fields:
-              - label: "Application Form Link"
+              - label: "Application Form Link (# is there's no link)"
                 name: "link"
                 widget: "string"
                 default: "#"
@@ -42,7 +42,7 @@ collections:
             widget: "list"
             max: 1
             fields:
-              - label: "Application Form Link"
+              - label: "Application Form Link (# is there's no link)"
                 name: "link"
                 widget: "string"
                 default: "#"
@@ -81,7 +81,7 @@ collections:
             name: "apply_exec_button"
             widget: "list"
             fields:
-              - label: "Application Form Link"
+              - label: "Application Form Link (# is there's no link)"
                 name: "link"
                 widget: "string"
                 default: "#"
@@ -160,6 +160,7 @@ collections:
             widget: "image"
             media_folder: "/public/images/sponsors"
             public_folder: "/images/sponsors"
+            required: false
 
           - label: "Sponsors Image Path List"
             name: "sponsors"
@@ -715,6 +716,7 @@ collections:
                 widget: "image"
                 media_folder: "/public/images/events/winter_2025"
                 public_folder: "/images/events/winter_2025"
+                required: false
 
               - label: "Image for winter 2025"
                 name: "image"
