@@ -2,8 +2,6 @@ backend:
   name: git-gateway
   branch: master
 
-publish_mode: editorial_workflow
-
 media_folder: "public/images" # Where uploaded images would go inside your repo
 public_folder: "/images"      # Public URL for the images
 
@@ -255,17 +253,17 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - label: "Image Light Mode Path Link"
+                  - label: "Image Light Mode Path Link (/images/events/winter_2025/[IMAGE NAME])"
                     name: "imageLink"
                     widget: "string"
-                  - label: "Image Dark Mode Path Link"
+                  - label: "Image Dark Mode Path Link (Not needed if there's an image, only put for logo)"
                     name: "imageDarkMode"
                     widget: "string"
                     required: false
                   - label: "Image Name"
                     name: "imageName"
                     widget: "string"
-                  - label: "Image Type"
+                  - label: "Image Type (If image exists, put Pic, if not use the Logo)"
                     name: "imageType"
                     widget: "select"
                     required: true
@@ -312,17 +310,17 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - label: "Image Light Mode Path Link"
+                  - label: "Image Light Mode Path Link (/images/events/fall_2024/[IMAGE NAME])"
                     name: "imageLink"
                     widget: "string"
-                  - label: "Image Dark Mode Path Link"
+                  - label: "Image Dark Mode Path Link (Not needed if there's an image, only put for logo)"
                     name: "imageDarkMode"
                     widget: "string"
                     required: false
                   - label: "Image Name"
                     name: "imageName"
                     widget: "string"
-                  - label: "Image Type"
+                  - label: "Image Type (If image exists, put Pic, if not use the Logo)"
                     name: "imageType"
                     widget: "select"
                     required: true
@@ -369,7 +367,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - label: "Image Light Mode Path Link"
+                  - label: "Image Light Mode Path Link (/images/events/winter_2024/[IMAGE NAME])"
                     name: "imageLink"
                     widget: "string"
                   - label: "Image Dark Mode Path Link"
@@ -426,7 +424,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - label: "Image Light Mode Path Link"
+                  - label: "Image Light Mode Path Link (/images/events/fall_2023/[IMAGE NAME])"
                     name: "imageLink"
                     widget: "string"
                   - label: "Image Dark Mode Path Link"
@@ -483,7 +481,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - label: "Image Light Mode Path Link"
+                  - label: "Image Light Mode Path Link (/images/events/winter_2023/[IMAGE NAME])"
                     name: "imageLink"
                     widget: "string"
                   - label: "Image Dark Mode Path Link"
@@ -540,7 +538,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - label: "Image Light Mode Path Link"
+                  - label: "Image Light Mode Path Link (/images/events/fall_2022/[IMAGE NAME])"
                     name: "imageLink"
                     widget: "string"
                   - label: "Image Dark Mode Path Link"
@@ -597,7 +595,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - label: "Image Light Mode Path Link"
+                  - label: "Image Light Mode Path Link (/images/events/winter_2022/[IMAGE NAME])"
                     name: "imageLink"
                     widget: "string"
                   - label: "Image Dark Mode Path Link"
@@ -654,7 +652,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - label: "Image Light Mode Path Link"
+                  - label: "Image Light Mode Path Link (/images/events/fall_2021/[IMAGE NAME])"
                     name: "imageLink"
                     widget: "string"
                   - label: "Image Dark Mode Path Link"
@@ -747,7 +745,7 @@ collections:
                 name: "image"
                 widget: "object"
                 fields:
-                  - label: "Image Path Link"
+                  - label: "Image Path Link (/images/sponsors/[IMAGE NAME])"
                     name: "imageLink"
                     widget: "string"
 
@@ -769,7 +767,7 @@ collections:
                 label: "Image"
                 widget: "object"
                 fields:
-                  - label: "Image Path Link"
+                  - label: "Image Path Link (/images/sponsors/[IMAGE NAME])"
                     name: "imageLink"
                     widget: "string"
 
@@ -831,7 +829,7 @@ collections:
                       widget: "string"
                       required: false
 
-              - label: "Profile Image Path Link"
+              - label: "Profile Image Path Link (/images/profile/[IMAGE NAME])"
                 name: "profile"
                 widget: "string"
                 required: false
