@@ -16,11 +16,21 @@
       "name": "Registrations Closed At the Moment"
     }
   ],
-  "workshops": [],
+  "workshops": [
+    {
+      "title": "January 31st, 2025, Friday, 6:00PM - 7:30PM",
+      "subSection": [
+        {
+          "header": "Make Your Own AI Workshop",
+          "text": "Join us for an exciting, hands-on workshop where you'll learn the basics of Natural Language Processing (NLP) and create your own AI chatbot to assist with your studies. "
+        }
+      ]
+    }
+  ],
   "workshops_register": [
     {
-      "link": "#",
-      "name": "Registrations Closed At the Moment"
+      "link": "https://drive.google.com/drive/folders/16I8AbsThFneWuxmp7N1n7UYInOtn9baK",
+      "name": "Register for Event"
     }
   ],
   "other_events": [
@@ -30,15 +40,6 @@
         {
           "header": "DSMLC Unplugged",
           "text": "Come meet friends interested in Data Science and Machine Learning!"
-        }
-      ]
-    },
-    {
-      "title": "January 20th-22nd, 2024",
-      "subSection": [
-        {
-          "header": "Winter Clubs Week",
-          "text": "Visit us in the MacHall Courtyard during SU Clubs Week! Learn more about DSMLC and our exciting events for the semester."
         }
       ]
     }

@@ -1,19 +1,19 @@
 {
   "winter_2025": [
     {
-      "number": "TBD",
-      "header": "LIST IN PROGRESS",
+      "number": "Jan. 20 - 22",
+      "header": "SU Winter 2025 Clubs Week",
       "points": [
         {
-          "header": "Upcoming Events: ",
-          "text": "Winter 2025 events will be coming in the near future."
+          "header": "Event Overview:",
+          "text": "Explore our booth during SU Fall Clubs Week! Meet us in the MacHall Courtyard to learn about DSMLC and our activities."
         }
       ],
       "image": {
-        "imageLink": "/images/dark_logo.png",
-        "imageDarkMode": "/images/light_logo.png",
-        "imageName": "visionary lab logo",
-        "imageType": "Logo"
+        "imageLink": "/images/events/winter_2025/img_4612.jpg",
+        "imageDarkMode": "",
+        "imageName": "Clubs week image",
+        "imageType": "Pic"
       }
     }
   ],
