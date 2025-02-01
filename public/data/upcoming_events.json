@@ -16,30 +16,15 @@
       "name": "Registrations Closed At the Moment"
     }
   ],
-  "workshops": [
-    {
-      "title": "January 31st, 2025, Friday, 6:00PM - 7:30PM",
-      "subSection": [
-        {
-          "header": "Make Your Own AI Workshop",
-          "text": "Join us for an exciting, hands-on workshop where you'll learn the basics of Natural Language Processing (NLP) and create your own AI chatbot to assist with your studies. "
-        }
-      ]
-    }
-  ],
-  "workshops_register": [
-    {
-      "link": "https://docs.google.com/forms/d/e/1FAIpQLSdzoj9t8GVT4b9N01j1iVpxZKbo_TQK42FtM3gN9iPO2D4S_w/viewform",
-      "name": "Register for Event"
-    }
-  ],
+  "workshops": [],
+  "workshops_register": [],
   "other_events": [
     {
-      "title": "January 28, 2025",
+      "title": "February 4th, 2025",
       "subSection": [
         {
-          "header": "DSMLC Unplugged",
-          "text": "Come meet friends interested in Data Science and Machine Learning!"
+          "header": "DSMLC x herAI Networking Event",
+          "text": "Come network with us! "
         }
       ]
     }
