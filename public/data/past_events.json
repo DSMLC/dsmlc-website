@@ -1,6 +1,38 @@
 {
   "winter_2025": [
     {
+      "image": {
+        "imageType": "Logo",
+        "imageLink": "/images/light_logo.png",
+        "imageDarkMode": "/images/dark_logo.png",
+        "imageName": "Logo"
+      },
+      "number": "Jan. 31",
+      "header": "Make your own AI Study Companion Workshop",
+      "points": [
+        {
+          "header": "Event Overview: ",
+          "text": "Join us this Friday for an exciting hands-on workshop where you'll develop your own AI-powered study assistant using Natural Language Processing (NLP)!"
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Logo",
+        "imageDarkMode": "/images/dark_logo.png",
+        "imageLink": "/images/light_logo.png",
+        "imageName": "Logo"
+      },
+      "number": "Jan. 28",
+      "header": "DSMLC Unplugged Movie Night",
+      "points": [
+        {
+          "header": "Event Overview: ",
+          "text": "We had a great time watching La La Land!"
+        }
+      ]
+    },
+    {
       "number": "Jan. 20 - 22",
       "header": "SU Winter 2025 Clubs Week",
       "points": [
