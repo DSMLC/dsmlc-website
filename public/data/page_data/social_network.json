@@ -1,0 +1,14 @@
+[
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate2",
+        "data": {
+          "title": "The Social Network Graph",
+          "subtitle": "At our Data Science & Machine Learning Club, connections become data! During events, attendees record who they meet, and our website visualizes these links in a growing network graph."
+        }
+      }
+    ]
+  }
+]

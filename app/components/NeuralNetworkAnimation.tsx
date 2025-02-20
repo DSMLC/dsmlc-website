@@ -1,6 +1,7 @@
 "use client";
 import React, { useRef, useEffect } from "react";
 import p5 from "p5";
+import { usePathname } from "next/navigation";
 
 // Helper types
 type Node = { x: number; y: number; size: number };
@@ -74,8 +75,12 @@ function createNetworkData(
 
 const SideNetworksAnimation = () => {
   const canvasRef = useRef<HTMLDivElement>(null);
+  
+  const pathname = usePathname();
+  const hiddenOnPages = ["/social-network-graph"];
 
   useEffect(() => {
+    if (hiddenOnPages.includes(pathname)) return;
     let p5Instance: p5 | null = null;
 
     const sketch = (p: p5) => {
@@ -227,7 +232,7 @@ const SideNetworksAnimation = () => {
     return () => {
       p5Instance?.remove();
     };
-  }, []);
+  }, [hiddenOnPages, pathname]);
 
   return (
     <div

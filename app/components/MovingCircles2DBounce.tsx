@@ -1,6 +1,7 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const CIRCLE_COUNT = 8;
 const MIN_CIRCLE_SIZE = 2;
@@ -25,8 +26,17 @@ interface Circle {
 
 export default function MovingCircles2DBounce() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pathname = usePathname();
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
+    const hiddenOnPages = ["/social-network-graph"];
+    setIsHidden(hiddenOnPages.includes(pathname));
+  }, [pathname]);
+
+  useEffect(() => {
+    if (isHidden) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -163,8 +173,10 @@ export default function MovingCircles2DBounce() {
     return () => {
       window.removeEventListener("resize", updateCanvasSize);
     };
-  }, []);
+  }, [isHidden]);
 
+  if (isHidden) return null;
+  
   return (
     <canvas
       ref={canvasRef}

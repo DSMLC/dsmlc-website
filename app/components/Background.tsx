@@ -73,16 +73,22 @@ const Background: React.FC = () => {
   const pathname = usePathname();
   const [shapes, setShapes] = useState<ShapeProps[]>([]);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-
-  // Run this effect only on the client
+  const hiddenOnPages = ["/social-network-graph"];
+  
   useEffect(() => {
+    if (hiddenOnPages.includes(pathname)) return;
     // Set the dimensions on the client side
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
     setShapes(generateRandomShapes(10, window.innerWidth, window.innerHeight));
   }, [pathname]);
 
   // Wait until dimensions are set on the client side
-  if (!dimensions.width || !dimensions.height) return null;
+  if (
+    !dimensions.width ||
+    !dimensions.height ||
+    hiddenOnPages.includes(pathname)
+  )
+    return null;
 
   return (
     <div className="fixed top-0 left-0 w-full h-full -z-10">

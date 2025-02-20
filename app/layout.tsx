@@ -51,7 +51,7 @@ export default function RootLayout({
           <Header />
           <Background />
           <MovingCircles2DBounce />
-          <NeuralNetworkAnimation />{" "}
+          <NeuralNetworkAnimation />
           <NetlifyIdentityProvider>
             <main className="flex-grow pt-32">{children}</main>{" "}
           </NetlifyIdentityProvider>
