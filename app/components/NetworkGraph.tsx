@@ -2,6 +2,8 @@
 
 import type React from "react";
 import { useState, useEffect, useRef } from "react";
+import { fetchNodes } from "../Backend";
+import supabase from "../supabase_client";
 
 interface Node {
   id: string;
@@ -12,6 +14,7 @@ interface Node {
   y: number;
   vx: number;
   vy: number;
+  scale?: number;
 }
 
 interface Link {
@@ -27,59 +30,89 @@ const NetworkGraph: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const sampleNodes: Node[] = [
-      {
-        id: "1",
-        name: "Joseph Tandyo",
-        connections: 0,
-        x: 0,
-        y: 0,
-        vx: 0,
-        vy: 0,
-      },
-      { id: "2", name: "Maheen", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-      { id: "3", name: "Gavin", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-      { id: "4", name: "Evan", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-      { id: "5", name: "Jason", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-      { id: "6", name: "Hanz", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-      { id: "7", name: "Dheeraj", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-      { id: "8", name: "Prantap", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-    ];
+    const loadNodes = async () => {
+      const fetchedNodes = await fetchNodes();
+      setNodes(fetchedNodes);
+    };
 
-    const sampleLinks: Link[] = [
-      { source: "1", target: "2", weight: 3 },
-      { source: "1", target: "3", weight: 5 },
-      { source: "1", target: "4", weight: 3 },
-      { source: "1", target: "5", weight: 5 },
-      { source: "1", target: "6", weight: 3 },
-      { source: "1", target: "7", weight: 5 },
-      { source: "2", target: "3", weight: 2 },
-      { source: "2", target: "5", weight: 4 },
-      { source: "3", target: "4", weight: 3 },
-      { source: "4", target: "5", weight: 1 },
-      { source: "5", target: "7", weight: 2 },
-      { source: "6", target: "7", weight: 3 },
-      { source: "1", target: "7", weight: 4 },
-      { source: "3", target: "7", weight: 2 },
-      { source: "4", target: "6", weight: 1 },
-    ];
+    loadNodes(); // Initial fetch
 
-    sampleNodes.forEach((node) => {
-      node.connections = sampleLinks.filter(
-        (link) => link.source === node.id || link.target === node.id
-      ).length;
-    });
+    // Listen for real-time updates
+    const subscription = supabase
+      .channel("realtime:NetworkGraphGameNames")
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "NetworkGraphGameNames" },
+        (payload) => {
+          console.log("New player added:", payload.new);
+
+          setNodes((prevNodes) => [
+            ...prevNodes,
+            {
+              id: payload.new.player_id,
+              name: payload.new.name,
+              connections: payload.new.connection_count,
+              x: Math.random() * 500,
+              y: Math.random() * 500,
+              vx: 0,
+              vy: 0,
+            },
+          ]);
+        }
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(subscription);
+    };
+  }, []);
+
+  useEffect(() => {
+    // const sampleNodes: Node[] = [
+    //   { id: "1", name: "Joseph", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
+    //   { id: "2", name: "Maheen", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
+    //   { id: "3", name: "Gavin", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
+    //   { id: "4", name: "Evan", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
+    //   { id: "5", name: "Jason", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
+    //   { id: "6", name: "Hanz", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
+    //   { id: "7", name: "Dheeraj", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
+    //   { id: "8", name: "Prantap", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
+    // ];
+
+    // const sampleLinks: Link[] = [
+    //   { source: "1", target: "2", weight: 3 },
+    //   { source: "1", target: "3", weight: 5 },
+    //   { source: "1", target: "4", weight: 3 },
+    //   { source: "1", target: "5", weight: 5 },
+    //   { source: "1", target: "6", weight: 3 },
+    //   { source: "1", target: "7", weight: 5 },
+    //   { source: "2", target: "3", weight: 2 },
+    //   { source: "2", target: "5", weight: 4 },
+    //   { source: "3", target: "4", weight: 3 },
+    //   { source: "4", target: "5", weight: 1 },
+    //   { source: "5", target: "7", weight: 2 },
+    //   { source: "6", target: "7", weight: 3 },
+    //   { source: "1", target: "7", weight: 4 },
+    //   { source: "3", target: "7", weight: 2 },
+    //   { source: "4", target: "6", weight: 1 },
+    // ];
+
+    // nodes.forEach((node) => {
+    //   node.connections = sampleLinks.filter(
+    //     (link) => link.source === node.id || link.target === node.id
+    //   ).length;
+    // });
 
     const canvas = canvasRef.current;
     if (canvas) {
-      sampleNodes.forEach((node, index) => {
+      nodes.forEach((node, index) => {
         node.x = Math.random() * canvas.width;
         node.y = Math.random() * canvas.height;
       });
     }
 
-    setNodes(sampleNodes);
-    setLinks(sampleLinks);
+    setNodes(nodes);
+    // setLinks(sampleLinks);
   }, []);
 
   useEffect(() => {
@@ -108,8 +141,8 @@ const NetworkGraph: React.FC = () => {
     let time = 0;
     let hoveredNode: Node | null = null;
 
-    // Detect mouse movement & find nearest node
-    canvas.addEventListener("mousemove", (event) => {
+    // Handle Mouse Movement & Find Nearest Node
+    const handleMouseMove = (event: MouseEvent) => {
       const rect = canvas.getBoundingClientRect();
       const mouseX = event.clientX - rect.left;
       const mouseY = event.clientY - rect.top;
@@ -120,20 +153,131 @@ const NetworkGraph: React.FC = () => {
           const dy = node.y - mouseY;
           return Math.sqrt(dx * dx + dy * dy) < 20 + node.connections * 5;
         }) || null;
-    });
+    };
+    canvas.addEventListener("mousemove", handleMouseMove);
 
+    // Physics Simulation: Repulsion & Attraction
+    const applyPhysics = () => {
+      nodes.forEach((node) => {
+        node.vx = 0;
+        node.vy = 0;
+
+        // Apply repulsion between nodes
+        nodes.forEach((other) => {
+          if (node !== other) {
+            const dx = other.x - node.x;
+            const dy = other.y - node.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            const minDistance =
+              20 + node.connections * 5 + (20 + other.connections * 5) + 50;
+
+            if (distance > 0 && distance < minDistance) {
+              const overlap = minDistance - distance;
+              const adjustFactor = 0.2;
+              node.vx -= (dx / distance) * overlap * adjustFactor;
+              node.vy -= (dy / distance) * overlap * adjustFactor;
+            }
+          }
+        });
+
+        // Apply attraction based on links
+        links.forEach((link) => {
+          if (link.source === node.id || link.target === node.id) {
+            const other = nodes.find(
+              (n) =>
+                n.id === (link.source === node.id ? link.target : link.source)
+            );
+            if (other) {
+              const dx = other.x - node.x;
+              const dy = other.y - node.y;
+              const distance = Math.sqrt(dx * dx + dy * dy);
+              const desiredDistance = 250;
+              const force = (distance - desiredDistance) * 0.01;
+
+              node.vx += (dx / distance) * force;
+              node.vy += (dy / distance) * force;
+            }
+          }
+        });
+
+        // Apply friction
+        node.vx *= 0.95;
+        node.vy *= 0.95;
+
+        // Add constant motion
+        const time = Date.now() * 0.001; // Current time in seconds
+        node.vx += Math.sin(time + node.id.charCodeAt(0)) * 0.1;
+        node.vy += Math.cos(time + node.id.charCodeAt(0)) * 0.1;
+
+        // Update position & prevent going out of bounds
+        const padding = 50;
+        node.x = Math.max(
+          padding,
+          Math.min(canvas.width - padding, node.x + node.vx)
+        );
+        node.y = Math.max(
+          padding,
+          Math.min(canvas.height - padding, node.y + node.vy)
+        );
+      });
+    };
+
+    const getNodeColor = (connections: number) => {
+      const maxConnections = Math.max(...nodes.map((n) => n.connections));
+      const minConnections = Math.min(...nodes.map((n) => n.connections));
+      const t =
+        maxConnections === minConnections
+          ? 0.5 // Avoid division by zero if all connections are the same
+          : (connections - minConnections) / (maxConnections - minConnections);
+
+      // Define HSL color stops (hue values)
+      const startH = 205; // Deep Teal Blue (#2A6F97)
+      const midH = 28; // Warm Copper Orange (#E67E22)
+      const endH = 5; // Deep Rust Red (#99231E)
+
+      // Linearly interpolate hue values
+      let hue;
+      if (t < 0.5) {
+        hue = startH + (midH - startH) * (t * 2); // Transition: Blue → Orange
+      } else {
+        hue = midH + (endH - midH) * ((t - 0.5) * 2); // Transition: Orange → Red
+      }
+
+      return `hsl(${hue}, 75%, 40%)`; // Reduced brightness to avoid bright yellow
+    };
+
+    // Calculate parallel edge offsets
+    const calculateEdgeOffsets = () => {
+      const edgeCount = new Map();
+      const edgeOffsetTracker = new Map();
+
+      links.forEach((link) => {
+        const key = [link.source, link.target].sort().join("-");
+        edgeCount.set(key, (edgeCount.get(key) || 0) + 1);
+      });
+
+      links.forEach((link) => {
+        const key = [link.source, link.target].sort().join("-");
+        if (!edgeOffsetTracker.has(key)) {
+          edgeOffsetTracker.set(key, -((edgeCount.get(key) - 1) * 50)); // Spread edges apart
+        }
+        edgeOffsetTracker.set(key, edgeOffsetTracker.get(key) + 40);
+      });
+
+      return edgeOffsetTracker;
+    };
+
+    // Main animation loop
     const animate = () => {
       time += 0.02;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Identify relevant nodes and links for hover effect
-      let relevantNodes = new Set();
-      let relevantLinks = new Set();
+      // Determine nodes & links to highlight on hover
+      const relevantNodes = new Set();
+      const relevantLinks = new Set();
 
       if (hoveredNode) {
         relevantNodes.add(hoveredNode.id);
-
-        // Find directly connected nodes
         links.forEach((link) => {
           if (
             link.source === hoveredNode!.id ||
@@ -146,77 +290,12 @@ const NetworkGraph: React.FC = () => {
         });
       }
 
-      // Apply physics: Repulsion & Attraction forces
-      nodes.forEach((node) => {
-        node.vx = 0;
-        node.vy = 0;
+      applyPhysics();
+      nodes.forEach((node) => (node.color = getNodeColor(node.connections)));
 
-        nodes.forEach((other) => {
-          if (node !== other) {
-            const dx = other.x - node.x;
-            const dy = other.y - node.y;
-            let distance = Math.sqrt(dx * dx + dy * dy);
-            let minDistance =
-              20 + node.connections * 5 + (20 + other.connections * 5) + 50;
+      const edgeOffsets = calculateEdgeOffsets();
 
-            if (distance > 0 && distance < minDistance) {
-              let overlap = minDistance - distance;
-              let adjustFactor = 0.2;
-              node.vx -= (dx / distance) * overlap * adjustFactor;
-              node.vy -= (dy / distance) * overlap * adjustFactor;
-            }
-          }
-        });
-
-        links.forEach((link) => {
-          if (link.source === node.id || link.target === node.id) {
-            const other = nodes.find(
-              (n) =>
-                n.id === (link.source === node.id ? link.target : link.source)
-            );
-            if (other) {
-              const dx = other.x - node.x;
-              const dy = other.y - node.y;
-              let distance = Math.sqrt(dx * dx + dy * dy);
-              let desiredDistance = 250;
-              let force = (distance - desiredDistance) * 0.01;
-
-              node.vx += (dx / distance) * force;
-              node.vy += (dy / distance) * force;
-            }
-          }
-        });
-
-        node.vx *= 0.85;
-        node.vy *= 0.85;
-        node.x += node.vx;
-        node.y += node.vy;
-
-        const padding = 50;
-        node.x = Math.max(padding, Math.min(canvas.width - padding, node.x));
-        node.y = Math.max(padding, Math.min(canvas.height - padding, node.y));
-      });
-
-      // Assign colors dynamically
-      const getNodeColor = (connections: number) => {
-        if (connections >= 7) return "#FF5733"; // Red for high connections
-        return "#33FF57"; // Green for low connections
-      };
-
-      nodes.forEach((node) => {
-        node.color = getNodeColor(node.connections);
-      });
-
-      // Detect parallel edges and apply offset
-      const edgeCount = new Map();
-      links.forEach((link) => {
-        const key = [link.source, link.target].sort().join("-");
-        edgeCount.set(key, (edgeCount.get(key) || 0) + 1);
-      });
-
-      const edgeOffsetTracker = new Map();
-
-      // Draw links with hover effect & prevent overlap
+      // Draw links with hover effect
       links.forEach((link) => {
         const source = nodes.find((n) => n.id === link.source);
         const target = nodes.find((n) => n.id === link.target);
@@ -226,23 +305,15 @@ const NetworkGraph: React.FC = () => {
             source.connections >= target.connections ? source : target;
           const key = [link.source, link.target].sort().join("-");
 
-          if (!edgeOffsetTracker.has(key)) {
-            edgeOffsetTracker.set(key, -((edgeCount.get(key) - 1) * 50)); // Spread edges apart
-          }
-
-          const offset = edgeOffsetTracker.get(key);
-          edgeOffsetTracker.set(key, offset + 40); // Increment for next edge
-
           ctx.globalAlpha = hoveredNode
             ? relevantLinks.has(link)
               ? 1.0
               : 0.2
-            : 1.0; // Dim non-relevant edges
-
-          ctx.lineWidth = dominantNode.connections * 0.8;
+            : 1.0;
+          ctx.lineWidth = 3;
           ctx.strokeStyle = dominantNode.color || "#FFFFFF";
           ctx.shadowColor = dominantNode.color || "#FFFFFF";
-          ctx.shadowBlur = hoveredNode ? (relevantLinks.has(link) ? 5 : 0) : 0;
+          ctx.shadowBlur = hoveredNode ? (relevantLinks.has(link) ? 10 : 0) : 0;
 
           ctx.beginPath();
           ctx.moveTo(source.x, source.y);
@@ -251,32 +322,49 @@ const NetworkGraph: React.FC = () => {
           ctx.shadowBlur = 0;
 
           // Draw animated dots along edges
-          const t = (Math.sin(time) + 1) / 2;
-          const dotX = source.x + (target.x - source.x) * t;
-          const dotY = source.y + (target.y - source.y) * t;
+          // Draw animated dots along edges ONLY if they are connected to hoveredNode
+          if (
+            hoveredNode &&
+            (hoveredNode.id === source.id || hoveredNode.id === target.id)
+          ) {
+            const t = (Math.sin(time) + 1) / 2;
+            const dotX = source.x + (target.x - source.x) * t;
+            const dotY = source.y + (target.y - source.y) * t;
 
-          ctx.fillStyle = "#FFFFFF";
-          ctx.beginPath();
-          ctx.arc(dotX, dotY, 4, 0, Math.PI * 2);
-          ctx.fill();
+            ctx.fillStyle = "#FFFFFF";
+            ctx.beginPath();
+            ctx.arc(dotX, dotY, 4, 0, Math.PI * 2);
+            ctx.fill();
+          }
         }
       });
 
       // Draw nodes with hover effect
       nodes.forEach((node) => {
-        const radius = 20 + node.connections * 5;
+        if (node.scale !== undefined) {
+          node.scale = Math.min(1, node.scale + 0.05);
+          ctx.save();
+          ctx.translate(node.x, node.y);
+          ctx.scale(node.scale, node.scale);
+          ctx.translate(-node.x, -node.y);
+        }
 
+        const radius =
+          hoveredNode && relevantNodes.has(node.id)
+            ? 24 + node.connections * 5 // Slightly larger when hovered
+            : 20 + node.connections * 5;
         ctx.globalAlpha = hoveredNode
           ? relevantNodes.has(node.id)
             ? 1.0
             : 0.2
-          : 1.0; // Dim non-relevant nodes
+          : 1.0;
         ctx.fillStyle = node.color || "#FF9B5E";
 
         ctx.beginPath();
         ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI);
         ctx.fill();
 
+        // Draw node label
         ctx.fillStyle = "white";
         const fontSize = 12 + node.connections;
         ctx.font = `${fontSize}px Arial`;
@@ -284,17 +372,62 @@ const NetworkGraph: React.FC = () => {
         ctx.textBaseline = "middle";
         ctx.fillText(node.name, node.x, node.y - 5);
         ctx.fillText(`(${node.connections})`, node.x, node.y + fontSize);
+
+        if (node.scale !== undefined) {
+          ctx.restore();
+        }
       });
 
-      ctx.globalAlpha = 1.0; // Reset opacity
+      ctx.globalAlpha = 1.0;
       requestAnimationFrame(animate);
+
+      nodes.forEach((node) => {
+        if (node.scale !== undefined && node.scale >= 1) {
+          delete node.scale;
+        }
+      });
     };
 
     animate();
+
+    // Cleanup event listeners on unmount
+    return () => {
+      canvas.removeEventListener("mousemove", handleMouseMove);
+    };
   }, [nodes, links]);
+
+  const addNode = () => {
+    setNodes((prevNodes) => {
+      const newId = (prevNodes.length + 1).toString();
+      const newNode: Node = {
+        id: newId,
+        name: `New Node ${newId}`,
+        connections: 1, // It will be connected to Joseph Tandyo
+        x: Math.random() * 500, // Random position for now
+        y: Math.random() * 500,
+        vx: 0,
+        vy: 0,
+        scale: 0,
+      };
+
+      // Add new link connecting to Joseph Tandyo (Node ID: "1")
+      setLinks((prevLinks) => [
+        ...prevLinks,
+        { source: "1", target: newId, weight: 3 }, // Connect to Joseph
+      ]);
+
+      return [...prevNodes, newNode];
+    });
+  };
 
   return (
     <div className="w-full max-w-4xl mx-auto">
+      <button
+        onClick={addNode}
+        className="px-4 py-2 mb-4 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        Add Node
+      </button>
       <div
         ref={containerRef}
         className="border border-[#FF9B5E]/20 rounded-lg overflow-hidden"
