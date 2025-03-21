@@ -103,31 +103,31 @@ const generateCode = () => {
 };
 
 const Page = () => {
-  // Check local storage for previous session
-  const [isPlaying, setIsPlaying] = useState(
-    () => localStorage.getItem("playerName") !== null
-  );
-  const [playerName, setPlayerName] = useState(
-    () => localStorage.getItem("playerName") || ""
-  );
-  const [playerCode, setPlayerCode] = useState(
-    () => localStorage.getItem("playerCode") || generateCode()
-  );
+  // // Check local storage for previous session
+  // const [isPlaying, setIsPlaying] = useState(
+  //   () => localStorage.getItem("playerName") !== null
+  // );
+  // const [playerName, setPlayerName] = useState(
+  //   () => localStorage.getItem("playerName") || ""
+  // );
+  // const [playerCode, setPlayerCode] = useState(
+  //   () => localStorage.getItem("playerCode") || generateCode()
+  // );
 
-  const handleSubmitName = async (name: string) => {
-    const generatedCode = generateCode();
+  // const handleSubmitName = async (name: string) => {
+  //   const generatedCode = generateCode();
 
-    // Save to localStorage
-    setPlayerName(name);
-    setPlayerCode(generatedCode);
-    localStorage.setItem("playerName", name);
-    localStorage.setItem("playerCode", generatedCode);
+  //   // Save to localStorage
+  //   setPlayerName(name);
+  //   setPlayerCode(generatedCode);
+  //   localStorage.setItem("playerName", name);
+  //   localStorage.setItem("playerCode", generatedCode);
 
     // Add player to Supabase
-    await addPlayer(name, generatedCode, "_FINAL_COMP_W2025");
+    // await addPlayer(name, generatedCode, "_FINAL_COMP_W2025");
 
-    setIsPlaying(true);
-  };
+  //   // setIsPlaying(true);
+  // };
 
   const handleSubmitPair = async (pairCode1: string, pairCode2: string) => {
     await addPair(pairCode1, pairCode2);
@@ -139,10 +139,10 @@ const Page = () => {
         <DataLoader key={index} pageData={section} />
       ))}
       <NetworkGraph />
-      {!isPlaying && <NotPlayingComponent onSubmitName={handleSubmitName} />}
+      {/* {!isPlaying && <NotPlayingComponent onSubmitName={handleSubmitName} />}
       {isPlaying && (
         <PlayingComponent playerName={playerName} playerCode={playerCode} onSubmitPair={handleSubmitPair} />
-      )}
+      )} */}
     </div>
   );
 };
