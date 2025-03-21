@@ -1,11 +1,11 @@
 {
   "final_comp": [
     {
-      "title": "February 16th, 2025",
+      "title": "April 3rd, 2025",
       "subSection": [
         {
-          "header": "Final Competition",
-          "text": "Registration Opens Soon!"
+          "header": "Final Competition Symposium",
+          "text": "Details on our instagram!"
         }
       ]
     }
@@ -18,17 +18,7 @@
   ],
   "workshops": [],
   "workshops_register": [],
-  "other_events": [
-    {
-      "title": "February 4th, 2025",
-      "subSection": [
-        {
-          "header": "DSMLC x herAI Networking Event",
-          "text": "Come network with us! "
-        }
-      ]
-    }
-  ],
+  "other_events": [],
   "other_events_register": [
     {
       "link": "#",
