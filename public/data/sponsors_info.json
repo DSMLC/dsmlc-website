@@ -27,6 +27,20 @@
         "imageName": "uofc faculty of science logo",
         "imageType": "Sponsor"
       }
+    },
+    {
+      "image": {
+        "imageType": "Sponsor",
+        "imageLink": "/images/sponsors/urban_systems.jpg",
+        "imageName": "Urban Systems Logo"
+      }
+    },
+    {
+      "image": {
+        "imageType": "Sponsor",
+        "imageLink": "/images/sponsors/dama_logo.png",
+        "imageName": "Dama logo"
+      }
     }
   ],
   "collabs": [
@@ -37,7 +51,6 @@
         "imageType": "Sponsor"
       }
     },
-
     {
       "image": {
         "imageLink": "/images/sponsors/teck.png",
@@ -59,5 +72,6 @@
         "imageType": "Sponsor"
       }
     }
-  ]
+  ],
+  "upload": ""
 }
