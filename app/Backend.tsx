@@ -1,4 +1,5 @@
 "use client";
+import { Link } from "./components/NetworkGraph";
 import supabase from "./supabase_client";
 
 export const updateButtonClicksDatabase = async (buttonName: string) => {
@@ -32,7 +33,8 @@ export const updateButtonClicksDatabase = async (buttonName: string) => {
 export const addPlayer = async (
   playerName: string,
   playerId: string,
-  gameId: string
+  gameId: string,
+  linkedin?: string
 ) => {
   const { data: existingPlayer, error: fetchError } = await supabase
     .from("NetworkGraphGameNames")
@@ -58,6 +60,7 @@ export const addPlayer = async (
       player_id: playerId,
       game_id: gameId,
       connection_count: 0,
+      linkedin: linkedin || null,
     });
 
   if (insertError) console.error("Error inserting player:", insertError);
@@ -84,7 +87,73 @@ export const fetchNodes = async () => {
   }));
 };
 
-export const addPair = async (pairCode1: string, pairCode2: string) => {
+export const getConnectedPlayers = async (
+  playerCode: string
+): Promise<string[]> => {
+  const { data, error } = await supabase
+    .from("NetworkGraphGameConnections")
+    .select("first_pair, second_pair")
+    .or(`first_pair.eq.${playerCode},second_pair.eq.${playerCode}`);
+
+  if (error || !data) {
+    console.error("Error fetching connections:", error);
+    return [];
+  }
+  const connectedPlayerCodes = new Set<string>();
+
+  data.forEach((pair) => {
+    if (pair.first_pair === playerCode) {
+      connectedPlayerCodes.add(pair.second_pair);
+    } else if (pair.second_pair === playerCode) {
+      connectedPlayerCodes.add(pair.first_pair);
+    }
+  });
+
+  return Array.from(connectedPlayerCodes);
+};
+
+export const getPlayerNames = async (
+  playerCodes: string[]
+): Promise<{ player_id: string; name: string }[]> => {
+  const { data: playersData, error: playersError } = await supabase
+    .from("NetworkGraphGameNames")
+    .select("player_id, name, linkedin")
+    .in("player_id", playerCodes);
+
+  if (playersError || !playersData) {
+    console.error("Error fetching player names:", playersError);
+    return [];
+  }
+
+  return playersData;
+};
+
+export const addPair = async (
+  pairCode1: string,
+  pairCode2: string
+): Promise<string | null> => {
+  if (pairCode1 === pairCode2) {
+    return "You cannot pair with yourself.";
+  }
+
+  // Check if playerCode2 exists
+  const { data: playerData, error: playerFetchError } = await supabase
+    .from("NetworkGraphGameNames")
+    .select("player_id")
+    .eq("player_id", pairCode2)
+    .single();
+
+  if (playerFetchError || !playerData) {
+    return "The player code you entered does not exist.";
+  }
+
+  // Check for existing connection
+  const connectedPlayers = await getConnectedPlayers(pairCode1);
+  if (connectedPlayers.includes(pairCode2)) {
+    return "You are already connected with this player or the other player connected with you.";
+  }
+
+  // Insert new pair
   const { error: insertError } = await supabase
     .from("NetworkGraphGameConnections")
     .insert({
@@ -92,5 +161,28 @@ export const addPair = async (pairCode1: string, pairCode2: string) => {
       second_pair: pairCode2,
     });
 
-  if (insertError) console.error("Error inserting pair:", insertError);
+  if (insertError) {
+    console.error("Error inserting pair:", insertError);
+    return "An error occurred while trying to connect.";
+  }
+
+  return null;
+};
+
+export const fetchLinks = async (): Promise<Link[]> => {
+  const { data, error } = await supabase
+    .from("NetworkGraphGameConnections")
+    .select("first_pair, second_pair");
+
+  if (error || !data) {
+    console.error("Error fetching links:", error);
+    return [];
+  }
+
+  // Map each row into a Link object.
+  return data.map((connection: any) => ({
+    source: connection.first_pair,
+    target: connection.second_pair,
+    weight: 1, // You can adjust weight as needed
+  }));
 };

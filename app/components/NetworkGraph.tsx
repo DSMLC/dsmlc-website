@@ -2,7 +2,7 @@
 
 import type React from "react";
 import { useState, useEffect, useRef } from "react";
-import { fetchNodes } from "../Backend";
+import { fetchLinks, fetchNodes } from "../Backend";
 import supabase from "../supabase_client";
 
 interface Node {
@@ -17,13 +17,17 @@ interface Node {
   scale?: number;
 }
 
-interface Link {
+export interface Link {
   source: string;
   target: string;
   weight: number;
 }
 
-const NetworkGraph: React.FC = () => {
+interface NetworkGraphProps {
+  userId: string;
+}
+
+const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId }) => {
   const [nodes, setNodes] = useState<Node[]>([]);
   const [links, setLinks] = useState<Link[]>([]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -68,51 +72,32 @@ const NetworkGraph: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    // const sampleNodes: Node[] = [
-    //   { id: "1", name: "Joseph", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-    //   { id: "2", name: "Maheen", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-    //   { id: "3", name: "Gavin", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-    //   { id: "4", name: "Evan", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-    //   { id: "5", name: "Jason", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-    //   { id: "6", name: "Hanz", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-    //   { id: "7", name: "Dheeraj", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-    //   { id: "8", name: "Prantap", connections: 0, x: 0, y: 0, vx: 0, vy: 0 },
-    // ];
+    const loadLinks = async () => {
+      const fetchedLinks = await fetchLinks();
+      setLinks(fetchedLinks);
+    };
 
-    // const sampleLinks: Link[] = [
-    //   { source: "1", target: "2", weight: 3 },
-    //   { source: "1", target: "3", weight: 5 },
-    //   { source: "1", target: "4", weight: 3 },
-    //   { source: "1", target: "5", weight: 5 },
-    //   { source: "1", target: "6", weight: 3 },
-    //   { source: "1", target: "7", weight: 5 },
-    //   { source: "2", target: "3", weight: 2 },
-    //   { source: "2", target: "5", weight: 4 },
-    //   { source: "3", target: "4", weight: 3 },
-    //   { source: "4", target: "5", weight: 1 },
-    //   { source: "5", target: "7", weight: 2 },
-    //   { source: "6", target: "7", weight: 3 },
-    //   { source: "1", target: "7", weight: 4 },
-    //   { source: "3", target: "7", weight: 2 },
-    //   { source: "4", target: "6", weight: 1 },
-    // ];
+    loadLinks();
 
-    // nodes.forEach((node) => {
-    //   node.connections = sampleLinks.filter(
-    //     (link) => link.source === node.id || link.target === node.id
-    //   ).length;
-    // });
+    const subscription = supabase
+      .channel("realtime:NetworkGraphGameConnections")
+      .on(
+        "postgres_changes",
+        {
+          event: "INSERT",
+          schema: "public",
+          table: "NetworkGraphGameConnections",
+        },
+        (payload) => {
+          console.log("HERE: New connection added:", payload.new);
+          loadLinks();
+        }
+      )
+      .subscribe();
 
-    const canvas = canvasRef.current;
-    if (canvas) {
-      nodes.forEach((node, index) => {
-        node.x = Math.random() * canvas.width;
-        node.y = Math.random() * canvas.height;
-      });
-    }
-
-    setNodes(nodes);
-    // setLinks(sampleLinks);
+    return () => {
+      supabase.removeChannel(subscription);
+    };
   }, []);
 
   useEffect(() => {
@@ -272,6 +257,12 @@ const NetworkGraph: React.FC = () => {
       time += 0.02;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+      nodes.forEach((node) => {
+        node.connections = links.filter(
+          (link) => link.source === node.id || link.target === node.id
+        ).length;
+      });
+
       // Determine nodes & links to highlight on hover
       const relevantNodes = new Set();
       const relevantLinks = new Set();
@@ -341,6 +332,8 @@ const NetworkGraph: React.FC = () => {
 
       // Draw nodes with hover effect
       nodes.forEach((node) => {
+        const isUserNode = node.id === userId;
+
         if (node.scale !== undefined) {
           node.scale = Math.min(1, node.scale + 0.05);
           ctx.save();
@@ -363,6 +356,15 @@ const NetworkGraph: React.FC = () => {
         ctx.beginPath();
         ctx.arc(node.x, node.y, radius, 0, 2 * Math.PI);
         ctx.fill();
+
+        if (isUserNode) {
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "#FFD700";
+          ctx.shadowColor = "#FFD700";
+          ctx.shadowBlur = 15; // slight glow
+          ctx.stroke();
+          ctx.shadowBlur = 0;
+        }
 
         // Draw node label
         ctx.fillStyle = "white";
@@ -396,38 +398,8 @@ const NetworkGraph: React.FC = () => {
     };
   }, [nodes, links]);
 
-  const addNode = () => {
-    setNodes((prevNodes) => {
-      const newId = (prevNodes.length + 1).toString();
-      const newNode: Node = {
-        id: newId,
-        name: `New Node ${newId}`,
-        connections: 1, // It will be connected to Joseph Tandyo
-        x: Math.random() * 500, // Random position for now
-        y: Math.random() * 500,
-        vx: 0,
-        vy: 0,
-        scale: 0,
-      };
-
-      // Add new link connecting to Joseph Tandyo (Node ID: "1")
-      setLinks((prevLinks) => [
-        ...prevLinks,
-        { source: "1", target: newId, weight: 3 }, // Connect to Joseph
-      ]);
-
-      return [...prevNodes, newNode];
-    });
-  };
-
   return (
     <div className="w-full max-w-4xl mx-auto">
-      <button
-        onClick={addNode}
-        className="px-4 py-2 mb-4 bg-blue-500 text-white rounded hover:bg-blue-600"
-      >
-        Add Node
-      </button>
       <div
         ref={containerRef}
         className="border border-[#FF9B5E]/20 rounded-lg overflow-hidden"
