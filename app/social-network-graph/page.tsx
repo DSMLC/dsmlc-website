@@ -4,6 +4,7 @@ import rawData from "../../public/data/page_data/social_network.json";
 import DataLoader, { PageData } from "../DataLoader";
 import TitleTemplate from "../components/templates/TitleTemplate1";
 import TitleTemplate2 from "../components/templates/TitleTemplate2";
+import SubtitleTemplate2 from "../components/templates/SubtitleTemplate3";
 import NetworkGraph from "../components/NetworkGraph";
 import { addPair, addPlayer, getConnectedPlayers } from "../Backend";
 import ConnectedPlayersList from "../components/ConnectedPlayersList";
@@ -25,7 +26,7 @@ const NotPlayingComponent: React.FC<{
   return (
     <div className="px-10 mt-5">
       <TitleTemplate2 Data={{ title: "Enter your name to play the game!" }} />
-
+      <SubtitleTemplate2 Data="Enter your name" />
       <form
         className="lg:min-w-[900px] min-w-full h-50"
         onSubmit={handleSubmit}
@@ -35,14 +36,15 @@ const NotPlayingComponent: React.FC<{
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Enter your name"
-          className="text-2xl w-full p-4 my-4 mb-10 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
-        />{" "}
+          className="text-2xl w-full p-4 mt-4 mb-6 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
+        />
+        <SubtitleTemplate2 Data="Enter your linkedIn URL (Optional):" />
         <input
           type="text"
           value={linkedin}
           onChange={(e) => setLinkedin(e.target.value)}
           placeholder="Enter your LinkedIn URL (optional)"
-          className="text-2xl w-full p-4 my-4 mb-10 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
+          className="text-2xl w-full p-4 mt-4 mb-6 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
         />
         <button
           type="submit"
@@ -52,7 +54,7 @@ const NotPlayingComponent: React.FC<{
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          <span className="relative z-10">Submit Name</span>
+          <span className="relative z-10">Submit</span>
         </button>
       </form>
     </div>
