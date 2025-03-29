@@ -261,8 +261,8 @@ const Page = () => {
   useEffect(() => {
     const hasDSMLCConnection = links.some(
       (link) =>
-        (link.source === playerCode && link.target === "DSMLC") ||
-        (link.target === playerCode && link.source === "DSMLC")
+        (link.source === playerCode && link.target === "dsmlc") ||
+        (link.target === playerCode && link.source === "dsmlc")
     );
     setIsConnectedWithDSMLC(hasDSMLCConnection);
   }, [playerCode, links]);

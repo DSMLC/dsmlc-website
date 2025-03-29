@@ -43,7 +43,7 @@ const ConnectedPlayersList: React.FC<ConnectedPlayersListProps> = ({
 
       const playersData = await getPlayerNames(connectionCodes);
       const formattedPlayers = playersData.map((player: Player) => {
-        if (player.player_id === "DSMLC") {
+        if (player.player_id === "dsmlc") {
           return {
             ...player,
             linkedin: clubLinks.linkedin.link,

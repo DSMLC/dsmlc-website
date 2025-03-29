@@ -139,7 +139,7 @@ export const addPair = async (
   }
 
   const isConnectingToDSMLC = normalizedCode2 === "dsmlc";
-  const targetCode = isConnectingToDSMLC ? "DSMLC" : pairCode2;
+  const targetCode = isConnectingToDSMLC ? "dsmlc" : pairCode2;
 
   if (!isConnectingToDSMLC) {
     const { data: playerData, error: playerFetchError } = await supabase
@@ -156,14 +156,14 @@ export const addPair = async (
     const { data: dsmlcData, error: dsmlcError } = await supabase
       .from("NetworkGraphGameNames")
       .select("player_id")
-      .eq("player_id", "DSMLC")
+      .eq("player_id", "dsmlc")
       .single();
 
     if (dsmlcError || !dsmlcData) {
       const { error: insertDsmlcError } = await supabase
         .from("NetworkGraphGameNames")
         .insert({
-          player_id: "DSMLC",
+          player_id: "dsmlc",
           name: "DSMLC",
           connection_count: 0,
         });

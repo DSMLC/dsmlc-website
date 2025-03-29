@@ -60,11 +60,11 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
   };
 
   const ensureDSMLCNode = (nodeList: Node[]): Node[] => {
-    const exists = nodeList.some((n) => n.id === "DSMLC");
+    const exists = nodeList.some((n) => n.id === "dsmlc");
     if (!exists) {
       // Set a default position (e.g., center of a 500x500 area)
       nodeList.push({
-        id: "DSMLC",
+        id: "dsmlc",
         name: "DSMLC",
         connections: 0,
         x: 250,
@@ -235,7 +235,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
           const dy = node.y - adjustedY;
           const baseRadius = 20 + node.connections * 5;
           const effectiveRadius =
-            node.id === "DSMLC" ? baseRadius + 50 : baseRadius;
+            node.id === "dsmlc" ? baseRadius + 50 : baseRadius;
           return Math.sqrt(dx * dx + dy * dy) < effectiveRadius;
         }) || null;
     };
@@ -363,15 +363,18 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
       if (hoveredNode) {
         relevantNodes.add(hoveredNode.id);
         links.forEach((link) => {
-          if (
-            link.source === hoveredNode!.id ||
-            link.target === hoveredNode!.id
-          ) {
+          const source = link.source;
+          const target = link.target;
+          const hoveredId = hoveredNode?.id;
+
+          if (source === hoveredId || target === hoveredId) {
             relevantLinks.add(link);
-            relevantNodes.add(link.source);
-            relevantNodes.add(link.target);
+            relevantNodes.add(link.source.toLowerCase());
+            relevantNodes.add(link.target.toLowerCase());
           }
         });
+        console.log("Hovered Node:", hoveredNode.id);
+        console.log("Connected Nodes:", Array.from(relevantNodes));
       }
 
       applyPhysics();
@@ -386,8 +389,8 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
 
       // Draw links with hover effect
       links.forEach((link) => {
-        const source = nodes.find((n) => n.id === link.source);
-        const target = nodes.find((n) => n.id === link.target);
+        const source = nodes.find((n) => n.id === link.source.toLowerCase());
+        const target = nodes.find((n) => n.id === link.target.toLowerCase());
 
         if (source && target) {
           const dominantNode =
@@ -399,6 +402,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
               ? 1.0
               : 0.2
             : 1.0;
+
           ctx.lineWidth = 3;
           ctx.strokeStyle = dominantNode.color || "#FFFFFF";
           ctx.shadowColor = dominantNode.color || "#FFFFFF";
@@ -433,7 +437,13 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
             ? 24 + node.connections * 5
             : 20 + node.connections * 5;
 
-        if (node.id === "DSMLC") {
+        ctx.globalAlpha = hoveredNode
+          ? relevantNodes.has(node.id)
+            ? 1.0
+            : 0.2
+          : 1.0;
+          
+        if (node.id === "dsmlc") {
           // Make DSMLC node larger
           const dsmlcRadius = radius + 25; // Larger radius
           // Draw DSMLC circle
@@ -444,15 +454,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
           ctx.lineWidth = 3;
           ctx.strokeStyle = node.color || "#FF9B5E";
           ctx.stroke();
-          // Optionally add stroke if it's the user node
-          if (node.id === userId) {
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = "#FFD700";
-            ctx.shadowColor = "#FFD700";
-            ctx.shadowBlur = 15;
-            ctx.stroke();
-            ctx.shadowBlur = 0;
-          }
           // Draw the logo inside the circle (centered in the top half)
           const logoSize = dsmlcRadius * 0.8; // 80% of radius, adjust as needed
           if (dsmlcLogoRef.current?.complete) {
@@ -477,6 +478,11 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
             node.x,
             node.y + dsmlcRadius * 0.65
           );
+          console.log(
+            `Node ${node.id} alpha: ${ctx.globalAlpha} (${
+              ctx.globalAlpha === 1 ? "visible" : "dimmed"
+            })`
+          );
           return; // Skip normal drawing for DSMLC node.
         }
 
@@ -490,11 +496,13 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
           ctx.translate(-node.x, -node.y);
         }
 
-        ctx.globalAlpha = hoveredNode
-          ? relevantNodes.has(node.id)
-            ? 1.0
-            : 0.2
-          : 1.0;
+        if (hoveredNode) {
+          console.log(
+            `Node ${node.id} alpha: ${
+              relevantNodes.has(node.id) ? "1.0 (visible)" : "0.2 (dimmed)"
+            }`
+          );
+        }
         ctx.fillStyle = node.color || "#FF9B5E";
 
         ctx.beginPath();
