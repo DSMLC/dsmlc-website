@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { getConnectedPlayers, getPlayerNames } from "../Backend";
 import supabase from "../supabase_client";
 import { Link } from "./NetworkGraph";
+import clubLinks from "@/public/data/club_links.json";
 
 interface ConnectedPlayersListProps {
   playerCode: string;
@@ -41,7 +42,17 @@ const ConnectedPlayersList: React.FC<ConnectedPlayersListProps> = ({
       }
 
       const playersData = await getPlayerNames(connectionCodes);
-      setConnectedPlayers(playersData);
+      const formattedPlayers = playersData.map((player: Player) => {
+        if (player.player_id === "DSMLC") {
+          return {
+            ...player,
+            linkedin: clubLinks.linkedin.link,
+          };
+        }
+        return player;
+      });
+
+      setConnectedPlayers(formattedPlayers);
     };
 
     loadConnectedPlayers();

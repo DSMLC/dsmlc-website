@@ -5,6 +5,9 @@ import { useState, useEffect, useRef } from "react";
 import { fetchLinks, fetchNodes } from "../Backend";
 import supabase from "../supabase_client";
 
+const dsmlcLogo = new Image();
+dsmlcLogo.src = "/images/light_logo.png";
+
 interface Node {
   id: string;
   name: string;
@@ -47,7 +50,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
     zoomRef.current = 1;
   };
 
-  // New: Toggle Full Screen
   const toggleFullScreen = () => {
     const container = containerRef.current;
     if (!container) return;
@@ -60,10 +62,27 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
     }
   };
 
+  const ensureDSMLCNode = (nodeList: Node[]): Node[] => {
+    const exists = nodeList.some((n) => n.id === "DSMLC");
+    if (!exists) {
+      // Set a default position (e.g., center of a 500x500 area)
+      nodeList.push({
+        id: "DSMLC",
+        name: "DSMLC",
+        connections: 0,
+        x: 250,
+        y: 250,
+        vx: 0,
+        vy: 0,
+      });
+    }
+    return nodeList;
+  };
+
   useEffect(() => {
     const loadNodes = async () => {
       const fetchedNodes = await fetchNodes();
-      setNodes(fetchedNodes);
+      setNodes(ensureDSMLCNode(fetchedNodes));
     };
 
     loadNodes();
@@ -76,18 +95,20 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
         (payload) => {
           console.log("New player added:", payload.new);
 
-          setNodes((prevNodes) => [
-            ...prevNodes,
-            {
-              id: payload.new.player_id,
-              name: payload.new.name,
-              connections: payload.new.connection_count,
-              x: Math.random() * 500,
-              y: Math.random() * 500,
-              vx: 0,
-              vy: 0,
-            },
-          ]);
+          setNodes((prevNodes) =>
+            ensureDSMLCNode([
+              ...prevNodes,
+              {
+                id: payload.new.player_id,
+                name: payload.new.name,
+                connections: payload.new.connection_count,
+                x: Math.random() * 500,
+                y: Math.random() * 500,
+                vx: 0,
+                vy: 0,
+              },
+            ])
+          );
         }
       )
       .on(
@@ -96,14 +117,16 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
         (payload) => {
           console.log("Player updated:", payload.new);
           setNodes((prevNodes) =>
-            prevNodes.map((node) =>
-              node.id === payload.new.player_id
-                ? {
-                    ...node,
-                    name: payload.new.name,
-                    connections: payload.new.connection_count,
-                  }
-                : node
+            ensureDSMLCNode(
+              prevNodes.map((node) =>
+                node.id === payload.new.player_id
+                  ? {
+                      ...node,
+                      name: payload.new.name,
+                      connections: payload.new.connection_count,
+                    }
+                  : node
+              )
             )
           );
         }
@@ -205,7 +228,10 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
         nodes.find((node) => {
           const dx = node.x - adjustedX;
           const dy = node.y - adjustedY;
-          return Math.sqrt(dx * dx + dy * dy) < 20 + node.connections * 5;
+          const baseRadius = 20 + node.connections * 5;
+          const effectiveRadius =
+            node.id === "DSMLC" ? baseRadius + 50 : baseRadius;
+          return Math.sqrt(dx * dx + dy * dy) < effectiveRadius;
         }) || null;
     };
 
@@ -397,6 +423,56 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
 
       // Draw nodes with hover effect
       nodes.forEach((node) => {
+        const radius =
+          hoveredNode && relevantNodes.has(node.id)
+            ? 24 + node.connections * 5
+            : 20 + node.connections * 5;
+
+        if (node.id === "DSMLC") {
+          // Make DSMLC node larger
+          const dsmlcRadius = radius + 25; // Larger radius
+          // Draw DSMLC circle
+          ctx.beginPath();
+          ctx.arc(node.x, node.y, dsmlcRadius, 0, 2 * Math.PI);
+          ctx.fillStyle = "#222222";
+          ctx.fill();
+          ctx.lineWidth = 3;
+          ctx.strokeStyle = node.color || "#FF9B5E";
+          ctx.stroke();
+          // Optionally add stroke if it's the user node
+          if (node.id === userId) {
+            ctx.lineWidth = 2;
+            ctx.strokeStyle = "#FFD700";
+            ctx.shadowColor = "#FFD700";
+            ctx.shadowBlur = 15;
+            ctx.stroke();
+            ctx.shadowBlur = 0;
+          }
+          // Draw the logo inside the circle (centered in the top half)
+          const logoSize = dsmlcRadius * 0.8; // 80% of radius, adjust as needed
+          ctx.drawImage(
+            dsmlcLogo,
+            node.x - logoSize / 2,
+            node.y - dsmlcRadius * 0.35 - logoSize / 2,
+            logoSize,
+            logoSize
+          );
+          // Draw DSMLC text centered below the logo
+          ctx.fillStyle = "white";
+          ctx.font = "bold 18px Arial";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText("DSMLC", node.x, node.y + dsmlcRadius * 0.35);
+          // Draw connection count below the DSMLC text
+          ctx.font = "16px Arial";
+          ctx.fillText(
+            `(${node.connections})`,
+            node.x,
+            node.y + dsmlcRadius * 0.65
+          );
+          return; // Skip normal drawing for DSMLC node.
+        }
+
         const isUserNode = node.id === userId;
 
         if (node.scale !== undefined) {
@@ -407,10 +483,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
           ctx.translate(-node.x, -node.y);
         }
 
-        const radius =
-          hoveredNode && relevantNodes.has(node.id)
-            ? 24 + node.connections * 5
-            : 20 + node.connections * 5;
         ctx.globalAlpha = hoveredNode
           ? relevantNodes.has(node.id)
             ? 1.0

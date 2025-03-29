@@ -132,24 +132,52 @@ export const addPair = async (
   pairCode1: string,
   pairCode2: string
 ): Promise<string | null> => {
+  const normalizedCode2 = pairCode2.trim().toLowerCase();
+
   if (pairCode1 === pairCode2) {
     return "You cannot pair with yourself.";
   }
 
-  // Check if playerCode2 exists
-  const { data: playerData, error: playerFetchError } = await supabase
-    .from("NetworkGraphGameNames")
-    .select("player_id")
-    .eq("player_id", pairCode2)
-    .single();
+  const isConnectingToDSMLC = normalizedCode2 === "dsmlc";
+  const targetCode = isConnectingToDSMLC ? "DSMLC" : pairCode2;
 
-  if (playerFetchError || !playerData) {
-    return "The player code you entered does not exist.";
+  if (!isConnectingToDSMLC) {
+    const { data: playerData, error: playerFetchError } = await supabase
+      .from("NetworkGraphGameNames")
+      .select("player_id")
+      .eq("player_id", targetCode)
+      .single();
+
+    if (playerFetchError || !playerData) {
+      return "The player code you entered does not exist.";
+    }
+  } else {
+    // Ensure DSMLC node exists
+    const { data: dsmlcData, error: dsmlcError } = await supabase
+      .from("NetworkGraphGameNames")
+      .select("player_id")
+      .eq("player_id", "DSMLC")
+      .single();
+
+    if (dsmlcError || !dsmlcData) {
+      const { error: insertDsmlcError } = await supabase
+        .from("NetworkGraphGameNames")
+        .insert({
+          player_id: "DSMLC",
+          name: "DSMLC",
+          connection_count: 0,
+        });
+
+      if (insertDsmlcError) {
+        console.error("Failed to insert DSMLC node:", insertDsmlcError);
+        return "An error occurred while preparing DSMLC.";
+      }
+    }
   }
 
   // Check for existing connection
   const connectedPlayers = await getConnectedPlayers(pairCode1);
-  if (connectedPlayers.includes(pairCode2)) {
+  if (connectedPlayers.includes(targetCode)) {
     return "You are already connected with this player or the other player connected with you.";
   }
 
@@ -158,7 +186,7 @@ export const addPair = async (
     .from("NetworkGraphGameConnections")
     .insert({
       first_pair: pairCode1,
-      second_pair: pairCode2,
+      second_pair: targetCode,
     });
 
   console.log("Insert connection response:", data, insertError);

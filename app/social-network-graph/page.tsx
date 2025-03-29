@@ -54,8 +54,13 @@ const NotPlayingComponent: React.FC<{
         />
         <button
           type="submit"
-          className={`text-2xl w-full py-3 bg-dsmlcTangerine dark:text-light-dsmlcBlack text-dark-dsmlcBlack font-bold rounded-full relative overflow-hidden transition-colors ${
+          disabled={!name.trim()}
+          className={`text-2xl w-full py-3 font-bold rounded-full relative overflow-hidden transition-colors ${
             isHovering ? "bg-opacity-60" : ""
+          } ${
+            !name.trim()
+              ? "bg-dsmlcTangerine/25 cursor-not-allowed"
+              : "bg-dsmlcTangerine dark:text-light-dsmlcBlack text-dark-dsmlcBlack"
           }`}
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
@@ -73,12 +78,14 @@ const PlayingComponent: React.FC<{
   playerCode: string;
   onSubmitPair: (code1: string, code2: string) => Promise<string | null>;
   onUpdateProfile: (newName: string, newLinkedin: string) => void;
+  isConnectedWithDSMLC: boolean;
 }> = ({
   playerName,
   playerLinkedin,
   playerCode,
   onSubmitPair,
   onUpdateProfile,
+  isConnectedWithDSMLC,
 }) => {
   const [playerCode2, setPlayerCode2] = useState("");
   const [isHovering, setIsHovering] = useState(false);
@@ -197,6 +204,9 @@ const PlayingComponent: React.FC<{
         }}
       >
         <SubtitleTemplate2 Data="Enter the code of people you meet:" />
+        {!isConnectedWithDSMLC && (
+          <SubtitleTemplate2 Data="Try connecting with the Club by typing code 'DSMLC':" />
+        )}
         <input
           type="text"
           value={playerCode2}
@@ -233,6 +243,7 @@ const Page = () => {
   const [playerLinkedin, setPlayerLinkedin] = useState("");
   const [playerCode, setPlayerCode] = useState(generateCode());
   const links = useConnectionLinks();
+  const [isConnectedWithDSMLC, setIsConnectedWithDSMLC] = useState(false);
 
   useEffect(() => {
     const storedPlayerName = localStorage.getItem("playerName");
@@ -246,6 +257,15 @@ const Page = () => {
       setIsPlaying(true);
     }
   }, []);
+
+  useEffect(() => {
+    const hasDSMLCConnection = links.some(
+      (link) =>
+        (link.source === playerCode && link.target === "DSMLC") ||
+        (link.target === playerCode && link.source === "DSMLC")
+    );
+    setIsConnectedWithDSMLC(hasDSMLCConnection);
+  }, [playerCode, links]);
 
   const handleSubmitName = async (name: string, linkedin?: string) => {
     const generatedCode = generateCode();
@@ -290,6 +310,7 @@ const Page = () => {
             playerCode={playerCode}
             onSubmitPair={handleSubmitPair}
             onUpdateProfile={updateProfile}
+            isConnectedWithDSMLC={isConnectedWithDSMLC}
           />
           <ConnectedPlayersList playerCode={playerCode} links={links} />
         </>
