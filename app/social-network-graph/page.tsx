@@ -9,6 +9,7 @@ import NetworkGraph from "../components/NetworkGraph";
 import {
   addPair,
   addPlayer,
+  checkPlayerInDatabase,
   getConnectedPlayers,
   updatePlayer,
 } from "../Backend";
@@ -246,16 +247,29 @@ const Page = () => {
   const [isConnectedWithDSMLC, setIsConnectedWithDSMLC] = useState(false);
 
   useEffect(() => {
-    const storedPlayerName = localStorage.getItem("playerName");
-    const storedPlayerCode = localStorage.getItem("playerCode");
-    const storedPlayerLinkedin = localStorage.getItem("playerLinkedin");
+    const verifyAndSetPlayer = async () => {
+      const storedPlayerName = localStorage.getItem("playerName");
+      const storedPlayerCode = localStorage.getItem("playerCode");
+      const storedPlayerLinkedin = localStorage.getItem("playerLinkedin");
 
-    if (storedPlayerName && storedPlayerCode) {
-      setPlayerName(storedPlayerName);
-      setPlayerCode(storedPlayerCode);
-      setPlayerLinkedin(storedPlayerLinkedin || "");
-      setIsPlaying(true);
-    }
+      if (storedPlayerName && storedPlayerCode) {
+        const exists = await checkPlayerInDatabase(storedPlayerCode);
+
+        if (exists) {
+          setPlayerName(storedPlayerName);
+          setPlayerCode(storedPlayerCode);
+          setPlayerLinkedin(storedPlayerLinkedin || "");
+          setIsPlaying(true);
+        } else {
+          // Clear invalid data
+          localStorage.removeItem("playerName");
+          localStorage.removeItem("playerCode");
+          localStorage.removeItem("playerLinkedin");
+        }
+      }
+    };
+
+    verifyAndSetPlayer();
   }, []);
 
   useEffect(() => {

@@ -237,3 +237,13 @@ export const updatePlayer = async (
   }
   return true;
 };
+
+export const checkPlayerInDatabase = async (code: string): Promise<boolean> => {
+  const { data, error } = await supabase
+    .from("NetworkGraphGameNames")
+    .select("player_id")
+    .eq("player_id", code)
+    .single();
+
+  return !!data && !error;
+};
