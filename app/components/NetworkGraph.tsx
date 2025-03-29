@@ -5,9 +5,6 @@ import { useState, useEffect, useRef } from "react";
 import { fetchLinks, fetchNodes } from "../Backend";
 import supabase from "../supabase_client";
 
-const dsmlcLogo = new Image();
-dsmlcLogo.src = "/images/light_logo.png";
-
 interface Node {
   id: string;
   name: string;
@@ -78,6 +75,14 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
     }
     return nodeList;
   };
+
+  const dsmlcLogoRef = useRef<HTMLImageElement | null>(null);
+
+  useEffect(() => {
+    const img = new window.Image();
+    img.src = "/images/light_logo.png";
+    dsmlcLogoRef.current = img;
+  }, []);
 
   useEffect(() => {
     const loadNodes = async () => {
@@ -450,13 +455,15 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
           }
           // Draw the logo inside the circle (centered in the top half)
           const logoSize = dsmlcRadius * 0.8; // 80% of radius, adjust as needed
-          ctx.drawImage(
-            dsmlcLogo,
-            node.x - logoSize / 2,
-            node.y - dsmlcRadius * 0.35 - logoSize / 2,
-            logoSize,
-            logoSize
-          );
+          if (dsmlcLogoRef.current?.complete) {
+            ctx.drawImage(
+              dsmlcLogoRef.current,
+              node.x - logoSize / 2,
+              node.y - dsmlcRadius * 0.35 - logoSize / 2,
+              logoSize,
+              logoSize
+            );
+          }
           // Draw DSMLC text centered below the logo
           ctx.fillStyle = "white";
           ctx.font = "bold 18px Arial";
