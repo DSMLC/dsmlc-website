@@ -33,6 +33,33 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // For panning support
+  const panRef = useRef({ x: 0, y: 0 });
+  const dragging = useRef(false);
+  const lastMousePos = useRef({ x: 0, y: 0 });
+
+  // For zoom support (default zoom is 1)
+  const zoomRef = useRef(1);
+
+  // Reset handler: resets pan and zoom to initial values.
+  const handleReset = () => {
+    panRef.current = { x: 0, y: 0 };
+    zoomRef.current = 1;
+  };
+
+  // New: Toggle Full Screen
+  const toggleFullScreen = () => {
+    const container = containerRef.current;
+    if (!container) return;
+    if (!document.fullscreenElement) {
+      container.requestFullscreen().catch((err) => {
+        console.error("Error attempting to enable full-screen mode:", err);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  };
+
   useEffect(() => {
     const loadNodes = async () => {
       const fetchedNodes = await fetchNodes();
@@ -105,14 +132,54 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
   }, []);
 
   useEffect(() => {
+    const handleFullScreenChange = () => {
+      if (!document.fullscreenElement) {
+        handleReset();
+      }
+    };
+
+    document.addEventListener("fullscreenchange", handleFullScreenChange);
+    return () => {
+      document.removeEventListener("fullscreenchange", handleFullScreenChange);
+    };
+  }, []);
+
+  useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    const handleWheel = (e: WheelEvent) => {
+      e.preventDefault();
+      const zoomFactor = 0.001;
+      let newZoom = zoomRef.current - e.deltaY * zoomFactor;
+      // Clamp zoom between 0.5 and 2 (adjust as needed)
+      newZoom = Math.min(Math.max(newZoom, 0.5), 2);
+      zoomRef.current = newZoom;
+    };
+
+    canvas.addEventListener("wheel", handleWheel, { passive: false });
+    return () => {
+      canvas.removeEventListener("wheel", handleWheel);
+    };
+  }, []);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
     let time = 0;
     let hoveredNode: Node | null = null;
+
+    // --- Panning event listeners ---
+    const handleMouseDown = (e: MouseEvent) => {
+      dragging.current = true;
+      lastMousePos.current = { x: e.clientX, y: e.clientY };
+    };
+
+    const handleMouseUp = () => {
+      dragging.current = false;
+    };
 
     // Handle Mouse Movement & Find Nearest Node
     const handleMouseMove = (event: MouseEvent) => {
@@ -120,14 +187,33 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
       const mouseX = event.clientX - rect.left;
       const mouseY = event.clientY - rect.top;
 
+      // If dragging, update pan offset and skip hover detection.
+      if (dragging.current) {
+        const deltaX = event.clientX - lastMousePos.current.x;
+        const deltaY = event.clientY - lastMousePos.current.y;
+        panRef.current.x += deltaX;
+        panRef.current.y += deltaY;
+        lastMousePos.current = { x: event.clientX, y: event.clientY };
+        return;
+      }
+
+      // For hover detection, adjust by pan and zoom:
+      const adjustedX = (mouseX - panRef.current.x) / zoomRef.current;
+      const adjustedY = (mouseY - panRef.current.y) / zoomRef.current;
+
       hoveredNode =
         nodes.find((node) => {
-          const dx = node.x - mouseX;
-          const dy = node.y - mouseY;
+          const dx = node.x - adjustedX;
+          const dy = node.y - adjustedY;
           return Math.sqrt(dx * dx + dy * dy) < 20 + node.connections * 5;
         }) || null;
     };
+
+    canvas.addEventListener("mousedown", handleMouseDown);
     canvas.addEventListener("mousemove", handleMouseMove);
+    canvas.addEventListener("mouseup", handleMouseUp);
+    canvas.addEventListener("mouseleave", handleMouseUp);
+    // End panning event listeners
 
     // Physics Simulation: Repulsion & Attraction
     const applyPhysics = () => {
@@ -166,7 +252,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
               const distance = Math.sqrt(dx * dx + dy * dy);
               const desiredDistance = 250;
               const force = (distance - desiredDistance) * 0.01;
-
               node.vx += (dx / distance) * force;
               node.vy += (dy / distance) * force;
             }
@@ -183,15 +268,8 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
         node.vy += Math.cos(time + node.id.charCodeAt(0)) * 0.1;
 
         // Update position & prevent going out of bounds
-        const padding = 50;
-        node.x = Math.max(
-          padding,
-          Math.min(canvas.width - padding, node.x + node.vx)
-        );
-        node.y = Math.max(
-          padding,
-          Math.min(canvas.height - padding, node.y + node.vy)
-        );
+        node.x += node.vx;
+        node.y += node.vy;
       });
     };
 
@@ -200,26 +278,23 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
       const minConnections = Math.min(...nodes.map((n) => n.connections));
       const t =
         maxConnections === minConnections
-          ? 0.5 // Avoid division by zero if all connections are the same
+          ? 0.5
           : (connections - minConnections) / (maxConnections - minConnections);
 
-      // Define HSL color stops (hue values)
-      const startH = 205; // Deep Teal Blue (#2A6F97)
-      const midH = 28; // Warm Copper Orange (#E67E22)
-      const endH = 5; // Deep Rust Red (#99231E)
+      const startH = 205;
+      const midH = 28;
+      const endH = 5;
 
-      // Linearly interpolate hue values
       let hue;
       if (t < 0.5) {
-        hue = startH + (midH - startH) * (t * 2); // Transition: Blue → Orange
+        hue = startH + (midH - startH) * (t * 2);
       } else {
-        hue = midH + (endH - midH) * ((t - 0.5) * 2); // Transition: Orange → Red
+        hue = midH + (endH - midH) * ((t - 0.5) * 2);
       }
 
-      return `hsl(${hue}, 75%, 40%)`; // Reduced brightness to avoid bright yellow
+      return `hsl(${hue}, 75%, 40%)`;
     };
 
-    // Calculate parallel edge offsets
     const calculateEdgeOffsets = () => {
       const edgeCount = new Map();
       const edgeOffsetTracker = new Map();
@@ -232,7 +307,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
       links.forEach((link) => {
         const key = [link.source, link.target].sort().join("-");
         if (!edgeOffsetTracker.has(key)) {
-          edgeOffsetTracker.set(key, -((edgeCount.get(key) - 1) * 50)); // Spread edges apart
+          edgeOffsetTracker.set(key, -((edgeCount.get(key) - 1) * 50));
         }
         edgeOffsetTracker.set(key, edgeOffsetTracker.get(key) + 40);
       });
@@ -251,9 +326,8 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
         ).length;
       });
 
-      // Determine nodes & links to highlight on hover
-      const relevantNodes = new Set();
-      const relevantLinks = new Set();
+      const relevantNodes = new Set<string>();
+      const relevantLinks = new Set<Link>();
 
       if (hoveredNode) {
         relevantNodes.add(hoveredNode.id);
@@ -273,6 +347,11 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
       nodes.forEach((node) => (node.color = getNodeColor(node.connections)));
 
       const edgeOffsets = calculateEdgeOffsets();
+
+      // Save context, apply pan offset and zoom
+      ctx.save();
+      ctx.translate(panRef.current.x, panRef.current.y);
+      ctx.scale(zoomRef.current, zoomRef.current);
 
       // Draw links with hover effect
       links.forEach((link) => {
@@ -300,8 +379,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
           ctx.stroke();
           ctx.shadowBlur = 0;
 
-          // Draw animated dots along edges
-          // Draw animated dots along edges ONLY if they are connected to hoveredNode
           if (
             hoveredNode &&
             (hoveredNode.id === source.id || hoveredNode.id === target.id)
@@ -332,7 +409,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
 
         const radius =
           hoveredNode && relevantNodes.has(node.id)
-            ? 24 + node.connections * 5 // Slightly larger when hovered
+            ? 24 + node.connections * 5
             : 20 + node.connections * 5;
         ctx.globalAlpha = hoveredNode
           ? relevantNodes.has(node.id)
@@ -349,12 +426,11 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
           ctx.lineWidth = 2;
           ctx.strokeStyle = "#FFD700";
           ctx.shadowColor = "#FFD700";
-          ctx.shadowBlur = 15; // slight glow
+          ctx.shadowBlur = 15;
           ctx.stroke();
           ctx.shadowBlur = 0;
         }
 
-        // Draw node label
         ctx.fillStyle = "white";
         const fontSize = 12 + node.connections;
         ctx.font = `${fontSize}px Arial`;
@@ -368,6 +444,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
         }
       });
 
+      ctx.restore();
       ctx.globalAlpha = 1.0;
       requestAnimationFrame(animate);
 
@@ -382,12 +459,30 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
 
     // Cleanup event listeners on unmount
     return () => {
+      canvas.removeEventListener("mousedown", handleMouseDown);
       canvas.removeEventListener("mousemove", handleMouseMove);
+      canvas.removeEventListener("mouseup", handleMouseUp);
+      canvas.removeEventListener("mouseleave", handleMouseUp);
+      canvas.removeEventListener("mousemove", () => {});
     };
   }, [links, nodes, userId]);
 
   return (
     <div className="w-full max-w-4xl mx-auto">
+      <div className="flex justify-end mb-4">
+        <button
+          onClick={handleReset}
+          className="px-4 py-2 bg-dsmlcTangerine text-light-dsmlcBlack font-bold rounded-full"
+        >
+          Reset Zoom &amp; Pan
+        </button>
+        <button
+          onClick={toggleFullScreen}
+          className="px-4 py-2 bg-dsmlcTangerine text-light-dsmlcBlack font-bold rounded-full ml-2"
+        >
+          Toggle Full Screen
+        </button>
+      </div>
       <div
         ref={containerRef}
         className="border border-[#FF9B5E]/20 rounded-lg overflow-hidden"
