@@ -4,9 +4,11 @@ import type React from "react";
 import { useEffect, useState } from "react";
 import { getConnectedPlayers, getPlayerNames } from "../Backend";
 import supabase from "../supabase_client";
+import { Link } from "./NetworkGraph";
 
 interface ConnectedPlayersListProps {
   playerCode: string;
+  links: Link[];
 }
 
 interface Player {
@@ -17,12 +19,21 @@ interface Player {
 
 const ConnectedPlayersList: React.FC<ConnectedPlayersListProps> = ({
   playerCode,
+  links,
 }) => {
   const [connectedPlayers, setConnectedPlayers] = useState<Player[]>([]);
 
   useEffect(() => {
     const loadConnectedPlayers = async () => {
-      const connectionCodes = await getConnectedPlayers(playerCode);
+      const connectionCodesSet = new Set<string>();
+      links.forEach((link) => {
+        if (link.source === playerCode) {
+          connectionCodesSet.add(link.target);
+        } else if (link.target === playerCode) {
+          connectionCodesSet.add(link.source);
+        }
+      });
+      const connectionCodes = Array.from(connectionCodesSet);
 
       if (connectionCodes.length === 0) {
         setConnectedPlayers([]);
@@ -30,49 +41,26 @@ const ConnectedPlayersList: React.FC<ConnectedPlayersListProps> = ({
       }
 
       const playersData = await getPlayerNames(connectionCodes);
-
       setConnectedPlayers(playersData);
     };
 
     loadConnectedPlayers();
-
-    const subscription = supabase
-      .channel("realtime:NetworkGraphGameConnections")
-      .on(
-        "postgres_changes",
-        {
-          event: "INSERT",
-          schema: "public",
-          table: "NetworkGraphGameConnections",
-        },
-        (payload) => {
-          if (
-            payload.new.first_pair === playerCode ||
-            payload.new.second_pair === playerCode
-          ) {
-            loadConnectedPlayers();
-          }
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(subscription);
-    };
-  }, [playerCode]);
+  }, [playerCode, links]);
 
   return (
-    <div className="lg:min-w-[900px] min-w-full mt-14 p-4 border-dsmlcTangerine border-2 rounded-lg dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite text-dsmlcTangerine">
-      <h2 className="text-2xl font-semibold mb-2">
+    <div className="lg:w-full max-w-4xl mx-auto mt-14 p-4 border-dsmlcTangerine border-2 rounded-lg dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite text-dsmlcTangerine">
+      <h2 className="text-3xl font-semibold mb-2">
         List of Your Connections Today:
       </h2>
       {connectedPlayers.length === 0 ? (
         <p>No connections yet.</p>
       ) : (
-        <ul className="list-disc text-xl pl-5">
+        <ul className="list-disc text-2xl pl-7">
           {connectedPlayers.map((player) => (
             <li key={player.player_id}>
-              {player.name}
+              <span className="dark:text-light-dsmlcParchment light:text-dark-dsmlcParchment">
+                {player.name}
+              </span>
               {player.linkedin && (
                 <>
                   {" - "}
@@ -80,7 +68,7 @@ const ConnectedPlayersList: React.FC<ConnectedPlayersListProps> = ({
                     href={player.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-500 underline"
+                    className="text-dsmlcTangerine underline"
                   >
                     LinkedIn
                   </a>

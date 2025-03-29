@@ -25,11 +25,11 @@ export interface Link {
 
 interface NetworkGraphProps {
   userId: string;
+  links: Link[];
 }
 
-const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId }) => {
+const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
   const [nodes, setNodes] = useState<Node[]>([]);
-  const [links, setLinks] = useState<Link[]>([]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -39,9 +39,8 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId }) => {
       setNodes(fetchedNodes);
     };
 
-    loadNodes(); // Initial fetch
+    loadNodes();
 
-    // Listen for real-time updates
     const subscription = supabase
       .channel("realtime:NetworkGraphGameNames")
       .on(
@@ -64,33 +63,22 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId }) => {
           ]);
         }
       )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(subscription);
-    };
-  }, []);
-
-  useEffect(() => {
-    const loadLinks = async () => {
-      const fetchedLinks = await fetchLinks();
-      setLinks(fetchedLinks);
-    };
-
-    loadLinks();
-
-    const subscription = supabase
-      .channel("realtime:NetworkGraphGameConnections")
       .on(
         "postgres_changes",
-        {
-          event: "INSERT",
-          schema: "public",
-          table: "NetworkGraphGameConnections",
-        },
+        { event: "UPDATE", schema: "public", table: "NetworkGraphGameNames" },
         (payload) => {
-          console.log("HERE: New connection added:", payload.new);
-          loadLinks();
+          console.log("Player updated:", payload.new);
+          setNodes((prevNodes) =>
+            prevNodes.map((node) =>
+              node.id === payload.new.player_id
+                ? {
+                    ...node,
+                    name: payload.new.name,
+                    connections: payload.new.connection_count,
+                  }
+                : node
+            )
+          );
         }
       )
       .subscribe();
@@ -396,7 +384,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId }) => {
     return () => {
       canvas.removeEventListener("mousemove", handleMouseMove);
     };
-  }, [nodes, links]);
+  }, [links, nodes, userId]);
 
   return (
     <div className="w-full max-w-4xl mx-auto">

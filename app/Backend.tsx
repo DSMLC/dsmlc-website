@@ -154,16 +154,20 @@ export const addPair = async (
   }
 
   // Insert new pair
-  const { error: insertError } = await supabase
+  const { data, error: insertError } = await supabase
     .from("NetworkGraphGameConnections")
     .insert({
       first_pair: pairCode1,
       second_pair: pairCode2,
     });
 
+  console.log("Insert connection response:", data, insertError);
+
   if (insertError) {
     console.error("Error inserting pair:", insertError);
     return "An error occurred while trying to connect.";
+  } else {
+    console.log("Inserted successful");
   }
 
   return null;
@@ -179,10 +183,29 @@ export const fetchLinks = async (): Promise<Link[]> => {
     return [];
   }
 
-  // Map each row into a Link object.
   return data.map((connection: any) => ({
     source: connection.first_pair,
     target: connection.second_pair,
-    weight: 1, // You can adjust weight as needed
+    weight: 1,
   }));
+};
+
+export const updatePlayer = async (
+  playerId: string,
+  name: string,
+  linkedin?: string
+): Promise<boolean> => {
+  const { error } = await supabase
+    .from("NetworkGraphGameNames")
+    .update({
+      name,
+      linkedin: linkedin || null,
+    })
+    .eq("player_id", playerId);
+
+  if (error) {
+    console.error("Error updating player:", error);
+    return false;
+  }
+  return true;
 };
