@@ -51,6 +51,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
   const handleReset = () => {
     panRef.current = { x: 0, y: 0 };
     zoomRef.current = 1;
+    targetZoomRef.current = 1;
   };
 
   const toggleFullScreen = () => {
