@@ -59,8 +59,8 @@ const ConnectedPlayersList: React.FC<ConnectedPlayersListProps> = ({
   }, [playerCode, links]);
 
   return (
-    <div className="lg:w-full max-w-4xl mx-auto mt-14 p-4 border-dsmlcTangerine border-2 rounded-lg dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite text-dsmlcTangerine">
-      <h2 className="text-3xl font-semibold mb-2">
+    <div className="md:mx-auto mx-10 lg:w-full max-w-4xl mt-14 p-4 border-dsmlcTangerine border-2 rounded-lg dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite text-dsmlcTangerine">
+      <h2 className="md:text-3xl text-xl font-semibold mb-2">
         List of Your Connections Today:
       </h2>
       {connectedPlayers.length === 0 ? (

@@ -121,7 +121,7 @@ const PlayingComponent: React.FC<{
   };
 
   return (
-    <div>
+    <div className="px-10">
       {editMode ? (
         <div className="mb-6 mt-5">
           <SubtitleTemplate2 Data="Edit your name:" />
@@ -213,11 +213,11 @@ const PlayingComponent: React.FC<{
           value={playerCode2}
           onChange={(e) => setPlayerCode2(e.target.value)}
           placeholder="Enter other people's code"
-          className="text-2xl w-full p-4 my-4 mb-10 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
+          className="md:text-2xl text-lg w-full p-4 my-4 mb-10 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
         />
         <button
           type="submit"
-          className={`text-2xl w-full py-3 bg-dsmlcTangerine dark:text-light-dsmlcBlack text-dark-dsmlcBlack font-bold rounded-full relative overflow-hidden transition-colors ${
+          className={`md:text-2xl text-lg w-full py-3 bg-dsmlcTangerine text-light-dsmlcBlack font-bold rounded-full relative overflow-hidden transition-colors ${
             isHovering ? "bg-opacity-60" : ""
           }`}
           onMouseEnter={() => setIsHovering(true)}

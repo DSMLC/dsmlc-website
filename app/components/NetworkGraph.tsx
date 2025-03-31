@@ -4,6 +4,7 @@ import type React from "react";
 import { useState, useEffect, useRef } from "react";
 import { fetchLinks, fetchNodes } from "../Backend";
 import supabase from "../supabase_client";
+import { useTheme } from "../ThemeProvider";
 
 interface Node {
   id: string;
@@ -32,6 +33,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
   const [nodes, setNodes] = useState<Node[]>([]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const { isDarkMode, setIsDarkMode } = useTheme();
 
   // For panning support
   const panRef = useRef({ x: 0, y: 0 });
@@ -40,6 +42,9 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
 
   // For zoom support (default zoom is 1)
   const zoomRef = useRef(1);
+
+  const pinchInitialDistanceRef = useRef<number | null>(null);
+  const pinchInitialZoomRef = useRef(zoomRef.current);
 
   // Reset handler: resets pan and zoom to initial values.
   const handleReset = () => {
@@ -98,8 +103,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
         "postgres_changes",
         { event: "INSERT", schema: "public", table: "NetworkGraphGameNames" },
         (payload) => {
-          console.log("New player added:", payload.new);
-
           setNodes((prevNodes) =>
             ensureDSMLCNode([
               ...prevNodes,
@@ -120,7 +123,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
         "postgres_changes",
         { event: "UPDATE", schema: "public", table: "NetworkGraphGameNames" },
         (payload) => {
-          console.log("Player updated:", payload.new);
           setNodes((prevNodes) =>
             ensureDSMLCNode(
               prevNodes.map((node) =>
@@ -246,6 +248,64 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
     canvas.addEventListener("mouseleave", handleMouseUp);
     // End panning event listeners
 
+    // --- Touch Event Handlers ---
+    const handleTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        // Initiate pinch-to-zoom
+        const touch1 = e.touches[0];
+        const touch2 = e.touches[1];
+        const dx = touch2.clientX - touch1.clientX;
+        const dy = touch2.clientY - touch1.clientY;
+        pinchInitialDistanceRef.current = Math.hypot(dx, dy);
+        pinchInitialZoomRef.current = zoomRef.current;
+      } else if (e.touches.length === 1) {
+        // Single touch for panning
+        dragging.current = true;
+        lastMousePos.current = {
+          x: e.touches[0].clientX,
+          y: e.touches[0].clientY,
+        };
+      }
+    };
+
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches.length === 2 && pinchInitialDistanceRef.current !== null) {
+        e.preventDefault();
+        const touch1 = e.touches[0];
+        const touch2 = e.touches[1];
+        const dx = touch2.clientX - touch1.clientX;
+        const dy = touch2.clientY - touch1.clientY;
+        const newDistance = Math.hypot(dx, dy);
+        const scaleFactor = newDistance / pinchInitialDistanceRef.current;
+        let newZoom = pinchInitialZoomRef.current * scaleFactor;
+        // Clamp zoom between 0.5 and 2
+        newZoom = Math.min(Math.max(newZoom, 0.5), 2);
+        zoomRef.current = newZoom;
+      } else if (e.touches.length === 1 && dragging.current) {
+        const touch = e.touches[0];
+        const deltaX = touch.clientX - lastMousePos.current.x;
+        const deltaY = touch.clientY - lastMousePos.current.y;
+        panRef.current.x += deltaX;
+        panRef.current.y += deltaY;
+        lastMousePos.current = { x: touch.clientX, y: touch.clientY };
+      }
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      if (e.touches.length < 2) {
+        pinchInitialDistanceRef.current = null;
+      }
+      if (e.touches.length === 0) {
+        dragging.current = false;
+      }
+    };
+
+    canvas.addEventListener("touchstart", handleTouchStart, { passive: false });
+    canvas.addEventListener("touchmove", handleTouchMove, { passive: false });
+    canvas.addEventListener("touchend", handleTouchEnd);
+    canvas.addEventListener("touchcancel", handleTouchEnd);
+
     // Physics Simulation: Repulsion & Attraction
     const applyPhysics = () => {
       nodes.forEach((node) => {
@@ -322,8 +382,9 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
       } else {
         hue = midH + (endH - midH) * ((t - 0.5) * 2);
       }
+      const lightness = isDarkMode ? 40 : 60;
 
-      return `hsl(${hue}, 75%, 40%)`;
+      return `hsl(${hue}, 75%, ${lightness}%)`;
     };
 
     const calculateEdgeOffsets = () => {
@@ -373,8 +434,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
             relevantNodes.add(link.target.toLowerCase());
           }
         });
-        console.log("Hovered Node:", hoveredNode.id);
-        console.log("Connected Nodes:", Array.from(relevantNodes));
       }
 
       applyPhysics();
@@ -422,7 +481,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
             const dotX = source.x + (target.x - source.x) * t;
             const dotY = source.y + (target.y - source.y) * t;
 
-            ctx.fillStyle = "#FFFFFF";
+            ctx.fillStyle = isDarkMode ? "#F5EACF" : "#222222";
             ctx.beginPath();
             ctx.arc(dotX, dotY, 4, 0, Math.PI * 2);
             ctx.fill();
@@ -442,7 +501,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
             ? 1.0
             : 0.2
           : 1.0;
-          
+
         if (node.id === "dsmlc") {
           // Make DSMLC node larger
           const dsmlcRadius = radius + 25; // Larger radius
@@ -478,12 +537,8 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
             node.x,
             node.y + dsmlcRadius * 0.65
           );
-          console.log(
-            `Node ${node.id} alpha: ${ctx.globalAlpha} (${
-              ctx.globalAlpha === 1 ? "visible" : "dimmed"
-            })`
-          );
-          return; // Skip normal drawing for DSMLC node.
+
+          return;
         }
 
         const isUserNode = node.id === userId;
@@ -496,13 +551,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
           ctx.translate(-node.x, -node.y);
         }
 
-        if (hoveredNode) {
-          console.log(
-            `Node ${node.id} alpha: ${
-              relevantNodes.has(node.id) ? "1.0 (visible)" : "0.2 (dimmed)"
-            }`
-          );
-        }
         ctx.fillStyle = node.color || "#FF9B5E";
 
         ctx.beginPath();
@@ -518,7 +566,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
           ctx.shadowBlur = 0;
         }
 
-        ctx.fillStyle = "white";
+        ctx.fillStyle = isDarkMode ? "#F5EACF" : "#222222";
         const fontSize = 12 + node.connections;
         ctx.font = `${fontSize}px Arial`;
         ctx.textAlign = "center";
@@ -550,22 +598,25 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseup", handleMouseUp);
       canvas.removeEventListener("mouseleave", handleMouseUp);
-      canvas.removeEventListener("mousemove", () => {});
+      canvas.removeEventListener("touchstart", handleTouchStart);
+      canvas.removeEventListener("touchmove", handleTouchMove);
+      canvas.removeEventListener("touchend", handleTouchEnd);
+      canvas.removeEventListener("touchcancel", handleTouchEnd);
     };
-  }, [links, nodes, userId]);
+  }, [links, nodes, userId, isDarkMode]);
 
   return (
-    <div className="w-full max-w-4xl mx-auto">
+    <div className="w-full max-w-4xl mx-auto px-10">
       <div className="flex justify-end mb-4">
         <button
           onClick={handleReset}
-          className="px-4 py-2 bg-dsmlcTangerine text-light-dsmlcBlack font-bold rounded-full"
+          className="md:text-base text-sm px-4 py-2 bg-dsmlcTangerine text-light-dsmlcBlack font-bold rounded-full"
         >
           Reset Zoom &amp; Pan
         </button>
         <button
           onClick={toggleFullScreen}
-          className="px-4 py-2 bg-dsmlcTangerine text-light-dsmlcBlack font-bold rounded-full ml-2"
+          className="md:text-base text-sm px-4 py-2 bg-dsmlcTangerine text-light-dsmlcBlack font-bold rounded-full ml-2"
         >
           Toggle Full Screen
         </button>
