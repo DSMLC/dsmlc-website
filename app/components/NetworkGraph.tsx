@@ -623,8 +623,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
       </div>
       <div
         ref={containerRef}
-        className="border border-[#FF9B5E]/20 rounded-lg overflow-hidden"
-        style={{ height: "600px" }}
+        className="w-full h-[600px] md:h-[700px] lg:h-[800px] border border-[#FF9B5E]/20 rounded-lg overflow-hidden bg-light-dsmlcParchment dark:bg-dark-dsmlcParchment"
       >
         <canvas ref={canvasRef} />
       </div>
