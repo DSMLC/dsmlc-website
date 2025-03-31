@@ -185,7 +185,7 @@ const PlayingComponent: React.FC<{
           <div className="flex justify-end">
             <button
               onClick={() => setEditMode(true)}
-              className="text-xl font-bold py-2 px-4 bg-dsmlcTangerine text-light-dsmlcBlack rounded-full mt-4"
+              className="md:text-xl text-base font-bold py-2 px-4 bg-dsmlcTangerine text-light-dsmlcBlack rounded-full mt-4"
             >
               Edit Profile
             </button>

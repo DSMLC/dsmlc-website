@@ -626,7 +626,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
       </div>
       <div
         ref={containerRef}
-        className="w-full h-[400px] md:h-[700px] lg:h-[800px] border border-[#FF9B5E]/20 rounded-lg overflow-hidden bg-light-dsmlcParchment dark:bg-dark-dsmlcParchment"
+        className="w-full h-[300px] md:h-[700px] lg:h-[800px] border border-[#FF9B5E]/20 rounded-lg overflow-hidden bg-light-dsmlcParchment dark:bg-dark-dsmlcParchment"
       >
         <canvas ref={canvasRef} style={{ touchAction: "none" }} />
       </div>
