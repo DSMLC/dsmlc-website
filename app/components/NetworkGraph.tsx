@@ -42,7 +42,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
 
   // For zoom support (default zoom is 1)
   const zoomRef = useRef(1);
-  const targetZoomRef = useRef(1);
 
   const pinchInitialDistanceRef = useRef<number | null>(null);
   const pinchInitialZoomRef = useRef(zoomRef.current);
@@ -51,7 +50,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
   const handleReset = () => {
     panRef.current = { x: 0, y: 0 };
     zoomRef.current = 1;
-    targetZoomRef.current = 1;
   };
 
   const toggleFullScreen = () => {
@@ -283,7 +281,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
         let newTargetZoom = pinchInitialZoomRef.current * scaleFactor;
         // Clamp zoom between 0.5 and 2
         newTargetZoom = Math.min(Math.max(newTargetZoom, 0.5), 2);
-        targetZoomRef.current = newTargetZoom;
       } else if (e.touches.length === 1 && dragging.current) {
         // Single touch for panning...
         const touch = e.touches[0];
@@ -413,7 +410,6 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
     // Main animation loop
     const animate = () => {
       time += 0.02;
-      zoomRef.current += (targetZoomRef.current - zoomRef.current) * 0.1;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       nodes.forEach((node) => {
