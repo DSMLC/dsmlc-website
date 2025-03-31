@@ -129,7 +129,7 @@ const PlayingComponent: React.FC<{
             type="text"
             value={editedName}
             onChange={(e) => setEditedName(e.target.value)}
-            className="text-2xl w-full p-4 mb-6 mt-2 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
+            className="md:text-2xl text-lg w-full p-4 mb-6 mt-2 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
           />
           <SubtitleTemplate2 Data="Edit your LinkedIn URL:" />
           <input
@@ -137,18 +137,18 @@ const PlayingComponent: React.FC<{
             value={editedLinkedin}
             onChange={(e) => setEditedLinkedin(e.target.value)}
             placeholder="Optional"
-            className="text-2xl w-full p-4 mb-4 mt-2 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
+            className="md:text-2xl text-lg w-full p-4 mb-4 mt-2 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
           />
           <div className="flex justify-end gap-4">
             <button
               onClick={handleEditSave}
-              className="text-lg font-bold py-3 px-6 bg-dsmlcTangerine text-light-dsmlcBlack rounded-full"
+              className="md:text-xl text-base font-bold py-3 px-6 bg-dsmlcTangerine text-light-dsmlcBlack rounded-full"
             >
               Save
             </button>
             <button
               onClick={() => setEditMode(false)}
-              className="text-lg font-bold py-3 px-6 bg-dsmlcTangerine text-light-dsmlcBlack rounded-full"
+              className="md:text-xl text-base font-bold py-3 px-6 bg-dsmlcTangerine text-light-dsmlcBlack rounded-full"
             >
               Cancel
             </button>
@@ -223,7 +223,9 @@ const PlayingComponent: React.FC<{
           onMouseEnter={() => setIsHovering(true)}
           onMouseLeave={() => setIsHovering(false)}
         >
-          <span className="relative z-10">Submit Other Player</span>
+          <span className="md:text-xl text-base relative z-10">
+            Submit Other Player Code
+          </span>
         </button>
       </form>
     </div>
