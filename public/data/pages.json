@@ -84,5 +84,11 @@
         "link": "/executive"
       }
     ]
+  },
+  {
+    "name": "Social Networking Game",
+    "type": "main",
+    "link": "/social-network-graph",
+    "dropdown": []
   }
 ]
