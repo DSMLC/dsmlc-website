@@ -42,6 +42,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
 
   // For zoom support (default zoom is 1)
   const zoomRef = useRef(1);
+  const targetZoomRef = useRef(1);
 
   const pinchInitialDistanceRef = useRef<number | null>(null);
   const pinchInitialZoomRef = useRef(zoomRef.current);
@@ -278,11 +279,12 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
         const dy = touch2.clientY - touch1.clientY;
         const newDistance = Math.hypot(dx, dy);
         const scaleFactor = newDistance / pinchInitialDistanceRef.current;
-        let newZoom = pinchInitialZoomRef.current * scaleFactor;
+        let newTargetZoom = pinchInitialZoomRef.current * scaleFactor;
         // Clamp zoom between 0.5 and 2
-        newZoom = Math.min(Math.max(newZoom, 0.5), 2);
-        zoomRef.current = newZoom;
+        newTargetZoom = Math.min(Math.max(newTargetZoom, 0.5), 2);
+        targetZoomRef.current = newTargetZoom;
       } else if (e.touches.length === 1 && dragging.current) {
+        // Single touch for panning...
         const touch = e.touches[0];
         const deltaX = touch.clientX - lastMousePos.current.x;
         const deltaY = touch.clientY - lastMousePos.current.y;
@@ -410,6 +412,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
     // Main animation loop
     const animate = () => {
       time += 0.02;
+      zoomRef.current += (targetZoomRef.current - zoomRef.current) * 0.1;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       nodes.forEach((node) => {
