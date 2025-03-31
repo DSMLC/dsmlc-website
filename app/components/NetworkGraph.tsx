@@ -278,9 +278,10 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
         const dy = touch2.clientY - touch1.clientY;
         const newDistance = Math.hypot(dx, dy);
         const scaleFactor = newDistance / pinchInitialDistanceRef.current;
-        let newTargetZoom = pinchInitialZoomRef.current * scaleFactor;
+        let newZoom = pinchInitialZoomRef.current * scaleFactor;
         // Clamp zoom between 0.5 and 2
-        newTargetZoom = Math.min(Math.max(newTargetZoom, 0.5), 2);
+        newZoom = Math.min(Math.max(newZoom, 0.5), 2);
+        zoomRef.current = newZoom;
       } else if (e.touches.length === 1 && dragging.current) {
         // Single touch for panning...
         const touch = e.touches[0];
