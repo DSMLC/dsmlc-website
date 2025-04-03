@@ -213,6 +213,9 @@ const PlayingComponent: React.FC<{
           value={playerCode2}
           onChange={(e) => setPlayerCode2(e.target.value)}
           placeholder="Enter other people's code"
+          autoCapitalize="off"
+          autoCorrect="off"
+          spellCheck={false}
           className="md:text-2xl text-lg w-full p-4 my-4 mb-10 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
         />
         <button
