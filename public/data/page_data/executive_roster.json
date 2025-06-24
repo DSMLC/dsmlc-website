@@ -110,6 +110,42 @@
     "data": [
       {
         "type": "ProfileListTemplate",
+        "data": ["Events Team"]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "ProfileListTemplate",
+        "data": ["External Affairs Team"]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "ProfileListTemplate",
+        "data": ["Competitions Team"]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "ProfileListTemplate",
+        "data": ["Marketing Team"]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "ProfileListTemplate",
         "data": ["Legacy Executives (Advisory Team)"]
       }
     ]
