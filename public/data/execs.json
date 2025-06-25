@@ -27,38 +27,25 @@
       },
       "bio": "Hi I'm Evan, a 3rd year Comp Sci/Data Sci Major! I'm really big into basketball and snowboarding, and I also enjoy learning about history and different cultures!"
     },
-
     {
-      "name": "Rayyan Zuberi",
+      "name": "Hanz Dela Cruz",
       "role": [
         {
           "group": "Admin Team",
           "roles": [
-            "Presidential Advisor"
-          ]
-        },
-        {
-          "group": "Advisors",
-          "roles": [
-            "Advisor"
+            "Vice President"
           ]
         }
-      ],
-      "program": {
-        "programs": [
-          "Medical Student (MD)"
-        ]
-      },
-      "profile": "/images/profile/rayyan_zuberi.webp"
+      ]
     },
     
     {
       "name": "Adrian Julve",
       "role": [
         {
-          "group": "Admin Team",
+          "group": "Events Team",
           "roles": [
-            "Jr. VP Events"
+            "Director of Events"
           ]
         },
         {
@@ -73,7 +60,7 @@
         "programs": [
           "Data Science"
         ],
-        "year": "2nd Year"
+        "year": "3rd Year"
       },
       "bio": "I love being active and I'm all about improving myself physically and mentally. You can frequently catch me in the gym or hiking up a mountain! I'm also big into car culture and video games!"
     },
@@ -81,9 +68,9 @@
       "name": "Aimen Zahid",
       "role": [
         {
-          "group": "Admin Team",
+          "group": "Events Team",
           "roles": [
-            "Jr. VP Events"
+            "Director of Events"
           ]
         },
         {
@@ -97,110 +84,36 @@
         "programs": [
           "Data Science"
         ],
-        "year": "2nd Year"
+        "year": "3rd Year"
       },
       "bio": "Hi, I'm Aimen! I'm passionate problem-solving through data and the future of AI. During my free time, I'm an avid reader and enjoy exploring topics in literature and psychology."
     },
     {
-      "name": "Taha Malik",
+      "name": "Kya Broderick",
       "role": [
         {
-          "group": "Admin Team",
+          "group": "Events Team",
           "roles": [
-            "VP Outreach"
-          ]
-        },
-        {
-          "group": "Visionary Lab Board",
-          "roles": [
-            "Board of Directors"
+            "Events Lead"
           ]
         }
       ],
       "program": {
         "programs": [
           "Computer Science",
-          "Finance"
+          "Statistics"
         ],
-        "year": "2nd Year"
-      },
-      "bio": "I’m obsessed with hiking and solo summit adventures—there’s nothing like conquering new peaks and soaking in those breathtaking mountain views! I’m also a total tech enthusiast, especially when it comes to neurotechnology and cybernetics. The future of these fields blows my mind, and I can’t wait to see how they reshape the world!",
-      "profile": "/images/profile/taha_malik.jpg"
+        "year": "4th Year"
+      }
+    
     },
     {
-      "name": "Yash Dhaneshwari",
+      "name": "Saira Fatima",
       "role": [
         {
-          "group": "Admin Team",
+          "group": "Events Team",
           "roles": [
-            "Jr. VP Outreach"
-          ]
-        }
-      ],
-      "program": {
-        "programs": [
-          "Computer Science"
-        ],
-        "year": "2nd Year"
-      },
-      "bio": "Passionate about physics and math, and lvoe incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing"
-    },
-    {
-      "name": "Ian McCourtie",
-      "role": [
-        {
-          "group": "Admin Team",
-          "roles": [
-            "Jr. VP Outreach"
-          ]
-        },
-        {
-          "group": "Visionary Lab Board",
-          "roles": [
-            "Board of Directors"
-          ]
-        }
-      ],
-      "program": {
-        "programs": [
-          "Business"
-        ],
-        "year": "2nd Year"
-      },
-      "profile": "/images/profile/ian_mccourtie.jpg",
-      "bio": "I love playing basketball and staying active as much as I can, and I enjoy being social and connecting with people from all different walks of life. I'm very interested in outreach and marketing, as far as connecting with companies and individuals and developing professional connections and relationships."
-    },
-    {
-      "name": "Maheen Hossain",
-      "role": [
-        {
-          "group": "Operations Team",
-          "roles": [
-            "VP Operations"
-          ]
-        },
-        {
-          "group": "Advisors",
-          "roles": [
-            "Advisor"
-          ]
-        }
-      ],
-      "program": {
-        "programs": [
-          "Software Engineering"
-        ],
-        "year": "6th Year"
-      },
-      "profile": "/images/profile/maheen_hossain.jpg"
-    },
-    {
-      "name": "Joseph Tandyo",
-      "role": [
-        {
-          "group": "Operations Team",
-          "roles": [
-            "Jr. VP Operations"
+            "Events Lead"
           ]
         }
       ],
@@ -209,29 +122,16 @@
           "Computer Science"
         ],
         "year": "3rd Year"
-      },
-      "profile": "/images/profile/joseph_tandyo.jpg",
-      "bio": "hello I'm Joseph and I am in 3rd year computer science. In my free time I like to watch movies, shows and interested in storytelling in general! I also like to go bouldering from time to time"
+      }
+    
     },
     {
-      "name": "Jason Nguyen",
+      "name": "Joseph Tandyo",
       "role": [
         {
           "group": "Operations Team",
           "roles": [
-            "Tech Lead"
-          ]
-        },
-        {
-          "group": "Visionary Lab Board",
-          "roles": [
-            "Board of Directors"
-          ]
-        },
-        {
-          "group": "Project Managers",
-          "roles": [
-            "2024 Project Manager"
+            "Director of Operations"
           ]
         }
       ],
@@ -239,39 +139,100 @@
         "programs": [
           "Computer Science"
         ],
-        "year": "6th Year"
+        "year": "4th Year"
       },
-      "profile": "/images/profile/jason_nguyen.jpg"
+      "profile": "/images/profile/joseph_tandyo.jpg",
+      "bio": "hello I'm Joseph and I am in 3rd year computer science. In my free time I like to watch movies, shows and interested in storytelling in general! I also like to go bouldering from time to time"
     },
     {
-      "name": "Hanz Dela Cruz",
+      "name": "Peter Tran",
       "role": [
         {
-          "group": "Operations Team",
+          "group":"Operations Team",
           "roles": [
-            "Competition Director"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "Dheeraj Jaswal",
-      "role": [
-        {
-          "group": "Operations Team",
-          "roles": [
-            "Jr. Competition Director"
+              "Tech Lead"
           ]
         }
       ],
       "program": {
         "programs": [
-          "Business"
+          "Computer Science"
         ],
-        "year": "2nd Year"
-      },
-      "profile": "/images/profile/dheeraj_jaswal.jpg",
-      "bio": "Hi I'm Dheeraj. I enjoy travelling around the world and meeting new people. I am passionate about data science and I love to learn new skills or volunteer in my free time."
+        "year": "4th Year"
+        
+      }
+    },
+    {
+      "name": "Matthew Liu",
+      "role": [
+        {
+          "group":"Operations Team",
+          "roles": [
+              "Tech Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Software Engineering"
+        ],
+        "year": "3rd Year"
+        
+      }
+    },
+    {
+      "name": "Lychelle Pham",
+      "role": [
+        {
+          "group":"Operations Team",
+          "roles": [
+              "Tech Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Computer Science"
+        ],
+        "year": "3rd Year"
+        
+      }
+    },
+    {
+      "name": "Shreya Shah",
+      "role": [
+        {
+          "group":"Operations Team",
+          "roles": [
+              "Tech Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Software Engineering"
+        ],
+        "year": "3rd Year"
+        
+      }
+    },
+    {
+      "name": "Noor Syed",
+      "role": [
+        {
+          "group":"Operations Team",
+          "roles": [
+              "Tech Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Software Engineering"
+        ],
+        "year": "3rd Year"
+        
+      }
     },
     {
       "name": "Prantap Sharma",
@@ -279,10 +240,34 @@
         {
           "group": "Operations Team",
           "roles": [
-            "Workshop Director"
+            "Workshop Coordinator"
           ]
         }
-      ]
+      ],
+      "program": {
+        "programs": [
+          "Computer Science",
+          "Business"
+        ]
+        
+      }
+    },
+    {
+      "name": "Tae Shim",
+      "role": [
+        {
+          "group": "Operations Team",
+          "roles": [
+            "Workshop Coordinator"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Data Science"
+        ]
+        
+      }
     },
     {
       "name": "Andrey Dimanchev",
@@ -290,7 +275,7 @@
         {
           "group": "Operations Team",
           "roles": [
-            "Workshop Director"
+            "Workshop Coordinator"
           ]
         },
         {
@@ -315,6 +300,164 @@
       },
       "profile": "/images/profile/andrey_dimanchev.jpg",
       "bio": "Passionate about solving complex puzzles with technology, primarily in Machine Learning and Rocketry. I also skateboard!"
+    },
+    {
+      "name": "Luis Trigueros Granillo",
+      "role": [
+        {
+          "group": "Competitions Team",
+          "roles": [
+            "Competition Director"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Computer Science"
+        ],
+        "year": "4th Year"
+      }
+    },
+    {
+      "name": "Zaine Ancheta",
+      "role": [
+        {
+          "group": "Competitions Team",
+          "roles": [
+            "Competition Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Data Science"
+        ],
+        "year": "2nd Year"
+      }
+    },
+    {
+      "name": "Amy Cui",
+      "role": [
+        {
+          "group": "Marketing Team",
+          "roles": [
+            "Marketing Lead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yash Dhaneshwari",
+      "role": [
+        {
+          "group": "Marketing Team",
+          "roles": [
+            "Director of Outreach"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Computer Science"
+        ],
+        "year": "3rd Year"
+      },
+      "bio": "Passionate about physics and math, and lvoe incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing"
+    },
+    {
+      "name": "Dheeraj Jaswal",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": [
+            "External Affairs Director"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Business"
+        ],
+        "year": "2nd Year"
+      },
+      "profile": "/images/profile/dheeraj_jaswal.jpg",
+      "bio": "Hi I'm Dheeraj. I enjoy travelling around the world and meeting new people. I am passionate about data science and I love to learn new skills or volunteer in my free time."
+    },
+    {
+      "name": "Ian McCourtie",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": [
+            "Financial Controller"
+          ]
+        },
+        {
+          "group": "Visionary Lab Board",
+          "roles": [
+            "Board of Directors"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Business"
+        ],
+        "year": "2nd Year"
+      },
+      "profile": "/images/profile/ian_mccourtie.jpg",
+      "bio": "I love playing basketball and staying active as much as I can, and I enjoy being social and connecting with people from all different walks of life. I'm very interested in outreach and marketing, as far as connecting with companies and individuals and developing professional connections and relationships."
+    },
+    {
+      "name": "Azka Khalil",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": [
+            "Communcations Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Business"
+        ],
+        "year": "2nd Year"
+      }
+    },
+    {
+      "name": "Navroop Bath",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": [
+            "Sponsorship Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Computer Science"
+        ],
+        "year": "2nd Year"
+      }
+    },
+    {
+      "name": "Linh Truong",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": [
+            "Sponsorship Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Business (Accounting)"
+        ],
+        "year": "4th Year"
+      }
     },
     {
       "name": "Lucy Li",
@@ -410,10 +553,110 @@
         "programs": [
           "Computer Science",
           "Business"
-        ],
-        "year": "4th Year"
+        ]
       },
       "bio": "I like learning about cultures and languages, travelling the world, painting and animating cityscapes, working out, recording everything for my future self to see, and keeping things aesthetic :D"
+    },
+    {
+      "name": "Rayyan Zuberi",
+      "role": [
+        {
+          "group": "Legacy Executives (Advisory Team)",
+          "roles": [
+            "Presidential Advisor"
+          ]
+        },
+        {
+          "group": "Advisors",
+          "roles": [
+            "Advisor"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Medical Student (MD)"
+        ]
+      },
+      "profile": "/images/profile/rayyan_zuberi.webp"
+    },
+    {
+      "name": "Taha Malik",
+      "role": [
+        {
+          "group": "Legacy Executives (Advisory Team)",
+          "roles": [
+            "VP Outreach"
+          ]
+        },
+        {
+          "group": "Visionary Lab Board",
+          "roles": [
+            "Board of Directors"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Computer Science",
+          "Finance"
+        ],
+        "year": "2nd Year"
+      },
+      "bio": "I’m obsessed with hiking and solo summit adventures—there’s nothing like conquering new peaks and soaking in those breathtaking mountain views! I’m also a total tech enthusiast, especially when it comes to neurotechnology and cybernetics. The future of these fields blows my mind, and I can’t wait to see how they reshape the world!",
+      "profile": "/images/profile/taha_malik.jpg"
+    },
+    {
+      "name": "Maheen Hossain",
+      "role": [
+        {
+          "group": "Legacy Executives (Advisory Team)",
+          "roles": [
+            "VP Operations"
+          ]
+        },
+        {
+          "group": "Advisors",
+          "roles": [
+            "Advisor"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Software Engineering"
+        ]
+      },
+      "profile": "/images/profile/maheen_hossain.jpg"
+    },
+    {
+      "name": "Jason Nguyen",
+      "role": [
+        {
+          "group": "Legacy Executives (Advisory Team)",
+          "roles": [
+            "Tech Lead"
+          ]
+        },
+        {
+          "group": "Visionary Lab Board",
+          "roles": [
+            "Board of Directors"
+          ]
+        },
+        {
+          "group": "Project Managers",
+          "roles": [
+            "2024 Project Manager"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Computer Science"
+        ]
+      },
+      "profile": "/images/profile/jason_nguyen.jpg"
     }
   ]
 }
