@@ -145,36 +145,6 @@
       "bio": "hello I'm Joseph and I am in 3rd year computer science. In my free time I like to watch movies, shows and interested in storytelling in general! I also like to go bouldering from time to time"
     },
     {
-      "name": "Jason Nguyen",
-      "role": [
-        {
-          "group": "Operations Team",
-          "roles": [
-            "Tech Lead"
-          ]
-        },
-        {
-          "group": "Visionary Lab Board",
-          "roles": [
-            "Board of Directors"
-          ]
-        },
-        {
-          "group": "Project Managers",
-          "roles": [
-            "2024 Project Manager"
-          ]
-        }
-      ],
-      "program": {
-        "programs": [
-          "Computer Science"
-        ],
-        "year": "6th Year"
-      },
-      "profile": "/images/profile/jason_nguyen.jpg"
-    },
-    {
       "name": "Peter Tran",
       "role": [
         {
@@ -658,6 +628,35 @@
         ]
       },
       "profile": "/images/profile/maheen_hossain.jpg"
+    },
+    {
+      "name": "Jason Nguyen",
+      "role": [
+        {
+          "group": "Legacy Executives (Advisory Team)",
+          "roles": [
+            "Tech Lead"
+          ]
+        },
+        {
+          "group": "Visionary Lab Board",
+          "roles": [
+            "Board of Directors"
+          ]
+        },
+        {
+          "group": "Project Managers",
+          "roles": [
+            "2024 Project Manager"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Computer Science"
+        ]
+      },
+      "profile": "/images/profile/jason_nguyen.jpg"
     }
   ]
 }
