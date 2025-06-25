@@ -47,22 +47,6 @@
         "imageName": "Clubs week image",
         "imageType": "Pic"
       }
-    },
-    {
-      "image": {
-        "imageType": "Pic",
-        "imageLink": "/images/events/winter_2025/final_comp_2025",
-        "imageName": "Final Competition 2025"
-      },
-      "number": "Feb 16 - Apr 3",
-      "header": "Final Competition Symposium 2025",
-      "points": [
-        {
-          "header": "Competition Details:",
-          "text": " Celebrated the achievements of DSMLC final competition participants at our annual symposium, filled with inspiring talks and valuable networking!"
-        }
-      ],
-      "upload": ""
     }
   ],
   "fall_2024": [
