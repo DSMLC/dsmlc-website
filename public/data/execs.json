@@ -1,6 +1,5 @@
 {
   "execs": [
-    
     {
       "name": "Evan Poulson",
       "role": [
@@ -38,7 +37,6 @@
         }
       ]
     },
-    
     {
       "name": "Adrian Julve",
       "role": [
@@ -105,7 +103,6 @@
         ],
         "year": "4th Year"
       }
-    
     },
     {
       "name": "Saira Fatima",
@@ -123,7 +120,6 @@
         ],
         "year": "3rd Year"
       }
-    
     },
     {
       "name": "Joseph Tandyo",
@@ -148,9 +144,9 @@
       "name": "Peter Tran",
       "role": [
         {
-          "group":"Operations Team",
+          "group": "Operations Team",
           "roles": [
-              "Tech Lead"
+            "Tech Lead"
           ]
         }
       ],
@@ -159,16 +155,15 @@
           "Computer Science"
         ],
         "year": "4th Year"
-        
       }
     },
     {
       "name": "Matthew Liu",
       "role": [
         {
-          "group":"Operations Team",
+          "group": "Operations Team",
           "roles": [
-              "Tech Lead"
+            "Tech Lead"
           ]
         }
       ],
@@ -177,16 +172,15 @@
           "Software Engineering"
         ],
         "year": "3rd Year"
-        
       }
     },
     {
       "name": "Lychelle Pham",
       "role": [
         {
-          "group":"Operations Team",
+          "group": "Operations Team",
           "roles": [
-              "Tech Lead"
+            "Tech Lead"
           ]
         }
       ],
@@ -195,16 +189,15 @@
           "Computer Science"
         ],
         "year": "3rd Year"
-        
       }
     },
     {
       "name": "Shreya Shah",
       "role": [
         {
-          "group":"Operations Team",
+          "group": "Operations Team",
           "roles": [
-              "Tech Lead"
+            "Tech Lead"
           ]
         }
       ],
@@ -213,16 +206,15 @@
           "Software Engineering"
         ],
         "year": "3rd Year"
-        
       }
     },
     {
       "name": "Noor Syed",
       "role": [
         {
-          "group":"Operations Team",
+          "group": "Operations Team",
           "roles": [
-              "Tech Lead"
+            "Tech Lead"
           ]
         }
       ],
@@ -231,7 +223,6 @@
           "Software Engineering"
         ],
         "year": "3rd Year"
-        
       }
     },
     {
@@ -249,7 +240,6 @@
           "Computer Science",
           "Business"
         ]
-        
       }
     },
     {
@@ -266,7 +256,6 @@
         "programs": [
           "Data Science"
         ]
-        
       }
     },
     {
@@ -531,7 +520,6 @@
         }
       ]
     },
-
     {
       "name": "Gabriel Rodriguez",
       "role": [
@@ -601,7 +589,7 @@
           "Computer Science",
           "Finance"
         ],
-        "year": "2nd Year"
+        "year": ""
       },
       "bio": "I’m obsessed with hiking and solo summit adventures—there’s nothing like conquering new peaks and soaking in those breathtaking mountain views! I’m also a total tech enthusiast, especially when it comes to neurotechnology and cybernetics. The future of these fields blows my mind, and I can’t wait to see how they reshape the world!",
       "profile": "/images/profile/taha_malik.jpg"
