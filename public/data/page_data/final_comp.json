@@ -184,6 +184,44 @@
       {
         "type": "TitleTemplate1",
         "data": {
+          "title": "Winners of Final Competition 2025",
+          "subtitle": "Congratulations! Zaine Ancheta & Bolu Alagabe & Ngoc Minh Tran & Farshad Islam & Raafi Zia, Michelle Cheung & Carlos Sujanto, Abdul Suhaib & Michael Moon"
+        }
+      },
+      {
+        "type": "CarouselTemplate",
+        "data": [
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2025/winner_beginner_category.png",
+              "imageName": "Beginner Category Winners",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2025/winner_data_visualization.png",
+              "imageName": "Data Analysis and Visualization Category Winners",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2025/winner_ML_application.png",
+              "imageName": "Machine Learning Application Category Winners",
+              "imageType": "Banner"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
           "title": "Winners of Final Competition 2024",
           "subtitle": "Congratulations! Ananya Jain & Angie Shin, Shakiba Allahbakhsh, Tosin Boyede & Sejal Chikhale"
         }
@@ -194,7 +232,7 @@
           {
             "image": {
               "imageLink": "/images/events/winter_2024/comp_6.JPEG",
-              "imageName": "Picture of DSMLC's power bi workshop",
+              "imageName": "2024 Winners",
               "imageType": "Banner"
             }
           }
@@ -218,7 +256,7 @@
           {
             "image": {
               "imageLink": "/images/events/winter_2023/comp_3.JPG",
-              "imageName": "Picture of DSMLC's power bi workshop",
+              "imageName": "2023 Winners",
               "imageType": "Banner"
             }
           }
