@@ -2,6 +2,21 @@
   "winter_2025": [
     {
       "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/winter_2025/final_comp_2025.png",
+        "imageName": "Picture of Final Competition 2025"
+      },
+      "number": "Feb 16 - Apr 3",
+      "header": "Annual Final Competition Symposium 2025",
+      "points": [
+        {
+          "header": "Competition Details:",
+          "text": "Celebrated the achievements of the DSMLC competition participants at our annual symposium, filled with inspiring talks and valuable networking!"
+        }
+      ]
+    },
+    {
+      "image": {
         "imageType": "Logo",
         "imageLink": "/images/light_logo.png",
         "imageDarkMode": "/images/dark_logo.png",
@@ -47,21 +62,6 @@
         "imageName": "Clubs week image",
         "imageType": "Pic"
       }
-    },
-    {
-      "image": {
-        "imageType": "Pic",
-        "imageLink": "/images/events/winter_2025/final_comp_2025.png",
-        "imageName": "Picture of Final Competition 2025"
-      },
-      "number": "Feb 16 - Apr 3",
-      "header": "Annual Final Competition Symposium 2025",
-      "points": [
-        {
-          "header": "Competition Details:",
-          "text": "Celebrated the achievements of the DSMLC competition participants at our annual symposium, filled with inspiring talks and valuable networking!"
-        }
-      ]
     }
   ],
   "fall_2024": [
