@@ -108,6 +108,24 @@
     
     },
     {
+      "name": "Saira Fatima",
+      "role": [
+        {
+          "group": "Events Team",
+          "roles": [
+            "Events Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Computer Science"
+        ],
+        "year": "3rd Year"
+      }
+    
+    },
+    {
       "name": "Joseph Tandyo",
       "role": [
         {
@@ -229,6 +247,24 @@
       }
     },
     {
+      "name": "Noor Syed",
+      "role": [
+        {
+          "group":"Operations Team",
+          "roles": [
+              "Tech Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Software Engineering"
+        ],
+        "year": "3rd Year"
+        
+      }
+    },
+    {
       "name": "Prantap Sharma",
       "role": [
         {
@@ -237,7 +273,14 @@
             "Workshop Coordinator"
           ]
         }
-      ]
+      ],
+      "program": {
+        "programs": [
+          "Computer Science",
+          "Business"
+        ]
+        
+      }
     },
     {
       "name": "Tae Shim",
@@ -248,7 +291,13 @@
             "Workshop Coordinator"
           ]
         }
-      ]
+      ],
+      "program": {
+        "programs": [
+          "Data Science"
+        ]
+        
+      }
     },
     {
       "name": "Andrey Dimanchev",
@@ -281,6 +330,69 @@
       },
       "profile": "/images/profile/andrey_dimanchev.jpg",
       "bio": "Passionate about solving complex puzzles with technology, primarily in Machine Learning and Rocketry. I also skateboard!"
+    },
+    {
+      "name": "Luis Trigueros Granillo",
+      "role": [
+        {
+          "group": "Competitions Team",
+          "roles": [
+            "Competition Director"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Computer Science"
+        ],
+        "year": "4th Year"
+      }
+    },
+    {
+      "name": "Zaine Ancheta",
+      "role": [
+        {
+          "group": "Competitions Team",
+          "roles": [
+            "Competition Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Data Science"
+        ],
+        "year": "2nd Year"
+      }
+    },
+    {
+      "name": "Amy Cui",
+      "role": [
+        {
+          "group": "Marketing Team",
+          "roles": [
+            "Marketing Lead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Yash Dhaneshwari",
+      "role": [
+        {
+          "group": "Marketing Team",
+          "roles": [
+            "Director of Outreach"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Computer Science"
+        ],
+        "year": "3rd Year"
+      },
+      "bio": "Passionate about physics and math, and lvoe incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing"
     },
     {
       "name": "Dheeraj Jaswal",
@@ -327,12 +439,29 @@
       "bio": "I love playing basketball and staying active as much as I can, and I enjoy being social and connecting with people from all different walks of life. I'm very interested in outreach and marketing, as far as connecting with companies and individuals and developing professional connections and relationships."
     },
     {
-      "name": "Luis Trigueros Granillo",
+      "name": "Azka Khalil",
       "role": [
         {
-          "group": "Competitions Team",
+          "group": "External Affairs Team",
           "roles": [
-            "Competition Director"
+            "Communcations Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Business"
+        ],
+        "year": "2nd Year"
+      }
+    },
+    {
+      "name": "Navroop Bath",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": [
+            "Sponsorship Lead"
           ]
         }
       ],
@@ -340,36 +469,25 @@
         "programs": [
           "Computer Science"
         ],
-        "year": "4th Year"
+        "year": "2nd Year"
       }
     },
     {
-      "name": "Zaine Ancheta",
+      "name": "Linh Truong",
       "role": [
         {
-          "group": "Competitions Team",
+          "group": "External Affairs Team",
           "roles": [
-            "Competition Lead"
+            "Sponsorship Lead"
           ]
         }
       ],
       "program": {
         "programs": [
-          "Data Science"
+          "Business (Accounting)"
         ],
-        "year": "2nd Year"
+        "year": "4th Year"
       }
-    },
-    {
-      "name": "Amy Cui",
-      "role": [
-        {
-          "group": "Marketing Team",
-          "roles": [
-            "Marketing Lead"
-          ]
-        }
-      ]
     },
     {
       "name": "Lucy Li",
@@ -540,24 +658,6 @@
         ]
       },
       "profile": "/images/profile/maheen_hossain.jpg"
-    },
-    {
-      "name": "Yash Dhaneshwari",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": [
-            "Marketing Director"
-          ]
-        }
-      ],
-      "program": {
-        "programs": [
-          "Computer Science"
-        ],
-        "year": "2nd Year"
-      },
-      "bio": "Passionate about physics and math, and lvoe incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing"
     }
   ]
 }
