@@ -23,6 +23,7 @@ import BackgroundFillTemplate from "./components/templates/BackgroundFillTemplat
 import IncreasingNumbersTemplate from "./components/templates/IncreasingNumbersTemplate";
 import BackgroundFillTemplate2 from "./components/templates/BackgroundFillTemplate2";
 import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
+import ComingSoonTemplate from "./components/templates/ComingSoonTemplate";
 
 export interface ImageData {
   imageLink?: string;
@@ -65,6 +66,13 @@ export interface ColumnTemplateData {
     text?: string;
     image?: ImageData;
   }[];
+}
+
+export interface ComingSoonTemplateData{
+  type: "ComingSoonTemplate";
+  data: {
+    socials?: string[];
+  }
 }
 
 export interface FAQTemplateData {
@@ -199,6 +207,7 @@ export interface SocialLinksTemplateData {
 
 export type PageData =
   | ColumnTemplateData
+  | ComingSoonTemplateData
   | CarouselTemplateData
   | TitleTemplateData1
   | TitleTemplateData2
@@ -229,6 +238,7 @@ export const templateMap: {
   }>;
 } = {
   ColumnTemplate: ColumnTemplate,
+  ComingSoonTemplate: ComingSoonTemplate,
   TitleTemplate1: TitleTemplate1,
   TitleTemplate2: TitleTemplate2,
   TimelineTemplate1: TimelineTemplate1,

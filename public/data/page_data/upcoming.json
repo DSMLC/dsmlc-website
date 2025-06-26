@@ -61,10 +61,9 @@
         }
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ComingSoonTemplate",
         "data": {
-          "json": "upcoming_events.json",
-          "keys": ["final_comp_register"]
+          "socials": ["discord", "instagram", "linkedin"]
         }
       }
     ]
@@ -94,6 +93,12 @@
           "json": "upcoming_events.json",
           "keys": ["workshops_register"]
         }
+      },
+      {
+        "type": "ComingSoonTemplate",
+        "data": {
+          "socials": ["discord", "instagram", "linkedin"]
+        }
       }
     ]
   },
@@ -117,12 +122,12 @@
         }
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ComingSoonTemplate",
         "data": {
-          "json": "upcoming_events.json",
-          "keys": ["other_events_register"]
+          "socials": []
         }
       }
+      
     ]
   }
 ]
