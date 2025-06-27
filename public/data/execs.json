@@ -35,7 +35,14 @@
             "Vice President"
           ]
         }
-      ]
+      ],
+      "program": {
+        "programs": [
+          "Statistics",
+          "Economics"
+        ],
+        "year": "5th year "
+      }
     },
     {
       "name": "Adrian Julve",
@@ -85,6 +92,23 @@
         "year": "3rd Year"
       },
       "bio": "Hi, I'm Aimen! I'm passionate problem-solving through data and the future of AI. During my free time, I'm an avid reader and enjoy exploring topics in literature and psychology."
+    },
+    {
+      "name": "Amna Irfan",
+      "role": [
+        {
+          "group": "Events Team",
+          "roles": [
+            "Events Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Business (Accounting)"
+        ],
+        "year": "3th Year"
+      }
     },
     {
       "name": "Kya Broderick",
@@ -154,8 +178,9 @@
         "programs": [
           "Computer Science"
         ],
-        "year": "4th Year"
-      }
+        "year": "3th Year"
+      },
+      "profile": "/images/profile/peter_tran.jpg"
     },
     {
       "name": "Matthew Liu",
@@ -239,7 +264,8 @@
         "programs": [
           "Computer Science",
           "Business"
-        ]
+        ],
+        "year": "3rd Year"
       }
     },
     {
@@ -325,17 +351,6 @@
       }
     },
     {
-      "name": "Amy Cui",
-      "role": [
-        {
-          "group": "Marketing Team",
-          "roles": [
-            "Marketing Lead"
-          ]
-        }
-      ]
-    },
-    {
       "name": "Yash Dhaneshwari",
       "role": [
         {
@@ -352,6 +367,36 @@
         "year": "3rd Year"
       },
       "bio": "Passionate about physics and math, and lvoe incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing"
+    },
+    {
+      "name": "Amy Cui",
+      "role": [
+        {
+          "group": "Marketing Team",
+          "roles": [
+            "Marketing Lead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sarah Feng",
+      "role": [
+        {
+          "group": "Marketing Team",
+          "roles": [
+            "Marketing Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Accounting",
+          "Data Science"
+        ],
+        "year": "4th Year"
+      },
+      "profile": "/images/profile/sarah_feng.jpg"
     },
     {
       "name": "Dheeraj Jaswal",
@@ -392,9 +437,9 @@
         "programs": [
           "Business"
         ],
-        "year": "2nd Year"
+        "year": "3rd Year"
       },
-      "profile": "/images/profile/ian_mccourtie.jpg",
+      "profile": "/images/profile/Ian_mccourtie.png",
       "bio": "I love playing basketball and staying active as much as I can, and I enjoy being social and connecting with people from all different walks of life. I'm very interested in outreach and marketing, as far as connecting with companies and individuals and developing professional connections and relationships."
     },
     {
@@ -413,6 +458,25 @@
         ],
         "year": "2nd Year"
       }
+    },
+    {
+      "name": "Maya Larsson",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": [
+            "Sponsorship Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Business (Finance)",
+          "Chemistry"
+        ],
+        "year": "4nd Year"
+      },
+      "profile": "/images/profile/maya_larsson.jpg"
     },
     {
       "name": "Navroop Bath",
@@ -660,6 +724,23 @@
         "year": "2nd Year",
         "programs": [
           "Computer Science"
+        ]
+      }
+    },
+        {
+      "name": "Aryan Kalia",
+      "role": [
+        {
+          "group": "Visionary Lab Board",
+          "roles": [
+            "Visionary Lab Chairman"
+          ]
+        }
+      ],
+      "program": {
+        "year": "2nd Year",
+        "programs": [
+          "Data Science"
         ]
       }
     },
