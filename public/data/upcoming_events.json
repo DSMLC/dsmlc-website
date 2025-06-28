@@ -1,18 +1,56 @@
 {
-  "final_comp": [],
-  "final_comp_register": [
+  "final_comp": [
     {
-      "link": "#",
-      "name": "Registrations Closed At the Moment"
+      "title": "Final Competition 2025",
+      "description": "Showcase your ML skills and win prizes!",
+      "signup": {
+        "link": "https://example.com/signup-final-comp",
+        "name": "Register"
+      }
     }
   ],
-  "workshops": [],
-  "workshops_register": [],
-  "other_events": [],
-  "other_events_register": [
+  "workshops": [
     {
-      "link": "#",
-      "name": "Registrations Closed At the Moment"
+      "title": "Intro to Python",
+      "description": "Start your journey in data science.",
+      "signup": {
+        "link": "https://example.com/signup-python",
+        "name": "Register"
+      }
+    },
+    {
+      "title": "Intro to Python",
+      "description": "Start your journey in data science.",
+      "signup": {
+        "link": "#",
+        "name": "Register"
+      }
+    },
+    {
+      "title": "Intro to Python",
+      "description": "Start your journey in data science.",
+      "signup": {
+        "link": "https://example.com/signup-python",
+        "name": "Register"
+      }
+    },
+    {
+      "title": "Intro to Python",
+      "description": "Start your journey in data science.",
+      "signup": {
+        "link": "https://example.com/signup-python",
+        "name": "Register"
+      }
+    }
+  ],
+  "other_events": [
+    {
+      "title": "Networking Night",
+      "description": "Connect with professionals in tech.",
+      "signup": {
+        "link": "https://example.com/signup-networking",
+        "name": "RSVP"
+      }
     }
   ]
 }

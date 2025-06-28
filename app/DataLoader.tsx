@@ -23,6 +23,7 @@ import BackgroundFillTemplate from "./components/templates/BackgroundFillTemplat
 import IncreasingNumbersTemplate from "./components/templates/IncreasingNumbersTemplate";
 import BackgroundFillTemplate2 from "./components/templates/BackgroundFillTemplate2";
 import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
+import EventsTemplate from "./components/templates/EventsTemplate";
 
 export interface ImageData {
   imageLink?: string;
@@ -197,6 +198,23 @@ export interface SocialLinksTemplateData {
   data: {};
 }
 
+export interface EventsTemplateData {
+  type: "EventsTemplate";
+  data:
+    | {
+        json: string;
+        keys: string[];
+      }
+    | {
+        title: string;
+        description: string;
+        signup?: {
+          link: string;
+          name: string;
+        };
+      }[];
+}
+
 export type PageData =
   | ColumnTemplateData
   | CarouselTemplateData
@@ -220,7 +238,8 @@ export type PageData =
   | BackgroundFillTemplateData
   | BackgroundFillTemplateData2
   | SocialLinksTemplateData
-  | IncreasingNumbersData;
+  | IncreasingNumbersData
+  | EventsTemplateData;
 
 export const templateMap: {
   [key in PageData["type"]]?: React.ComponentType<{
@@ -251,6 +270,7 @@ export const templateMap: {
   BackgroundFillTemplate2: BackgroundFillTemplate2,
   IncreasingNumbersTemplate: IncreasingNumbersTemplate,
   SocialLinksTemplate: SocialLinksTemplate,
+  EventsTemplate: EventsTemplate,
 };
 
 const resolveData = async (pageData: PageData): Promise<any> => {
@@ -285,7 +305,7 @@ const resolveData = async (pageData: PageData): Promise<any> => {
                 const resolvedYear = year || new Date().getFullYear();
                 return new Date(`${month} ${day}, ${resolvedYear}`);
               }
-              return new Date(0); 
+              return new Date(0);
             };
 
             const dateA = parseDate(a.title);

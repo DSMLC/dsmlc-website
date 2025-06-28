@@ -84,10 +84,10 @@
         ]
       },
       {
-        "type": "HeaderTextSubSectionTemplate",
+        "type": "EventsTemplate",
         "data": {
-          "json": "upcoming_events.json",
-          "keys": ["final_comp", "workshops", "other_events"]
+        "json": "upcoming_events.json",
+        "keys": ["final_comp", "workshops", "other_events"]
         }
       },
       {
