@@ -178,7 +178,7 @@
         "programs": [
           "Computer Science"
         ],
-        "year": "3th Year"
+        "year": "3rd Year"
       },
       "profile": "/images/profile/peter_tran.jpg"
     },
@@ -281,7 +281,8 @@
       "program": {
         "programs": [
           "Data Science"
-        ]
+        ],
+        "year": "2nd Year"
       }
     },
     {
@@ -727,7 +728,7 @@
         ]
       }
     },
-        {
+    {
       "name": "Aryan Kalia",
       "role": [
         {
