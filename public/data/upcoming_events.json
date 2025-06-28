@@ -13,7 +13,7 @@
   "workshops": [
     {
       "title": "Intro to Python",
-      "description": "Start your journey in data science.",
+      "description": "Start your journey in data science. Start your journey in data science.",
       "date": "2025-11-10",
       "signup": {
         "link": "https://example.com/signup-python",

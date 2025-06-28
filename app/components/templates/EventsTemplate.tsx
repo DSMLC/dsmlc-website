@@ -20,13 +20,13 @@ const EventCardsTemplate = ({ Data }: { Data: any[] }) => {
       {eventsToDisplay.map((event, index) => (
         <div
           key={index}
-          className="border rounded-xl shadow p-6 bg-white dark:bg-gray-800"
+          className="p-6 mb-8 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl"
         >
-          <span className="text-dsmlcTangerine font-semibold text-base md:text-lg">
+          <span className="font-redHat text-dsmlcTangerine font-semibold text-base md:text-lg">
             {event.title}
           </span>
           {event.date && (
-            <p className="text-sm text-gray-500 mb-2">
+            <p className="font-redHat text-sm text-gray-500 mb-2">
               {new Date(event.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "short",
@@ -34,7 +34,7 @@ const EventCardsTemplate = ({ Data }: { Data: any[] }) => {
               })}
             </p>
           )}
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
+          <p className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack md:text-base text-xs md:px-0 px-10 md:text-start text-center">
             {event.description}
           </p>
           {event.signup && event.signup.link && event.signup.link !== "#" ? (
