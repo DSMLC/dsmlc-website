@@ -1,6 +1,5 @@
 {
   "execs": [
-    
     {
       "name": "Evan Poulson",
       "role": [
@@ -36,9 +35,15 @@
             "Vice President"
           ]
         }
-      ]
+      ],
+      "program": {
+        "programs": [
+          "Statistics",
+          "Economics"
+        ],
+        "year": "5th year "
+      }
     },
-    
     {
       "name": "Adrian Julve",
       "role": [
@@ -89,6 +94,23 @@
       "bio": "Hi, I'm Aimen! I'm passionate problem-solving through data and the future of AI. During my free time, I'm an avid reader and enjoy exploring topics in literature and psychology."
     },
     {
+      "name": "Amna Irfan",
+      "role": [
+        {
+          "group": "Events Team",
+          "roles": [
+            "Events Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Business (Accounting)"
+        ],
+        "year": "3th Year"
+      }
+    },
+    {
       "name": "Kya Broderick",
       "role": [
         {
@@ -105,7 +127,6 @@
         ],
         "year": "4th Year"
       }
-    
     },
     {
       "name": "Saira Fatima",
@@ -123,7 +144,6 @@
         ],
         "year": "3rd Year"
       }
-    
     },
     {
       "name": "Joseph Tandyo",
@@ -148,9 +168,9 @@
       "name": "Peter Tran",
       "role": [
         {
-          "group":"Operations Team",
+          "group": "Operations Team",
           "roles": [
-              "Tech Lead"
+            "Tech Lead"
           ]
         }
       ],
@@ -158,17 +178,17 @@
         "programs": [
           "Computer Science"
         ],
-        "year": "4th Year"
-        
-      }
+        "year": "3th Year"
+      },
+      "profile": "/images/profile/peter_tran.jpg"
     },
     {
       "name": "Matthew Liu",
       "role": [
         {
-          "group":"Operations Team",
+          "group": "Operations Team",
           "roles": [
-              "Tech Lead"
+            "Tech Lead"
           ]
         }
       ],
@@ -177,16 +197,15 @@
           "Software Engineering"
         ],
         "year": "3rd Year"
-        
       }
     },
     {
       "name": "Lychelle Pham",
       "role": [
         {
-          "group":"Operations Team",
+          "group": "Operations Team",
           "roles": [
-              "Tech Lead"
+            "Tech Lead"
           ]
         }
       ],
@@ -195,16 +214,15 @@
           "Computer Science"
         ],
         "year": "3rd Year"
-        
       }
     },
     {
       "name": "Shreya Shah",
       "role": [
         {
-          "group":"Operations Team",
+          "group": "Operations Team",
           "roles": [
-              "Tech Lead"
+            "Tech Lead"
           ]
         }
       ],
@@ -213,16 +231,15 @@
           "Software Engineering"
         ],
         "year": "3rd Year"
-        
       }
     },
     {
       "name": "Noor Syed",
       "role": [
         {
-          "group":"Operations Team",
+          "group": "Operations Team",
           "roles": [
-              "Tech Lead"
+            "Tech Lead"
           ]
         }
       ],
@@ -231,7 +248,6 @@
           "Software Engineering"
         ],
         "year": "3rd Year"
-        
       }
     },
     {
@@ -248,8 +264,8 @@
         "programs": [
           "Computer Science",
           "Business"
-        ]
-        
+        ],
+        "year": "3rd Year"
       }
     },
     {
@@ -266,7 +282,6 @@
         "programs": [
           "Data Science"
         ]
-        
       }
     },
     {
@@ -336,17 +351,6 @@
       }
     },
     {
-      "name": "Amy Cui",
-      "role": [
-        {
-          "group": "Marketing Team",
-          "roles": [
-            "Marketing Lead"
-          ]
-        }
-      ]
-    },
-    {
       "name": "Yash Dhaneshwari",
       "role": [
         {
@@ -363,6 +367,36 @@
         "year": "3rd Year"
       },
       "bio": "Passionate about physics and math, and lvoe incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing"
+    },
+    {
+      "name": "Amy Cui",
+      "role": [
+        {
+          "group": "Marketing Team",
+          "roles": [
+            "Marketing Lead"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sarah Feng",
+      "role": [
+        {
+          "group": "Marketing Team",
+          "roles": [
+            "Marketing Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Accounting",
+          "Data Science"
+        ],
+        "year": "4th Year"
+      },
+      "profile": "/images/profile/sarah_feng.jpg"
     },
     {
       "name": "Dheeraj Jaswal",
@@ -403,9 +437,9 @@
         "programs": [
           "Business"
         ],
-        "year": "2nd Year"
+        "year": "3rd Year"
       },
-      "profile": "/images/profile/ian_mccourtie.jpg",
+      "profile": "/images/profile/Ian_mccourtie.png",
       "bio": "I love playing basketball and staying active as much as I can, and I enjoy being social and connecting with people from all different walks of life. I'm very interested in outreach and marketing, as far as connecting with companies and individuals and developing professional connections and relationships."
     },
     {
@@ -424,6 +458,25 @@
         ],
         "year": "2nd Year"
       }
+    },
+    {
+      "name": "Maya Larsson",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": [
+            "Sponsorship Lead"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Business (Finance)",
+          "Chemistry"
+        ],
+        "year": "4nd Year"
+      },
+      "profile": "/images/profile/maya_larsson.jpg"
     },
     {
       "name": "Navroop Bath",
@@ -531,7 +584,6 @@
         }
       ]
     },
-
     {
       "name": "Gabriel Rodriguez",
       "role": [
@@ -601,7 +653,7 @@
           "Computer Science",
           "Finance"
         ],
-        "year": "2nd Year"
+        "year": ""
       },
       "bio": "I’m obsessed with hiking and solo summit adventures—there’s nothing like conquering new peaks and soaking in those breathtaking mountain views! I’m also a total tech enthusiast, especially when it comes to neurotechnology and cybernetics. The future of these fields blows my mind, and I can’t wait to see how they reshape the world!",
       "profile": "/images/profile/taha_malik.jpg"
@@ -657,6 +709,57 @@
         ]
       },
       "profile": "/images/profile/jason_nguyen.jpg"
+    },
+    {
+      "name": "Divakar Gaba",
+      "role": [
+        {
+          "group": "Visionary Lab Board",
+          "roles": [
+            "Visionary Lab Chairman"
+          ]
+        }
+      ],
+      "program": {
+        "year": "2nd Year",
+        "programs": [
+          "Computer Science"
+        ]
+      }
+    },
+        {
+      "name": "Aryan Kalia",
+      "role": [
+        {
+          "group": "Visionary Lab Board",
+          "roles": [
+            "Visionary Lab Director"
+          ]
+        }
+      ],
+      "program": {
+        "year": "2nd Year",
+        "programs": [
+          "Data Science"
+        ]
+      }
+    },
+    {
+      "name": "Rafay Kamran",
+      "role": [
+        {
+          "group": "Visionary Lab Board",
+          "roles": [
+            "Visionary Lab Director"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Data Science"
+        ],
+        "year": "2nd Year"
+      }
     }
   ]
 }
