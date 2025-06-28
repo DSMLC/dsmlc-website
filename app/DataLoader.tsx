@@ -295,23 +295,9 @@ const resolveData = async (pageData: PageData): Promise<any> => {
 
         if (json === "upcoming_events.json") {
           combinedData = combinedData.sort((a, b) => {
-            const parseDate = (title: string) => {
-              if (!title) return new Date(0);
-              const dateMatch = title.match(
-                /(\b\w+\b)\s+(\d+)(?:st|nd|rd|th)?(?:-\d+)?(?:,\s*(\d{4}))?/
-              );
-              if (dateMatch) {
-                const [, month, day, year] = dateMatch;
-                const resolvedYear = year || new Date().getFullYear();
-                return new Date(`${month} ${day}, ${resolvedYear}`);
-              }
-              return new Date(0);
-            };
-
-            const dateA = parseDate(a.title);
-            const dateB = parseDate(b.title);
-
-            return dateA.getTime() - dateB.getTime();
+            const dateA = new Date(a.date || 0).getTime();
+            const dateB = new Date(b.date || 0).getTime();
+            return dateA - dateB;
           });
         }
 

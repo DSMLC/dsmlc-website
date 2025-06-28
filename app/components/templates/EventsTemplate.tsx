@@ -25,6 +25,15 @@ const EventCardsTemplate = ({ Data }: { Data: any[] }) => {
           <span className="text-dsmlcTangerine font-semibold text-base md:text-lg">
             {event.title}
           </span>
+          {event.date && (
+            <p className="text-sm text-gray-500 mb-2">
+              {new Date(event.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric",
+              })}
+            </p>
+          )}
           <p className="text-gray-700 dark:text-gray-300 mb-4">
             {event.description}
           </p>
