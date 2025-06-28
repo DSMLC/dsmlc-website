@@ -8,10 +8,10 @@ const TitleTemplate2 = ({ Data }: { Data: ComingSoonTemplateData["data"] }) => {
     <>
     <div className="border-2 border-dashed border-dsmlcTangerine rounded-md p-3">
       <h1 className="lg:text-3xl md:text-2xl text-xl font-extrabold text-center text-dsmlcTangerine mb-5 font-redHat leading-tight pt-3 pb-3">
-        Coming Soon!
+        Check Back for Future Events!
       </h1>
       <p className="lg:text-lg md:text-md text-base text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack mb-2 font-quicksand">
-        Check our socials for updates!
+        Keep up with our socials for updates!
       </p>
       <SocialLinksTemplate Data={{}}></SocialLinksTemplate>
 
