@@ -199,6 +199,7 @@ export interface SocialLinksTemplateData {
 }
 
 export interface EventsTemplateData {
+  // template formatting for events
   type: "EventsTemplate";
   data:
     | {
@@ -208,6 +209,7 @@ export interface EventsTemplateData {
     | {
         title: string;
         description: string;
+        date: string;
         signup?: {
           link: string;
           name: string;
@@ -294,6 +296,7 @@ const resolveData = async (pageData: PageData): Promise<any> => {
           .flat();
 
         if (json === "upcoming_events.json") {
+          // upcoming_events,json ----> Date sorting
           combinedData = combinedData.sort((a, b) => {
             const dateA = new Date(a.date || 0).getTime();
             const dateB = new Date(b.date || 0).getTime();
@@ -303,7 +306,7 @@ const resolveData = async (pageData: PageData): Promise<any> => {
 
         return combinedData;
       } catch (error) {
-        console.error(`Error loading JSON file: ${json}`, error);
+        console.error(`Error loading JSON file: ${json}`, error); // handle error
         return null;
       }
     }

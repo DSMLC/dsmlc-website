@@ -1,62 +1,8 @@
 {
   "final_comp": [
-    {
-      "title": "Final Competition 2025",
-      "description": "Showcase your ML skills and win prizes!",
-      "date": "2025-10-10",
-      "signup": {
-        "link": "https://example.com/signup-final-comp",
-        "name": "Register"
-      }
-    }
   ],
   "workshops": [
-    {
-      "title": "Intro to Python",
-      "description": "Start your journey in data science. Start your journey in data science.",
-      "date": "2025-11-10",
-      "signup": {
-        "link": "https://example.com/signup-python",
-        "name": "Register"
-      }
-    },
-    {
-      "title": "Intro to Python",
-      "description": "Start your journey in data science.",
-      "date": "2025-12-10",
-      "signup": {
-        "link": "#",
-        "name": "Register"
-      }
-    },
-    {
-      "title": "Intro to Python",
-      "description": "Start your journey in data science.",
-      "date": "2025-6-10",
-      "signup": {
-        "link": "https://example.com/signup-python",
-        "name": "Register"
-      }
-    },
-    {
-      "title": "Intro to Python",
-      "description": "Start your journey in data science.",
-      "date": "2025-5-10",
-      "signup": {
-        "link": "https://example.com/signup-python",
-        "name": "Register"
-      }
-    }
   ],
   "other_events": [
-    {
-      "title": "Networking Night",
-      "description": "Connect with professionals in tech.",
-      "date": "2025-2-10",
-      "signup": {
-        "link": "https://example.com/signup-networking",
-        "name": "RSVP"
-      }
-    }
   ]
 }
