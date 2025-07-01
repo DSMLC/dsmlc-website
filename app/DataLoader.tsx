@@ -23,7 +23,7 @@ import BackgroundFillTemplate from "./components/templates/BackgroundFillTemplat
 import IncreasingNumbersTemplate from "./components/templates/IncreasingNumbersTemplate";
 import BackgroundFillTemplate2 from "./components/templates/BackgroundFillTemplate2";
 import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
-import EventsTemplate from "./components/templates/EventsTemplate";
+import CardTemplate from "./components/templates/CardTemplate";
 
 export interface ImageData {
   imageLink?: string;
@@ -198,9 +198,8 @@ export interface SocialLinksTemplateData {
   data: {};
 }
 
-export interface EventsTemplateData {
-  // template formatting for events
-  type: "EventsTemplate";
+export interface CardTemplateData {
+  type: "CardTemplate";
   data:
     | {
         json: string;
@@ -209,7 +208,7 @@ export interface EventsTemplateData {
     | {
         title: string;
         description: string;
-        date: string;
+        timestamp: string;
         signup?: {
           link: string;
           name: string;
@@ -241,7 +240,7 @@ export type PageData =
   | BackgroundFillTemplateData2
   | SocialLinksTemplateData
   | IncreasingNumbersData
-  | EventsTemplateData;
+  | CardTemplateData;
 
 export const templateMap: {
   [key in PageData["type"]]?: React.ComponentType<{
@@ -272,7 +271,7 @@ export const templateMap: {
   BackgroundFillTemplate2: BackgroundFillTemplate2,
   IncreasingNumbersTemplate: IncreasingNumbersTemplate,
   SocialLinksTemplate: SocialLinksTemplate,
-  EventsTemplate: EventsTemplate,
+  CardTemplate: CardTemplate,
 };
 
 const resolveData = async (pageData: PageData): Promise<any> => {

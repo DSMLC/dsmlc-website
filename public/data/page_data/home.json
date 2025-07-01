@@ -84,7 +84,7 @@
         ]
       },
       {
-        "type": "EventsTemplate",
+        "type": "CardTemplate",
         "data": {
         "json": "upcoming_events.json",
         "keys": ["final_comp", "workshops", "other_events"]

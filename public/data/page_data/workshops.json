@@ -59,7 +59,7 @@
         ]
       },
       {
-        "type": "HeaderTextSubSectionTemplate",
+        "type": "CardTemplate",
         "data": {
           "json": "upcoming_events.json",
           "keys": ["workshops"]
@@ -70,7 +70,7 @@
         "data": [
           {
             "link": "/events/upcoming",
-            "name": "Register For Upcoming Workshops"
+            "name": "More Workshops"
           }
         ]
       }

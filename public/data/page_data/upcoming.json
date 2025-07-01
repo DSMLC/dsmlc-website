@@ -54,7 +54,7 @@
         ]
       },
       {
-        "type": "EventsTemplate",
+        "type": "CardTemplate",
         "data": {
           "json": "upcoming_events.json",
           "keys": ["final_comp"]
@@ -75,7 +75,7 @@
         ]
       },
       {
-        "type": "EventsTemplate",
+        "type": "CardTemplate",
         "data": {
           "json": "upcoming_events.json",
           "keys": ["workshops"]
@@ -96,7 +96,7 @@
         ]
       },
       {
-        "type": "EventsTemplate",
+        "type": "CardTemplate",
         "data": {
           "json": "upcoming_events.json",
           "keys": ["other_events"]
