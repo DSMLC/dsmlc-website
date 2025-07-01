@@ -71,8 +71,9 @@ export interface ColumnTemplateData {
 export interface ComingSoonTemplateData{
   type: "ComingSoonTemplate";
   data: {
-    socials?: string[];
-  }
+    header: string;
+    subtext?: string;
+  };
 }
 
 export interface FAQTemplateData {

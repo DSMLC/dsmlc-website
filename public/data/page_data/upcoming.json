@@ -63,7 +63,8 @@
       {
         "type": "ComingSoonTemplate",
         "data": {
-          "socials": ["discord", "instagram", "linkedin"]
+          "header": "Check Back for Future Events!",
+          "subtext": "Follow our Socials to stay Updated!"
         }
       }
     ]
@@ -97,7 +98,8 @@
       {
         "type": "ComingSoonTemplate",
         "data": {
-          "socials": ["discord", "instagram", "linkedin"]
+          "header": "Check Back for Future Events!",
+          "subtext": "Follow our Socials to stay Updated!"
         }
       }
     ]
@@ -124,7 +126,8 @@
       {
         "type": "ComingSoonTemplate",
         "data": {
-          "socials": []
+          "header": "Check Back for Future Events!",
+          "subtext": "Follow our Socials to stay Updated!"
         }
       }
       
