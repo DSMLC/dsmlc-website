@@ -2,43 +2,6 @@
   "final_comp": [
   ],
   "workshops": [
-        {
-      "title": "some title",
-      "description": "some short description",
-      "timestamp": "01-20-2024",
-      "location": "2500 University Dr NW, Calgary, AB T2N 1N4",
-      "signup": {
-        "link": "some link #",
-        "name": "button"
-      }
-    },
-    {
-      "title": "some title",
-      "description": "some short description",
-      "timestamp": "01-20-2024",
-      "signup": {
-        "link": "some link #",
-        "name": "button"
-      }
-    },
-    {
-      "title": "some title",
-      "description": "some short description",
-      "timestamp": "01-20-2024",
-      "signup": {
-        "link": "some link #",
-        "name": "button"
-      }
-    },
-    {
-      "title": "some title",
-      "description": "some short description",
-      "timestamp": "01-20-2024",
-      "signup": {
-        "link": "some link #",
-        "name": "button"
-      }
-    }
   ],
   "other_events": [
   ]
