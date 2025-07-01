@@ -24,6 +24,7 @@ import IncreasingNumbersTemplate from "./components/templates/IncreasingNumbersT
 import BackgroundFillTemplate2 from "./components/templates/BackgroundFillTemplate2";
 import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
 import ComingSoonTemplate from "./components/templates/ComingSoonTemplate";
+import ComingSoonTemplate from "./components/templates/ComingSoonTemplate";
 
 export interface ImageData {
   imageLink?: string;
