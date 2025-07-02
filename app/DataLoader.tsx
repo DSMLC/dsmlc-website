@@ -206,10 +206,10 @@ export interface CardTemplateData {
         keys: string[];
       }
     | {
-        title: string;
+        header: string;
         description: string;
         timestamp: string;
-        signup?: {
+        button?: {
           link: string;
           name: string;
         };

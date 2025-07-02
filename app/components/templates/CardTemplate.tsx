@@ -23,9 +23,9 @@ const CardTemplate = ({ Data }: { Data: any[] }) => {
           key={index}
           className="p-6 mb-8 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl"
         >
-          {card.title && (
+          {card.header && (
             <span className="font-redHat text-dsmlcTangerine font-semibold text-base md:text-lg">
-              {card.title}
+              {card.header}
             </span>
           )}
 
@@ -51,17 +51,17 @@ const CardTemplate = ({ Data }: { Data: any[] }) => {
             </p>
           )}
 
-          {card.signup ? (
-            card.signup.link && card.signup.link !== "#" ? (
+          {card.button ? (
+            card.button.link && card.button.link !== "#" ? (
               <div className="pt-4">
-                <ApplicationTemplate Data={[card.signup]} />
+                <ApplicationTemplate Data={[card.button]} />
               </div>
             ) : (
               <div className="pt-4">
                 <p className="text-sm text-gray-500 italic">
                   Sign-up Not Required.
                 </p>
-                <ApplicationTemplate Data={[card.signup]} />
+                <ApplicationTemplate Data={[card.button]} />
               </div>
             )
           ) : null}
