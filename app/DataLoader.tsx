@@ -25,6 +25,7 @@ import BackgroundFillTemplate2 from "./components/templates/BackgroundFillTempla
 import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
 import ComingSoonTemplate from "./components/templates/ComingSoonTemplate";
 
+
 export interface ImageData {
   imageLink?: string;
   imageDarkMode?: string;
