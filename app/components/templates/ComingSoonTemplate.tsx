@@ -3,7 +3,7 @@ import { ComingSoonTemplateData } from "@/app/DataLoader";
 import React from "react";
 import SocialLinksTemplate from "./SocialLinksTemplate";
 
-const TitleTemplate2 = ({ Data }: { Data: ComingSoonTemplateData["data"] }) => {
+const ComingSoonTemplate = ({ Data }: { Data: ComingSoonTemplateData["data"] }) => {
   return (
     <>
     <div className="border-2 border-dashed border-dsmlcTangerine rounded-md p-3">
@@ -22,4 +22,4 @@ const TitleTemplate2 = ({ Data }: { Data: ComingSoonTemplateData["data"] }) => {
   );
 };
 
-export default TitleTemplate2;
+export default ComingSoonTemplate;
