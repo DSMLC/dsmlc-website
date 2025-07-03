@@ -62,6 +62,21 @@
         "imageName": "Clubs week image",
         "imageType": "Pic"
       }
+    },
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "urban_systems_competition",
+        "imageName": "Picture of Urban System x DSMLC Competition"
+      },
+      "number": "Mar. 4",
+      "header": "Urban Systems x DSMLC Case Competition",
+      "points": [
+        {
+          "header": "Event Overview: ",
+          "text": "The AI + Public Engagement Case Competition Symposium! Witness top teams showcase their cutting-edge AI solutions, followed by an awards ceremony and networking with industry professionals. "
+        }
+      ]
     }
   ],
   "fall_2024": [
