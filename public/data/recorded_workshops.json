@@ -89,6 +89,22 @@
             "link": "https://drive.google.com/drive/folders/1YcPcgQ_qeUe4B6TqzkhqWfpiGxG0QVxc",
             "name": "view"
           }
+        },
+        {
+          "title": "1.1 - Make Your Own AI Study Companion",
+          "description": "Develop your own AI-powered study assistant using Natural Language Processing (NLP).",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1muBsaxQIetHbkLE97TWe-pRVUMznSyc6",
+            "name": "view"
+          }
+        },
+        {
+          "title": "1.2 - Clouds and Business",
+          "description": "Learn to analyze Bitcoin & Ethereum trends with ML. Use it to predict stock market trends and analyze your own investments!",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1wyDVTTHBSYf9f9j1HItTtptNYjTEZx7d",
+            "name": "view"
+          }
         }
   ]
 }
