@@ -32,10 +32,10 @@
     },
     {
       "image": {
-        "imageType": "Logo",
-        "imageLink": "/images/light_logo.png",
-        "imageDarkMode": "/images/dark_logo.png",
-        "imageName": "Logo"
+        "imageType": "Pic",
+        "imageLink": "/images/events/winter_2025/walle_image.png",
+        "imageDarkMode": "",
+        "imageName": "WallE Image"
       },
       "number": "Jan. 31",
       "header": "Make your own AI Study Companion Workshop",
