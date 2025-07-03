@@ -1,31 +1,38 @@
+"use client";
 import React from "react";
 import { usePathname } from "next/navigation";
 import ApplicationTemplate from "./ApplicationTemplate";
 
-const CardTemplate = ({ Data }: { Data: any[] }) => {
+import { CardTemplateData } from "../../DataLoader";
+
+const CardTemplate = ({ Data }: { Data: CardTemplateData["data"] }) => {
   const pathname = usePathname();
   const isHomePage = pathname === "/";
   const isWorkshop = pathname === "/events/workshops";
-  const CardToDisplay = isHomePage || isWorkshop ? Data.slice(0, 3) : Data;
 
-  if (!CardToDisplay || CardToDisplay.length === 0) {
+  // Check if Data is an array (parsed format)
+  const isParsed = Array.isArray(Data);
+
+  if (!isParsed) {
     return (
       <p className="text-center text-gray-600 dark:text-gray-400">
-        No upcoming events at the moment.
+        Data format is not supported yet.
       </p>
     );
   }
 
+  const CardToDisplay = isHomePage || isWorkshop ? Data.slice(0, 3) : Data;
+
   return (
-    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {CardToDisplay.map((card, index) => (
         <div
           key={index}
           className="p-6 mb-8 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl"
         >
-          {card.header && (
+          {card.title && (
             <span className="font-redHat text-dsmlcTangerine font-semibold text-base md:text-lg">
-              {card.header}
+              {card.title}
             </span>
           )}
 
@@ -58,9 +65,6 @@ const CardTemplate = ({ Data }: { Data: any[] }) => {
               </div>
             ) : (
               <div className="pt-4">
-                <p className="text-sm text-gray-500 italic">
-                  Sign-up Not Required.
-                </p>
                 <ApplicationTemplate Data={[card.button]} />
               </div>
             )

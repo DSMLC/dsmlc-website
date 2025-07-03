@@ -1,64 +1,94 @@
 {
-  "previous_workshops": [
-    {
-      "title": "Fall 2021 - Winter 2022",
-      "subSection": [
+  "Fall_2021_Winter_2022": [
         {
-          "header": "0.1 Intro to Python: ",
-          "text": "An introductory workshop on Python programming fundamentals."
+          "title": "0.1 - Intro to Python: ",
+          "description": "An introductory workshop on Python programming fundamentals.",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
+            "name": "view"
+          }
         },
         {
-          "header": "0.2 Intro to Pandas: ",
-          "text": "An introduction to the Pandas library, focusing on data manipulation and analysis."
+          "title": "0.2 - Intro to Pandas: ",
+          "description": "An introduction to the Pandas library, focusing on data manipulation and analysis.",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
+            "name": "view"
+          }
         }
-      ]
-    },
-    {
-      "title": "Fall 2022 - Winter 2023",
-      "subSection": [
+  ],
+
+  "Fall_2022_Winter_2023": [
         {
-          "header": "0.3 Intro to Data Visualization: ",
-          "text": "Workshop on data visualization techniques and tools."
+          "title": "0.3 - Intro to Data Visualization: ",
+          "description": "Workshop on data visualization techniques and tools.",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
+            "name": "view"
+          }
         },
         {
-          "header": "0.4 Intro to Supervised Learning Pt.1: ",
-          "text": "Part 1 of an introduction to supervised learning concepts in machine learning."
+          "title": "0.4 - Intro to Supervised Learning Pt.1:  ",
+          "description": "Part 1 of an introduction to supervised learning concepts in machine learning.",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
+            "name": "view"
+          }
         },
         {
-          "header": "0.5 Intro to Supervised Learning Pt.2: ",
-          "text": "Part 2 of an introduction to supervised learning concepts in machine learning."
+          "title": "0.5 - Intro to Supervised Learning Pt.2:  ",
+          "description": "Part 2 of an introduction to supervised learning concepts in machine learning.",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
+            "name": "view"
+          }
         }
-      ]
-    },
-    {
-      "title": "Fall 2023 - Winter 2024",
-      "subSection": [
+
+  ],
+
+    "Fall_2023_Winter_2024": [
         {
-          "header": "0.6 Intro to SQL: ",
-          "text": "An introduction to SQL for managing and querying databases."
+          "title": "0.6 - Intro to SQL: ",
+          "description": "An introduction to SQL for managing and querying databases.",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
+            "name": "view"
+          }
         },
         {
-          "header": "0.7 Intro to Power BI: ",
-          "text": "A beginner’s guide to Power BI for data visualization and business intelligence."
+          "title": "0.7 - Intro to Power BI: ",
+          "description": "A beginner’s guide to Power BI for data visualization and business intelligence.",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
+            "name": "view"
+          }
         },
         {
-          "header": "0.8 Machine Learning Algorithmic Approaches by Khizer: ",
-          "text": "Workshop covering different algorithmic approaches in machine learning."
+          "title": "0.8 - Machine Learning Algorithmic Approaches by Khizer: ",
+          "description": "Workshop covering different algorithmic approaches in machine learning.",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
+            "name": "view"
+          }
         }
-      ]
-    },
-    {
-      "title": "Fall 2024 - Winter 2025",
-      "subSection": [
+  ],
+
+      "Fall_2024_Winter_2025": [
         {
-          "header": "0.9 Data Visualization and Manipulation Using Python: ",
-          "text": "Workshop on advanced data visualization and manipulation techniques using Python."
+          "title": "0.9 - Data Visualization and Manipulation Using Python: ",
+          "description": "Workshop on advanced data visualization and manipulation techniques using Python.",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
+            "name": "view"
+          }
         },
         {
-          "header": "1.0 Clouds and Bussiness",
-          "text": "Master SQL and PySpark for efficient data management, explore a real-world retail sales case study, and practice live SQL querying using Google Colab."
+          "title": "1.0 - Clouds and Bussiness",
+          "description": "Master SQL and PySpark for efficient data management, explore a real-world retail sales case study, and practice live SQL querying using Google Colab.",
+          "button": {
+            "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
+            "name": "view"
+          }
         }
-      ]
-    }
   ]
 }
