@@ -3,7 +3,7 @@
     {
       "image": {
         "imageType": "Pic",
-        "imageLink": "/images/events/winter_2025/urban_systems_competition",
+        "imageLink": "/images/events/winter_2025/urban_systems_competition.png",
         "imageName": "Picture of Urban System x DSMLC Competition"
       },
       "number": "Mar. 4",
@@ -48,10 +48,10 @@
     },
     {
       "image": {
-        "imageType": "Logo",
-        "imageDarkMode": "/images/dark_logo.png",
-        "imageLink": "/images/light_logo.png",
-        "imageName": "Logo"
+        "imageType": "Pic",
+        "imageDarkMode": "",
+        "imageLink": "/images/events/winter_2025/lala_land.jpg",
+        "imageName": "Picture of LaLa Land Movie Poster"
       },
       "number": "Jan. 28",
       "header": "DSMLC Unplugged Movie Night",
