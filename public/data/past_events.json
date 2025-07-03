@@ -77,6 +77,21 @@
         "imageName": "Clubs week image",
         "imageType": "Pic"
       }
+    },
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/winter_2025/her_ai_dsmlc.png",
+        "imageName": "Picture of Her AI X DSMLC Networking Night"
+      },
+      "number": "Feb. 4",
+      "header": "HER AI x DSMLC Networking Night",
+      "points": [
+        {
+          "header": "Event Overview: ",
+          "text": "Guests from leading organizations visited to take part in mini-group discussions to share insights, answer questions, and spark meaningful conversations."
+        }
+      ]
     }
   ],
   "fall_2024": [
