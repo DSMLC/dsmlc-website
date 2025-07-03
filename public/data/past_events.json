@@ -3,6 +3,21 @@
     {
       "image": {
         "imageType": "Pic",
+        "imageLink": "/images/events/winter_2025/bitcoin_workshop.png",
+        "imageName": "Picture of Bitcoin Workshop"
+      },
+      "number": "Mar 6",
+      "header": "Predicting Bitcoin Trends with Machine Learning wokrshop",
+      "points": [
+        {
+          "header": "Event Overview: ",
+          "text": "A hands-on workshop which explored the yfinance library, and learned to predict trends with Random Forest, and price forecast with LSTMs to analyze financial markets"
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
         "imageLink": "/images/events/winter_2025/urban_systems_competition.png",
         "imageName": "Picture of Urban System x DSMLC Competition"
       },
@@ -108,21 +123,6 @@
         "imageName": "Clubs week image",
         "imageType": "Pic"
       }
-    },
-    {
-      "image": {
-        "imageType": "Pic",
-        "imageLink": "/images/events/winter_2025/bitcoin_workshop.png",
-        "imageName": "Picture of Bitcoin Workshop"
-      },
-      "number": "Mar 6",
-      "header": "Predicting Bitcoin Trends with Machine Learning wokrshop",
-      "points": [
-        {
-          "header": "Event Overview: ",
-          "text": "A hands-on workshop which explored the yfinance library, and learned to predict trends with Random Forest, and price forecast with LSTMs to analyze financial markets"
-        }
-      ]
     }
   ],
   "fall_2024": [
