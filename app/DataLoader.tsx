@@ -204,6 +204,7 @@ export interface CardTemplateData {
     | {
         json: string;
         keys: string[];
+        limit: number;
       }
     | {
         title: string;
@@ -282,9 +283,10 @@ const resolveData = async (pageData: PageData): Promise<any> => {
     "json" in pageData.data &&
     "keys" in pageData.data
   ) {
-    const { json, keys } = pageData.data as unknown as {
+    const { json, keys, limit } = pageData.data as unknown as {
       json: string;
       keys: string[];
+      limit?: number;
     };
 
     if (json.endsWith(".json")) {
@@ -302,6 +304,10 @@ const resolveData = async (pageData: PageData): Promise<any> => {
             const dateB = new Date(b.date || 0).getTime();
             return dateA - dateB;
           });
+        }
+
+        if (pageData.type === "CardTemplate" && typeof limit === "number") {
+          combinedData = combinedData.slice(0, limit);
         }
 
         return combinedData;
