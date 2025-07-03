@@ -92,6 +92,22 @@
           "text": "Guests from leading organizations visited to take part in mini-group discussions to share insights, answer questions, and spark meaningful conversations."
         }
       ]
+    },
+    {
+      "image": {
+        "imageType": "Logo",
+        "imageLink": "/images/dark_logo.png",
+        "imageDarkMode": "/images/light_logo.png",
+        "imageName": "Logo"
+      },
+      "number": "Feb 13",
+      "header": "Large Language Models (LLMs) workshop by Urban Systems",
+      "points": [
+        {
+          "header": "Event Overview: ",
+          "text": "An exciting hands-on workshop with Corey Yang-Smith, Software & Machine Learning Developer at Urban Systems to learn about the world of Large Language Models!"
+        }
+      ]
     }
   ],
   "fall_2024": [
