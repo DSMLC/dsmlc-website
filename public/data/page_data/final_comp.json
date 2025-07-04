@@ -56,7 +56,7 @@
         ]
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": [
           {
             "link": "/events/upcoming",
@@ -147,7 +147,7 @@
         ]
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": [
           {
             "link": "/about/sponsors",

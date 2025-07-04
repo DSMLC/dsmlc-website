@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ColumnTemplate from "./components/templates/ColumnTemplate";
 import TimelineTemplate1 from "./components/templates/TimelineTemplate1";
 import FAQTemplate from "./components/templates/FAQTemplate";
-import ApplicationTemplate from "./components/templates/ApplicationTemplate";
+import ButtonTemplate from "./components/templates/ButtonTemplate";
 import HeroTemplate from "./components/templates/HeroTemplate";
 import HeaderTextSubSectionTemplate from "./components/templates/HeaderTextSubSectionTemplate";
 import HeaderTextTemplate1 from "./components/templates/HeaderTextTemplate1";
@@ -32,8 +32,8 @@ export interface ImageData {
   imageType?: string;
 }
 
-export interface ApplicationTemplateData {
-  type: "ApplicationTemplate";
+export interface ButtonTemplateData {
+  type: "ButtonTemplate";
   data: { link: string; name: string }[];
 }
 
@@ -226,7 +226,7 @@ export type PageData =
   | TimelineTemplateData1
   | TimelineTemplateData2
   | FAQTemplateData
-  | ApplicationTemplateData
+  | ButtonTemplateData
   | HeroTemplateData
   | InfoBubbleTemplateData
   | HeaderTextSubSectionTemplateData
@@ -256,7 +256,7 @@ export const templateMap: {
   TimelineTemplate1: TimelineTemplate1,
   TimelineTemplate2: TimelineTemplate2,
   FAQTemplate: FAQTemplate,
-  ApplicationTemplate: ApplicationTemplate,
+  ButtonTemplate: ButtonTemplate,
   HeroTemplate: HeroTemplate,
   InfoBubbleTemplate: InfoBubbleTemplate,
   HeaderTextSubSectionTemplate: HeaderTextSubSectionTemplate,

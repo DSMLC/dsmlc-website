@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import ApplicationTemplate from "./ApplicationTemplate";
+import ButtonTemplate from "./ButtonTemplate";
 import { CardTemplateData } from "../../DataLoader";
 
 const CardTemplate = ({ Data }: { Data: CardTemplateData["data"] }) => {
@@ -53,7 +53,7 @@ const CardTemplate = ({ Data }: { Data: CardTemplateData["data"] }) => {
 
           {card.button && (
             <div className="pt-4">
-              <ApplicationTemplate Data={[card.button]} />
+              <ButtonTemplate Data={[card.button]} />
             </div>
           )}
         </div>

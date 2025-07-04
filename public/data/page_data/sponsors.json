@@ -31,7 +31,7 @@
         ]
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": {
           "json": "club_links.json",
           "keys": ["regular_package", "final_comp_package"]
@@ -101,7 +101,7 @@
         ]
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": {
           "json": "club_links.json",
           "keys": ["regular_package"]
@@ -122,14 +122,14 @@
         ]
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": {
           "json": "club_links.json",
           "keys": ["final_comp_package"]
         }
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": [
           {
             "link": "/events/final-comp",
@@ -192,7 +192,7 @@
         "data": {}
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": {
           "json": "club_links.json",
           "keys": ["email_section", "linkedin"]
