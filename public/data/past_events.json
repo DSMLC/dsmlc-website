@@ -3,6 +3,21 @@
     {
       "image": {
         "imageType": "Pic",
+        "imageLink": "/images/events/winter_2025/finalcomp_2025.jpg",
+        "imageName": "Picture of Final Competition 2025"
+      },
+      "number": "Apr 3",
+      "header": "Annual Final Competition Symposium 2025",
+      "points": [
+        {
+          "header": "Competition Details:",
+          "text": "Celebrated the achievements of the DSMLC competition participants at our annual symposium, filled with inspiring talks and valuable networking!"
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
         "imageLink": "/images/events/winter_2025/bitcoin_workshop.png",
         "imageName": "Picture of Bitcoin Workshop"
       },
@@ -27,21 +42,6 @@
         {
           "header": "Event Overview: ",
           "text": "The AI + Public Engagement Case Competition Symposium! Witness top teams showcase their cutting-edge AI solutions, followed by an awards ceremony and networking with industry professionals. "
-        }
-      ]
-    },
-    {
-      "image": {
-        "imageType": "Pic",
-        "imageLink": "/images/events/winter_2025/finalcomp_2025.jpg",
-        "imageName": "Picture of Final Competition 2025"
-      },
-      "number": "Apr 3",
-      "header": "Annual Final Competition Symposium 2025",
-      "points": [
-        {
-          "header": "Competition Details:",
-          "text": "Celebrated the achievements of the DSMLC competition participants at our annual symposium, filled with inspiring talks and valuable networking!"
         }
       ]
     },
