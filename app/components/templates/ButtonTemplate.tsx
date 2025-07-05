@@ -1,7 +1,7 @@
 "use client";
 
 import { updateButtonClicksDatabase } from "@/app/Backend";
-import { ApplicationTemplateData } from "@/app/DataLoader";
+import { ButtonTemplateData } from "@/app/DataLoader";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
@@ -10,7 +10,7 @@ import React, { useState } from "react";
 const ApplicationSection = ({
   Data,
 }: {
-  Data: ApplicationTemplateData["data"];
+  Data: ButtonTemplateData["data"];
 }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
