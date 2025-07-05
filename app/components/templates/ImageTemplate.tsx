@@ -79,17 +79,24 @@ const ImageTemplate = ({
   name: string;
   type: ImageType;
 }) => {
-  const { width, height } = sizeConfig[type];
+  
+  
 
-  const imageClassname = getImageClassname(type);
+  const isInvalidImage = image === "#" || !image;
+  const finalType: ImageType = isInvalidImage ? "Logo" : type;
+  const finalImage = isInvalidImage ? "/images/dark_logo.png" : image;
+
+   const imageClassname = getImageClassname(finalType);
+  const { width, height } = sizeConfig[finalType];
 
   return (
     <div>
       {image && (
+      
         <>
           <Image
             className={`${imageClassname} lg:block hidden `}
-            src={image}
+            src={finalImage}
             alt={`${name} ${type}`}
             width={width.large}
             height={height.large}
@@ -98,7 +105,7 @@ const ImageTemplate = ({
           />
           <Image
             className={`${imageClassname} lg:hidden md:block hidden`}
-            src={image}
+            src={finalImage}
             alt={`${name} ${type}`}
             width={width.medium}
             height={height.medium}
@@ -107,7 +114,7 @@ const ImageTemplate = ({
           />
           <Image
             className={`${imageClassname} md:hidden block`}
-            src={image}
+            src={finalImage}
             alt={`${name} ${type}`}
             width={width.small}
             height={height.small}
@@ -115,7 +122,7 @@ const ImageTemplate = ({
             loading="lazy"
           />
         </>
-      )}
+        )}
     </div>
   );
 };
