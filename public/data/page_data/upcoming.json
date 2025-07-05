@@ -59,6 +59,13 @@
           "json": "upcoming_events.json",
           "keys": ["final_comp"]
         }
+      },
+      {
+        "type": "ComingSoonTemplate",
+        "data": {
+          "header": "Check Back for Future Events!",
+          "subtext": "Follow our Socials to stay Updated!"
+        }
       }
     ]
   },
@@ -79,6 +86,13 @@
         "data": {
           "json": "upcoming_events.json",
           "keys": ["workshops"]
+        }
+      },
+      {
+        "type": "ComingSoonTemplate",
+        "data": {
+          "header": "Check Back for Future Events!",
+          "subtext": "Follow our Socials to stay Updated!"
         }
       }
     ]
@@ -101,7 +115,15 @@
           "json": "upcoming_events.json",
           "keys": ["other_events"]
         }
+      },
+      {
+        "type": "ComingSoonTemplate",
+        "data": {
+          "header": "Check Back for Future Events!",
+          "subtext": "Follow our Socials to stay Updated!"
+        }
       }
+      
     ]
   }
 ]
