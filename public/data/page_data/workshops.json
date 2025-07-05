@@ -27,6 +27,13 @@
               "imageName": "Picture of DSMLC's power bi workshop",
               "imageType": "Banner"
             }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2025/workshop_image_two.png",
+              "imageName": "Picture of second image in workshop carousel",
+              "imageType": "Banner"
+            }
           }
         ]
       },
