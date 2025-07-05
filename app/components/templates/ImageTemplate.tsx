@@ -1,6 +1,9 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import { useTheme } from "@/app/ThemeProvider";
+
+
 
 const sizeConfig = {
   Pic: {
@@ -79,12 +82,15 @@ const ImageTemplate = ({
   name: string;
   type: ImageType;
 }) => {
+
+  const {isDarkMode} = useTheme();
   
   
 
   const isInvalidImage = image === "#" || !image;
   const finalType: ImageType = isInvalidImage ? "Logo" : type;
-  const finalImage = isInvalidImage ? "/images/dark_logo.png" : image;
+  const defaultImg = isDarkMode ? "/images/light_logo.png" : "/images/dark_logo.png"
+  const finalImage = isInvalidImage ? defaultImg : image;
 
    const imageClassname = getImageClassname(finalType);
   const { width, height } = sizeConfig[finalType];
