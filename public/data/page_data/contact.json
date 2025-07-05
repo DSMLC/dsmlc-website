@@ -29,7 +29,7 @@
         "data": {}
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": {
           "json": "club_links.json",
           "keys": ["email_section", "linkedin"]
@@ -48,7 +48,7 @@
         }
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": [
           {
             "link": "/about/sponsors",

@@ -38,7 +38,7 @@
         ]
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": [
           {
             "link": "/visionary-lab/student-program",
