@@ -197,7 +197,8 @@
           "Software Engineering"
         ],
         "year": "3rd Year"
-      }
+      },
+      "profile": "/images/profile/matthew_liu.jpg"
     },
     {
       "name": "Lychelle Pham",
@@ -214,7 +215,8 @@
           "Computer Science"
         ],
         "year": "3rd Year"
-      }
+      },
+      "profile": "/images/profile/lychelle_pham.jpg"
     },
     {
       "name": "Shreya Shah",
@@ -231,7 +233,8 @@
           "Software Engineering"
         ],
         "year": "3rd Year"
-      }
+      },
+      "profile": "/images/profile/shreya_shah.jpg"
     },
     {
       "name": "Noor Syed",
@@ -281,9 +284,10 @@
       "program": {
         "programs": [
           "Data Science"
-        ],
+       ],
         "year": "2nd Year"
-      }
+      },
+      "profile": "/images/profile/tae_shim.jpg"
     },
     {
       "name": "Andrey Dimanchev",
@@ -378,7 +382,8 @@
             "Marketing Lead"
           ]
         }
-      ]
+      ],
+      "profile": "/images/profile/amy_cui.jpg"
     },
     {
       "name": "Sarah Feng",
@@ -458,7 +463,8 @@
           "Business"
         ],
         "year": "2nd Year"
-      }
+      },
+      "profile": "/images/profile/azka_khalil.jpg"
     },
     {
       "name": "Maya Larsson",
@@ -511,7 +517,8 @@
           "Business (Accounting)"
         ],
         "year": "4th Year"
-      }
+      },
+      "profile": "/images/profile/linh_truong.jpg"
     },
     {
       "name": "Lucy Li",

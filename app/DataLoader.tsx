@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ColumnTemplate from "./components/templates/ColumnTemplate";
 import TimelineTemplate1 from "./components/templates/TimelineTemplate1";
 import FAQTemplate from "./components/templates/FAQTemplate";
-import ApplicationTemplate from "./components/templates/ApplicationTemplate";
+import ButtonTemplate from "./components/templates/ButtonTemplate";
 import HeroTemplate from "./components/templates/HeroTemplate";
 import HeaderTextSubSectionTemplate from "./components/templates/HeaderTextSubSectionTemplate";
 import HeaderTextTemplate1 from "./components/templates/HeaderTextTemplate1";
@@ -24,7 +24,7 @@ import IncreasingNumbersTemplate from "./components/templates/IncreasingNumbersT
 import BackgroundFillTemplate2 from "./components/templates/BackgroundFillTemplate2";
 import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
 import ComingSoonTemplate from "./components/templates/ComingSoonTemplate";
-
+import CardTemplate from "./components/templates/CardTemplate";
 
 export interface ImageData {
   imageLink?: string;
@@ -33,8 +33,8 @@ export interface ImageData {
   imageType?: string;
 }
 
-export interface ApplicationTemplateData {
-  type: "ApplicationTemplate";
+export interface ButtonTemplateData {
+  type: "ButtonTemplate";
   data: { link: string; name: string }[];
 }
 
@@ -207,6 +207,26 @@ export interface SocialLinksTemplateData {
   data: {};
 }
 
+export interface CardTemplateData {
+  type: "CardTemplate";
+  data:
+    | {
+        json: string;
+        keys: string[];
+        limit: number;
+      }
+    | {
+        title: string;
+        description: string;
+        timestamp: string;
+        location: string;
+        button?: {
+          link: string;
+          name: string;
+        };
+      }[];
+}
+
 export type PageData =
   | ColumnTemplateData
   | ComingSoonTemplateData
@@ -216,7 +236,7 @@ export type PageData =
   | TimelineTemplateData1
   | TimelineTemplateData2
   | FAQTemplateData
-  | ApplicationTemplateData
+  | ButtonTemplateData
   | HeroTemplateData
   | InfoBubbleTemplateData
   | HeaderTextSubSectionTemplateData
@@ -231,7 +251,8 @@ export type PageData =
   | BackgroundFillTemplateData
   | BackgroundFillTemplateData2
   | SocialLinksTemplateData
-  | IncreasingNumbersData;
+  | IncreasingNumbersData
+  | CardTemplateData;
 
 export const templateMap: {
   [key in PageData["type"]]?: React.ComponentType<{
@@ -246,7 +267,7 @@ export const templateMap: {
   TimelineTemplate1: TimelineTemplate1,
   TimelineTemplate2: TimelineTemplate2,
   FAQTemplate: FAQTemplate,
-  ApplicationTemplate: ApplicationTemplate,
+  ButtonTemplate: ButtonTemplate,
   HeroTemplate: HeroTemplate,
   InfoBubbleTemplate: InfoBubbleTemplate,
   HeaderTextSubSectionTemplate: HeaderTextSubSectionTemplate,
@@ -263,6 +284,7 @@ export const templateMap: {
   BackgroundFillTemplate2: BackgroundFillTemplate2,
   IncreasingNumbersTemplate: IncreasingNumbersTemplate,
   SocialLinksTemplate: SocialLinksTemplate,
+  CardTemplate: CardTemplate,
 };
 
 const resolveData = async (pageData: PageData): Promise<any> => {
@@ -272,9 +294,10 @@ const resolveData = async (pageData: PageData): Promise<any> => {
     "json" in pageData.data &&
     "keys" in pageData.data
   ) {
-    const { json, keys } = pageData.data as unknown as {
+    const { json, keys, limit } = pageData.data as unknown as {
       json: string;
       keys: string[];
+      limit?: number;
     };
 
     if (json.endsWith(".json")) {
@@ -286,30 +309,21 @@ const resolveData = async (pageData: PageData): Promise<any> => {
           .flat();
 
         if (json === "upcoming_events.json") {
+          // upcoming_events,json ----> Date sorting
           combinedData = combinedData.sort((a, b) => {
-            const parseDate = (title: string) => {
-              if (!title) return new Date(0);
-              const dateMatch = title.match(
-                /(\b\w+\b)\s+(\d+)(?:st|nd|rd|th)?(?:-\d+)?(?:,\s*(\d{4}))?/
-              );
-              if (dateMatch) {
-                const [, month, day, year] = dateMatch;
-                const resolvedYear = year || new Date().getFullYear();
-                return new Date(`${month} ${day}, ${resolvedYear}`);
-              }
-              return new Date(0); 
-            };
-
-            const dateA = parseDate(a.title);
-            const dateB = parseDate(b.title);
-
-            return dateA.getTime() - dateB.getTime();
+            const dateA = new Date(a.date || 0).getTime();
+            const dateB = new Date(b.date || 0).getTime();
+            return dateA - dateB;
           });
+        }
+
+        if (pageData.type === "CardTemplate" && typeof limit === "number") {
+          combinedData = combinedData.slice(0, limit);
         }
 
         return combinedData;
       } catch (error) {
-        console.error(`Error loading JSON file: ${json}`, error);
+        console.error(`Error loading JSON file: ${json}`, error); // handle error
         return null;
       }
     }

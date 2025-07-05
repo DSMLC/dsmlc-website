@@ -58,7 +58,7 @@
         }
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": {
           "json": "applications.json",
           "keys": ["apply_exec_button"]
@@ -79,7 +79,7 @@
         ]
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": [
           {
             "link": "/about/execs",

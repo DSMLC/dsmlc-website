@@ -36,7 +36,7 @@
         ]
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": [
           {
             "link": "/events/upcoming",

@@ -31,7 +31,7 @@
         ]
       },
       {
-        "type": "ApplicationTemplate",
+        "type": "ButtonTemplate",
         "data": [
           {
             "link": "/events",
@@ -54,7 +54,7 @@
         ]
       },
       {
-        "type": "HeaderTextSubSectionTemplate",
+        "type": "CardTemplate",
         "data": {
           "json": "upcoming_events.json",
           "keys": ["final_comp"]
@@ -82,17 +82,10 @@
         ]
       },
       {
-        "type": "HeaderTextSubSectionTemplate",
+        "type": "CardTemplate",
         "data": {
           "json": "upcoming_events.json",
           "keys": ["workshops"]
-        }
-      },
-      {
-        "type": "ApplicationTemplate",
-        "data": {
-          "json": "upcoming_events.json",
-          "keys": ["workshops_register"]
         }
       },
       {
@@ -117,7 +110,7 @@
         ]
       },
       {
-        "type": "HeaderTextSubSectionTemplate",
+        "type": "CardTemplate",
         "data": {
           "json": "upcoming_events.json",
           "keys": ["other_events"]

@@ -1,18 +1,8 @@
 {
-  "final_comp": [],
-  "final_comp_register": [
-    {
-      "link": "#",
-      "name": "Registrations Closed At the Moment"
-    }
+  "final_comp": [
   ],
-  "workshops": [],
-  "workshops_register": [],
-  "other_events": [],
-  "other_events_register": [
-    {
-      "link": "#",
-      "name": "Registrations Closed At the Moment"
-    }
+  "workshops": [
+  ],
+  "other_events": [
   ]
 }
