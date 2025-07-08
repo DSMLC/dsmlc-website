@@ -91,6 +91,16 @@
                 "text": "The 2024 competition reached new heights with keynote speaker Renee Matsalla from Tacit Edge. Her discussion on data science in product management added an industry-focused perspective, making the event highly relevant for attendees."
               }
             ]
+          },
+          {
+            "number": "3",
+            "header": "DSMLC Final Competition 2025",
+            "points": [
+              {
+                "header": "Overview:",
+                "text": "The 2025 Competition was an immense success. With three unique categories and four highly talented speakers: Corey Yang from Urban System, Pierce Anderson from ABC Resources, Helen Ashton from AWS, and Banks Odole from SAIT, attendees gained new connections and insights."
+              }
+            ]
           }
         ]
       },
@@ -106,9 +116,8 @@
             "title": "2024 Attendees"
           },
           {
-            "value": 210,
-            "title": "Attendance Increase",
-            "unit": "%"
+            "value": 92,
+            "title": "2025 Attendees"
           }
         ]
       }
