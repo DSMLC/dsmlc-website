@@ -21,7 +21,7 @@ const CardTemplate = ({ Data }: { Data: CardTemplateData["data"] }) => {
       {cardsToDisplay.map((card, index) => (
         <div
           key={index}
-          className="p-6 mb-8 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl"
+          className="flex flex-col justify-between p-6 mb-8 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl"
         >
           {card.title && (
             <span className="font-redHat text-dsmlcTangerine font-semibold text-base md:text-lg">
