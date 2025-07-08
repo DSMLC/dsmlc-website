@@ -251,7 +251,8 @@
           "Software Engineering"
         ],
         "year": "3rd Year"
-      }
+      },
+      "profile": "/images/profile/noor_syed.jpg"
     },
     {
       "name": "Prantap Sharma",
@@ -284,7 +285,7 @@
       "program": {
         "programs": [
           "Data Science"
-       ],
+        ],
         "year": "2nd Year"
       },
       "profile": "/images/profile/tae_shim.jpg"
