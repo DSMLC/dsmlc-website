@@ -8,12 +8,6 @@
           "roles": [
             "President"
           ]
-        },
-        {
-          "group": "Visionary Lab Board",
-          "roles": [
-            "Board Chairman"
-          ]
         }
       ],
       "profile": "/images/profile/evan_poulson.jpg",
@@ -52,12 +46,6 @@
           "roles": [
             "Director of Events"
           ]
-        },
-        {
-          "group": "Visionary Lab Board",
-          "roles": [
-            "Board of Directors"
-          ]
         }
       ],
       "profile": "/images/profile/adrian_julve.jpg",
@@ -76,12 +64,6 @@
           "group": "Events Team",
           "roles": [
             "Director of Events"
-          ]
-        },
-        {
-          "group": "Visionary Lab Board",
-          "roles": [
-            "Board of Directors"
           ]
         }
       ],
@@ -298,18 +280,6 @@
           "roles": [
             "Workshop Coordinator"
           ]
-        },
-        {
-          "group": "Visionary Lab Board",
-          "roles": [
-            "Board of Directors"
-          ]
-        },
-        {
-          "group": "Project Managers",
-          "roles": [
-            "2024 Project Manager"
-          ]
         }
       ],
       "program": {
@@ -431,12 +401,6 @@
           "group": "External Affairs Team",
           "roles": [
             "Financial Controller"
-          ]
-        },
-        {
-          "group": "Visionary Lab Board",
-          "roles": [
-            "Board of Directors"
           ]
         }
       ],
@@ -568,12 +532,6 @@
           "roles": [
             "VP Operations"
           ]
-        },
-        {
-          "group": "Advisors",
-          "roles": [
-            "Advisor"
-          ]
         }
       ],
       "program": {
@@ -601,12 +559,6 @@
           "roles": [
             "President"
           ]
-        },
-        {
-          "group": "Project Managers",
-          "roles": [
-            "2024 Project Manager"
-          ]
         }
       ],
       "profile": "/images/profile/gabriel_rodriguez.jpg",
@@ -626,12 +578,6 @@
           "roles": [
             "Presidential Advisor"
           ]
-        },
-        {
-          "group": "Advisors",
-          "roles": [
-            "Advisor"
-          ]
         }
       ],
       "program": {
@@ -648,12 +594,6 @@
           "group": "Legacy Executives (Advisory Team)",
           "roles": [
             "VP Outreach"
-          ]
-        },
-        {
-          "group": "Visionary Lab Board",
-          "roles": [
-            "Board of Directors"
           ]
         }
       ],
@@ -675,12 +615,6 @@
           "roles": [
             "VP Operations"
           ]
-        },
-        {
-          "group": "Advisors",
-          "roles": [
-            "Advisor"
-          ]
         }
       ],
       "program": {
@@ -697,18 +631,6 @@
           "group": "Legacy Executives (Advisory Team)",
           "roles": [
             "Tech Lead"
-          ]
-        },
-        {
-          "group": "Visionary Lab Board",
-          "roles": [
-            "Board of Directors"
-          ]
-        },
-        {
-          "group": "Project Managers",
-          "roles": [
-            "2024 Project Manager"
           ]
         }
       ],
