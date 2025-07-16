@@ -185,7 +185,23 @@
         "type": "ColumnTemplate",
         "data": {
           "json": "sponsors_info.json",
-          "keys": ["sponsors"]
+          "keys": ["current"]
+        }
+      },
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Previous Sponsors",
+            "text": "We appreciate all the support we've recieved from our past sponsors too!"
+          }
+        ]
+      },
+      {
+        "type": "ColumnTemplate",
+        "data": {
+          "json": "sponsors_info.json",
+          "keys": ["previous"]
         }
       },
       {

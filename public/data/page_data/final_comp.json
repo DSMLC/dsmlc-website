@@ -173,7 +173,7 @@
         "type": "ColumnTemplate",
         "data": {
           "json": "sponsors_info.json",
-          "keys": ["sponsors"]
+          "keys": ["current"]
         }
       }
     ]
