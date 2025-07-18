@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Red_Hat_Display } from "next/font/google";
 import { Quicksand } from "next/font/google";
@@ -10,6 +11,10 @@ import MovingCircles2DBounce from "./components/MovingCircles2DBounce";
 import dynamic from "next/dynamic";
 import Script from "next/script";
 import NetlifyIdentityProvider from "./NetlifyIdentityProvider";
+import Shortcut from "./components/Shortcut";
+import { usePathname } from "next/navigation";
+
+
 
 const NeuralNetworkAnimation = dynamic(
   () => import("./components/NeuralNetworkAnimation"),
@@ -49,6 +54,11 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <Header />
+          <Shortcut anchors={[
+            { id: "section1", label: "Section 1" },
+            { id: "section2", label: "Section 2" },
+            { id: "section3", label: "Section 3" },
+          ]}></Shortcut>
           <Background />
           <MovingCircles2DBounce />
           <NeuralNetworkAnimation />

@@ -57,8 +57,11 @@ const BackgroundFillTemplate = ({
           return <div key={index}>Unsupported data type: {type}</div>;
         }
 
+        const anchorID = 
+        (Array.isArray(data) && data[0]?.data?.id) || `section-${index}`;
+
         return (
-          <motion.div key={index} variants={childVariants}>
+          <motion.div key={index} id={anchorID} variants={childVariants}>
             <TemplateComponent Data={data} />
           </motion.div>
         );
