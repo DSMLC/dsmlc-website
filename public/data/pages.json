@@ -44,6 +44,10 @@
       {
         "name": "Upcoming Events",
         "link": "/upcoming"
+      },
+      {
+        "name": "Networking Games",
+        "link": "/games"
       }
     ]
   },
@@ -84,11 +88,5 @@
         "link": "/executive"
       }
     ]
-  },
-  {
-    "name": "Social Networking Game",
-    "type": "main",
-    "link": "/social-network-graph",
-    "dropdown": []
   }
 ]

@@ -1,0 +1,58 @@
+[
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate2",
+        "data": {
+          "title": "Networking Games",
+          "subtitle": "Check out the games we've made for our members to play during events:"
+        }
+      },
+      {
+        "type": "CardTemplate",
+        "data": [
+          {
+            "title": "Social Network Graph",
+            "description": "Played during our Final Competition 2025 event",
+            "image": {
+              "imageLink": "/images/social-networking.png",
+              "imageName": "Picture of DSMLC's Final Comp game",
+              "imageType": "Pic"
+            },
+            "button": {
+              "link": "games/social-network-graph",
+              "name": "Check it out"
+            }
+          },
+          {
+            "title": "Mood Tracker",
+            "description": "Played during the WeFlourish 2024 event",
+            "image": {
+              "imageLink": "/images/mood-tracker/mood-tracker.png",
+              "imageName": "Picture of DSMLC's weflourish game",
+              "imageType": "Pic"
+            },
+            "button": {
+              "link": "games/mood-tracker",
+              "name": "Check it out"
+            }
+          },
+          {
+            "title": "DSMLC Bingo",
+            "description": "Connect with others on DSMLC topics!",
+            "image": {
+              "imageLink": "/images/bingo.png",
+              "imageName": "Picture of DSMLC's bingo game",
+              "imageType": "Pic"
+            },
+            "button": {
+              "link": "games/bingo",
+              "name": "Check it out"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

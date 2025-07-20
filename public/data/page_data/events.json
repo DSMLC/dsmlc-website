@@ -41,6 +41,10 @@
           {
             "link": "/events/upcoming",
             "name": "Register For Upcoming Events"
+          },
+          {
+            "link": "/events/games",
+            "name": "Check out Our Networking Games"
           }
         ]
       }

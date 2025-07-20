@@ -40,3 +40,57 @@
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+/* Mood tracker game */
+@keyframes raindrop {
+  0% {
+    transform: translateY(-100%) translateX(-50%) scale(1);
+  }
+  70% {
+    transform: translateY(300px) translateX(-50%) scale(0.9);
+  }
+  100% {
+    transform: translateY(300px) translateX(-50%) scale(3);
+    opacity: 0;
+  }
+}
+
+@keyframes expanding {
+  0% {
+    /* transform: scaleX(0); */
+    width: 0%;
+  }
+  25% {
+    /* transform: scaleX(70); */
+    width: 100%;
+  }
+  50% {
+    /* transform: scaleX(-70); */
+    width: 0%;
+  }
+  75% {
+    /* transform: scaleX(70); */
+    width: 100%;
+  }
+  100% {
+    /* transform: scaleX(-70); */
+    width: 0%;
+  }
+}
+
+.animate-raindrop {
+  animation: raindrop 0.5s ease-in forwards;
+}
+
+.animate-load {
+  animation: expanding 4s ease-in-out;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
