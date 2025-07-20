@@ -1,20 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import rawData from "../../public/data/page_data/social_network.json";
-import DataLoader, { PageData } from "../DataLoader";
-import TitleTemplate from "../components/templates/TitleTemplate1";
-import TitleTemplate2 from "../components/templates/TitleTemplate2";
-import SubtitleTemplate2 from "../components/templates/SubtitleTemplate3";
-import NetworkGraph from "../components/NetworkGraph";
+import rawData from "../../../../public/data/page_data/social_network.json";
+import DataLoader, { PageData } from "../../../DataLoader";
+import TitleTemplate from "../../../components/templates/TitleTemplate1";
+import TitleTemplate2 from "../../../components/templates/TitleTemplate2";
+import SubtitleTemplate2 from "../../../components/templates/SubtitleTemplate3";
+import NetworkGraph from "../../../components/NetworkGraph";
 import {
   addPair,
   addPlayer,
   checkPlayerInDatabase,
   getConnectedPlayers,
   updatePlayer,
-} from "../Backend";
-import ConnectedPlayersList from "../components/ConnectedPlayersList";
-import { useConnectionLinks } from "../useConnectionLinks";
+} from "../../../Backend";
+import ConnectedPlayersList from "../../../components/ConnectedPlayersList";
+import { useConnectionLinks } from "../../../useConnectionLinks";
 
 const SocialNetworkData: PageData[] = rawData as PageData[];
 
