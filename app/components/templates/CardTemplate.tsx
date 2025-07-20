@@ -2,14 +2,17 @@
 import React from "react";
 import ButtonTemplate from "./ButtonTemplate";
 import { CardTemplateData } from "../../DataLoader";
+import ImageTemplate, { ImageType } from "./ImageTemplate";
+import { ImageData } from "../../DataLoader";
 
 const CardTemplate = ({ Data }: { Data: CardTemplateData["data"] }) => {
   // format
   const cardsToDisplay = Data as {
     title: string;
-    description: string;
-    timestamp: string;
-    location: string;
+    description?: string;
+    timestamp?: string;
+    location?: string;
+    image?: ImageData;
     button?: {
       link: string;
       name: string;
@@ -23,7 +26,12 @@ const CardTemplate = ({ Data }: { Data: CardTemplateData["data"] }) => {
           key={index}
           className="flex flex-col justify-between p-6 mb-8 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl"
         >
-          <div>
+          <ImageTemplate
+            image={card.image?.imageLink || ""}
+            name={card.image?.imageName || ""}
+            type={card.image?.imageType as ImageType}
+          />
+          <div className="mt-5">
             {card.title && (
               <span className="font-redHat text-dsmlcTangerine font-semibold text-base md:text-lg">
                 {card.title}
@@ -54,7 +62,7 @@ const CardTemplate = ({ Data }: { Data: CardTemplateData["data"] }) => {
           </div>
 
           {card.button && (
-            <div className="pt-4">
+            <div>
               <ButtonTemplate Data={[card.button]} />
             </div>
           )}
