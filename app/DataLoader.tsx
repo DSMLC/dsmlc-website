@@ -69,7 +69,7 @@ export interface ColumnTemplateData {
   }[];
 }
 
-export interface ComingSoonTemplateData{
+export interface ComingSoonTemplateData {
   type: "ComingSoonTemplate";
   data: {
     header: string;
@@ -217,9 +217,10 @@ export interface CardTemplateData {
       }
     | {
         title: string;
-        description: string;
-        timestamp: string;
-        location: string;
+        description?: string;
+        timestamp?: string;
+        location?: string;
+        image?: ImageData;
         button?: {
           link: string;
           name: string;
