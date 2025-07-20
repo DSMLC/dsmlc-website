@@ -1,0 +1,245 @@
+[
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Club History",
+          "subtitle": "Discover the rich history and evolution of the DSMLC from its founding to today"
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Our Foundation Story",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "SubtitleTemplate2",
+        "data": "Our Founders"
+      },
+      {
+        "type": "ProfileListTemplate",
+        "data": ["Founders"]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "SubtitleTemplate1",
+        "data": "Club Logo Evolution"
+      },
+      {
+        "type": "CarouselTemplate",
+        "data": [
+          {
+            "header": "Logo 1",
+            "image": {
+              "imageLink": "/images/dark_logo.png",
+              "imageName": "DSMLC Logo 1",
+              "imageType": "Banner"
+            },
+            "points": [
+              {
+                "header": "First Version: ",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              }
+            ]
+          },
+          {
+            "header": "Logo 2",
+            "image": {
+              "imageLink": "/images/dark_logo.png",
+              "imageName": "DSMLC Logo 2",
+              "imageType": "Banner"
+            },
+            "points": [
+              {
+                "header": "Second Version: ",
+                "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              }
+            ]
+          },
+          {
+            "header": "Logo 3",
+            "image": {
+              "imageLink": "/images/dark_logo.png",
+              "imageName": "Logo 3",
+              "imageType": "Banner"
+            },
+            "points": [
+              {
+                "header": "Third Version: ",
+                "text": "Ut enim ad minim veniam, quis nostrud exercitation."
+              }
+            ]
+          },
+          {
+            "header": "Logo 4",
+            "image": {
+              "imageLink": "/images/dark_logo.png",
+              "imageName": "Logo 4",
+              "imageType": "Banner"
+            },
+            "points": [
+              {
+                "header": "Final Version: ",
+                "text": "Talk about what this logo represents"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "SubtitleTemplate1",
+        "data": "Our Key Milestones"
+      },
+      {
+        "type": "TimelineTemplate1",
+        "data": [
+          {
+            "number": "2021",
+            "header": "DSMLC Founded",
+            "points": [
+              {
+                "header": "September 2021: ",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              }
+            ],
+            "image": {
+              "imageLink": "/images/light_logo.png",
+              "imageName": "DSMLC Founding",
+              "imageType": "Pic"
+            }
+          },
+          {
+            "number": "2021",
+            "header": "First Competition",
+            "points": [
+              {
+                "header": "September 2021: ",
+                "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              }
+            ],
+            "image": {
+              "imageLink": "/images/light_logo.png",
+              "imageName": "First Competition",
+              "imageType": "Pic"
+            }
+          },
+          {
+            "number": "2021",
+            "header": "Newsletter Launch",
+            "points": [
+              {
+                "header": "September 2021: ",
+                "text": "Ut enim ad minim veniam, quis nostrud exercitation."
+              }
+            ],
+            "image": {
+              "imageLink": "/images/light_logo.png",
+              "imageName": "Newsletter Launch",
+              "imageType": "Pic"
+            }
+          },
+          {
+            "number": "2021",
+            "header": "Website Launch",
+            "points": [
+              {
+                "header": "September 2021: ",
+                "text": "Ullamco laboris nisi ut aliquip ex ea commodo consequat."
+              }
+            ],
+            "image": {
+              "imageLink": "/images/light_logo.png",
+              "imageName": "Website Launch",
+              "imageType": "Pic"
+            }
+          },
+          {
+            "number": "2021",
+            "header": "Visionary Lab Established",
+            "points": [
+              {
+                "header": "September 2021: ",
+                "text": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
+              }
+            ],
+            "image": {
+              "imageLink": "/images/light_logo.png",
+              "imageName": "Visionary Lab",
+              "imageType": "Pic"
+            }
+          },
+          {
+            "number": "2021",
+            "header": "First Workshop",
+            "points": [
+              {
+                "header": "September 2021: ",
+                "text": "Excepteur sint occaecat cupidatat non proident."
+              }
+            ],
+            "image": {
+              "imageLink": "/images/light_logo.png",
+              "imageName": "Workshop Launch",
+              "imageType": "Pic"
+            }
+          },
+          {
+            "number": "2021",
+            "header": "Another Milestone",
+            "points": [
+              {
+                "header": "September 2021: ",
+                "text": "Sunt in culpa qui officia deserunt mollit anim."
+              }
+            ],
+            "image": {
+              "imageLink": "/images/light_logo.png",
+              "imageName": "Milestone",
+              "imageType": "Pic"
+            }
+          },
+          {
+            "number": "2021",
+            "header": "Members Milestone",
+            "points": [
+              {
+                "header": "September 2021: ",
+                "text": "Id est laborum sed ut perspiciatis unde omnis. Our club reached 500 members."
+              }
+            ],
+            "image": {
+              "imageLink": "/images/light_logo.png",
+              "imageName": "500 Members",
+              "imageType": "Pic"
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -21,6 +21,10 @@
       {
         "name": "Sponsors",
         "link": "/sponsors"
+      },
+      {
+        "name": "Our History",
+        "link": "/history"
       }
     ]
   },
