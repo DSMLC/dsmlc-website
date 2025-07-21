@@ -36,6 +36,10 @@
           {
             "link": "/about/execs",
             "name": "Meet the Execs"
+          },
+          {
+            "link": "/about/history",
+            "name": "Learn About Our History"
           }
         ]
       }

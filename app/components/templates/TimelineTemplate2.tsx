@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { motion, useInView } from "framer-motion";
+import ImageTemplate from "./ImageTemplate";
 import SubtitleTemplate3 from "./SubtitleTemplate3";
 import HeaderTextTemplate3 from "./HeaderTextTemplate3";
 import { TimelineTemplateData2 } from "@/app/DataLoader";
@@ -27,6 +28,13 @@ const TimelineSection = ({ data, index }: { data: any; index: number }) => {
       <div className="md:text-2xl text-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack font-bold flex items-center justify-center">
         {data.number}
       </div>
+      {data.image && (
+        <ImageTemplate
+          image={data.image.imageLink}
+          name={data.image.imageName}
+          type={data.image.imageType}
+        />
+      )}
       <SubtitleTemplate3 Data={data.header} />
       <HeaderTextTemplate3 Data={data.points} />
     </motion.div>
