@@ -46,14 +46,15 @@
         "data": "Club Logo Evolution"
       },
       {
-        "type": "CarouselTemplate",
+        "type": "TimelineTemplate2",
         "data": [
           {
+            "number": "1",
             "header": "Logo 1",
             "image": {
               "imageLink": "/images/dark_logo.png",
               "imageName": "DSMLC Logo 1",
-              "imageType": "Banner"
+              "imageType": "Pic"
             },
             "points": [
               {
@@ -63,11 +64,12 @@
             ]
           },
           {
+            "number": "2",
             "header": "Logo 2",
             "image": {
               "imageLink": "/images/dark_logo.png",
               "imageName": "DSMLC Logo 2",
-              "imageType": "Banner"
+              "imageType": "Pic"
             },
             "points": [
               {
@@ -77,11 +79,12 @@
             ]
           },
           {
+            "number": "3",
             "header": "Logo 3",
             "image": {
               "imageLink": "/images/dark_logo.png",
-              "imageName": "Logo 3",
-              "imageType": "Banner"
+              "imageName": "DSMLC Logo 3",
+              "imageType": "Pic"
             },
             "points": [
               {
@@ -91,7 +94,69 @@
             ]
           },
           {
+            "number": "4",
             "header": "Logo 4",
+            "image": {
+              "imageLink": "/images/dark_logo.png",
+              "imageName": "DSMLC Logo 4",
+              "imageType": "Pic"
+            },
+            "points": [
+              {
+                "header": "Final Version: ",
+                "text": "Talk about what this logo represents"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "CarouselTemplate",
+        "data": [
+          {
+            "header": "Logo Development 1",
+            "image": {
+              "imageLink": "/images/dark_logo.png",
+              "imageName": "DSMLC Logo 1",
+              "imageType": "Banner"
+            },
+            "points": [
+              {
+                "header": "First Development: ",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+              }
+            ]
+          },
+          {
+            "header": "Logo Development 2",
+            "image": {
+              "imageLink": "/images/dark_logo.png",
+              "imageName": "DSMLC Logo 2",
+              "imageType": "Banner"
+            },
+            "points": [
+              {
+                "header": "Second Development: ",
+                "text": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+              }
+            ]
+          },
+          {
+            "header": "Logo Development 3",
+            "image": {
+              "imageLink": "/images/dark_logo.png",
+              "imageName": "Logo 3",
+              "imageType": "Banner"
+            },
+            "points": [
+              {
+                "header": "Third Development: ",
+                "text": "Ut enim ad minim veniam, quis nostrud exercitation."
+              }
+            ]
+          },
+          {
+            "header": "Logo Development 4",
             "image": {
               "imageLink": "/images/dark_logo.png",
               "imageName": "Logo 4",
@@ -99,8 +164,8 @@
             },
             "points": [
               {
-                "header": "Final Version: ",
-                "text": "Talk about what this logo represents"
+                "header": "Final Development: ",
+                "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
               }
             ]
           }
