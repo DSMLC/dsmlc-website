@@ -339,6 +339,23 @@
         "year": "4th Year"
       }
     },
+        {
+      "name": "Karan Malhotra",
+      "role": [
+        {
+          "group": "Competitions Team",
+          "roles": [
+            "Competition Director"
+          ]
+        }
+      ],
+      "program": {
+        "programs": [
+          "Data Science"
+        ],
+        "year": "4th Year"
+      }
+    },
     {
       "name": "Zaine Ancheta",
       "role": [
