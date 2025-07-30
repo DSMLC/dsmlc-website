@@ -25,6 +25,7 @@ import BackgroundFillTemplate2 from "./components/templates/BackgroundFillTempla
 import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
 import ComingSoonTemplate from "./components/templates/ComingSoonTemplate";
 import CardTemplate from "./components/templates/CardTemplate";
+import EmailFormTemplate from "./components/templates/EmailFormTemplate";
 
 export interface ImageData {
   imageLink?: string;
@@ -228,6 +229,11 @@ export interface CardTemplateData {
       }[];
 }
 
+export interface EmailFormTemplateData {
+  type: "EmailFormTemplate";
+  data: {};
+}
+
 export type PageData =
   | ColumnTemplateData
   | ComingSoonTemplateData
@@ -253,7 +259,8 @@ export type PageData =
   | BackgroundFillTemplateData2
   | SocialLinksTemplateData
   | IncreasingNumbersData
-  | CardTemplateData;
+  | CardTemplateData
+  | EmailFormTemplateData;
 
 export const templateMap: {
   [key in PageData["type"]]?: React.ComponentType<{
@@ -286,6 +293,7 @@ export const templateMap: {
   IncreasingNumbersTemplate: IncreasingNumbersTemplate,
   SocialLinksTemplate: SocialLinksTemplate,
   CardTemplate: CardTemplate,
+  EmailFormTemplate: EmailFormTemplate,
 };
 
 const resolveData = async (pageData: PageData): Promise<any> => {
