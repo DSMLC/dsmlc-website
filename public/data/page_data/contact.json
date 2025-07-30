@@ -25,15 +25,12 @@
         }
       },
       {
-        "type": "SocialLinksTemplate",
+        "type": "EmailFormTemplate",
         "data": {}
       },
       {
-        "type": "ButtonTemplate",
-        "data": {
-          "json": "club_links.json",
-          "keys": ["email_section", "linkedin"]
-        }
+        "type": "SocialLinksTemplate",
+        "data": {}
       }
     ]
   },
