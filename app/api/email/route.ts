@@ -8,10 +8,10 @@ export async function POST(req: NextRequest) {
 
   try {
     const data = await resend.emails.send({
-      from: "DSMLC Contact <onboarding@resend.dev>",
+      from: "DSMLC Website Contact <onboarding@resend.dev>",
       to: "dsmlcoperations@gmail.com",
-      subject: `New Contact Form Message from ${name}`,
-      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message}</p>`,
+      subject: `New Contact Form Message from: ${email}`,
+      html: `<p><strong>Email:</strong> ${email} <p><strong>Name:</strong> ${name}</p></p><p><strong>Message:</strong></p><p>${message}</p>`,
     });
 
     return NextResponse.json({ success: true, data });
