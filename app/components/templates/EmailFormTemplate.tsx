@@ -37,9 +37,9 @@ const EmailFormTemplate = () => {
       case "sending":
         return "Sending...";
       case "sent":
-        return "Message Sent! ✅";
+        return "Message Sent!";
       case "error":
-        return "Try Again ❌";
+        return "Try Again";
       default:
         return "Send Message";
     }
