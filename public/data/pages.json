@@ -88,5 +88,11 @@
         "link": "/executive"
       }
     ]
+  },
+  {
+    "name": "supabase-example",
+    "type": "dropdown",
+    "link": "/supabase-example",
+    "dropdown": []
   }
 ]
