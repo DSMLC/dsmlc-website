@@ -1,8 +1,9 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { BackgroundFillTemplateData } from "@/app/DataLoader";
+
 
 const BackgroundFillTemplate = ({
   Data,

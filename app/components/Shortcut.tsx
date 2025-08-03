@@ -18,14 +18,16 @@ export default function Shortcut({anchors}: {anchors: Anchor[]}) {
 
 
   return (
-    <div id="sidebar" className="fixed top-0 right-0 h-full w-64 bg-dark-dsmlcWhite text-white border-solid border-dsmlcDataOrange p-5 transform translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-50">
+    <div id="sidebar" className="fixed top-0 right-0 h-full w-64 bg-dark-dsmlcWhite/75 text-white border-solid p-5 border-l-4 border-dsmlcTangerine transform translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out z-50">
     <h2 className="text-2xl font-bold mb-6">ShortCut</h2>
     <ul className="space-y-4">
       {anchors.map((anchor) => (
-        <li key={anchor.id}>
+        <li 
+        key={anchor.id} 
+        className="hover:bg-dark-dsmlcEnhancedParchment hover:text-dsmlcTangerine cursor-pointer ease-in-out duration-150">
           <a
             href={`#${anchor.id}`} 
-            className="hover:text-gray-300 cursor-pointer" 
+            className="cursor-pointer" 
             onClick={() => handleClick(anchor.id)}
           >
             {anchor.label}
