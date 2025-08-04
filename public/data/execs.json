@@ -696,7 +696,10 @@
       "name": "Abdullah",
       "role": [
         {
-          "group": "Visionary Lab Board"
+          "group": "Visionary Lab Board",
+          "roles" :[
+            "Visionary Lab Director"
+          ]
         }
       ]
     }
