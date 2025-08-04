@@ -10,21 +10,6 @@
         }
       },
       {
-        "type": "HeaderTextTemplate4",
-        "data": [
-          {
-            "header": "Have questions? Contact us!"
-          }
-        ]
-      },
-      {
-        "type": "HeaderTextTemplate3",
-        "data": {
-          "json": "club_links.json",
-          "keys": ["email_section", "linkedin", "insta", "phone"]
-        }
-      },
-      {
         "type": "EmailFormTemplate",
         "data": {}
       },

@@ -31,6 +31,8 @@ const config: Config = {
       colors: {
         dsmlcDataOrange: "#F86306",
         dsmlcTangerine: "#FF914D",
+        dsmlcGreen: "#4CAF50",  
+        dsmlcRed: "#EA4335",
         dark: {
           dsmlcParchment: "#2E2B26",
           dsmlcEnhancedParchment: "#45413C",

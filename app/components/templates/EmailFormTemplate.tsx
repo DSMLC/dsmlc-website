@@ -50,32 +50,66 @@ const EmailFormTemplate = () => {
       onSubmit={handleSubmit}
       className="w-full max-w-2xl mx-auto space-y-4 p-6 mb-8 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl"
     >
-      <input
-        type="text"
-        name="name"
-        required
-        placeholder="Your Name"
-        value={formData.name}
-        onChange={handleChange}
-        className="w-full p-3 border rounded-md dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment "
-      />
-      <input
-        type="email"
-        name="email"
-        required
-        placeholder="Your Email"
-        value={formData.email}
-        onChange={handleChange}
-        className="w-full p-3 border rounded-md dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment "
-      />
-      <textarea
-        name="message"
-        required
-        placeholder="Your Message"
-        value={formData.message}
-        onChange={handleChange}
-        className="w-full p-3 border rounded-md h-32 dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment "
-      />
+      {/* Name Field */}
+      <div className="space-y-2">
+        <label
+          htmlFor="name"
+          className="block dark:text-dark-dsmlcBlack text-light-dsmlcBlack font-quicksand"
+        >
+          What's your name?
+        </label>
+        <input
+          id="name"
+          type="text"
+          name="name"
+          required
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          className="w-full p-3 border rounded-md dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment"
+        />
+      </div>
+
+      {/* Email Field */}
+      <div className="space-y-2">
+        <label
+          htmlFor="email"
+          className="block dark:text-dark-dsmlcBlack text-light-dsmlcBlack font-quicksand"
+        >
+          Where can we reach you?
+        </label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          required
+          placeholder="Your Email"
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full p-3 border rounded-md dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment"
+        />
+      </div>
+
+      {/* Message Field */}
+      <div className="space-y-2">
+        <label
+          htmlFor="message"
+          className="block dark:text-dark-dsmlcBlack text-light-dsmlcBlack font-quicksand"
+        >
+          What would you like to say?
+        </label>
+        <textarea
+          id="message"
+          name="message"
+          required
+          placeholder="Your Message"
+          value={formData.message}
+          onChange={handleChange}
+          className="w-full p-3 border rounded-md h-32 dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment"
+        />
+      </div>
+
+      {/* Submit Button */}
       <div className="flex justify-center">
         <motion.button
           type="submit"
@@ -84,23 +118,23 @@ const EmailFormTemplate = () => {
           whileTap={{ scale: 0.95 }}
           transition={{ type: "spring", stiffness: 400, damping: 17 }}
           className={`group relative inline-flex items-center justify-center px-14 py-4 
-          md:text-lg sm:text-base text-sm font-bold tracking-wider 
-          ${
-            status === "sending"
-              ? "bg-gray-300 text-gray-400 cursor-not-allowed"
-              : status === "sent"
-                ? "bg-green-500 text-white"
-                : status === "error"
-                  ? "bg-red-500 text-white"
-                  : "text-light-dsmlcBlack bg-dsmlcTangerine shadow-2xl transition-all duration-300 ease-out"
-          } 
-          rounded-full overflow-hidden 
-          focus:outline-none focus:ring-2 focus:ring-offset-2 
-          ${
-            status === "sending"
-              ? "focus:ring-transparent"
-              : "focus:ring-dsmlcTangerine"
-          }`}
+        md:text-lg sm:text-base text-sm font-bold tracking-wider 
+        ${
+          status === "sending"
+            ? "bg-gray-300 text-gray-400 cursor-not-allowed"
+            : status === "sent"
+              ? "bg-dsmlcGreen text-white"
+              : status === "error"
+                ? "bg-dsmlcRed text-white"
+                : "text-light-dsmlcBlack bg-dsmlcTangerine shadow-2xl transition-all duration-300 ease-out"
+        } 
+        rounded-full overflow-hidden 
+        focus:outline-none focus:ring-2 focus:ring-offset-2 
+        ${
+          status === "sending"
+            ? "focus:ring-transparent"
+            : "focus:ring-dsmlcTangerine"
+        }`}
         >
           <span className="relative z-10">{getButtonLabel()}</span>
 
