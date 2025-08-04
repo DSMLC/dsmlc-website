@@ -7,11 +7,7 @@ import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
-const ApplicationSection = ({
-  Data,
-}: {
-  Data: ButtonTemplateData["data"];
-}) => {
+const ApplicationSection = ({ Data }: { Data: ButtonTemplateData["data"] }) => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   if (!Data || !Array.isArray(Data)) return null;
@@ -55,7 +51,9 @@ const ApplicationSection = ({
                 }
               }}
             >
-              <span className="relative z-10">{button.name}</span>
+              <span className="relative z-10 flex flex-col items-center justify-center w-full text-center leading-tight">
+                {button.name}
+              </span>
               {button.link !== "#" && (
                 <>
                   <motion.span
