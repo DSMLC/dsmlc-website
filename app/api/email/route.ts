@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
   try {
     const data = await resend.emails.send({
       from: "DSMLC Website Contact <onboarding@resend.dev>",
-      to: "dsmlcoperations@gmail.com",
+      to: "uofc.datascieclub@gmail.com",
       subject: `New Contact Form Message from: ${email}`,
       html: `<p><strong>Email:</strong> ${email} <p><strong>Name:</strong> ${name}</p></p><p><strong>Message:</strong></p><p>${message}</p>`,
     });
