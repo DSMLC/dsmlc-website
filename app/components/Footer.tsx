@@ -11,7 +11,7 @@ const Footer = () => {
     FooterData.clubhub,
   ];
   return (
-    <div className="static bottom-0 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite dark:text-dark-dsmlcBlack text-light-dsmlcBlack w-full p-5 flex lg:flex-row flex-col lg:gap-2 gap-5 text-base justify-evenly items-center h-full min-h-24 border-t-2 border-dsmlcTangerine">
+    <div className="static bottom-0 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite dark:text-dark-dsmlcBlack text-light-dsmlcBlack w-full p-5 flex lg:flex-row flex-col lg:gap-2 gap-5 text-base justify-evenly items-center h-full min-h-24 border-t-2 border-dsmlcTangerine z-50">
       <div className="text-center">
         {FooterData.email_section.description}
         <span className="lg:inline md:hidden">

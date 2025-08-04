@@ -13,7 +13,7 @@ const NavbarLinksDesktop = () => {
   const pathname = usePathname();
 
   return (
-    <div className="flex-row items-center justify-between lg:gap-10 md:gap-3 lg:flex md:hidden hidden ">
+    <div className="flex-row items-center justify-between z-50 lg:gap-10 md:gap-3 lg:flex md:hidden hidden ">
       {PagesData.map((page) => {
         return (
           <div key={page.name} className="group relative">
