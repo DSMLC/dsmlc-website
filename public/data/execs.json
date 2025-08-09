@@ -314,7 +314,7 @@
         "programs": ["Computer Science"],
         "year": "3rd Year"
       },
-      "bio": "Passionate about physics and math, and lvoe incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing",
+      "bio": "Passionate about physics and math, and love incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing",
       "linkedin": "",
       "joinDate": ""
     },
@@ -637,9 +637,7 @@
       "role": [
         {
           "group": "Visionary Lab Board",
-          "roles" : [
-            "Visionary Lab Director"
-          ]
+          "roles": ["Visionary Lab Director"]
         }
       ],
       "linkedin": "https://www.linkedin.com/in/abdullah-warraich-4a176a331/",
