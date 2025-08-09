@@ -111,7 +111,29 @@ export const ProfileListTemplate = ({
                             </span>
                           ))
                         )}
-                      <div className="flex justify-center m-4">
+
+                      <div
+                        className={`flex justify-center m-2 opacity-60 ${
+                          isDarkMode
+                            ? "text-light-dsmlcWhite"
+                            : "text-dark-dsmlcParchment"
+                        }`}
+                      >
+                        <div
+                          className={`flex gap-2 ${
+                            filteredExec.joinDate === ""
+                              ? "invisible"
+                              : "visible"
+                          }`}
+                        >
+                          <p className="text-xs">Member Since: </p>
+                          <span className="text-xs">
+                            {filteredExec.joinDate}
+                          </span>
+                        </div>
+                      </div>
+
+                      <div className="flex justify-center">
                         {filteredExec.linkedin === "" ? (
                           <div className="w-8 h-8"></div>
                         ) : (

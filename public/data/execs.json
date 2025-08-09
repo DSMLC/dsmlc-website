@@ -14,7 +14,8 @@
         "year": "3rd Year"
       },
       "bio": "Hi I'm Evan, a 3rd year Comp Sci/Data Sci Major! I'm really big into basketball and snowboarding, and I also enjoy learning about history and different cultures!",
-      "linkedin": "https://www.linkedin.com/in/evan-poulson-302a4a266/"
+      "linkedin": "https://www.linkedin.com/in/evan-poulson-302a4a266/",
+      "joinDate": ""
     },
     {
       "name": "Hanz Dela Cruz",
@@ -28,7 +29,8 @@
         "programs": ["Statistics", "Economics"],
         "year": "5th year "
       },
-      "linkedin": "https://www.linkedin.com/in/hanzdelacruz/"
+      "linkedin": "https://www.linkedin.com/in/hanzdelacruz/",
+      "joinDate": ""
     },
     {
       "name": "Adrian Julve",
@@ -44,7 +46,8 @@
         "year": "3rd Year"
       },
       "bio": "I love being active and I'm all about improving myself physically and mentally. You can frequently catch me in the gym or hiking up a mountain! I'm also big into car culture and video games!",
-      "linkedin": "https://www.linkedin.com/in/adrian-julve/"
+      "linkedin": "https://www.linkedin.com/in/adrian-julve/",
+      "joinDate": ""
     },
     {
       "name": "Aimen Zahid",
@@ -59,7 +62,8 @@
         "year": "3rd Year"
       },
       "bio": "Hi, I'm Aimen! I'm passionate problem-solving through data and the future of AI. During my free time, I'm an avid reader and enjoy exploring topics in literature and psychology.",
-      "linkedin": "https://www.linkedin.com/in/aimen-zahid/"
+      "linkedin": "https://www.linkedin.com/in/aimen-zahid/",
+      "joinDate": ""
     },
     {
       "name": "Amna Irfan",
@@ -73,7 +77,8 @@
         "programs": ["Business (Accounting)"],
         "year": "3th Year"
       },
-      "linkedin": "https://www.linkedin.com/in/amna-irfan-b5a4662a3/"
+      "linkedin": "https://www.linkedin.com/in/amna-irfan-b5a4662a3/",
+      "joinDate": ""
     },
     {
       "name": "Kya Broderick",
@@ -87,7 +92,8 @@
         "programs": ["Computer Science", "Statistics"],
         "year": "4th Year"
       },
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Saira Fatima",
@@ -101,7 +107,8 @@
         "programs": ["Computer Science"],
         "year": "3rd Year"
       },
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Joseph Tandyo",
@@ -117,7 +124,8 @@
       },
       "profile": "/images/profile/joseph_tandyo.jpg",
       "bio": "hello I'm Joseph and I am in 3rd year computer science. In my free time I like to watch movies, shows and interested in storytelling in general! I also like to go bouldering from time to time",
-      "linkedin": "https://www.linkedin.com/in/joseph-tandyo-a42458219/"
+      "linkedin": "https://www.linkedin.com/in/joseph-tandyo-a42458219/",
+      "joinDate": ""
     },
     {
       "name": "Peter Tran",
@@ -132,7 +140,8 @@
         "year": "3rd Year"
       },
       "profile": "/images/profile/peter_tran.jpg",
-      "linkedin": "https://www.linkedin.com/in/peter-tran-portal/"
+      "linkedin": "https://www.linkedin.com/in/peter-tran-portal/",
+      "joinDate": ""
     },
     {
       "name": "Matthew Liu",
@@ -147,7 +156,8 @@
         "year": "3rd Year"
       },
       "profile": "/images/profile/matthew_liu.jpg",
-      "linkedin": "https://www.linkedin.com/in/matthewliuu/"
+      "linkedin": "https://www.linkedin.com/in/matthewliuu/",
+      "joinDate": ""
     },
     {
       "name": "Lychelle Pham",
@@ -162,7 +172,8 @@
         "year": "3rd Year"
       },
       "profile": "/images/profile/lychelle_pham.jpg",
-      "linkedin": "https://www.linkedin.com/in/lychelle-pham-4b70332b9/ "
+      "linkedin": "https://www.linkedin.com/in/lychelle-pham-4b70332b9/ ",
+      "joinDate": "June 2025"
     },
     {
       "name": "Shreya Shah",
@@ -177,7 +188,8 @@
         "year": "3rd Year"
       },
       "profile": "/images/profile/shreya_shah.jpg",
-      "linkedin": "http://linkedin.com/in/shreya-shah-14b474347/"
+      "linkedin": "http://linkedin.com/in/shreya-shah-14b474347/",
+      "joinDate": ""
     },
     {
       "name": "Noor Syed",
@@ -192,7 +204,8 @@
         "year": "3rd Year"
       },
       "profile": "/images/profile/noor_syed.jpg",
-      "linkedin": "https://www.linkedin.com/in/noor-syed-551868283/ "
+      "linkedin": "https://www.linkedin.com/in/noor-syed-551868283/ ",
+      "joinDate": ""
     },
     {
       "name": "Prantap Sharma",
@@ -206,7 +219,8 @@
         "programs": ["Computer Science", "Business"],
         "year": "3rd Year"
       },
-      "linkedin": "https://www.linkedin.com/in/prantap-sharma-2ab1662bb/"
+      "linkedin": "https://www.linkedin.com/in/prantap-sharma-2ab1662bb/",
+      "joinDate": ""
     },
     {
       "name": "Tae Shim",
@@ -221,7 +235,8 @@
         "year": "2nd Year"
       },
       "profile": "/images/profile/tae_shim.jpg",
-      "linkedin": "https://www.linkedin.com/in/taehyung-shim-8a2032305/"
+      "linkedin": "https://www.linkedin.com/in/taehyung-shim-8a2032305/",
+      "joinDate": ""
     },
     {
       "name": "Andrey Dimanchev",
@@ -237,7 +252,8 @@
       },
       "profile": "/images/profile/andrey_dimanchev.jpg",
       "bio": "Passionate about solving complex puzzles with technology, primarily in Machine Learning and Rocketry. I also skateboard!",
-      "linkedin": "https://www.linkedin.com/in/andreydimanchev?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BjHQognZqTiGqNYJc%2BLVlJw%3D%3D"
+      "linkedin": "https://www.linkedin.com/in/andreydimanchev?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BjHQognZqTiGqNYJc%2BLVlJw%3D%3D",
+      "joinDate": ""
     },
     {
       "name": "Luis Trigueros Granillo",
@@ -251,7 +267,8 @@
         "programs": ["Computer Science"],
         "year": "4th Year"
       },
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Karan Malhotra",
@@ -265,7 +282,8 @@
         "programs": ["Data Science"],
         "year": "4th Year"
       },
-      "linkedin": "https://www.linkedin.com/in/karan-malhotra27/"
+      "linkedin": "https://www.linkedin.com/in/karan-malhotra27/",
+      "joinDate": ""
     },
     {
       "name": "Zaine Ancheta",
@@ -279,7 +297,8 @@
         "programs": ["Data Science"],
         "year": "2nd Year"
       },
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Yash Dhaneshwari",
@@ -294,7 +313,8 @@
         "year": "3rd Year"
       },
       "bio": "Passionate about physics and math, and lvoe incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing",
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Amy Cui",
@@ -305,7 +325,8 @@
         }
       ],
       "profile": "/images/profile/amy_cui.jpg",
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Sarah Feng",
@@ -320,7 +341,8 @@
         "year": "4th Year"
       },
       "profile": "/images/profile/sarah_feng.jpg",
-      "linkedin": "https://www.linkedin.com/in/manxuan-sarah-feng/"
+      "linkedin": "https://www.linkedin.com/in/manxuan-sarah-feng/",
+      "joinDate": ""
     },
     {
       "name": "Dheeraj Jaswal",
@@ -336,7 +358,8 @@
       },
       "profile": "/images/profile/dheeraj_jaswal.jpg",
       "bio": "Hi I'm Dheeraj. I enjoy travelling around the world and meeting new people. I am passionate about data science and I love to learn new skills or volunteer in my free time.",
-      "linkedin": "http://linkedin.com/in/dheerajjaswal "
+      "linkedin": "http://linkedin.com/in/dheerajjaswal ",
+      "joinDate": ""
     },
     {
       "name": "Ian McCourtie",
@@ -352,7 +375,8 @@
       },
       "profile": "/images/profile/Ian_mccourtie.png",
       "bio": "I love playing basketball and staying active as much as I can, and I enjoy being social and connecting with people from all different walks of life. I'm very interested in outreach and marketing, as far as connecting with companies and individuals and developing professional connections and relationships.",
-      "linkedin": "https://www.linkedin.com/in/ian-mccourtie-809bb7280/ "
+      "linkedin": "https://www.linkedin.com/in/ian-mccourtie-809bb7280/ ",
+      "joinDate": ""
     },
     {
       "name": "Azka Khalil",
@@ -367,7 +391,8 @@
         "year": "2nd Year"
       },
       "profile": "/images/profile/azka_khalil.jpg",
-      "linkedin": "https://www.linkedin.com/in/azka-khalil-74a930322/"
+      "linkedin": "https://www.linkedin.com/in/azka-khalil-74a930322/",
+      "joinDate": ""
     },
     {
       "name": "Maya Larsson",
@@ -382,7 +407,8 @@
         "year": "4nd Year"
       },
       "profile": "/images/profile/maya_larsson.jpg",
-      "linkedin": "https://www.linkedin.com/in/maya-larsson-97a4712b0/"
+      "linkedin": "https://www.linkedin.com/in/maya-larsson-97a4712b0/",
+      "joinDate": ""
     },
     {
       "name": "Navroop Bath",
@@ -396,7 +422,8 @@
         "programs": ["Computer Science"],
         "year": "2nd Year"
       },
-      "linkedin": "https://www.linkedin.com/in/nbath "
+      "linkedin": "https://www.linkedin.com/in/nbath ",
+      "joinDate": ""
     },
     {
       "name": "Linh Truong",
@@ -411,7 +438,8 @@
         "year": "4th Year"
       },
       "profile": "/images/profile/linh_truong.jpg",
-      "linkedin": "https://www.linkedin.com/in/klinht/"
+      "linkedin": "https://www.linkedin.com/in/klinht/",
+      "joinDate": ""
     },
     {
       "name": "Lucy Li",
@@ -425,7 +453,8 @@
       "program": {
         "programs": ["Business Analytics"]
       },
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Tan Li",
@@ -435,7 +464,8 @@
           "roles": ["VP Finance"]
         }
       ],
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Haidar Putra",
@@ -445,7 +475,8 @@
           "roles": ["VP Operations"]
         }
       ],
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Ayman Mohammed",
@@ -458,7 +489,8 @@
       "program": {
         "programs": ["Cellular Molecular Microbial Biology"]
       },
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Kelly Osena",
@@ -468,7 +500,8 @@
           "roles": ["VP Communications"]
         }
       ],
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Gabriel Rodriguez",
@@ -483,7 +516,8 @@
         "programs": ["Computer Science", "Business"]
       },
       "bio": "I like learning about cultures and languages, travelling the world, painting and animating cityscapes, working out, recording everything for my future self to see, and keeping things aesthetic :D",
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Rayyan Zuberi",
@@ -497,7 +531,8 @@
         "programs": ["Medical Student (MD)"]
       },
       "profile": "/images/profile/rayyan_zuberi.webp",
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Taha Malik",
@@ -513,6 +548,7 @@
       },
       "bio": "I’m obsessed with hiking and solo summit adventures—there’s nothing like conquering new peaks and soaking in those breathtaking mountain views! I’m also a total tech enthusiast, especially when it comes to neurotechnology and cybernetics. The future of these fields blows my mind, and I can’t wait to see how they reshape the world!",
       "linkedin": "",
+      "joinDate": "",
       "profile": "/images/profile/taha_malik.jpg"
     },
     {
@@ -527,7 +563,8 @@
         "programs": ["Software Engineering"]
       },
       "profile": "/images/profile/maheen_hossain.jpg",
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Jason Nguyen",
@@ -541,7 +578,8 @@
         "programs": ["Computer Science"]
       },
       "profile": "/images/profile/jason_nguyen.jpg",
-      "linkedin": ""
+      "linkedin": "",
+      "joinDate": ""
     },
     {
       "name": "Divakar Gaba",
@@ -555,7 +593,8 @@
         "year": "2nd Year",
         "programs": ["Computer Science"]
       },
-      "linkedin": "https://www.linkedin.com/in/divakar-gaba-776b0624b/"
+      "linkedin": "https://www.linkedin.com/in/divakar-gaba-776b0624b/",
+      "joinDate": ""
     },
     {
       "name": "Aryan Kalia",
@@ -569,7 +608,8 @@
         "year": "2nd Year",
         "programs": ["Data Science"]
       },
-      "linkedin": "https://www.linkedin.com/in/aryan-kalia-/"
+      "linkedin": "https://www.linkedin.com/in/aryan-kalia-/",
+      "joinDate": ""
     },
     {
       "name": "Rafay Kamran",
@@ -583,16 +623,19 @@
         "programs": ["Data Science"],
         "year": "2nd Year"
       },
-      "linkedin": "www.linkedin.com/in/rafay-kamran "
+      "linkedin": "www.linkedin.com/in/rafay-kamran ",
+      "joinDate": ""
     },
     {
       "name": "Abdullah",
       "role": [
         {
-          "group": "Visionary Lab Board"
+          "group": "Visionary Lab Board",
+          "roles": ""
         }
       ],
-      "linkedin": "https://www.linkedin.com/in/abdullah-warraich-4a176a331/"
+      "linkedin": "https://www.linkedin.com/in/abdullah-warraich-4a176a331/",
+      "joinDate": ""
     }
   ]
 }
