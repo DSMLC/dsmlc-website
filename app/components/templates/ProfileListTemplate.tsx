@@ -1,17 +1,21 @@
 "use client";
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import EmptyProfie from "../../../public/images/profile/empty_profile.svg";
 import SubtitleTemplate from "./SubtitleTemplate1";
 import Execs from "../../../public/data/execs.json";
 import { ProfileListTemplateData } from "@/app/DataLoader";
+import { useTheme } from "@/app/ThemeProvider";
 
 export const ProfileListTemplate = ({
   Data,
 }: {
   Data: ProfileListTemplateData["data"];
 }) => {
+  const { isDarkMode } = useTheme();
+
   return (
     <div className="px-4 md:px-6 lg:px-8">
       {Data.map((roleGroup, index) => {
@@ -107,6 +111,25 @@ export const ProfileListTemplate = ({
                             </span>
                           ))
                         )}
+                      <div className="flex justify-center m-4">
+                        {filteredExec.linkedin === "" ? (
+                          <div className="w-8 h-8"></div>
+                        ) : (
+                          <a href={filteredExec.linkedin}>
+                            <Image
+                              src={
+                                isDarkMode
+                                  ? "/images/light_linkedin.svg"
+                                  : "/images/dark_linkedin.svg"
+                              }
+                              alt="linkedin_icon"
+                              width={25}
+                              height={25}
+                              className="opacity-70"
+                            />
+                          </a>
+                        )}
+                      </div>
                     </motion.div>
                   );
                 })}
