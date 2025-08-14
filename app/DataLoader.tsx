@@ -25,7 +25,7 @@ import BackgroundFillTemplate2 from "./components/templates/BackgroundFillTempla
 import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
 import ComingSoonTemplate from "./components/templates/ComingSoonTemplate";
 import CardTemplate from "./components/templates/CardTemplate";
-
+import AdminDataDashboardTemplate from "./components/templates/AdminDashTemplate";
 export interface ImageData {
   imageLink?: string;
   imageDarkMode?: string;
@@ -227,6 +227,58 @@ export interface CardTemplateData {
         };
       }[];
 }
+export interface AdminDataDashboardTemplateData {
+  type: "AdminDataDashboardTemplate";
+  data: {
+    roles: { role_id: number; role: string }[];
+    members: {
+      member_id: number;
+      first_name: string;
+      last_name: string;
+      email?: string;
+      ucid?: string;
+      major?: string;
+      role_id?: number | null;
+      year?: number | null;
+      graduated?: boolean | null;
+    }[];
+    events: {
+      event_id: number;
+      event_name: string;
+      event_description?: string;
+      event_type?: string;
+      event_date: string;
+    }[];
+    registrations: {
+      event_id: number;
+      member_id: number;
+      registered: boolean;
+      attendance?: "present" | "absent" | "late" | null;
+    }[];
+    projects: {
+      project_id: number;
+      name: string;
+      project_type?: string;
+      description?: string;
+      start_date?: string;
+      end_date?: string | null;
+      status?: string;
+      project_lead?: number | null;
+    }[];
+    projectMemberRoles: {
+      project_id: number;
+      member_id: number;
+      project_role: string;
+    }[];
+    alumni: {
+      member_id: number;
+      graduation_year?: number | null;
+      linkedin?: string | null;
+      company?: string | null;
+      position?: string | null;
+    }[];
+  };
+}
 
 export type PageData =
   | ColumnTemplateData
@@ -253,7 +305,8 @@ export type PageData =
   | BackgroundFillTemplateData2
   | SocialLinksTemplateData
   | IncreasingNumbersData
-  | CardTemplateData;
+  | CardTemplateData
+  | AdminDataDashboardTemplateData;
 
 export const templateMap: {
   [key in PageData["type"]]?: React.ComponentType<{
@@ -286,6 +339,7 @@ export const templateMap: {
   IncreasingNumbersTemplate: IncreasingNumbersTemplate,
   SocialLinksTemplate: SocialLinksTemplate,
   CardTemplate: CardTemplate,
+  AdminDataDashboardTemplate: AdminDataDashboardTemplate,
 };
 
 const resolveData = async (pageData: PageData): Promise<any> => {
