@@ -1,9 +1,6 @@
 "use client";
 import React, { useMemo, useState } from "react";
 
-/** =========================
- *  ERD-aligned data types
- *  ========================= */
 export type Role = { role_id: number; role: string };
 
 export type Member = {
@@ -309,9 +306,7 @@ function SidebarTabs({
   );
 }
 
-/** =========================================
- *  MAIN DASHBOARD TEMPLATE (left tabs, separated tables)
- *  ========================================= */
+// MAIN DASHBOARD TEMPLATE (left tabs, separated tables)
 const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   Data,
 }) => {

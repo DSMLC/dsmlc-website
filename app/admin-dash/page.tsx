@@ -4,8 +4,6 @@ import React, { useEffect, useState } from "react";
 import DataLoader, { PageData } from "../DataLoader";
 import supabase from "../supabase_client";
 
-// Keep names consistent with your ERD / DB table names.
-// If your actual table names differ (snake_case), adjust here.
 const TABLES = {
   roles: "Role",
   members: "Member",
@@ -100,7 +98,7 @@ export default function AdminDashPage() {
 
   if (!sections) {
     return (
-      <div className="w-full text-center font-redHat font-bold text-xl">
+      <div className="w-full text-center font-redHat font-bold text-xl dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
         Loading admin dashboard…
       </div>
     );
