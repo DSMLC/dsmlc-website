@@ -68,15 +68,19 @@ export default function AdminDashPage() {
 
         const builtSections: PageData[] = [
           {
-            type: "TitleTemplate1",
-            data: {
-              title: "Admin Dashboard",
-              subtitle: "Live data from Supabase",
-            },
-          },
-          {
-            type: "AdminDataDashboardTemplate",
-            data: dashboardData,
+            type: "BackgroundFillTemplate3",
+            data: [
+              {
+                type: "TitleTemplate1",
+                data: {
+                  title: "Admin Dashboard",
+                },
+              },
+              {
+                type: "AdminDataDashboardTemplate",
+                data: dashboardData,
+              },
+            ],
           },
         ];
 
