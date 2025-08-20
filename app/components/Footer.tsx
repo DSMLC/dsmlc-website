@@ -44,6 +44,9 @@ const Footer = () => {
         })}
       </div>
       <SocialLinksTemplate Data={""} />
+      <a href="/admin-dash" className="opacity-0 absolute right-5">
+        Admin
+      </a>
     </div>
   );
 };
