@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import DataLoader, { PageData } from "../DataLoader";
 import supabase from "../supabase_client";
+import { useAdminAuth } from "../contexts/AdminAuthContext";
 
 const TABLES = {
   roles: "Role",
@@ -17,8 +19,20 @@ const TABLES = {
 export default function AdminDashPage() {
   const [sections, setSections] = useState<PageData[] | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const { user, loading: authLoading, signOut } = useAdminAuth();
+  const router = useRouter();
+
+  // redirect to login if not authenticated
+  useEffect(() => {
+    if (!authLoading && !user) {
+      router.push("/admin-dash/login");
+    }
+  }, [user, authLoading, router]);
 
   useEffect(() => {
+    // only get data if user is authenticated
+    if (!user) return;
+
     (async () => {
       try {
         // Fetch all tables in parallel
@@ -94,7 +108,21 @@ export default function AdminDashPage() {
         ]);
       }
     })();
-  }, []);
+  }, [user]);
+
+  // loading screen while checking auth
+  if (authLoading) {
+    return (
+      <div className="w-full text-center font-redHat font-bold text-xl dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
+        Authenticating...
+      </div>
+    );
+  }
+
+  // dont render anything if not authenticated (will redirect)
+  if (!user) {
+    return null;
+  }
 
   if (!sections) {
     return (
@@ -104,8 +132,31 @@ export default function AdminDashPage() {
     );
   }
 
+  const handleSignOut = async () => {
+    await signOut();
+    router.push("/admin-dash/login");
+  };
+
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 space-y-8">
+      {/* Admin Header */}
+      <div className="flex justify-between items-center bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl p-6">
+        <div>
+          <h1 className="text-2xl font-bold font-redHat text-dsmlcTangerine">
+            Admin Dashboard
+          </h1>
+          <p className="text-sm dark:text-dark-dsmlcBlack text-light-dsmlcBlack opacity-70">
+            Welcome, {user.email}
+          </p>
+        </div>
+        <button
+          onClick={handleSignOut}
+          className="btn btn-outline btn-sm border-dsmlcTangerine text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white"
+        >
+          Sign Out
+        </button>
+      </div>
+
       {error && <div className="alert alert-error">{error}</div>}
       {sections.map((section, idx) => (
         <DataLoader key={idx} pageData={section} />
