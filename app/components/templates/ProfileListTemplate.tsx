@@ -126,10 +126,12 @@ export const ProfileListTemplate = ({
                               : "visible"
                           }`}
                         >
-                          <p className="text-xs">Member Since: </p>
-                          <span className="text-xs">
-                            {filteredExec.joinDate}
-                          </span>
+                          <p className="text-xs">
+                            Member Since:{" "}
+                            <span className="text-xs">
+                              {filteredExec.joinDate}
+                            </span>
+                          </p>
                         </div>
                       </div>
 
