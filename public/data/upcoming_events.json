@@ -2,7 +2,35 @@
   "final_comp": [
   ],
   "workshops": [
+            {
+          "title": "Deep Learning Optimization",
+          "location": "TBD",
+          "StartDate": "September 22, 2025",
+          "button": {
+            "link": "#",
+            "name": "Sign-Up TBD"
+          }
+        }
   ],
   "other_events": [
+        {
+          "title": "Fall Club's Week",
+          "location": "MacEwan Student Centre",
+          "StartDate": "September 15, 2025",
+          "EndDate": "September 19, 2025",
+          "button": {
+            "link": "#",
+            "name": "No Sign-Up"
+          }
+        },
+        {
+          "title": "Club Meet & Greet",
+          "location": "TBD",
+          "StartDate": "September 25, 2025",
+          "button": {
+            "link": "#",
+            "name": "Sign-Up TBD"
+          }
+        }
   ]
 }

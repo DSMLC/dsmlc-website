@@ -219,7 +219,8 @@ export interface CardTemplateData {
     | {
         title: string;
         description?: string;
-        timestamp?: string;
+        StartDate?: string;
+        EndDate?: string;
         location?: string;
         image?: ImageData;
         button?: {
@@ -318,10 +319,10 @@ const resolveData = async (pageData: PageData): Promise<any> => {
           .flat();
 
         if (json === "upcoming_events.json") {
-          // upcoming_events,json ----> Date sorting
+          // upcoming_events.json ----> Date sorting
           combinedData = combinedData.sort((a, b) => {
-            const dateA = new Date(a.date || 0).getTime();
-            const dateB = new Date(b.date || 0).getTime();
+            const dateA = new Date(a.StartDate || 0).getTime();
+            const dateB = new Date(b.StartDate || 0).getTime();
             return dateA - dateB;
           });
         }

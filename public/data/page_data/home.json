@@ -88,14 +88,7 @@
         "data": {
         "json": "upcoming_events.json",
         "keys": ["final_comp", "workshops", "other_events"],
-        "limit": 3
-        }
-      },
-      {
-        "type": "ComingSoonTemplate",
-        "data": {
-          "header": "Check Back for Future Events!",
-          "subtext": "Follow our Socials to stay Updated!"
+        "limit": 2
         }
       },
       {
