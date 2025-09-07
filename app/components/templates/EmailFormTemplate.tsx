@@ -56,7 +56,7 @@ const EmailFormTemplate = () => {
           htmlFor="name"
           className="block dark:text-dark-dsmlcBlack text-light-dsmlcBlack font-quicksand"
         >
-          What's your name?
+          What&apos;s your name?
         </label>
         <input
           id="name"
