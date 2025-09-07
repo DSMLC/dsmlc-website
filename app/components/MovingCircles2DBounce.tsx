@@ -2,6 +2,7 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import { hiddenOnPages } from "./Background";
 
 const CIRCLE_COUNT = 8;
 const MIN_CIRCLE_SIZE = 2;
@@ -30,7 +31,6 @@ export default function MovingCircles2DBounce() {
   const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
-    const hiddenOnPages = ["/social-network-graph"];
     setIsHidden(hiddenOnPages.includes(pathname));
   }, [pathname]);
 
