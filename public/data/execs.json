@@ -631,7 +631,9 @@
       "role": [
         {
           "group": "Visionary Lab Board",
-          "roles": ""
+          "roles" : [
+            "Visionary Lab Director"
+          ]
         }
       ],
       "linkedin": "https://www.linkedin.com/in/abdullah-warraich-4a176a331/",
