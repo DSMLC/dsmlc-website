@@ -426,6 +426,22 @@
       "joinDate": "Jul 2025"
     },
     {
+      "name": "Linh Truong",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": ["Sponsorship Lead"]
+        }
+      ],
+      "program": {
+        "programs": ["Business (Accounting)"],
+        "year": "4th Year"
+      },
+      "profile": "/images/profile/linh_truong.jpg",
+      "linkedin": "https://www.linkedin.com/in/klinht/",
+      "joinDate": ""
+    },
+    {
       "name": "Lucy Li",
       "role": [
         {
@@ -607,7 +623,7 @@
         "programs": ["Data Science"],
         "year": "2nd Year"
       },
-      "linkedin": "https://www.linkedin.com/in/rafay-kamran/",
+      "linkedin": "www.linkedin.com/in/rafay-kamran ",
       "joinDate": ""
     },
     {
@@ -615,9 +631,7 @@
       "role": [
         {
           "group": "Visionary Lab Board",
-          "roles" : [
-            "Visionary Lab Director"
-          ]
+          "roles": ""
         }
       ],
       "linkedin": "https://www.linkedin.com/in/abdullah-warraich-4a176a331/",
