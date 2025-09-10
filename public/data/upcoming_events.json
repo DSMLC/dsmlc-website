@@ -4,11 +4,11 @@
   "workshops": [
             {
           "title": "Deep Learning Optimization",
-          "location": "TBD",
+          "location": "Math Sciences 431",
           "StartDate": "September 22, 2025",
           "button": {
-            "link": "#",
-            "name": "Sign-Up TBD"
+            "link": "https://forms.gle/ybSnhfZC2hbj9KdV9",
+            "name": "Sign-Up"
           }
         }
   ],
@@ -16,8 +16,8 @@
         {
           "title": "Fall Club's Week",
           "location": "MacEwan Student Centre",
-          "StartDate": "September 15, 2025",
-          "EndDate": "September 19, 2025",
+          "StartDate": "September 16, 2025",
+          "EndDate": "September 17, 2025",
           "button": {
             "link": "#",
             "name": "No Sign-Up"
