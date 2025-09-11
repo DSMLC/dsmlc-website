@@ -138,29 +138,75 @@ export default function AdminDashPage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-10 space-y-8">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8">
       {/* Admin Header */}
-      <div className="flex justify-between items-center bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl p-6">
-        <div>
-          <h1 className="text-2xl font-bold font-redHat text-dsmlcTangerine">
+      <div
+        className="
+      relative overflow-hidden
+      flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between
+      bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
+      border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+      shadow-lg shadow-light-dsmlcParchment dark:shadow-dark-dsmlcParchment
+      rounded-3xl p-6 sm:p-7
+    "
+      >
+        {/* Left: Title + meta */}
+        <div className="space-y-2">
+          <h1 className="text-2xl sm:text-3xl font-bold font-redHat tracking-tight text-dsmlcTangerine">
             Admin Dashboard
           </h1>
-          <p className="text-sm dark:text-dark-dsmlcBlack text-light-dsmlcBlack opacity-70">
-            Welcome, {user.email}
-          </p>
+
+          <div className="flex items-center gap-2">
+            <p className="text-sm text-light-dsmlcBlack/70 dark:text-dark-dsmlcBlack/70">
+              Welcome,
+            </p>
+            <div className="flex items-center gap-2 rounded-full border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment px-3 py-1.5">
+              <div className="flex h-7 w-25 items-center justify-center rounded-full bg-dsmlcTangerine/10 text-dsmlcTangerine font-semibold">
+                {user.email?.[0]?.toUpperCase() ?? "U"}
+              </div>
+              <span className="text-sm font-medium text-light-dsmlcBlack dark:text-dark-dsmlcBlack">
+                {user.email}
+              </span>
+            </div>
+          </div>
         </div>
-        <button
-          onClick={handleSignOut}
-          className="btn btn-outline btn-sm border-dsmlcTangerine text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white"
-        >
-          Sign Out
-        </button>
+
+        {/* Right: Actions */}
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleSignOut}
+            className="
+      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200
+    "
+          >
+            Sign Out
+          </button>
+        </div>
+
+        {/* corner accent */}
+        <div className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-dsmlcTangerine/10 blur-2xl" />
       </div>
 
-      {error && <div className="alert alert-error">{error}</div>}
-      {sections.map((section, idx) => (
-        <DataLoader key={idx} pageData={section} />
-      ))}
+      {/* Error */}
+      {error && (
+        <div className="alert alert-error rounded-xl">
+          <span className="font-medium">Error:</span> {error}
+        </div>
+      )}
+
+      {/* Content Sections */}
+      <div className="space-y-6">
+        {sections.map((section, idx) => (
+          <DataLoader key={idx} pageData={section} />
+        ))}
+      </div>
     </div>
   );
 }
