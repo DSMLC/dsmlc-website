@@ -651,7 +651,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     key: "team",
                     header: "Team",
                     className:
-                      "w-[80px] text-right dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                      "w-[80px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (p) => projectTeamCounts.get(p.project_id) ?? 0,
                   },
                   {

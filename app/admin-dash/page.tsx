@@ -138,7 +138,7 @@ export default function AdminDashPage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
       {/* Admin Header */}
       <div
         className="
@@ -202,7 +202,7 @@ export default function AdminDashPage() {
       )}
 
       {/* Content Sections */}
-      <div className="space-y-6">
+      <div className="w-full space-y-6">
         {sections.map((section, idx) => (
           <DataLoader key={idx} pageData={section} />
         ))}
