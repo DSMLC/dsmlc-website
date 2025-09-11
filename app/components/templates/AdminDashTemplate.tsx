@@ -1,322 +1,23 @@
 "use client";
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
+import {
+  AdminDataDashboardData,
+  AdminDataDashboardTemplateProps,
+  Alumni,
+  Event,
+  EventRegistration,
+  Member,
+  Role,
+  VisionaryLabMemberRole,
+  VisionaryLabProject,
+} from "../../admin-dash/types";
+import { fmtDate, SECTION_CARD } from "../../admin-dash/ui";
+import SimpleTable from "../../admin-dash/SimpleTable";
+import Kpi from "../../admin-dash/Kpi";
+import SidebarTabs, { Tab, TABS } from "../../admin-dash/SidebarTabs";
+import MemberEditorModal from "../../admin-dash/MemberEditorModal";
+import { deleteRow } from "../../admin-dash/adminCrud";
 
-export type Role = { role_id: number; role: string };
-
-export type Member = {
-  member_id: number;
-  first_name: string;
-  last_name: string;
-  email?: string;
-  ucid?: string;
-  major?: string;
-  role_id?: number | null;
-  year?: number | null;
-  graduated?: boolean | null; // true if graduated
-  join_date?: string | null;
-};
-
-export type Event = {
-  event_id: number;
-  event_name: string;
-  event_description?: string;
-  event_type?: string;
-  event_date: string; // ISO date
-};
-
-export type EventRegistration = {
-  event_id: number;
-  member_id: number;
-  registered: boolean;
-  attendance?: "present" | "absent" | "late" | null;
-};
-
-export type VisionaryLabProject = {
-  project_id: number;
-  name: string;
-  project_type?: string;
-  description?: string;
-  start_date?: string; // ISO date
-  end_date?: string | null; // ISO date or null
-  status?: "planned" | "active" | "paused" | "completed" | string;
-  project_lead?: number | null; // member_id (FK)
-};
-
-export type VisionaryLabMemberRole = {
-  project_id: number;
-  member_id: number;
-  project_role: string; // e.g., "Developer", "PM"
-};
-
-export type Alumni = {
-  member_id: number; // FK to Member
-  graduation_year?: number | null;
-  linkedin?: string | null;
-  company?: string | null;
-  position?: string | null;
-};
-
-export type AdminDataDashboardData = {
-  roles: Role[];
-  members: Member[];
-  events: Event[];
-  registrations: EventRegistration[];
-  projects: VisionaryLabProject[];
-  projectMemberRoles: VisionaryLabMemberRole[];
-  alumni: Alumni[];
-};
-
-export interface AdminDataDashboardTemplateProps {
-  Data: AdminDataDashboardData;
-}
-
-const fmtDate = (d?: string | null) =>
-  !d
-    ? "—"
-    : new Date(d).toLocaleDateString("en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      });
-
-const cn = (...c: (string | false | null | undefined)[]) =>
-  c.filter(Boolean).join(" ");
-
-const SECTION_CARD =
-  "p-6 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite " +
-  "border dark:border-dark-dsmlcEnhancedParchment border-light-dsmlcEnhancedParchment " +
-  "shadow-lg dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment rounded-4xl";
-
-function SimpleTable<T>({
-  data,
-  columns,
-  rowKey,
-  searchPlaceholder = "Search…",
-  pageSize = 10,
-  columnGroups,
-  stickyHeader = true,
-  zebra = true,
-  verticalDividers = true,
-}: {
-  data: T[];
-  columns: {
-    key: keyof T | string;
-    header: string;
-    render?: (row: T) => React.ReactNode;
-    className?: string;
-  }[];
-  rowKey: (row: T, idx: number) => string | number;
-  searchPlaceholder?: string;
-  pageSize?: number;
-  columnGroups?: { label: string; span: number }[];
-  stickyHeader?: boolean;
-  zebra?: boolean;
-  verticalDividers?: boolean;
-}) {
-  const [q, setQ] = useState("");
-  const [page, setPage] = useState(1);
-
-  const filtered = useMemo(() => {
-    if (!q.trim()) return data;
-    const lc = q.toLowerCase();
-    return data.filter((row) =>
-      columns.some((col) => {
-        const val =
-          typeof col.key === "string"
-            ? (row as any)[col.key]
-            : (row as any)[col.key as any];
-        return String(val ?? "")
-          .toLowerCase()
-          .includes(lc);
-      })
-    );
-  }, [q, data, columns]);
-
-  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize));
-  const start = (page - 1) * pageSize;
-  const pageData = filtered.slice(start, start + pageSize);
-
-  const tableClass = cn("table", zebra && "table-zebra", "w-full");
-
-  const headCellBase = cn(
-    "text-xs md:text-sm font-semibold",
-    stickyHeader && "sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite",
-    verticalDividers &&
-      "border-r border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment last:border-r-0"
-  );
-
-  const bodyCellBase = cn(
-    "text-xs md:text-sm  align-middle whitespace-nowrap",
-    verticalDividers &&
-      "border-r border-light-dsmlcEnhancedParchment/70 dark:border-dark-dsmlcEnhancedParchment/70 last:border-r-0"
-  );
-
-  return (
-    <div className="w-full">
-      <div className="relative">
-        <input
-          type="text"
-          className="
-        input input-bordered w-full
-        pl-2 pr-4 py-2 text-sm mb-8
-        rounded-lg border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
-        bg-white dark:bg-dark-dsmlcWhite
-        placeholder-gray-400 dark:placeholder-gray-500
-        text-light-dsmlcBlack dark:text-dark-dsmlcBlack
-        focus:border-dsmlcTangerine focus:ring-2 focus:ring-dsmlcTangerine/60
-        transition duration-200 ease-in-out
-      "
-          placeholder={searchPlaceholder}
-          value={q}
-          onChange={(e) => {
-            setPage(1);
-            setQ(e.target.value);
-          }}
-        />
-      </div>
-
-      <div className="overflow-x-auto rounded-3xl">
-        <table className={tableClass}>
-          <thead>
-            {columnGroups && columnGroups.length > 0 && (
-              <tr>
-                {columnGroups.map((g, i) => (
-                  <th
-                    key={`grp-${i}`}
-                    colSpan={g.span}
-                    className={cn(
-                      headCellBase,
-                      "uppercase tracking-wide text-[11px] md:text-xs",
-                      "text-neutral-600 dark:text-neutral-300",
-                      "border-b border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment"
-                    )}
-                  >
-                    {g.label}
-                  </th>
-                ))}
-              </tr>
-            )}
-            {/* Regular column headers */}
-            <tr>
-              {columns.map((c, i) => (
-                <th
-                  key={i}
-                  className={cn(
-                    headCellBase,
-                    "text-neutral-700 dark:text-neutral-200",
-                    "border-b border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment",
-                    c.className
-                  )}
-                >
-                  {c.header}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {pageData.map((row, i) => (
-              <tr key={rowKey(row, i)} className="hover">
-                {columns.map((c, j) => (
-                  <td key={j} className={cn(bodyCellBase, c.className)}>
-                    {c.render
-                      ? c.render(row)
-                      : String((row as any)[c.key] ?? "—")}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      {/* Pagination */}
-      <div className="join grid grid-cols-3 mt-3 text-dsmlcTangerine">
-        <button
-          className="join-item btn-primary btn-sm"
-          onClick={() => setPage((p) => Math.max(1, p - 1))}
-        >
-          «
-        </button>
-        <button className="join-item btn btn-sm" disabled>
-          Page {page} / {totalPages}
-        </button>
-        <button
-          className="join-item btn-primary btn-sm"
-          onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-        >
-          »
-        </button>
-      </div>
-    </div>
-  );
-}
-
-/** KPI card */
-function Kpi({
-  label,
-  value,
-  hint,
-}: {
-  label: string;
-  value: React.ReactNode;
-  hint?: string;
-}) {
-  return (
-    <div className={SECTION_CARD}>
-      <div className="text-sm font-semibold font-redHat text-dsmlcTangerine">
-        {label}
-      </div>
-      <div className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack text-2xl font-redHat">
-        {value}
-      </div>
-      {hint && (
-        <div className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack text-xs opacity-60 mt-1">
-          {hint}
-        </div>
-      )}
-    </div>
-  );
-}
-
-/** Tabs (vertical left sidebar) */
-const TABS = ["Overview", "Members", "Projects", "Events", "Alumni"] as const;
-type Tab = (typeof TABS)[number];
-
-function SidebarTabs({
-  value,
-  onChange,
-}: {
-  value: Tab;
-  onChange: (t: Tab) => void;
-}) {
-  return (
-    <aside className={SECTION_CARD}>
-      <nav className="flex flex-col gap-2">
-        {TABS.map((t) => {
-          const active = value === t;
-          return (
-            <button
-              key={t}
-              type="button"
-              onClick={() => onChange(t)}
-              className={cn(
-                "w-full text-left px-3 py-2 rounded-xl border transition text-xl font-redHat text-dsmlcTangerine",
-                active
-                  ? "bg-black/5 dark:bg-white/10 border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment"
-                  : "bg-transparent hover:bg-black/5 dark:hover:bg-white/10 border-transparent"
-              )}
-              aria-current={active ? "page" : undefined}
-            >
-              {t}
-            </button>
-          );
-        })}
-      </nav>
-    </aside>
-  );
-}
-
-// MAIN DASHBOARD TEMPLATE (left tabs, separated tables)
 const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   Data,
 }) => {
@@ -332,26 +33,72 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
 
   const [tab, setTab] = useState<Tab>("Overview");
 
-  // Joins & derived stats
+  // Local state mirrors for optimistic updates
+  const [membersState, setMembersState] = useState<Member[]>(members);
+  const [projectsState, setProjectsState] =
+    useState<VisionaryLabProject[]>(projects);
+  const [eventsState, setEventsState] = useState<Event[]>(events);
+  const [alumniState, setAlumniState] = useState<Alumni[]>(alumni);
+
+  useEffect(() => {
+    setMembersState(members);
+    setProjectsState(projects);
+    setEventsState(events);
+    setAlumniState(alumni);
+  }, [members, projects, events, alumni]);
+
+  // Modal state
+  const [editingMember, setEditingMember] = useState<Member | null>(null);
+
+  const onMemberSaved = (updated: Member) => {
+    setMembersState((prev) =>
+      prev.map((m) => (m.member_id === updated.member_id ? updated : m))
+    );
+  };
+
+  const onDeleteMember = async (m: Member) => {
+    if (
+      !confirm(`Delete ${m.first_name} ${m.last_name}? This cannot be undone.`)
+    )
+      return;
+
+    const snapshot = membersState;
+    setMembersState((prev) => prev.filter((x) => x.member_id !== m.member_id));
+    try {
+      await deleteRow("Member", "member_id", m.member_id);
+    } catch (e: any) {
+      setMembersState(snapshot);
+      alert(`Delete failed: ${e?.message ?? e}`);
+    }
+  };
+
+  // Selection state for toolbar actions (outside the table)
+  const [selectedMemberId, setSelectedMemberId] = useState<number | null>(null);
+  const selectedMember = useMemo(
+    () => membersState.find((m) => m.member_id === selectedMemberId) ?? null,
+    [membersState, selectedMemberId]
+  );
+
+  // Joins & derived stats (use *State arrays)
   const roleById = useMemo(
     () => new Map(roles.map((r) => [r.role_id, r.role])),
     [roles]
   );
   const memberById = useMemo(
-    () => new Map(members.map((m) => [m.member_id, m])),
-    [members]
+    () => new Map(membersState.map((m) => [m.member_id, m])),
+    [membersState]
   );
 
   const membersByRole = useMemo(() => {
     const map = new Map<string, number>();
-    members.forEach((m) => {
+    membersState.forEach((m) => {
       const name = m.role_id
         ? (roleById.get(m.role_id) ?? "Unassigned")
         : "Unassigned";
       map.set(name, (map.get(name) ?? 0) + 1);
     });
     return Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
-  }, [members, roleById]);
+  }, [membersState, roleById]);
 
   const registrationsByEvent = useMemo(() => {
     const map = new Map<number, { registered: number; present: number }>();
@@ -372,8 +119,8 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     return map;
   }, [projectMemberRoles]);
 
-  const activeProjects = projects.filter((p) => p.status === "active");
-  const upcomingEvents = events
+  const activeProjects = projectsState.filter((p) => p.status === "active");
+  const upcomingEvents = eventsState
     .slice()
     .sort(
       (a, b) =>
@@ -382,21 +129,19 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     .filter((e) => new Date(e.event_date).getTime() >= Date.now())
     .slice(0, 5);
 
-  // KPIs
-  const kpiTotalMembers = members.length;
+  const kpiTotalMembers = membersState.length;
   const kpiActiveProjects = activeProjects.length;
-  const kpiEventsThisMonth = events.filter((e) => {
+  const kpiEventsThisMonth = eventsState.filter((e) => {
     const d = new Date(e.event_date);
     const now = new Date();
     return (
       d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth()
     );
   }).length;
-  const kpiAlumni = alumni.length;
+  const kpiAlumni = alumniState.length;
 
   return (
     <div className="space-y-4">
-      {/* Layout: left sidebar tabs + right content */}
       <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6">
         {/* Sidebar */}
         <SidebarTabs value={tab} onChange={setTab} />
@@ -512,30 +257,74 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
           {/* Members */}
           {tab === "Members" && (
             <div className={SECTION_CARD}>
-              <h2 className="text-lg font-semibold mb-4 text-dsmlcTangerine">
-                Members
-              </h2>
-              <SimpleTable
-                data={members}
+              <div className="flex items-center justify-between mb-4 gap-3">
+                <h2 className="text-lg font-semibold text-dsmlcTangerine">
+                  Members
+                </h2>
+                {/* Toolbar (outside the table) */}
+                <div className="flex items-center gap-2">
+                  <button
+                    className="btn btn-sm"
+                    disabled={!selectedMember}
+                    onClick={() =>
+                      selectedMember && setEditingMember(selectedMember)
+                    }
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-sm btn-error"
+                    disabled={!selectedMember}
+                    onClick={() =>
+                      selectedMember && onDeleteMember(selectedMember)
+                    }
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+
+              <SimpleTable<Member>
+                data={membersState}
                 rowKey={(m) => m.member_id}
                 searchPlaceholder="Search member..."
                 stickyHeader
                 zebra
                 verticalDividers
                 columnGroups={[
+                  { label: "Select", span: 1 }, // NEW: selection column
                   { label: "Member", span: 2 }, // Name, Role
                   { label: "Contact", span: 1 }, // Email
                   { label: "Academics", span: 2 }, // Major, Year
                   { label: "Status", span: 2 }, // Joined, Graduated
+                  // Actions group removed
                 ]}
                 columns={[
+                  // Selection radio
+                  {
+                    key: "select",
+                    header: "",
+                    className: "w-[60px]",
+                    render: (m) => (
+                      <div className="flex justify-center">
+                        <input
+                          type="radio"
+                          name="member-select"
+                          className="radio"
+                          checked={selectedMemberId === m.member_id}
+                          onChange={() => setSelectedMemberId(m.member_id)}
+                          aria-label={`Select ${m.first_name} ${m.last_name}`}
+                        />
+                      </div>
+                    ),
+                  },
                   {
                     key: "name",
                     header: "Name",
                     className: "min-w-[160px]",
                     render: (m) => (
                       <div className="flex items-center gap-2">
-                        <div className="avatar placeholder"></div>
+                        <div className="avatar placeholder" />
                         <span className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack">{`${m.first_name} ${m.last_name}`}</span>
                       </div>
                     ),
@@ -595,19 +384,30 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                       "w-[110px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (m) => (
                       <span
-                        className={cn(
-                          "px-2 py-0.5 rounded-full text-xs",
-                          m.graduated
+                        className={
+                          "px-2 py-0.5 rounded-full text-xs " +
+                          (m.graduated
                             ? "bg-green-500 text-green-1000"
-                            : "bg-red-500 text-red-1000"
-                        )}
+                            : "bg-red-500 text-red-1000")
+                        }
                       >
                         {m.graduated ? "Yes" : "No"}
                       </span>
                     ),
                   },
+                  // Actions column removed
                 ]}
               />
+
+              {/* Edit Modal */}
+              {editingMember && (
+                <MemberEditorModal
+                  open={!!editingMember}
+                  onClose={() => setEditingMember(null)}
+                  initial={editingMember}
+                  onSaved={onMemberSaved}
+                />
+              )}
             </div>
           )}
 
@@ -617,18 +417,18 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
               <h2 className="text-lg font-semibold mb-4 text-dsmlcTangerine">
                 Projects
               </h2>
-              <SimpleTable
-                data={projects}
+              <SimpleTable<VisionaryLabProject>
+                data={projectsState}
                 rowKey={(p) => p.project_id}
                 searchPlaceholder="Search projects…"
                 stickyHeader
                 zebra
                 verticalDividers
                 columnGroups={[
-                  { label: "Project", span: 2 }, // Name, Type
-                  { label: "People", span: 2 }, // Lead, Team
-                  { label: "Timeline", span: 2 }, // Start, End
-                  { label: "Status", span: 1 }, // Status
+                  { label: "Project", span: 2 },
+                  { label: "People", span: 2 },
+                  { label: "Timeline", span: 2 },
+                  { label: "Status", span: 1 },
                 ]}
                 columns={[
                   {
@@ -685,16 +485,16 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                       "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (p) => (
                       <span
-                        className={cn(
-                          "px-2 py-0.5 rounded-full text-xs",
-                          p.status === "active" &&
-                            "bg-green-500 text-green-1000",
-                          p.status === "planned" &&
-                            "bg-blue-500 text-blue-1000",
-                          p.status === "paused" &&
-                            "bg-yellow-500 text-yellow-1000",
-                          p.status === "completed" && "bg-neutral/10"
-                        )}
+                        className={
+                          "px-2 py-0.5 rounded-full text-xs " +
+                          (p.status === "active"
+                            ? "bg-green-500 text-green-1000"
+                            : p.status === "planned"
+                              ? "bg-blue-500 text-blue-1000"
+                              : p.status === "paused"
+                                ? "bg-yellow-500 text-yellow-1000"
+                                : "bg-neutral/10")
+                        }
                       >
                         {p.status ?? "—"}
                       </span>
@@ -711,17 +511,17 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
               <h2 className="text-lg font-semibold mb-4 text-dsmlcTangerine">
                 Events
               </h2>
-              <SimpleTable
-                data={events}
+              <SimpleTable<Event>
+                data={eventsState}
                 rowKey={(e) => e.event_id}
                 searchPlaceholder="Search events…"
                 stickyHeader
                 zebra
                 verticalDividers
                 columnGroups={[
-                  { label: "Event", span: 2 }, // Name, Type
-                  { label: "Schedule", span: 1 }, // Date
-                  { label: "Attendance", span: 2 }, // Registered, Present
+                  { label: "Event", span: 2 },
+                  { label: "Schedule", span: 1 },
+                  { label: "Attendance", span: 2 },
                 ]}
                 columns={[
                   {
@@ -770,17 +570,17 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
               <h2 className="text-lg font-semibold mb-4 text-dsmlcTangerine">
                 Alumni
               </h2>
-              <SimpleTable
-                data={alumni}
+              <SimpleTable<Alumni>
+                data={alumniState}
                 rowKey={(a, i) => `${a.member_id}-${i}`}
                 searchPlaceholder="Search alumni…"
                 stickyHeader
                 zebra
                 verticalDividers
                 columnGroups={[
-                  { label: "Alumni", span: 1 }, // Name
-                  { label: "Career", span: 2 }, // Company, Position
-                  { label: "Details", span: 2 }, // Grad Year, LinkedIn
+                  { label: "Alumni", span: 1 },
+                  { label: "Career", span: 2 },
+                  { label: "Details", span: 2 },
                 ]}
                 columns={[
                   {
@@ -838,6 +638,16 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
           )}
         </div>
       </div>
+
+      {/* Member modal */}
+      {editingMember && (
+        <MemberEditorModal
+          open={!!editingMember}
+          onClose={() => setEditingMember(null)}
+          initial={editingMember}
+          onSaved={onMemberSaved}
+        />
+      )}
     </div>
   );
 };
