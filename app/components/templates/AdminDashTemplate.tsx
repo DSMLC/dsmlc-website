@@ -153,9 +153,19 @@ function SimpleTable<T>({
 
   return (
     <div className="w-full">
-      <div className="mb-3">
+      <div className="relative">
         <input
-          className="input input-bordered w-full "
+          type="text"
+          className="
+        input input-bordered w-full
+        pl-2 pr-4 py-2 text-sm mb-8
+        rounded-lg border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+        bg-white dark:bg-dark-dsmlcWhite
+        placeholder-gray-400 dark:placeholder-gray-500
+        text-light-dsmlcBlack dark:text-dark-dsmlcBlack
+        focus:border-dsmlcTangerine focus:ring-2 focus:ring-dsmlcTangerine/60
+        transition duration-200 ease-in-out
+      "
           placeholder={searchPlaceholder}
           value={q}
           onChange={(e) => {
@@ -508,7 +518,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
               <SimpleTable
                 data={members}
                 rowKey={(m) => m.member_id}
-                searchPlaceholder="Search members…"
+                searchPlaceholder="Search member..."
                 stickyHeader
                 zebra
                 verticalDividers
