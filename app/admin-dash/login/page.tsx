@@ -59,9 +59,6 @@ export default function AdminLoginPage() {
             <h1 className="text-3xl font-bold font-redHat text-dsmlcTangerine mb-2">
               Admin Portal
             </h1>
-            <p className="text-sm dark:text-dark-dsmlcBlack text-light-dsmlcBlack opacity-70">
-              Sign in with your credentials to access the admin dashboard
-            </p>
           </div>
 
           {/* error message */}
@@ -74,10 +71,11 @@ export default function AdminLoginPage() {
 
           {/* login form */}
           <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
+            {/* Email */}
+            <div className="form-control">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium dark:text-dark-dsmlcBlack text-light-dsmlcBlack mb-2"
+                className="label text-sm font-semibold text-light-dsmlcBlack dark:text-dark-dsmlcBlack mb-2"
               >
                 Email Address
               </label>
@@ -87,9 +85,12 @@ export default function AdminLoginPage() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="input input-bordered w-full bg-transparent border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment focus:border-dsmlcTangerine focus:ring-dsmlcTangerine dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
-                placeholder="email@example.com"
                 disabled={loading}
+                placeholder="email@example.com"
+                className="input input-bordered w-full rounded-lg px-4 py-3 text-base 
+                 bg-white
+                 border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+                 focus:border-dsmlcTangerine focus:ring-2 focus:ring-dsmlcTangerine"
               />
             </div>
 
@@ -106,7 +107,10 @@ export default function AdminLoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="input input-bordered w-full bg-transparent border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment focus:border-dsmlcTangerine focus:ring-dsmlcTangerine dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
+                className="input input-bordered w-full rounded-lg px-4 py-3 text-base 
+                 bg-white
+                 border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+                 focus:border-dsmlcTangerine focus:ring-2 focus:ring-dsmlcTangerine"
                 placeholder="Password"
                 disabled={loading}
               />
@@ -115,7 +119,7 @@ export default function AdminLoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="btn w-full bg-dsmlcTangerine hover:bg-dsmlcTangerine/90 border-dsmlcTangerine text-white font-medium py-3 px-4 rounded-xl transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="btn w-full bg-dsmlcTangerine hover:bg-dsmlcTangerine/50 border-dsmlcTangerine text-white font-medium py-3 px-4 rounded-xl transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? (
                 <>
