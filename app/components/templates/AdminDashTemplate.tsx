@@ -1,21 +1,20 @@
 "use client";
 import React, { useMemo, useState, useEffect } from "react";
 import {
-  AdminDataDashboardData,
   AdminDataDashboardTemplateProps,
   Alumni,
   Event,
-  EventRegistration,
   Member,
-  Role,
-  VisionaryLabMemberRole,
   VisionaryLabProject,
 } from "../../admin-dash/types";
 import { fmtDate, SECTION_CARD } from "../../admin-dash/ui";
 import SimpleTable from "../../admin-dash/SimpleTable";
 import Kpi from "../../admin-dash/Kpi";
-import SidebarTabs, { Tab, TABS } from "../../admin-dash/SidebarTabs";
+import SidebarTabs, { Tab } from "../../admin-dash/SidebarTabs";
 import MemberEditorModal from "../../admin-dash/MemberEditorModal";
+import ProjectEditorModal from "../../admin-dash/ProjectEditorModal";
+import EventEditorModal from "../../admin-dash/EventEditorModal";
+import AlumniEditorModal from "../../admin-dash/AlumniEditorModal";
 import { deleteRow } from "../../admin-dash/adminCrud";
 
 const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
@@ -47,39 +46,56 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     setAlumniState(alumni);
   }, [members, projects, events, alumni]);
 
-  // Modal state
-  const [editingMember, setEditingMember] = useState<Member | null>(null);
-
-  const onMemberSaved = (updated: Member) => {
-    setMembersState((prev) =>
-      prev.map((m) => (m.member_id === updated.member_id ? updated : m))
-    );
-  };
-
-  const onDeleteMember = async (m: Member) => {
-    if (
-      !confirm(`Delete ${m.first_name} ${m.last_name}? This cannot be undone.`)
-    )
-      return;
-
-    const snapshot = membersState;
-    setMembersState((prev) => prev.filter((x) => x.member_id !== m.member_id));
-    try {
-      await deleteRow("Member", "member_id", m.member_id);
-    } catch (e: any) {
-      setMembersState(snapshot);
-      alert(`Delete failed: ${e?.message ?? e}`);
-    }
-  };
-
-  // Selection state for toolbar actions (outside the table)
+  // ======= Selection state (per tab) =======
   const [selectedMemberId, setSelectedMemberId] = useState<number | null>(null);
+  const [selectedProjectId, setSelectedProjectId] = useState<number | null>(
+    null
+  );
+  const [selectedEventId, setSelectedEventId] = useState<number | null>(null);
+  const [selectedAlumniMemberId, setSelectedAlumniMemberId] = useState<
+    number | null
+  >(null);
+
   const selectedMember = useMemo(
     () => membersState.find((m) => m.member_id === selectedMemberId) ?? null,
     [membersState, selectedMemberId]
   );
+  const selectedProject = useMemo(
+    () => projectsState.find((p) => p.project_id === selectedProjectId) ?? null,
+    [projectsState, selectedProjectId]
+  );
+  const selectedEvent = useMemo(
+    () => eventsState.find((e) => e.event_id === selectedEventId) ?? null,
+    [eventsState, selectedEventId]
+  );
+  const selectedAlumni = useMemo(
+    () =>
+      alumniState.find((a) => a.member_id === selectedAlumniMemberId) ?? null,
+    [alumniState, selectedAlumniMemberId]
+  );
 
-  // Joins & derived stats (use *State arrays)
+  // ======= Modals (per tab) =======
+  const [memberModal, setMemberModal] = useState<{
+    mode: "create" | "edit";
+    initial: Partial<Member>;
+  } | null>(null);
+
+  const [projectModal, setProjectModal] = useState<{
+    mode: "create" | "edit";
+    initial: Partial<VisionaryLabProject>;
+  } | null>(null);
+
+  const [eventModal, setEventModal] = useState<{
+    mode: "create" | "edit";
+    initial: Partial<Event>;
+  } | null>(null);
+
+  const [alumniModal, setAlumniModal] = useState<{
+    mode: "create" | "edit";
+    initial: Partial<Alumni>;
+  } | null>(null);
+
+  // ======= Joins & derived stats =======
   const roleById = useMemo(
     () => new Map(roles.map((r) => [r.role_id, r.role])),
     [roles]
@@ -121,18 +137,21 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
 
   const activeProjects = projectsState.filter((p) => p.status === "active");
   const upcomingEvents = eventsState
+    .filter((e) => !!e.event_date) // only dated events
     .slice()
     .sort(
       (a, b) =>
-        new Date(a.event_date).getTime() - new Date(b.event_date).getTime()
+        new Date(a.event_date as string).getTime() -
+        new Date(b.event_date as string).getTime()
     )
-    .filter((e) => new Date(e.event_date).getTime() >= Date.now())
+    .filter((e) => new Date(e.event_date as string).getTime() >= Date.now())
     .slice(0, 5);
 
   const kpiTotalMembers = membersState.length;
   const kpiActiveProjects = activeProjects.length;
   const kpiEventsThisMonth = eventsState.filter((e) => {
-    const d = new Date(e.event_date);
+    if (!e.event_date) return false; // guard: null/empty date is not counted
+    const d = new Date(e.event_date); // now typed as string
     const now = new Date();
     return (
       d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth()
@@ -140,20 +159,83 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   }).length;
   const kpiAlumni = alumniState.length;
 
+  // ======= Delete handlers (optimistic) =======
+  const onDeleteMember = async (m: Member) => {
+    if (
+      !confirm(`Delete ${m.first_name} ${m.last_name}? This cannot be undone.`)
+    )
+      return;
+    const snapshot = membersState;
+    setMembersState((prev) => prev.filter((x) => x.member_id !== m.member_id));
+    try {
+      await deleteRow("Member", "member_id", m.member_id);
+      if (selectedMemberId === m.member_id) setSelectedMemberId(null);
+    } catch (e: any) {
+      setMembersState(snapshot);
+      alert(`Delete failed: ${e?.message ?? e}`);
+    }
+  };
+
+  const onDeleteProject = async (p: VisionaryLabProject) => {
+    if (!confirm(`Delete project "${p.name}"? This cannot be undone.`)) return;
+    const snapshot = projectsState;
+    setProjectsState((prev) =>
+      prev.filter((x) => x.project_id !== p.project_id)
+    );
+    try {
+      await deleteRow("VisionaryLabProject", "project_id", p.project_id);
+      if (selectedProjectId === p.project_id) setSelectedProjectId(null);
+    } catch (e: any) {
+      setProjectsState(snapshot);
+      alert(`Delete failed: ${e?.message ?? e}`);
+    }
+  };
+
+  const onDeleteEvent = async (ev: Event) => {
+    if (!confirm(`Delete event "${ev.event_name}"? This cannot be undone.`))
+      return;
+    const snapshot = eventsState;
+    setEventsState((prev) => prev.filter((x) => x.event_id !== ev.event_id));
+    try {
+      await deleteRow("Event", "event_id", ev.event_id);
+      if (selectedEventId === ev.event_id) setSelectedEventId(null);
+    } catch (e: any) {
+      setEventsState(snapshot);
+      alert(`Delete failed: ${e?.message ?? e}`);
+    }
+  };
+
+  const onDeleteAlumni = async (a: Alumni) => {
+    if (
+      !confirm(
+        `Delete alumni row for member #${a.member_id}? This cannot be undone.`
+      )
+    )
+      return;
+    const snapshot = alumniState;
+    setAlumniState((prev) => prev.filter((x) => x.member_id !== a.member_id));
+    try {
+      await deleteRow("Alumni", "member_id", a.member_id);
+      if (selectedAlumniMemberId === a.member_id)
+        setSelectedAlumniMemberId(null);
+    } catch (e: any) {
+      setAlumniState(snapshot);
+      alert(`Delete failed: ${e?.message ?? e}`);
+    }
+  };
+
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6">
-        {/* Sidebar */}
         <SidebarTabs value={tab} onChange={setTab} />
 
-        {/* Content */}
         <div className="space-y-6">
           {/* Overview */}
           {tab === "Overview" && (
             <>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <Kpi label="Members" value={kpiTotalMembers} />
-                <Kpi label="Active Projects" value={kpiActiveProjects} />
+                <Kpi label="Active V.L Projects" value={kpiActiveProjects} />
                 <Kpi label="Events (this month)" value={kpiEventsThisMonth} />
                 <Kpi label="Alumni" value={kpiAlumni} />
               </div>
@@ -166,10 +248,10 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   <table className="table-fixed w-full">
                     <thead>
                       <tr>
-                        <th className="text-xs md:text-sm sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border-b border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
+                        <th className="text-xs md:text-sm sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Role
                         </th>
-                        <th className="text-xs md:text-sm sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border-b border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
+                        <th className="text-xs md:text-sm sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Count
                         </th>
                       </tr>
@@ -178,13 +260,9 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                       {membersByRole.map(([role, count]) => (
                         <tr key={role} className="hover">
                           <td className="border-r border-light-dsmlcEnhancedParchment/70 dark:border-dark-dsmlcEnhancedParchment/70">
-                            <span className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                              {role}
-                            </span>
+                            <span>{role}</span>
                           </td>
-                          <td className="text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                            {count}
-                          </td>
+                          <td className="text-center">{count}</td>
                         </tr>
                       ))}
                     </tbody>
@@ -200,19 +278,19 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   <table className="table w-full">
                     <thead>
                       <tr>
-                        <th className="sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Name
                         </th>
-                        <th className="sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Date
                         </th>
-                        <th className="sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Type
                         </th>
-                        <th className="text-right dark:text-dark-dsmlcBlack text-light-dsmlcBlack sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="text-right sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Registered
                         </th>
-                        <th className="text-right dark:text-dark-dsmlcBlack text-light-dsmlcBlack sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="text-right sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Present
                         </th>
                       </tr>
@@ -239,12 +317,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                       })}
                       {upcomingEvents.length === 0 && (
                         <tr>
-                          <td
-                            colSpan={5}
-                            className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
-                          >
-                            No upcoming events.
-                          </td>
+                          <td colSpan={5}>No upcoming events.</td>
                         </tr>
                       )}
                     </tbody>
@@ -261,13 +334,28 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                 <h2 className="text-lg font-semibold text-dsmlcTangerine">
                   Members
                 </h2>
-                {/* Toolbar (outside the table) */}
                 <div className="flex items-center gap-2">
+                  <button
+                    className="btn btn-sm"
+                    onClick={() =>
+                      setMemberModal({
+                        mode: "create",
+                        initial: {
+                          first_name: "",
+                          last_name: "",
+                          graduated: false,
+                        },
+                      })
+                    }
+                  >
+                    Add
+                  </button>
                   <button
                     className="btn btn-sm"
                     disabled={!selectedMember}
                     onClick={() =>
-                      selectedMember && setEditingMember(selectedMember)
+                      selectedMember &&
+                      setMemberModal({ mode: "edit", initial: selectedMember })
                     }
                   >
                     Edit
@@ -292,15 +380,13 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                 zebra
                 verticalDividers
                 columnGroups={[
-                  { label: "Select", span: 1 }, // NEW: selection column
-                  { label: "Member", span: 2 }, // Name, Role
-                  { label: "Contact", span: 1 }, // Email
-                  { label: "Academics", span: 2 }, // Major, Year
-                  { label: "Status", span: 2 }, // Joined, Graduated
-                  // Actions group removed
+                  { label: "Select", span: 1 },
+                  { label: "Member", span: 2 },
+                  { label: "Contact", span: 1 },
+                  { label: "Academics", span: 2 },
+                  { label: "Status", span: 2 },
                 ]}
                 columns={[
-                  // Selection radio
                   {
                     key: "select",
                     header: "",
@@ -325,7 +411,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     render: (m) => (
                       <div className="flex items-center gap-2">
                         <div className="avatar placeholder" />
-                        <span className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack">{`${m.first_name} ${m.last_name}`}</span>
+                        <span>{`${m.first_name} ${m.last_name}`}</span>
                       </div>
                     ),
                   },
@@ -334,7 +420,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     header: "Role",
                     className: "min-w-[120px]",
                     render: (m) => (
-                      <span className="badge badge-outline dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
+                      <span className="badge badge-outline">
                         {m.role_id
                           ? (roleById.get(m.role_id) ?? "Unassigned")
                           : "Unassigned"}
@@ -344,8 +430,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   {
                     key: "email",
                     header: "Email",
-                    className:
-                      "min-w-[200px] max-w-[260px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "min-w-[200px] max-w-[260px]",
                     render: (m) =>
                       m.email ? (
                         <a
@@ -358,30 +443,18 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                         "—"
                       ),
                   },
-                  {
-                    key: "major",
-                    header: "Major",
-                    className:
-                      "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                  },
-                  {
-                    key: "year",
-                    header: "Year",
-                    className:
-                      "w-[80px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                  },
+                  { key: "major", header: "Major", className: "min-w-[120px]" },
+                  { key: "year", header: "Year", className: "w-[80px]" },
                   {
                     key: "join_date",
                     header: "Joined",
-                    className:
-                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "w-[120px]",
                     render: (m) => fmtDate(m.join_date ?? null),
                   },
                   {
                     key: "graduated",
                     header: "Graduated",
-                    className:
-                      "w-[110px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "w-[110px]",
                     render: (m) => (
                       <span
                         className={
@@ -395,28 +468,55 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                       </span>
                     ),
                   },
-                  // Actions column removed
                 ]}
               />
-
-              {/* Edit Modal */}
-              {editingMember && (
-                <MemberEditorModal
-                  open={!!editingMember}
-                  onClose={() => setEditingMember(null)}
-                  initial={editingMember}
-                  onSaved={onMemberSaved}
-                />
-              )}
             </div>
           )}
 
           {/* Projects */}
           {tab === "Projects" && (
             <div className={SECTION_CARD}>
-              <h2 className="text-lg font-semibold mb-4 text-dsmlcTangerine">
-                Projects
-              </h2>
+              <div className="flex items-center justify-between mb-4 gap-3">
+                <h2 className="text-lg font-semibold text-dsmlcTangerine">
+                  Visionary Lab Projects
+                </h2>
+                <div className="flex items-center gap-2">
+                  <button
+                    className="btn btn-sm"
+                    onClick={() =>
+                      setProjectModal({
+                        mode: "create",
+                        initial: { name: "", status: "planned" },
+                      })
+                    }
+                  >
+                    Add
+                  </button>
+                  <button
+                    className="btn btn-sm"
+                    disabled={!selectedProject}
+                    onClick={() =>
+                      selectedProject &&
+                      setProjectModal({
+                        mode: "edit",
+                        initial: selectedProject,
+                      })
+                    }
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-sm btn-error"
+                    disabled={!selectedProject}
+                    onClick={() =>
+                      selectedProject && onDeleteProject(selectedProject)
+                    }
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+
               <SimpleTable<VisionaryLabProject>
                 data={projectsState}
                 rowKey={(p) => p.project_id}
@@ -425,6 +525,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                 zebra
                 verticalDividers
                 columnGroups={[
+                  { label: "Select", span: 1 },
                   { label: "Project", span: 2 },
                   { label: "People", span: 2 },
                   { label: "Timeline", span: 2 },
@@ -432,22 +533,32 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                 ]}
                 columns={[
                   {
-                    key: "name",
-                    header: "Name",
-                    className:
-                      "min-w-[180px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    key: "select",
+                    header: "",
+                    className: "w-[60px]",
+                    render: (p) => (
+                      <div className="flex justify-center">
+                        <input
+                          type="radio"
+                          name="project-select"
+                          className="radio"
+                          checked={selectedProjectId === p.project_id}
+                          onChange={() => setSelectedProjectId(p.project_id)}
+                          aria-label={`Select project ${p.name}`}
+                        />
+                      </div>
+                    ),
                   },
+                  { key: "name", header: "Name", className: "min-w-[180px]" },
                   {
                     key: "project_type",
                     header: "Type",
-                    className:
-                      "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "min-w-[120px]",
                   },
                   {
                     key: "project_lead",
                     header: "Project Lead",
-                    className:
-                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "min-w-[160px]",
                     render: (p) => {
                       const lead = p.project_lead
                         ? memberById.get(p.project_lead)
@@ -460,29 +571,25 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   {
                     key: "team",
                     header: "Team",
-                    className:
-                      "w-[80px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "w-[80px]",
                     render: (p) => projectTeamCounts.get(p.project_id) ?? 0,
                   },
                   {
                     key: "start_date",
                     header: "Start",
-                    className:
-                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "w-[120px]",
                     render: (p) => fmtDate(p.start_date),
                   },
                   {
                     key: "end_date",
                     header: "End",
-                    className:
-                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "w-[120px]",
                     render: (p) => fmtDate(p.end_date ?? null),
                   },
                   {
                     key: "status",
                     header: "Status",
-                    className:
-                      "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "min-w-[120px]",
                     render: (p) => (
                       <span
                         className={
@@ -508,9 +615,44 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
           {/* Events */}
           {tab === "Events" && (
             <div className={SECTION_CARD}>
-              <h2 className="text-lg font-semibold mb-4 text-dsmlcTangerine">
-                Events
-              </h2>
+              <div className="flex items-center justify-between mb-4 gap-3">
+                <h2 className="text-lg font-semibold text-dsmlcTangerine">
+                  Events
+                </h2>
+                <div className="flex items-center gap-2">
+                  <button
+                    className="btn btn-sm"
+                    onClick={() =>
+                      setEventModal({
+                        mode: "create",
+                        initial: { event_name: "", event_date: "" },
+                      })
+                    }
+                  >
+                    Add
+                  </button>
+                  <button
+                    className="btn btn-sm"
+                    disabled={!selectedEvent}
+                    onClick={() =>
+                      selectedEvent &&
+                      setEventModal({ mode: "edit", initial: selectedEvent })
+                    }
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-sm btn-error"
+                    disabled={!selectedEvent}
+                    onClick={() =>
+                      selectedEvent && onDeleteEvent(selectedEvent)
+                    }
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+
               <SimpleTable<Event>
                 data={eventsState}
                 rowKey={(e) => e.event_id}
@@ -519,43 +661,56 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                 zebra
                 verticalDividers
                 columnGroups={[
+                  { label: "Select", span: 1 },
                   { label: "Event", span: 2 },
                   { label: "Schedule", span: 1 },
                   { label: "Attendance", span: 2 },
                 ]}
                 columns={[
                   {
+                    key: "select",
+                    header: "",
+                    className: "w-[60px]",
+                    render: (e) => (
+                      <div className="flex justify-center">
+                        <input
+                          type="radio"
+                          name="event-select"
+                          className="radio"
+                          checked={selectedEventId === e.event_id}
+                          onChange={() => setSelectedEventId(e.event_id)}
+                          aria-label={`Select event ${e.event_name}`}
+                        />
+                      </div>
+                    ),
+                  },
+                  {
                     key: "event_name",
                     header: "Name",
-                    className:
-                      "min-w-[200px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "min-w-[200px]",
                   },
                   {
                     key: "event_type",
                     header: "Type",
-                    className:
-                      "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "min-w-[120px]",
                   },
                   {
                     key: "event_date",
                     header: "Date",
-                    className:
-                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "w-[120px]",
                     render: (e) => fmtDate(e.event_date),
                   },
                   {
                     key: "registered",
                     header: "Registered",
-                    className:
-                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "w-[120px]",
                     render: (e) =>
                       registrationsByEvent.get(e.event_id)?.registered ?? 0,
                   },
                   {
                     key: "present",
                     header: "Present",
-                    className:
-                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "w-[120px]",
                     render: (e) =>
                       registrationsByEvent.get(e.event_id)?.present ?? 0,
                   },
@@ -567,9 +722,44 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
           {/* Alumni */}
           {tab === "Alumni" && (
             <div className={SECTION_CARD}>
-              <h2 className="text-lg font-semibold mb-4 text-dsmlcTangerine">
-                Alumni
-              </h2>
+              <div className="flex items-center justify-between mb-4 gap-3">
+                <h2 className="text-lg font-semibold text-dsmlcTangerine">
+                  Alumni
+                </h2>
+                <div className="flex items-center gap-2">
+                  <button
+                    className="btn btn-sm"
+                    onClick={() =>
+                      setAlumniModal({
+                        mode: "create",
+                        initial: { member_id: undefined },
+                      })
+                    }
+                  >
+                    Add
+                  </button>
+                  <button
+                    className="btn btn-sm"
+                    disabled={!selectedAlumni}
+                    onClick={() =>
+                      selectedAlumni &&
+                      setAlumniModal({ mode: "edit", initial: selectedAlumni })
+                    }
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-sm btn-error"
+                    disabled={!selectedAlumni}
+                    onClick={() =>
+                      selectedAlumni && onDeleteAlumni(selectedAlumni)
+                    }
+                  >
+                    Delete
+                  </button>
+                </div>
+              </div>
+
               <SimpleTable<Alumni>
                 data={alumniState}
                 rowKey={(a, i) => `${a.member_id}-${i}`}
@@ -578,16 +768,35 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                 zebra
                 verticalDividers
                 columnGroups={[
+                  { label: "Select", span: 1 },
                   { label: "Alumni", span: 1 },
                   { label: "Career", span: 2 },
                   { label: "Details", span: 2 },
                 ]}
                 columns={[
                   {
+                    key: "select",
+                    header: "",
+                    className: "w-[60px]",
+                    render: (a) => (
+                      <div className="flex justify-center">
+                        <input
+                          type="radio"
+                          name="alumni-select"
+                          className="radio"
+                          checked={selectedAlumniMemberId === a.member_id}
+                          onChange={() =>
+                            setSelectedAlumniMemberId(a.member_id)
+                          }
+                          aria-label={`Select alumni for member #${a.member_id}`}
+                        />
+                      </div>
+                    ),
+                  },
+                  {
                     key: "member_id",
                     header: "Name",
-                    className:
-                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "min-w-[160px]",
                     render: (a) => {
                       const m = memberById.get(a.member_id);
                       return m
@@ -598,26 +807,22 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   {
                     key: "company",
                     header: "Company",
-                    className:
-                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "min-w-[160px]",
                   },
                   {
                     key: "position",
                     header: "Previous Position",
-                    className:
-                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "min-w-[160px]",
                   },
                   {
                     key: "graduation_year",
                     header: "Grad Year",
-                    className:
-                      "w-[110px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "w-[110px]",
                   },
                   {
                     key: "linkedin",
                     header: "LinkedIn",
-                    className:
-                      "w-[110px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                    className: "w-[110px]",
                     render: (a) =>
                       a.linkedin ? (
                         <a
@@ -639,13 +844,80 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
         </div>
       </div>
 
-      {/* Member modal */}
-      {editingMember && (
+      {/* Modals */}
+      {memberModal && (
         <MemberEditorModal
-          open={!!editingMember}
-          onClose={() => setEditingMember(null)}
-          initial={editingMember}
-          onSaved={onMemberSaved}
+          open={!!memberModal}
+          mode={memberModal.mode}
+          initial={memberModal.initial}
+          onClose={() => setMemberModal(null)}
+          onSaved={(row, mode) => {
+            if (mode === "edit") {
+              setMembersState((prev) =>
+                prev.map((m) => (m.member_id === row.member_id ? row : m))
+              );
+            } else {
+              setMembersState((prev) => [row, ...prev]);
+              setSelectedMemberId(row.member_id);
+            }
+          }}
+        />
+      )}
+
+      {projectModal && (
+        <ProjectEditorModal
+          open={!!projectModal}
+          mode={projectModal.mode}
+          initial={projectModal.initial}
+          onClose={() => setProjectModal(null)}
+          onSaved={(row, mode) => {
+            if (mode === "edit") {
+              setProjectsState((prev) =>
+                prev.map((p) => (p.project_id === row.project_id ? row : p))
+              );
+            } else {
+              setProjectsState((prev) => [row, ...prev]);
+              setSelectedProjectId(row.project_id);
+            }
+          }}
+        />
+      )}
+
+      {eventModal && (
+        <EventEditorModal
+          open={!!eventModal}
+          mode={eventModal.mode}
+          initial={eventModal.initial}
+          onClose={() => setEventModal(null)}
+          onSaved={(row, mode) => {
+            if (mode === "edit") {
+              setEventsState((prev) =>
+                prev.map((e) => (e.event_id === row.event_id ? row : e))
+              );
+            } else {
+              setEventsState((prev) => [row, ...prev]);
+              setSelectedEventId(row.event_id);
+            }
+          }}
+        />
+      )}
+
+      {alumniModal && (
+        <AlumniEditorModal
+          open={!!alumniModal}
+          mode={alumniModal.mode}
+          initial={alumniModal.initial}
+          onClose={() => setAlumniModal(null)}
+          onSaved={(row, mode) => {
+            if (mode === "edit") {
+              setAlumniState((prev) =>
+                prev.map((a) => (a.member_id === row.member_id ? row : a))
+              );
+            } else {
+              setAlumniState((prev) => [row, ...prev]);
+              setSelectedAlumniMemberId(row.member_id);
+            }
+          }}
         />
       )}
     </div>

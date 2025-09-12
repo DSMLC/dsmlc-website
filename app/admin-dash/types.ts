@@ -14,11 +14,11 @@ export type Member = {
 };
 
 export type Event = {
-  event_id: number;
-  event_name: string;
-  event_description?: string;
-  event_type?: string;
-  event_date: string; // ISO date
+  event_id: number;                 // int, NOT NULL
+  event_name: string;               // varchar, NOT NULL
+  event_description: string | null; // text, NULLABLE
+  event_type: string;               // varchar, NOT NULL
+  event_date: string | null;        // date (YYYY-MM-DD), NULLABLE
 };
 
 export type EventRegistration = {

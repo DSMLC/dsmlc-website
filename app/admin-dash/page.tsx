@@ -9,7 +9,7 @@ import { useAdminAuth } from "../contexts/AdminAuthContext";
 const TABLES = {
   roles: "Role",
   members: "Member",
-  events: "Event",
+  events: "Evt",
   registrations: "EventRegistration",
   projects: "VisionaryLabProject",
   projectMemberRoles: "VisionaryLabMemberRole",
@@ -82,12 +82,6 @@ export default function AdminDashPage() {
           {
             type: "BackgroundFillTemplate3",
             data: [
-              {
-                type: "TitleTemplate1",
-                data: {
-                  title: "Admin Dashboard",
-                },
-              },
               {
                 type: "AdminDataDashboardTemplate",
                 data: dashboardData,
