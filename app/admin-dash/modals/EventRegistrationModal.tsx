@@ -13,7 +13,7 @@ const yesNo = (n: number | null | undefined) =>
 const presentAbsent = (n: number | null | undefined) =>
   n === 1 ? "present" : n === 0 ? "absent" : "—";
 
-/* ========================= Searchable member combobox (styled, no logo) ========================= */
+/* ========================= Searchable member combobox ========================= */
 
 function MemberSearchSelect({
   members,
@@ -133,7 +133,7 @@ function MemberSearchSelect({
         {query && (
           <button
             type="button"
-            className="absolute inset-y-0 right-2 my-auto btn btn-ghost btn-xs rounded-full"
+            className="absolute inset-y-0 right-2 my-auto btn btn-ghost btn-xs rounded-full text-dsmlcTangerine"
             onClick={clear}
             aria-label="Clear"
             title="Clear"
@@ -155,7 +155,7 @@ function MemberSearchSelect({
                      shadow-xl"
         >
           {filtered.length === 0 && (
-            <li className="px-3 py-3 text-sm opacity-70 select-none">
+            <li className="px-3 py-3 text-sm opacity-70 select-none text-dsmlcTangerine">
               No matches
             </li>
           )}
@@ -167,22 +167,25 @@ function MemberSearchSelect({
                 role="option"
                 aria-selected={isActive}
                 className={`px-3 py-2 cursor-pointer flex items-center justify-between transition-colors
-                  ${isActive ? "bg-dsmlcTangerine/10" : "hover:bg-base-200/60 dark:hover:bg-black/10"}`}
+                  ${isActive ? "bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite" : "hover:bg-base-200/60 dark:hover:bg-black/10"}`}
                 onMouseEnter={() => setActive(i)}
                 onMouseDown={(e) => e.preventDefault()} // keep input focus
                 onClick={() => choose(m)}
               >
                 <div className="min-w-0">
-                  <div className="truncate text-sm font-medium text-light-dsmlcBlack dark:text-dark-dsmlcBlack">
+                  <div className="truncate text-sm font-medium text-dsmlcTangerine">
                     {m.first_name} {m.last_name}
                   </div>
                   {m.email && (
-                    <div className="truncate text-xs opacity-70">{m.email}</div>
+                    <div className="truncate text-xs opacity-70 text-light-dsmlcBlack dark:text-dark-dsmlcBlack">
+                      {m.email}
+                    </div>
                   )}
                 </div>
                 <span
                   className="ml-3 shrink-0 rounded-full border px-2 py-0.5 text-[10px] opacity-70
-                                  border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment"
+                                  border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+                                  text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
                 >
                   #{m.member_id}
                 </span>
@@ -547,7 +550,7 @@ function EventRegistrationsModal({
               <div className="form-control">
                 <label className="label">
                   <span className="label-text dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                    Member
+                    Member:
                   </span>
                 </label>
 
@@ -587,14 +590,14 @@ function EventRegistrationsModal({
               <div className="form-control">
                 <label className="label">
                   <span className="label-text dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                    Registered
+                    Registered:
                   </span>
                 </label>
                 <select
-                  className="select select-bordered rounded-xl
+                  className="select select-bordered rounded-xl dark:text-dark-dsmlcBlack text-light-dsmlcBlack m-auto
                              border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
                              bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
-                             focus:outline-none focus:ring-2 focus:ring-dsmlcTangerine/60 focus:border-dsmlcTangerine"
+                             focus:outline-none focus:ring-2 focus:ring-dsmlcTangerine focus:border-dsmlcTangerine"
                   value={editor.values.registered ?? ""}
                   onChange={(e) =>
                     setEditor((prev) =>
@@ -610,9 +613,24 @@ function EventRegistrationsModal({
                     )
                   }
                 >
-                  <option value="">—</option>
-                  <option value="1">1 (Yes)</option>
-                  <option value="0">0 (No)</option>
+                  <option
+                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
+                    value=""
+                  >
+                    —
+                  </option>
+                  <option
+                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
+                    value="1"
+                  >
+                    1 (Yes)
+                  </option>
+                  <option
+                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
+                    value="0"
+                  >
+                    0 (No)
+                  </option>
                 </select>
               </div>
 
@@ -620,11 +638,11 @@ function EventRegistrationsModal({
               <div className="form-control">
                 <label className="label">
                   <span className="label-text dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                    Attendance
+                    Attendance:
                   </span>
                 </label>
                 <select
-                  className="select select-bordered rounded-xl
+                  className="select select-bordered rounded-xl dark:text-dark-dsmlcBlack text-light-dsmlcBlack
                              border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
                              bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
                              focus:outline-none focus:ring-2 focus:ring-dsmlcTangerine/60 focus:border-dsmlcTangerine"
@@ -643,9 +661,24 @@ function EventRegistrationsModal({
                     )
                   }
                 >
-                  <option value="">—</option>
-                  <option value="1">1 (present)</option>
-                  <option value="0">0 (absent)</option>
+                  <option
+                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
+                    value=""
+                  >
+                    —
+                  </option>
+                  <option
+                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
+                    value="1"
+                  >
+                    1 (present)
+                  </option>
+                  <option
+                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
+                    value="0"
+                  >
+                    0 (absent)
+                  </option>
                 </select>
               </div>
             </div>
@@ -668,11 +701,11 @@ function EventRegistrationsModal({
               </button>
               <button
                 className="inline-flex items-center justify-center
-                  rounded-full border border-base-300
+                  rounded-full border border-dsmlcTangerine
                   bg-transparent px-5 py-2 text-sm font-medium
-                  text-base-content
-                  hover:bg-base-200
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-base-300/60
+                  text-dsmlcTangerine
+                  hover:bg-dsmlcTangerine hover:text-white
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
                   shadow-sm hover:shadow-md
                   transition-all duration-200"
                 disabled={editor.saving}
