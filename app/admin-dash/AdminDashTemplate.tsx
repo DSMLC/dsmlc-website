@@ -6,6 +6,7 @@ import {
   Event,
   Member,
   VisionaryLabProject,
+  EventRegistration,
 } from "./utility/types";
 import { fmtDate, SECTION_CARD } from "./components/ui";
 import SimpleTable from "./components/SimpleTable";
@@ -15,7 +16,12 @@ import MemberEditorModal from "./modals/MemberEditorModal";
 import ProjectEditorModal from "./modals/ProjectEditorModal";
 import EventEditorModal from "./modals/EventEditorModal";
 import AlumniEditorModal from "./modals/AlumniEditorModal";
+import EventRegistrationModal from "./modals/EventRegistrationModal";
 import { deleteRow } from "./utility/adminCrud";
+
+import supabase from "../supabase_client";
+
+type RegRow = EventRegistration & { member?: Member };
 
 const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   Data,
@@ -74,6 +80,8 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     [alumniState, selectedAlumniMemberId]
   );
 
+  const [regsModal, setRegsModal] = useState<{ event: Event } | null>(null);
+
   // ======= Modals (per tab) =======
   const [memberModal, setMemberModal] = useState<{
     mode: "create" | "edit";
@@ -94,6 +102,13 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     mode: "create" | "edit";
     initial: Partial<Alumni>;
   } | null>(null);
+
+  const [registrationsState, setRegistrationsState] =
+    useState<EventRegistration[]>(registrations);
+
+  useEffect(() => {
+    setRegistrationsState(registrations);
+  }, [registrations]);
 
   // Joins & derived stats
   const roleById = useMemo(
@@ -118,14 +133,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
 
   const registrationsByEvent = useMemo(() => {
     const map = new Map<number, { registered: number; present: number }>();
-    registrations.forEach((r) => {
+    registrationsState.forEach((r) => {
       const rec = map.get(r.event_id) ?? { registered: 0, present: 0 };
-      if (r.registered) rec.registered += 1;
-      if (r.attendance === "present") rec.present += 1;
+      if (r.registered) rec.registered += 1; // treats 1 as truthy
+      if (r.attendance === 1) rec.present += 1; // 1 = present
       map.set(r.event_id, rec);
     });
     return map;
-  }, [registrations]);
+  }, [registrationsState]);
 
   const projectTeamCounts = useMemo(() => {
     const map = new Map<number, number>();
@@ -159,8 +174,16 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   }).length;
   const kpiAlumni = alumniState.length;
 
+  // Rows for registrations modal (joined with Member)
+  const modalRegistrationRows = useMemo<RegRow[]>(() => {
+    if (!regsModal?.event?.event_id) return [];
+    const id = regsModal.event.event_id;
+    return registrationsState
+      .filter((r) => r.event_id === id)
+      .map((r) => ({ ...r, member: memberById.get(r.member_id) }));
+  }, [regsModal, registrationsState, memberById]);
+
   // Delete handlers
-  // delete member function
   const onDeleteMember = async (m: Member) => {
     if (
       !confirm(`Delete ${m.first_name} ${m.last_name}? This cannot be undone.`)
@@ -177,7 +200,6 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     }
   };
 
-  // delete project function
   const onDeleteProject = async (p: VisionaryLabProject) => {
     if (!confirm(`Delete project "${p.name}"? This cannot be undone.`)) return;
     const snapshot = projectsState;
@@ -193,7 +215,6 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     }
   };
 
-  // delete event function
   const onDeleteEvent = async (ev: Event) => {
     if (!confirm(`Delete event "${ev.event_name}"? This cannot be undone.`))
       return;
@@ -208,7 +229,6 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     }
   };
 
-  // delete alumni function
   const onDeleteAlumni = async (a: Alumni) => {
     if (
       !confirm(
@@ -228,13 +248,83 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     }
   };
 
+  const upsertRegistration = async (
+    row: EventRegistration,
+    mode: "create" | "edit"
+  ) => {
+    if (mode === "create") {
+      const { data, error, status } = await supabase
+        .schema("admin") // ⬅️ change if your schema differs
+        .from("EventRegistration")
+        .insert(row)
+        .select("*")
+        .single();
+
+      if (error) throw new Error(`${error.message} (HTTP ${status})`);
+
+      setRegistrationsState((prev) => {
+        // ensure uniqueness if the row previously existed
+        const filtered = prev.filter(
+          (r) =>
+            !(r.event_id === data.event_id && r.member_id === data.member_id)
+        );
+        return [data, ...filtered];
+      });
+    } else {
+      const { data, error, status } = await supabase
+        .schema("admin")
+        .from("EventRegistration")
+        .update({
+          registered: row.registered,
+          attendance: row.attendance,
+        })
+        .eq("event_id", row.event_id)
+        .eq("member_id", row.member_id)
+        .select("*")
+        .single();
+
+      if (error) throw new Error(`${error.message} (HTTP ${status})`);
+
+      setRegistrationsState((prev) =>
+        prev.map((r) =>
+          r.event_id === data.event_id && r.member_id === data.member_id
+            ? data
+            : r
+        )
+      );
+    }
+  };
+
+  const deleteRegistration = async ({
+    event_id,
+    member_id,
+  }: {
+    event_id: number;
+    member_id: number;
+  }) => {
+    const { error, status } = await supabase
+      .schema("admin")
+      .from("EventRegistration")
+      .delete()
+      .eq("event_id", event_id)
+      .eq("member_id", member_id);
+
+    if (error) throw new Error(`${error.message} (HTTP ${status})`);
+
+    setRegistrationsState((prev) =>
+      prev.filter(
+        (r) => !(r.event_id === event_id && r.member_id === member_id)
+      )
+    );
+  };
+
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6">
         <SidebarTabs value={tab} onChange={setTab} />
 
         <div className="space-y-6">
-          {/* Overview */}
+          {/* ================== Overview ================== */}
           {tab === "Overview" && (
             <>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -344,7 +434,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
             </>
           )}
 
-          {/* Members */}
+          {/* ================== Members ==================*/}
           {tab === "Members" && (
             <div className={SECTION_CARD}>
               <div className="flex items-center justify-between mb-4 gap-3">
@@ -524,7 +614,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
             </div>
           )}
 
-          {/* Projects */}
+          {/* ================== Projects ==================*/}
           {tab === "Projects" && (
             <div className={SECTION_CARD}>
               <div className="flex items-center justify-between mb-4 gap-3">
@@ -695,7 +785,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
             </div>
           )}
 
-          {/* Events */}
+          {/* ================== Events ==================*/}
           {tab === "Events" && (
             <div className={SECTION_CARD}>
               <div className="flex items-center justify-between mb-4 gap-3">
@@ -753,6 +843,24 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     }
                   >
                     Delete
+                  </button>
+
+                  {/* NEW: View registrations */}
+                  <button
+                    className="inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
+                    disabled={!selectedEvent}
+                    onClick={() =>
+                      selectedEvent && setRegsModal({ event: selectedEvent })
+                    }
+                  >
+                    View registrations
                   </button>
                 </div>
               </div>
@@ -829,7 +937,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
             </div>
           )}
 
-          {/* Alumni */}
+          {/* ================== Alumni ==================*/}
           {tab === "Alumni" && (
             <div className={SECTION_CARD}>
               <div className="flex items-center justify-between mb-4 gap-3">
@@ -981,7 +1089,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
         </div>
       </div>
 
-      {/* Modals */}
+      {/* ================== Modals ==================*/}
       {memberModal && (
         <MemberEditorModal
           open={!!memberModal}
@@ -1055,6 +1163,18 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
               setSelectedAlumniMemberId(row.member_id);
             }
           }}
+        />
+      )}
+      {regsModal && (
+        <EventRegistrationModal
+          open={!!regsModal}
+          event={regsModal.event}
+          rows={modalRegistrationRows}
+          roleById={roleById}
+          members={membersState}
+          onSaved={upsertRegistration}
+          onDelete={deleteRegistration}
+          onClose={() => setRegsModal(null)}
         />
       )}
     </div>

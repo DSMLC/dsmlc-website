@@ -82,7 +82,7 @@ export default function AlumniEditorModal({
       {/* Backdrop */}
       <button
         aria-label="Close"
-        className="absolute inset-0 bg-base-content/60 backdrop-blur-sm"
+        className="absolute inset-0 bg-black/40"
         onClick={onClose}
       />
 

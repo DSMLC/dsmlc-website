@@ -1,4 +1,3 @@
-// components/admin/ui/SimpleTable.tsx
 "use client";
 import React, { useMemo, useState } from "react";
 import { cn } from "./ui";

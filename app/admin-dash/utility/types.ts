@@ -24,8 +24,8 @@ export type Event = {
 export type EventRegistration = {
   event_id: number;
   member_id: number;
-  registered: boolean;
-  attendance?: "present" | "absent" | "late" | null;
+  registered: number;
+  attendance?: number | null;
 };
 
 export type VisionaryLabProject = {
