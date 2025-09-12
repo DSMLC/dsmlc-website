@@ -320,7 +320,7 @@ export type PageData =
   | SocialLinksTemplateData
   | IncreasingNumbersData
   | CardTemplateData
-  | EmailFormTemplateData;
+  | EmailFormTemplateData
   | AdminDataDashboardTemplateData;
 
 export const templateMap: {
