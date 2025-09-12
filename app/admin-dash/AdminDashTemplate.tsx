@@ -329,7 +329,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   }) => {
     const { data, error, status } = await supabase
       .schema("admin")
-      .from("ProjectMemberRole") // <-- adjust table name if different
+      .from("VisionaryLabMemberRole")
       .insert({ project_id, member_id })
       .select("*")
       .single();
@@ -354,7 +354,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   }) => {
     const { error, status } = await supabase
       .schema("admin")
-      .from("ProjectMemberRole") // <-- adjust table name if different
+      .from("VisionaryLabMemberRole")
       .delete()
       .eq("project_id", project_id)
       .eq("member_id", member_id);
@@ -365,6 +365,22 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
         (x) => !(x.project_id === project_id && x.member_id === member_id)
       )
     );
+  };
+
+  const onReplaceProjectMember = async ({
+    project_id,
+    from_member_id,
+    to_member_id,
+  }: {
+    project_id: number;
+    from_member_id: number;
+    to_member_id: number;
+  }) => {
+    // If your DB allows updating member_id directly, do an update.
+    // Otherwise, perform delete + insert:
+    // await pmTable().delete().eq("project_id", project_id).eq("member_id", from_member_id);
+    // await pmTable().insert({ project_id, member_id: to_member_id });
+    // Then update local state accordingly...
   };
 
   const deleteRegistration = async ({
