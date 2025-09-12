@@ -2,6 +2,7 @@
 import React, { useRef, useEffect } from "react";
 import p5 from "p5";
 import { usePathname } from "next/navigation";
+import { hiddenOnPages } from "./Background";
 
 // Helper types
 type Node = { x: number; y: number; size: number };
@@ -75,10 +76,8 @@ function createNetworkData(
 
 const SideNetworksAnimation = () => {
   const canvasRef = useRef<HTMLDivElement>(null);
-  
-  const pathname = usePathname();
-  const hiddenOnPages = ["/social-network-graph"];
 
+  const pathname = usePathname();
   useEffect(() => {
     if (hiddenOnPages.includes(pathname)) return;
     let p5Instance: p5 | null = null;

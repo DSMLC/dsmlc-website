@@ -26,7 +26,9 @@ import BackgroundFillTemplate3 from "./components/templates/BackgroundFillTempla
 import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
 import ComingSoonTemplate from "./components/templates/ComingSoonTemplate";
 import CardTemplate from "./components/templates/CardTemplate";
+import EmailFormTemplate from "./components/templates/EmailFormTemplate";
 import AdminDataDashboardTemplate from "./admin-dash/AdminDashTemplate";
+
 export interface ImageData {
   imageLink?: string;
   imageDarkMode?: string;
@@ -286,6 +288,11 @@ export interface AdminDataDashboardTemplateData {
   };
 }
 
+export interface EmailFormTemplateData {
+  type: "EmailFormTemplate";
+  data: {};
+}
+
 export type PageData =
   | ColumnTemplateData
   | ComingSoonTemplateData
@@ -313,6 +320,7 @@ export type PageData =
   | SocialLinksTemplateData
   | IncreasingNumbersData
   | CardTemplateData
+  | EmailFormTemplateData;
   | AdminDataDashboardTemplateData;
 
 export const templateMap: {
@@ -347,6 +355,7 @@ export const templateMap: {
   IncreasingNumbersTemplate: IncreasingNumbersTemplate,
   SocialLinksTemplate: SocialLinksTemplate,
   CardTemplate: CardTemplate,
+  EmailFormTemplate: EmailFormTemplate,
   AdminDataDashboardTemplate: AdminDataDashboardTemplate,
 };
 

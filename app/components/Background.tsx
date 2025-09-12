@@ -69,13 +69,15 @@ const generateRandomShapes = (
   return shapes;
 };
 
+export const hiddenOnPages = ["/events/games/social-network-graph"];
+
 const Background: React.FC = () => {
   const pathname = usePathname();
   const [shapes, setShapes] = useState<ShapeProps[]>([]);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const hiddenOnPages = ["/social-network-graph"];
-  
+
   useEffect(() => {
+    console.log(hiddenOnPages + ":" + pathname);
     if (hiddenOnPages.includes(pathname)) return;
     // Set the dimensions on the client side
     setDimensions({ width: window.innerWidth, height: window.innerHeight });
