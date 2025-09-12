@@ -200,7 +200,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     const snapshot = eventsState;
     setEventsState((prev) => prev.filter((x) => x.event_id !== ev.event_id));
     try {
-      await deleteRow("Event", "event_id", ev.event_id);
+      await deleteRow("Evt", "event_id", ev.event_id);
       if (selectedEventId === ev.event_id) setSelectedEventId(null);
     } catch (e: any) {
       setEventsState(snapshot);
@@ -329,7 +329,12 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                       })}
                       {upcomingEvents.length === 0 && (
                         <tr>
-                          <td colSpan={5}>No upcoming events.</td>
+                          <td
+                            className="text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack pt-8"
+                            colSpan={5}
+                          >
+                            No upcoming events.
+                          </td>
                         </tr>
                       )}
                     </tbody>
