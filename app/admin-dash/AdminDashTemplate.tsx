@@ -17,6 +17,7 @@ import ProjectEditorModal from "./modals/ProjectEditorModal";
 import EventEditorModal from "./modals/EventEditorModal";
 import AlumniEditorModal from "./modals/AlumniEditorModal";
 import EventRegistrationModal from "./modals/EventRegistrationModal";
+import ProjectMembersModal from "./modals/ProjectMemberModal";
 import { deleteRow } from "./utility/adminCrud";
 
 import supabase from "../supabase_client";
@@ -106,6 +107,18 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   const [registrationsState, setRegistrationsState] =
     useState<EventRegistration[]>(registrations);
 
+  // Project members modal
+  const [projMembersModal, setProjMembersModal] = useState<{
+    project: VisionaryLabProject;
+  } | null>(null);
+
+  const [projMembersState, setProjMembersState] = useState(
+    Data.projectMemberRoles
+  );
+  useEffect(() => {
+    setProjMembersState(Data.projectMemberRoles);
+  }, [Data.projectMemberRoles]);
+
   useEffect(() => {
     setRegistrationsState(registrations);
   }, [registrations]);
@@ -183,6 +196,18 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
       .map((r) => ({ ...r, member: memberById.get(r.member_id) }));
   }, [regsModal, registrationsState, memberById]);
 
+  const modalProjectMemberRows = useMemo(() => {
+    if (!projMembersModal?.project?.project_id) return [];
+    const pid = projMembersModal.project.project_id;
+    return projMembersState
+      .filter((pm: any) => pm.project_id === pid)
+      .map((pm: any) => ({
+        project_id: pm.project_id,
+        member_id: pm.member_id,
+        member: memberById.get(pm.member_id),
+      }));
+  }, [projMembersModal, projMembersState, memberById]);
+
   // Delete handlers
   const onDeleteMember = async (m: Member) => {
     if (
@@ -254,7 +279,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   ) => {
     if (mode === "create") {
       const { data, error, status } = await supabase
-        .schema("admin") // ⬅️ change if your schema differs
+        .schema("admin")
         .from("EventRegistration")
         .insert(row)
         .select("*")
@@ -293,6 +318,53 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
         )
       );
     }
+  };
+
+  const addProjectMember = async ({
+    project_id,
+    member_id,
+  }: {
+    project_id: number;
+    member_id: number;
+  }) => {
+    const { data, error, status } = await supabase
+      .schema("admin")
+      .from("ProjectMemberRole") // <-- adjust table name if different
+      .insert({ project_id, member_id })
+      .select("*")
+      .single();
+
+    if (error) throw new Error(`${error.message} (HTTP ${status})`);
+    setProjMembersState((prev: any[]) => {
+      // prevent dupes
+      const exists = prev.some(
+        (x) =>
+          x.project_id === data.project_id && x.member_id === data.member_id
+      );
+      return exists ? prev : [data, ...prev];
+    });
+  };
+
+  const deleteProjectMember = async ({
+    project_id,
+    member_id,
+  }: {
+    project_id: number;
+    member_id: number;
+  }) => {
+    const { error, status } = await supabase
+      .schema("admin")
+      .from("ProjectMemberRole") // <-- adjust table name if different
+      .delete()
+      .eq("project_id", project_id)
+      .eq("member_id", member_id);
+
+    if (error) throw new Error(`${error.message} (HTTP ${status})`);
+    setProjMembersState((prev: any[]) =>
+      prev.filter(
+        (x) => !(x.project_id === project_id && x.member_id === member_id)
+      )
+    );
   };
 
   const deleteRegistration = async ({
@@ -675,6 +747,23 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     }
                   >
                     Delete
+                  </button>
+                  <button
+                    className="inline-flex items-center justify-center
+    rounded-full border border-dsmlcTangerine
+    bg-transparent px-5 py-2 text-sm font-medium
+    text-dsmlcTangerine
+    hover:bg-dsmlcTangerine hover:text-white
+    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+    shadow-sm hover:shadow-md
+    transition-all duration-200"
+                    disabled={!selectedProject}
+                    onClick={() =>
+                      selectedProject &&
+                      setProjMembersModal({ project: selectedProject })
+                    }
+                  >
+                    Manage members
                   </button>
                 </div>
               </div>
@@ -1175,6 +1264,19 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
           onSaved={upsertRegistration}
           onDelete={deleteRegistration}
           onClose={() => setRegsModal(null)}
+        />
+      )}
+
+      {projMembersModal && (
+        <ProjectMembersModal
+          open={!!projMembersModal}
+          project={projMembersModal.project}
+          rows={modalProjectMemberRows}
+          roleById={roleById}
+          members={membersState}
+          onAdd={addProjectMember}
+          onDelete={deleteProjectMember}
+          onClose={() => setProjMembersModal(null)}
         />
       )}
     </div>
