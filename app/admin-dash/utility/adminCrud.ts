@@ -1,6 +1,6 @@
 // app/admin-dash/adminCrud.ts
 "use client";
-import supabase from "../supabase_client";
+import supabase from "../../supabase_client";
 
 function asErr(prefix: string, error: any) {
   // Network errors often come as TypeError without a message body.

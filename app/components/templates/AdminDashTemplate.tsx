@@ -6,16 +6,16 @@ import {
   Event,
   Member,
   VisionaryLabProject,
-} from "../../admin-dash/types";
-import { fmtDate, SECTION_CARD } from "../../admin-dash/ui";
-import SimpleTable from "../../admin-dash/SimpleTable";
-import Kpi from "../../admin-dash/Kpi";
-import SidebarTabs, { Tab } from "../../admin-dash/SidebarTabs";
-import MemberEditorModal from "../../admin-dash/MemberEditorModal";
-import ProjectEditorModal from "../../admin-dash/ProjectEditorModal";
-import EventEditorModal from "../../admin-dash/EventEditorModal";
-import AlumniEditorModal from "../../admin-dash/AlumniEditorModal";
-import { deleteRow } from "../../admin-dash/adminCrud";
+} from "../../admin-dash/utility/types";
+import { fmtDate, SECTION_CARD } from "../../admin-dash/components/ui";
+import SimpleTable from "../../admin-dash/components/SimpleTable";
+import Kpi from "../../admin-dash/components/Kpi";
+import SidebarTabs, { Tab } from "../../admin-dash/components/SidebarTabs";
+import MemberEditorModal from "../../admin-dash/modals/MemberEditorModal";
+import ProjectEditorModal from "../../admin-dash/modals/ProjectEditorModal";
+import EventEditorModal from "../../admin-dash/modals/EventEditorModal";
+import AlumniEditorModal from "../../admin-dash/modals/AlumniEditorModal";
+import { deleteRow } from "../../admin-dash/utility/adminCrud";
 
 const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   Data,
@@ -46,7 +46,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     setAlumniState(alumni);
   }, [members, projects, events, alumni]);
 
-  // ======= Selection state (per tab) =======
+  // Selection state (per tab)
   const [selectedMemberId, setSelectedMemberId] = useState<number | null>(null);
   const [selectedProjectId, setSelectedProjectId] = useState<number | null>(
     null
@@ -95,7 +95,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     initial: Partial<Alumni>;
   } | null>(null);
 
-  // ======= Joins & derived stats =======
+  // Joins & derived stats
   const roleById = useMemo(
     () => new Map(roles.map((r) => [r.role_id, r.role])),
     [roles]
@@ -159,7 +159,8 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   }).length;
   const kpiAlumni = alumniState.length;
 
-  // ======= Delete handlers (optimistic) =======
+  // Delete handlers
+  // delete member function
   const onDeleteMember = async (m: Member) => {
     if (
       !confirm(`Delete ${m.first_name} ${m.last_name}? This cannot be undone.`)
@@ -176,6 +177,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     }
   };
 
+  // delete project function
   const onDeleteProject = async (p: VisionaryLabProject) => {
     if (!confirm(`Delete project "${p.name}"? This cannot be undone.`)) return;
     const snapshot = projectsState;
@@ -191,6 +193,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     }
   };
 
+  // delete event function
   const onDeleteEvent = async (ev: Event) => {
     if (!confirm(`Delete event "${ev.event_name}"? This cannot be undone.`))
       return;
@@ -205,6 +208,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     }
   };
 
+  // delete alumni function
   const onDeleteAlumni = async (a: Alumni) => {
     if (
       !confirm(
@@ -248,10 +252,10 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   <table className="table-fixed w-full">
                     <thead>
                       <tr>
-                        <th className="text-xs md:text-sm sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="text-xs md:text-sm sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Role
                         </th>
-                        <th className="text-xs md:text-sm sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="text-xs md:text-sm sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Count
                         </th>
                       </tr>
@@ -259,10 +263,12 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     <tbody>
                       {membersByRole.map(([role, count]) => (
                         <tr key={role} className="hover">
-                          <td className="border-r border-light-dsmlcEnhancedParchment/70 dark:border-dark-dsmlcEnhancedParchment/70">
+                          <td className="border-r  dark:text-dark-dsmlcBlack text-light-dsmlcBlack border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
                             <span>{role}</span>
                           </td>
-                          <td className="text-center">{count}</td>
+                          <td className="text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
+                            {count}
+                          </td>
                         </tr>
                       ))}
                     </tbody>
@@ -278,19 +284,19 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   <table className="table w-full">
                     <thead>
                       <tr>
-                        <th className="sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Name
                         </th>
-                        <th className="sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Date
                         </th>
-                        <th className="sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Type
                         </th>
-                        <th className="text-right sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="text-center sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Registered
                         </th>
-                        <th className="text-right sticky bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
+                        <th className="text-center sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
                           Present
                         </th>
                       </tr>
@@ -303,15 +309,21 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                         };
                         return (
                           <tr key={e.event_id} className="hover">
-                            <td className="border-r border-light-dsmlcEnhancedParchment/70 dark:border-dark-dsmlcEnhancedParchment/70">
+                            <td className="text-center border-r dark:text-dark-dsmlcBlack text-light-dsmlcBlack border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
                               {e.event_name}
                             </td>
-                            <td className="whitespace-nowrap">
+                            <td className="text-center whitespace-nowrap dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
                               {fmtDate(e.event_date)}
                             </td>
-                            <td>{e.event_type ?? "—"}</td>
-                            <td className="text-right">{agg.registered}</td>
-                            <td className="text-right">{agg.present}</td>
+                            <td className=" text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
+                              {e.event_type ?? "—"}
+                            </td>
+                            <td className="text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
+                              {agg.registered}
+                            </td>
+                            <td className="text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
+                              {agg.present}
+                            </td>
                           </tr>
                         );
                       })}
@@ -336,7 +348,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                 </h2>
                 <div className="flex items-center gap-2">
                   <button
-                    className="btn btn-sm"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     onClick={() =>
                       setMemberModal({
                         mode: "create",
@@ -351,7 +370,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     Add
                   </button>
                   <button
-                    className="btn btn-sm"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     disabled={!selectedMember}
                     onClick={() =>
                       selectedMember &&
@@ -361,7 +387,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     Edit
                   </button>
                   <button
-                    className="btn btn-sm btn-error"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     disabled={!selectedMember}
                     onClick={() =>
                       selectedMember && onDeleteMember(selectedMember)
@@ -409,7 +442,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     header: "Name",
                     className: "min-w-[160px]",
                     render: (m) => (
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2  dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
                         <div className="avatar placeholder" />
                         <span>{`${m.first_name} ${m.last_name}`}</span>
                       </div>
@@ -420,7 +453,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     header: "Role",
                     className: "min-w-[120px]",
                     render: (m) => (
-                      <span className="badge badge-outline">
+                      <span className="badge badge-outline  dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
                         {m.role_id
                           ? (roleById.get(m.role_id) ?? "Unassigned")
                           : "Unassigned"}
@@ -430,7 +463,8 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   {
                     key: "email",
                     header: "Email",
-                    className: "min-w-[200px] max-w-[260px]",
+                    className:
+                      "min-w-[200px] max-w-[260px]  dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (m) =>
                       m.email ? (
                         <a
@@ -443,18 +477,30 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                         "—"
                       ),
                   },
-                  { key: "major", header: "Major", className: "min-w-[120px]" },
-                  { key: "year", header: "Year", className: "w-[80px]" },
+                  {
+                    key: "major",
+                    header: "Major",
+                    className:
+                      "min-w-[120px]  dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                  },
+                  {
+                    key: "year",
+                    header: "Year",
+                    className:
+                      "w-[80px]  dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                  },
                   {
                     key: "join_date",
                     header: "Joined",
-                    className: "w-[120px]",
+                    className:
+                      "w-[120px]  dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (m) => fmtDate(m.join_date ?? null),
                   },
                   {
                     key: "graduated",
                     header: "Graduated",
-                    className: "w-[110px]",
+                    className:
+                      "w-[110px]  dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (m) => (
                       <span
                         className={
@@ -482,7 +528,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                 </h2>
                 <div className="flex items-center gap-2">
                   <button
-                    className="btn btn-sm"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     onClick={() =>
                       setProjectModal({
                         mode: "create",
@@ -493,7 +546,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     Add
                   </button>
                   <button
-                    className="btn btn-sm"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     disabled={!selectedProject}
                     onClick={() =>
                       selectedProject &&
@@ -506,7 +566,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     Edit
                   </button>
                   <button
-                    className="btn btn-sm btn-error"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     disabled={!selectedProject}
                     onClick={() =>
                       selectedProject && onDeleteProject(selectedProject)
@@ -549,16 +616,23 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                       </div>
                     ),
                   },
-                  { key: "name", header: "Name", className: "min-w-[180px]" },
+                  {
+                    key: "name",
+                    header: "Name",
+                    className:
+                      "min-w-[180px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                  },
                   {
                     key: "project_type",
                     header: "Type",
-                    className: "min-w-[120px]",
+                    className:
+                      "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                   },
                   {
                     key: "project_lead",
                     header: "Project Lead",
-                    className: "min-w-[160px]",
+                    className:
+                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (p) => {
                       const lead = p.project_lead
                         ? memberById.get(p.project_lead)
@@ -571,25 +645,29 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   {
                     key: "team",
                     header: "Team",
-                    className: "w-[80px]",
+                    className:
+                      "w-[80px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (p) => projectTeamCounts.get(p.project_id) ?? 0,
                   },
                   {
                     key: "start_date",
                     header: "Start",
-                    className: "w-[120px]",
+                    className:
+                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (p) => fmtDate(p.start_date),
                   },
                   {
                     key: "end_date",
                     header: "End",
-                    className: "w-[120px]",
+                    className:
+                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (p) => fmtDate(p.end_date ?? null),
                   },
                   {
                     key: "status",
                     header: "Status",
-                    className: "min-w-[120px]",
+                    className:
+                      "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (p) => (
                       <span
                         className={
@@ -621,7 +699,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                 </h2>
                 <div className="flex items-center gap-2">
                   <button
-                    className="btn btn-sm"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     onClick={() =>
                       setEventModal({
                         mode: "create",
@@ -632,7 +717,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     Add
                   </button>
                   <button
-                    className="btn btn-sm"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     disabled={!selectedEvent}
                     onClick={() =>
                       selectedEvent &&
@@ -642,7 +734,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     Edit
                   </button>
                   <button
-                    className="btn btn-sm btn-error"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     disabled={!selectedEvent}
                     onClick={() =>
                       selectedEvent && onDeleteEvent(selectedEvent)
@@ -670,7 +769,8 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   {
                     key: "select",
                     header: "",
-                    className: "w-[60px]",
+                    className:
+                      "w-[60px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (e) => (
                       <div className="flex justify-center">
                         <input
@@ -687,30 +787,35 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   {
                     key: "event_name",
                     header: "Name",
-                    className: "min-w-[200px]",
+                    className:
+                      "min-w-[200px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                   },
                   {
                     key: "event_type",
                     header: "Type",
-                    className: "min-w-[120px]",
+                    className:
+                      "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                   },
                   {
                     key: "event_date",
                     header: "Date",
-                    className: "w-[120px]",
+                    className:
+                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (e) => fmtDate(e.event_date),
                   },
                   {
                     key: "registered",
                     header: "Registered",
-                    className: "w-[120px]",
+                    className:
+                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (e) =>
                       registrationsByEvent.get(e.event_id)?.registered ?? 0,
                   },
                   {
                     key: "present",
                     header: "Present",
-                    className: "w-[120px]",
+                    className:
+                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (e) =>
                       registrationsByEvent.get(e.event_id)?.present ?? 0,
                   },
@@ -728,7 +833,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                 </h2>
                 <div className="flex items-center gap-2">
                   <button
-                    className="btn btn-sm"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     onClick={() =>
                       setAlumniModal({
                         mode: "create",
@@ -739,7 +851,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     Add
                   </button>
                   <button
-                    className="btn btn-sm"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     disabled={!selectedAlumni}
                     onClick={() =>
                       selectedAlumni &&
@@ -749,7 +868,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                     Edit
                   </button>
                   <button
-                    className="btn btn-sm btn-error"
+                    className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
                     disabled={!selectedAlumni}
                     onClick={() =>
                       selectedAlumni && onDeleteAlumni(selectedAlumni)
@@ -777,7 +903,8 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   {
                     key: "select",
                     header: "",
-                    className: "w-[60px]",
+                    className:
+                      "w-[60px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (a) => (
                       <div className="flex justify-center">
                         <input
@@ -796,7 +923,8 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   {
                     key: "member_id",
                     header: "Name",
-                    className: "min-w-[160px]",
+                    className:
+                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (a) => {
                       const m = memberById.get(a.member_id);
                       return m
@@ -807,22 +935,26 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
                   {
                     key: "company",
                     header: "Company",
-                    className: "min-w-[160px]",
+                    className:
+                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                   },
                   {
                     key: "position",
                     header: "Previous Position",
-                    className: "min-w-[160px]",
+                    className:
+                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                   },
                   {
                     key: "graduation_year",
                     header: "Grad Year",
-                    className: "w-[110px]",
+                    className:
+                      "w-[110px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                   },
                   {
                     key: "linkedin",
                     header: "LinkedIn",
-                    className: "w-[110px]",
+                    className:
+                      "w-[110px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                     render: (a) =>
                       a.linkedin ? (
                         <a

@@ -76,7 +76,7 @@ export default function SimpleTable<T>({
   const bodyCellBase = cn(
     "text-xs md:text-sm align-middle whitespace-nowrap",
     verticalDividers &&
-      "border-r border-light-dsmlcEnhancedParchment/70 dark:border-dark-dsmlcEnhancedParchment/70 last:border-r-0"
+      "border-r border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment last:border-r-0"
   );
 
   return (

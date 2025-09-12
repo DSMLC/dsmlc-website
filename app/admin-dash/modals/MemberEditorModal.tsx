@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { Member } from "./types";
-import { insertRow, updateRow } from "./adminCrud";
+import { Member } from "../utility/types";
+import { insertRow, updateRow } from "../utility/adminCrud";
 
 type Props = {
   open: boolean;
