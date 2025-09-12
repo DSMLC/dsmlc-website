@@ -21,6 +21,12 @@ export default function ProjectEditorModal({
   const [form, setForm] = useState<Partial<VisionaryLabProject>>(initial);
   const [saving, setSaving] = useState(false);
 
+  // match Member modal: simple mount flag for entrance animation
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(open);
+  }, [open]);
+
   useEffect(() => setForm(initial), [initial]);
 
   const set = <K extends keyof VisionaryLabProject>(
@@ -38,12 +44,12 @@ export default function ProjectEditorModal({
 
       const payload = {
         name: form.name ?? "",
-        project_type: u(form.project_type), // was null → now undefined when empty
-        description: u(form.description), // was null → now undefined when empty
-        start_date: u(form.start_date), // was null → now undefined when empty
-        end_date: form.end_date && form.end_date.trim() ? form.end_date : null, // this column allows null
+        project_type: u(form.project_type),
+        description: u(form.description),
+        start_date: u(form.start_date),
+        end_date: form.end_date && form.end_date.trim() ? form.end_date : null, // column allows null
         status: form.status ?? "planned",
-        project_lead: form.project_lead ?? null, // this column allows null
+        project_lead: form.project_lead ?? null, // column allows null
       };
 
       if (mode === "edit") {
@@ -71,100 +77,181 @@ export default function ProjectEditorModal({
     }
   };
 
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Escape") onClose();
+  };
+
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
-      <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+    <div
+      className="fixed inset-0 z-50 grid place-items-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="project-modal-title"
+      onKeyDown={onKeyDown}
+    >
+      {/* Backdrop (click to close) */}
+      <button
+        aria-label="Close"
+        className="absolute inset-0 bg-base-content/60 backdrop-blur-sm"
         onClick={onClose}
       />
-      <div className="relative w-full max-w-3xl mx-4 rounded-2xl bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment shadow-xl p-6">
-        <h3 className="text-xl font-semibold text-dsmlcTangerine mb-6">
-          {mode === "edit" ? "Edit Project" : "Add Project"}
-        </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <label className="form-control">
-            <span className="label-text">Name</span>
-            <input
-              className="input input-bordered"
-              value={form.name ?? ""}
-              onChange={(e) => set("name", e.target.value)}
-            />
-          </label>
+      {/* Panel */}
+      <div
+        className={`relative w-full max-w-3xl sm:max-w-4xl mx-auto
+        bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
+        border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+        transition-all duration-200 ease-out
+        dark:text-dark-dsmlcBlack text-light-dsmlcBlack
+        ${mounted ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-[0.98]"}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="sticky top-0 z-10 flex items-center justify-between gap-4 px-6 py-4 border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment backdrop-blur">
+          <h3
+            id="project-modal-title"
+            className="text-lg sm:text-xl font-semibold text-dsmlcTangerine"
+          >
+            {mode === "edit" ? "Edit Project" : "Add Project"}
+          </h3>
 
-          <label className="form-control">
-            <span className="label-text">Type</span>
-            <input
-              className="input input-bordered"
-              value={form.project_type ?? ""}
-              onChange={(e) => set("project_type", e.target.value)}
-            />
-          </label>
-
-          <label className="form-control sm:col-span-2">
-            <span className="label-text">Description</span>
-            <textarea
-              className="textarea textarea-bordered"
-              value={form.description ?? ""}
-              onChange={(e) => set("description", e.target.value)}
-            />
-          </label>
-
-          <label className="form-control">
-            <span className="label-text">Start date (YYYY-MM-DD)</span>
-            <input
-              className="input input-bordered"
-              value={form.start_date ?? ""}
-              onChange={(e) => set("start_date", e.target.value)}
-            />
-          </label>
-
-          <label className="form-control">
-            <span className="label-text">End date (YYYY-MM-DD or blank)</span>
-            <input
-              className="input input-bordered"
-              value={form.end_date ?? ""}
-              onChange={(e) => set("end_date", e.target.value || null)}
-            />
-          </label>
-
-          <label className="form-control">
-            <span className="label-text">Status</span>
-            <select
-              className="select select-bordered"
-              value={form.status ?? "planned"}
-              onChange={(e) => set("status", e.target.value)}
-            >
-              <option value="planned">planned</option>
-              <option value="active">active</option>
-              <option value="paused">paused</option>
-              <option value="completed">completed</option>
-            </select>
-          </label>
-
-          <label className="form-control">
-            <span className="label-text">Project Lead (member_id)</span>
-            <input
-              type="number"
-              className="input input-bordered"
-              value={form.project_lead ?? ""}
-              onChange={(e) =>
-                set(
-                  "project_lead",
-                  e.target.value ? Number(e.target.value) : null
-                )
-              }
-            />
-          </label>
+          <button
+            type="button"
+            onClick={onClose}
+            className="inline-flex items-center justify-center
+            rounded-full border border-dsmlcTangerine
+            bg-transparent px-5 py-2 text-sm font-medium
+            text-dsmlcTangerine
+            hover:bg-dsmlcTangerine hover:text-white
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+            shadow-sm hover:shadow-md
+            transition-all duration-200"
+            aria-label="Close"
+          >
+            ✕
+          </button>
         </div>
 
-        <div className="mt-6 flex justify-end gap-2">
-          <button className="btn" onClick={onClose} disabled={saving}>
+        {/* Body */}
+        <div className="px-6 py-5 max-h-[70vh] sm:max-h-[72vh] overflow-y-auto border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <label className="form-control">
+              <span className="label-text font-medium">Name</span>
+              <input
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.name ?? ""}
+                onChange={(e) => set("name", e.target.value)}
+                placeholder="Project name"
+              />
+            </label>
+
+            <label className="form-control">
+              <span className="label-text font-medium">Type</span>
+              <input
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.project_type ?? ""}
+                onChange={(e) => set("project_type", e.target.value)}
+                placeholder="e.g., Web, ML, Outreach"
+              />
+            </label>
+
+            <label className="form-control sm:col-span-2">
+              <span className="label-text font-medium">Description</span>
+              <textarea
+                className="textarea textarea-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50 min-h-[7rem]"
+                value={form.description ?? ""}
+                onChange={(e) => set("description", e.target.value)}
+                placeholder="Brief description of the project..."
+              />
+            </label>
+
+            <label className="form-control">
+              <span className="label-text font-medium">Start date</span>
+              <input
+                type="date"
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.start_date ?? ""}
+                onChange={(e) => set("start_date", e.target.value)}
+              />
+            </label>
+
+            <label className="form-control">
+              <span className="label-text font-medium">
+                End date (optional)
+              </span>
+              <input
+                type="date"
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.end_date ?? ""}
+                onChange={(e) => set("end_date", e.target.value || null)}
+              />
+            </label>
+
+            <label className="form-control">
+              <span className="label-text font-medium">Status</span>
+              <select
+                className="select select-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.status ?? "planned"}
+                onChange={(e) => set("status", e.target.value)}
+              >
+                <option value="planned">planned</option>
+                <option value="active">active</option>
+                <option value="paused">paused</option>
+                <option value="completed">completed</option>
+              </select>
+            </label>
+
+            <label className="form-control">
+              <span className="label-text font-medium">
+                Project Lead (member_id)
+              </span>
+              <input
+                type="number"
+                inputMode="numeric"
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.project_lead ?? ""}
+                onChange={(e) =>
+                  set(
+                    "project_lead",
+                    e.target.value ? Number(e.target.value) : null
+                  )
+                }
+                placeholder="e.g., 42"
+              />
+            </label>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="sticky bottom-0 flex items-center justify-end gap-2 px-6 py-4 border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment backdrop-blur">
+          <button
+            className="inline-flex items-center justify-center
+            rounded-full border border-dsmlcTangerine
+            bg-transparent px-5 py-2 text-sm font-medium
+            text-dsmlcTangerine
+            hover:bg-dsmlcTangerine hover:text-white
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+            shadow-sm hover:shadow-md
+            transition-all duration-200"
+            onClick={onClose}
+            disabled={saving}
+          >
             Cancel
           </button>
-          <button className="btn btn-primary" onClick={save} disabled={saving}>
+          <button
+            className="inline-flex items-center justify-center
+            rounded-full border border-dsmlcTangerine
+            bg-transparent px-5 py-2 text-sm font-medium
+            text-dsmlcTangerine
+            hover:bg-dsmlcTangerine hover:text-white
+            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+            shadow-sm hover:shadow-md
+            transition-all duration-200"
+            onClick={save}
+            disabled={saving}
+          >
             {saving ? "Saving…" : mode === "edit" ? "Save" : "Create"}
           </button>
         </div>

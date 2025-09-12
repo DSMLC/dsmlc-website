@@ -6,16 +6,16 @@ import {
   Event,
   Member,
   VisionaryLabProject,
-} from "../../admin-dash/utility/types";
-import { fmtDate, SECTION_CARD } from "../../admin-dash/components/ui";
-import SimpleTable from "../../admin-dash/components/SimpleTable";
-import Kpi from "../../admin-dash/components/Kpi";
-import SidebarTabs, { Tab } from "../../admin-dash/components/SidebarTabs";
-import MemberEditorModal from "../../admin-dash/modals/MemberEditorModal";
-import ProjectEditorModal from "../../admin-dash/modals/ProjectEditorModal";
-import EventEditorModal from "../../admin-dash/modals/EventEditorModal";
-import AlumniEditorModal from "../../admin-dash/modals/AlumniEditorModal";
-import { deleteRow } from "../../admin-dash/utility/adminCrud";
+} from "./utility/types";
+import { fmtDate, SECTION_CARD } from "./components/ui";
+import SimpleTable from "./components/SimpleTable";
+import Kpi from "./components/Kpi";
+import SidebarTabs, { Tab } from "./components/SidebarTabs";
+import MemberEditorModal from "./modals/MemberEditorModal";
+import ProjectEditorModal from "./modals/ProjectEditorModal";
+import EventEditorModal from "./modals/EventEditorModal";
+import AlumniEditorModal from "./modals/AlumniEditorModal";
+import { deleteRow } from "./utility/adminCrud";
 
 const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   Data,

@@ -26,7 +26,7 @@ import BackgroundFillTemplate3 from "./components/templates/BackgroundFillTempla
 import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
 import ComingSoonTemplate from "./components/templates/ComingSoonTemplate";
 import CardTemplate from "./components/templates/CardTemplate";
-import AdminDataDashboardTemplate from "./components/templates/AdminDashTemplate";
+import AdminDataDashboardTemplate from "./admin-dash/AdminDashTemplate";
 export interface ImageData {
   imageLink?: string;
   imageDarkMode?: string;

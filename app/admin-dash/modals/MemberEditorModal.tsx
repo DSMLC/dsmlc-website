@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { Member } from "../utility/types";
 import { insertRow, updateRow } from "../utility/adminCrud";
 
@@ -21,13 +21,23 @@ export default function MemberEditorModal({
   const [form, setForm] = useState<Partial<Member>>(initial);
   const [saving, setSaving] = useState(false);
 
+  // simple mount flag for entrance animation
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    if (open) setMounted(true);
+    else setMounted(false);
+  }, [open]);
+
   // Reset form when switching between edit/create or when initial changes
   useEffect(() => {
     setForm(mode === "edit" ? initial : {});
   }, [initial, mode]);
 
-  const set = <K extends keyof Member>(k: K, v: Member[K]) =>
-    setForm((f) => ({ ...f, [k]: v }));
+  const set = useCallback(
+    <K extends keyof Member>(k: K, v: Member[K]) =>
+      setForm((f) => ({ ...f, [k]: v })),
+    []
+  );
 
   const validate = () => {
     const fn = form.first_name?.trim();
@@ -94,132 +104,205 @@ export default function MemberEditorModal({
     }
   };
 
+  const onKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Escape") onClose();
+  };
+
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center">
+    <div
+      className="fixed inset-0 z-50 grid place-items-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="member-modal-title"
+      onKeyDown={onKeyDown}
+    >
       {/* Backdrop */}
-      <div
-        className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+      <button
+        aria-label="Close"
+        className="absolute inset-0 bg-base-content/60 backdrop-blur-sm"
         onClick={onClose}
       />
 
       {/* Panel */}
-      <div className="relative w-full max-w-3xl mx-4 rounded-2xl bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment shadow-xl p-6">
-        <h3 className="text-xl font-semibold text-dsmlcTangerine mb-6">
-          {mode === "edit" ? "Edit Member" : "Add Member"}
-        </h3>
+      <div
+        className={`relative w-full max-w-3xl sm:max-w-4xl mx-auto bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+        transition-all duration-200 ease-out dark:text-dark-dsmlcBlack text-light-dsmlcBlack
+        ${mounted ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-2 scale-[0.98]"}`}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="sticky top-0 z-10 flex items-center justify-between gap-4 px-6 py-4 border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment backdrop-blur">
+          <h3
+            id="member-modal-title"
+            className="text-lg sm:text-xl font-semibold text-dsmlcTangerine"
+          >
+            {mode === "edit" ? "Edit Member" : "Add Member"}
+          </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <label className="form-control">
-            <span className="label-text">First name *</span>
-            <input
-              className="input input-bordered"
-              value={form.first_name ?? ""}
-              onChange={(e) => set("first_name", e.target.value)}
-            />
-          </label>
-
-          <label className="form-control">
-            <span className="label-text">Last name *</span>
-            <input
-              className="input input-bordered"
-              value={form.last_name ?? ""}
-              onChange={(e) => set("last_name", e.target.value)}
-            />
-          </label>
-
-          <label className="form-control sm:col-span-2">
-            <span className="label-text">Email</span>
-            <input
-              type="email"
-              className="input input-bordered"
-              value={form.email ?? ""}
-              onChange={(e) => set("email", e.target.value || ("" as any))}
-              placeholder="name@ucalgary.ca"
-            />
-          </label>
-
-          <label className="form-control">
-            <span className="label-text">UCID</span>
-            <input
-              className="input input-bordered"
-              value={form.ucid ?? ""}
-              onChange={(e) => set("ucid", e.target.value || ("" as any))}
-              placeholder="30012345"
-            />
-          </label>
-
-          <label className="form-control">
-            <span className="label-text">Major</span>
-            <input
-              className="input input-bordered"
-              value={form.major ?? ""}
-              onChange={(e) => set("major", e.target.value || ("" as any))}
-              placeholder="Computer Science"
-            />
-          </label>
-
-          <label className="form-control">
-            <span className="label-text">Role ID</span>
-            <input
-              type="number"
-              className="input input-bordered"
-              value={form.role_id ?? ""}
-              onChange={(e) =>
-                set(
-                  "role_id",
-                  e.target.value ? Number(e.target.value) : (null as any)
-                )
-              }
-              placeholder="e.g., 2"
-            />
-          </label>
-
-          <label className="form-control">
-            <span className="label-text">Year</span>
-            <input
-              type="number"
-              className="input input-bordered"
-              value={form.year ?? ""}
-              onChange={(e) =>
-                set(
-                  "year",
-                  e.target.value ? Number(e.target.value) : (null as any)
-                )
-              }
-              placeholder="e.g., 3"
-            />
-          </label>
-
-          <label className="form-control">
-            <span className="label-text">Joined (YYYY-MM-DD)</span>
-            <input
-              className="input input-bordered"
-              placeholder="2025-09-01"
-              value={form.join_date ?? ""}
-              onChange={(e) =>
-                set("join_date", e.target.value || (null as any))
-              }
-            />
-          </label>
-
-          <label className="form-control">
-            <span className="label-text">Graduated</span>
-            <input
-              type="checkbox"
-              className="toggle"
-              checked={!!form.graduated}
-              onChange={(e) => set("graduated", e.target.checked)}
-            />
-          </label>
+          <button
+            type="button"
+            onClick={onClose}
+            className="inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
+            aria-label="Close"
+          >
+            ✕
+          </button>
         </div>
 
-        <div className="mt-6 flex justify-end gap-2">
-          <button className="btn" onClick={onClose} disabled={saving}>
+        {/* Body */}
+        <div className="px-6 py-5 max-h-[70vh] sm:max-h-[72vh] overflow-y-auto border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <label className="form-control">
+              <span className="label-text font-medium">First name *</span>
+              <input
+                autoFocus
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.first_name ?? ""}
+                onChange={(e) => set("first_name", e.target.value)}
+                placeholder="Jane"
+              />
+            </label>
+
+            <label className="form-control">
+              <span className="label-text font-medium">Last name *</span>
+              <input
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.last_name ?? ""}
+                onChange={(e) => set("last_name", e.target.value)}
+                placeholder="Doe"
+              />
+            </label>
+
+            <label className="form-control sm:col-span-2">
+              <span className="label-text font-medium">Email</span>
+              <input
+                type="email"
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.email ?? ""}
+                onChange={(e) => set("email", e.target.value || ("" as any))}
+                placeholder="name@ucalgary.ca"
+              />
+            </label>
+
+            <label className="form-control">
+              <span className="label-text font-medium">UCID</span>
+              <input
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.ucid ?? ""}
+                onChange={(e) => set("ucid", e.target.value || ("" as any))}
+                placeholder="30012345"
+              />
+            </label>
+
+            <label className="form-control">
+              <span className="label-text font-medium">Major</span>
+              <input
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.major ?? ""}
+                onChange={(e) => set("major", e.target.value || ("" as any))}
+                placeholder="Computer Science"
+              />
+            </label>
+
+            <label className="form-control">
+              <span className="label-text font-medium">Role ID</span>
+              <input
+                type="number"
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.role_id ?? ""}
+                onChange={(e) =>
+                  set(
+                    "role_id",
+                    e.target.value ? Number(e.target.value) : (null as any)
+                  )
+                }
+                placeholder="e.g., 2"
+                inputMode="numeric"
+              />
+            </label>
+
+            <label className="form-control">
+              <span className="label-text font-medium">Year</span>
+              <input
+                type="number"
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                value={form.year ?? ""}
+                onChange={(e) =>
+                  set(
+                    "year",
+                    e.target.value ? Number(e.target.value) : (null as any)
+                  )
+                }
+                placeholder="e.g., 3"
+                inputMode="numeric"
+              />
+            </label>
+
+            <label className="form-control">
+              <span className="label-text font-medium">Joined</span>
+              {/* Using date input keeps YYYY-MM-DD format */}
+              <input
+                type="date"
+                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+                placeholder="2025-09-01"
+                value={form.join_date ?? ""}
+                onChange={(e) =>
+                  set("join_date", e.target.value || (null as any))
+                }
+              />
+            </label>
+
+            <div className="form-control">
+              <span className="label-text font-medium">Graduated</span>
+              <label className="label cursor-pointer justify-start gap-3 p-0 mt-2">
+                <input
+                  type="checkbox"
+                  className="toggle toggle-primary"
+                  checked={!!form.graduated}
+                  onChange={(e) => set("graduated", e.target.checked)}
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="sticky bottom-0 flex items-center justify-end gap-2 px-6 py-4 border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment backdrop-blur">
+          <button
+            className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
+            onClick={onClose}
+            disabled={saving}
+          >
             Cancel
           </button>
-          <button className="btn btn-primary" onClick={save} disabled={saving}>
+          <button
+            className="      inline-flex items-center justify-center
+      rounded-full border border-dsmlcTangerine
+      bg-transparent px-5 py-2 text-sm font-medium
+      text-dsmlcTangerine
+      hover:bg-dsmlcTangerine hover:text-white
+      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+      shadow-sm hover:shadow-md
+      transition-all duration-200"
+            onClick={save}
+            disabled={saving}
+          >
             {saving ? "Saving…" : mode === "edit" ? "Save" : "Create"}
           </button>
         </div>
