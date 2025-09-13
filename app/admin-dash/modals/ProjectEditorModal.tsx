@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { VisionaryLabProject } from "../utility/types";
-import { insertRow, updateRow } from "../utility/adminCrud";
+import { insertRow, updateRow, upsertRow } from "../utility/adminCrud";
 
 type Props = {
   open: boolean;
@@ -21,7 +21,7 @@ export default function ProjectEditorModal({
   const [form, setForm] = useState<Partial<VisionaryLabProject>>(initial);
   const [saving, setSaving] = useState(false);
 
-  // match Member modal: simple mount flag for entrance animation
+  // match Member modal
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(open);
@@ -66,6 +66,29 @@ export default function ProjectEditorModal({
           "VisionaryLabProject",
           payload
         );
+      }
+
+      // If a project lead is set, ensure they're in the project members table as "leader"
+      if (saved.project_id != null && saved.project_lead != null) {
+        try {
+          await upsertRow<any>(
+            "VisionaryLabMemberRole",
+            {
+              project_id: saved.project_id,
+              member_id: saved.project_lead,
+              project_role: "leader",
+            },
+            ["project_id", "member_id"]
+          );
+        } catch (e: any) {
+          // surface the issue
+          console.error("Auto-assign leader to project members failed:", e);
+          alert(
+            `Project saved, but failed to auto-assign the leader to project members: ${
+              e?.message ?? e
+            }`
+          );
+        }
       }
 
       onSaved(saved, mode);

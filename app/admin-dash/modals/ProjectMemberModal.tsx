@@ -147,7 +147,7 @@ function MemberSearchSelect({
           ref={listRef}
           id="pmember-search-listbox"
           role="listbox"
-          className="absolute left-full top-0 mr-2 z-[200] w-full max-h-72 overflow-auto rounded-2xl
+          className="absolute left-full top-0 ml-2 z-[200] min-w-[260px] max-w-[360px] max-h-72 overflow-auto rounded-2xl
                      border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
                      bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite shadow-xl"
         >
@@ -228,7 +228,7 @@ function ProjectMembersModal({
     mode: "create" | "edit";
     values: {
       member_id: number | null;
-      project_role: string; // keep as string to satisfy VisionaryLabMemberRole
+      project_role: string;
     };
     saving?: boolean;
   } | null>(null);
@@ -257,7 +257,7 @@ function ProjectMembersModal({
       mode: "create",
       values: {
         member_id: null,
-        project_role: "", // empty string means "Unassigned"
+        project_role: "",
       },
     });
   };
@@ -268,7 +268,7 @@ function ProjectMembersModal({
       mode: "edit",
       values: {
         member_id: selectedRow.member_id,
-        project_role: selectedRow.project_role ?? "", // coerce to string
+        project_role: selectedRow.project_role ?? "",
       },
     });
   };
@@ -321,7 +321,7 @@ function ProjectMembersModal({
     const payload: VisionaryLabMemberRole = {
       project_id: project.project_id,
       member_id,
-      project_role, // string ("" allowed; dashboard will normalize ""->null for DB)
+      project_role,
     };
 
     try {
@@ -429,18 +429,18 @@ function ProjectMembersModal({
             verticalDividers
             columnGroups={[
               { label: "Select", span: 1 },
-              { label: "Member", span: 2 },
-              { label: "Contact", span: 1 },
-              { label: "Org Role", span: 1 },
-              { label: "Project Role", span: 1 },
+              { label: "Member", span: 2 }, // Name + Member ID
+              { label: "Contact", span: 1 }, // Email
+              { label: "Org Role", span: 1 }, // Org Role
+              { label: "Project Role", span: 1 }, // Project Role
             ]}
             columns={[
               {
                 key: "select",
                 header: "",
-                className: "w-[60px]",
+                className: "w-[56px]",
                 render: (r) => (
-                  <div className="flex justify-center">
+                  <div className="flex justify-center items-center">
                     <input
                       type="radio"
                       name="pmember-select"
@@ -456,22 +456,39 @@ function ProjectMembersModal({
                 key: "name",
                 header: "Name",
                 className:
-                  "min-w-[180px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                  "min-w-[180px] max-w-[220px] truncate dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                 render: (r) =>
-                  r.member
-                    ? `${r.member.first_name} ${r.member.last_name}`
-                    : `#${r.member_id}`,
+                  r.member ? (
+                    <span className="truncate block">{`${r.member.first_name} ${r.member.last_name}`}</span>
+                  ) : (
+                    `#${r.member_id}`
+                  ),
+              },
+              {
+                key: "memberId",
+                header: "Member ID",
+                className:
+                  "w-[110px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                render: (r) => (
+                  <span
+                    className="inline-flex items-center rounded-full border px-2 py-0.5 text-[11px]
+                    border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment"
+                  >
+                    #{r.member_id}
+                  </span>
+                ),
               },
               {
                 key: "email",
                 header: "Email",
                 className:
-                  "min-w-[200px] max-w-[260px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                  "min-w-[210px] max-w-[260px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                 render: (r) =>
                   r.member?.email ? (
                     <a
                       className="link truncate block"
                       href={`mailto:${r.member.email}`}
+                      title={r.member.email}
                     >
                       {r.member.email}
                     </a>
