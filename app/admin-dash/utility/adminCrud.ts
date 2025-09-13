@@ -98,19 +98,80 @@ export async function upsertRow<T extends Record<string, any>>(
   values: Partial<T>,
   conflictTarget: string[] // e.g. ["event_id","member_id"]
 ) {
+  const onConflict = conflictTarget?.length
+    ? { onConflict: conflictTarget.join(",") }
+    : undefined;
+
   try {
     const { data, error, status } = await supabase
       .schema("admin")
       .from(table)
-      .upsert(values as any, { onConflict: conflictTarget.join(",") })
+      .upsert(values as any, onConflict as any)
       .select("*")
       .single();
 
     if (error) throw new Error(`${error.message} (HTTP ${status})`);
     if (!data) throw new Error(`No data returned (HTTP ${status})`);
     return data as T;
-  } catch (e) {
-    console.error("upsertRow failed:", e);
-    throw asErr(`Upsert ${table}`, e);
+  } catch (e: any) {
+    // If the table doesn't have the required unique/exclusion constraint
+    const msg = String(e?.message ?? e);
+    const noConflictIdx = /no unique or exclusion constraint matching the ON CONFLICT/i.test(msg);
+
+    if (!noConflictIdx || !conflictTarget?.length) {
+      // rethrow a nice error
+      throw asErr(`Upsert ${table}`, e);
+    }
+
+    // Build a WHERE object from the conflict keys
+    const where: Record<string, any> = {};
+    for (const col of conflictTarget) {
+      const v = (values as any)[col];
+      if (v === undefined) {
+        throw new Error(
+          `Upsert ${table}: missing value for conflict column "${col}"`
+        );
+      }
+      where[col] = v;
+    }
+
+    // Try to find an existing row
+    const existing = await supabase
+      .schema("admin")
+      .from(table)
+      .select("*")
+      .match(where)
+      .maybeSingle();
+
+    if (existing.error) {
+      throw new Error(`${existing.error.message} (HTTP ${existing.status})`);
+    }
+
+    if (existing.data) {
+      // Update path
+      const upd = await supabase
+        .schema("admin")
+        .from(table)
+        .update(values as any)
+        .match(where)
+        .select("*")
+        .single();
+
+      if (upd.error) throw new Error(`${upd.error.message} (HTTP ${upd.status})`);
+      if (!upd.data) throw new Error(`No data returned (HTTP ${upd.status})`);
+      return upd.data as T;
+    } else {
+      // Insert path
+      const ins = await supabase
+        .schema("admin")
+        .from(table)
+        .insert(values as any)
+        .select("*")
+        .single();
+
+      if (ins.error) throw new Error(`${ins.error.message} (HTTP ${ins.status})`);
+      if (!ins.data) throw new Error(`No data returned (HTTP ${ins.status})`);
+      return ins.data as T;
+    }
   }
 }

@@ -11,7 +11,7 @@ type RegRow = EventRegistration & { member?: Member };
 const yesNo = (n: number | null | undefined) =>
   n === 1 ? "Yes" : n === 0 ? "No" : "—";
 const presentAbsent = (n: number | null | undefined) =>
-  n === 1 ? "present" : n === 0 ? "absent" : "—";
+  n === 1 ? "present" : n === 0 ? "absent" : "Unassigned";
 
 /* ========================= Searchable member combobox ========================= */
 
@@ -262,7 +262,7 @@ function EventRegistrationsModal({
       mode: "create",
       values: {
         member_id: null,
-        registered: 1, // default new registrations to "Yes"
+        registered: null,
         attendance: null,
       },
     });
@@ -617,7 +617,7 @@ function EventRegistrationsModal({
                     className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
                     value=""
                   >
-                    —
+                    — (Unassigned)
                   </option>
                   <option
                     className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
@@ -665,7 +665,7 @@ function EventRegistrationsModal({
                     className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
                     value=""
                   >
-                    —
+                    — (Unassigned)
                   </option>
                   <option
                     className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
