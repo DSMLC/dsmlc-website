@@ -74,7 +74,7 @@ export default function MembersTab({
         verticalDividers
         columnGroups={[
           { label: "Select", span: 1 },
-          { label: "Member", span: 2 },
+          { label: "Member", span: 3 }, // was 2; now includes ID
           { label: "Contact", span: 1 },
           { label: "Academics", span: 2 },
           { label: "Status", span: 2 },
@@ -106,6 +106,20 @@ export default function MembersTab({
                 <div className="avatar placeholder" />
                 <span>{`${m.first_name} ${m.last_name}`}</span>
               </div>
+            ),
+          },
+          {
+            key: "member_id",
+            header: "ID",
+            className:
+              "w-[90px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+            render: (m) => (
+              <span
+                className="rounded-full border px-2 py-0.5 text-xs opacity-80
+                border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment"
+              >
+                #{m.member_id}
+              </span>
             ),
           },
           {
