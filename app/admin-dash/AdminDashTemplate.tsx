@@ -8,9 +8,15 @@ import {
   VisionaryLabProject,
   EventRegistration,
 } from "./utility/types";
-import { fmtDate, SECTION_CARD } from "./components/ui";
-import SimpleTable from "./components/SimpleTable";
-import Kpi from "./components/Kpi";
+import { deleteRow, deleteWhere, upsertRow } from "./utility/adminCrud";
+
+import OverviewTab from "./tabs/OverviewTab";
+import MembersTab from "./tabs/MembersTab";
+import ProjectsTab from "./tabs/ProjectsTab";
+import EventsTab from "./tabs/EventsTab";
+import AlumniTab from "./tabs/AlumniTab";
+import useAdminDerived from "./utility/adminDerived";
+
 import SidebarTabs, { Tab } from "./components/SidebarTabs";
 import MemberEditorModal from "./modals/MemberEditorModal";
 import ProjectEditorModal from "./modals/ProjectEditorModal";
@@ -18,9 +24,6 @@ import EventEditorModal from "./modals/EventEditorModal";
 import AlumniEditorModal from "./modals/AlumniEditorModal";
 import EventRegistrationModal from "./modals/EventRegistrationModal";
 import ProjectMembersModal from "./modals/ProjectMemberModal";
-import { deleteRow } from "./utility/adminCrud";
-
-import supabase from "../supabase_client";
 
 type RegRow = EventRegistration & { member?: Member };
 
@@ -37,23 +40,26 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     alumni,
   } = Data;
 
-  const [tab, setTab] = useState<Tab>("Overview");
+  // =========================== Tab + local DB mirrors ===========================
 
-  // Local state mirrors for optimistic updates
+  const [tab, setTab] = useState<Tab>("Overview");
   const [membersState, setMembersState] = useState<Member[]>(members);
   const [projectsState, setProjectsState] =
     useState<VisionaryLabProject[]>(projects);
   const [eventsState, setEventsState] = useState<Event[]>(events);
   const [alumniState, setAlumniState] = useState<Alumni[]>(alumni);
+  const [registrationsState, setRegistrationsState] =
+    useState<EventRegistration[]>(registrations);
 
   useEffect(() => {
     setMembersState(members);
     setProjectsState(projects);
     setEventsState(events);
     setAlumniState(alumni);
-  }, [members, projects, events, alumni]);
+    setRegistrationsState(registrations);
+  }, [members, projects, events, alumni, registrations]);
 
-  // Selection state (per tab)
+  // =========================== Selections ===========================
   const [selectedMemberId, setSelectedMemberId] = useState<number | null>(null);
   const [selectedProjectId, setSelectedProjectId] = useState<number | null>(
     null
@@ -81,113 +87,52 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     [alumniState, selectedAlumniMemberId]
   );
 
-  const [regsModal, setRegsModal] = useState<{ event: Event } | null>(null);
-
-  // ======= Modals (per tab) =======
+  // =========================== Modal States ===========================
   const [memberModal, setMemberModal] = useState<{
     mode: "create" | "edit";
     initial: Partial<Member>;
   } | null>(null);
-
   const [projectModal, setProjectModal] = useState<{
     mode: "create" | "edit";
     initial: Partial<VisionaryLabProject>;
   } | null>(null);
-
   const [eventModal, setEventModal] = useState<{
     mode: "create" | "edit";
     initial: Partial<Event>;
   } | null>(null);
-
   const [alumniModal, setAlumniModal] = useState<{
     mode: "create" | "edit";
     initial: Partial<Alumni>;
   } | null>(null);
 
-  const [registrationsState, setRegistrationsState] =
-    useState<EventRegistration[]>(registrations);
-
-  // Project members modal
+  const [regsModal, setRegsModal] = useState<{ event: Event } | null>(null);
   const [projMembersModal, setProjMembersModal] = useState<{
     project: VisionaryLabProject;
   } | null>(null);
 
-  const [projMembersState, setProjMembersState] = useState(
-    Data.projectMemberRoles
-  );
-  useEffect(() => {
-    setProjMembersState(Data.projectMemberRoles);
-  }, [Data.projectMemberRoles]);
+  // =========================== Derived joins & KPIs  ===========================
+  const {
+    roleById,
+    memberById,
+    membersByRole,
+    registrationsByEvent,
+    projectTeamCounts,
+    kpiTotalMembers,
+    kpiActiveProjects,
+    kpiEventsThisMonth,
+    kpiAlumni,
+    upcomingEvents,
+  } = useAdminDerived({
+    roles,
+    membersState,
+    eventsState,
+    registrationsState,
+    projectMemberRoles,
+    alumniState,
+    projectsState,
+  });
 
-  useEffect(() => {
-    setRegistrationsState(registrations);
-  }, [registrations]);
-
-  // Joins & derived stats
-  const roleById = useMemo(
-    () => new Map(roles.map((r) => [r.role_id, r.role])),
-    [roles]
-  );
-  const memberById = useMemo(
-    () => new Map(membersState.map((m) => [m.member_id, m])),
-    [membersState]
-  );
-
-  const membersByRole = useMemo(() => {
-    const map = new Map<string, number>();
-    membersState.forEach((m) => {
-      const name = m.role_id
-        ? (roleById.get(m.role_id) ?? "Unassigned")
-        : "Unassigned";
-      map.set(name, (map.get(name) ?? 0) + 1);
-    });
-    return Array.from(map.entries()).sort((a, b) => b[1] - a[1]);
-  }, [membersState, roleById]);
-
-  const registrationsByEvent = useMemo(() => {
-    const map = new Map<number, { registered: number; present: number }>();
-    registrationsState.forEach((r) => {
-      const rec = map.get(r.event_id) ?? { registered: 0, present: 0 };
-      if (r.registered) rec.registered += 1; // treats 1 as truthy
-      if (r.attendance === 1) rec.present += 1; // 1 = present
-      map.set(r.event_id, rec);
-    });
-    return map;
-  }, [registrationsState]);
-
-  const projectTeamCounts = useMemo(() => {
-    const map = new Map<number, number>();
-    projectMemberRoles.forEach((pm) => {
-      map.set(pm.project_id, (map.get(pm.project_id) ?? 0) + 1);
-    });
-    return map;
-  }, [projectMemberRoles]);
-
-  const activeProjects = projectsState.filter((p) => p.status === "active");
-  const upcomingEvents = eventsState
-    .filter((e) => !!e.event_date) // only dated events
-    .slice()
-    .sort(
-      (a, b) =>
-        new Date(a.event_date as string).getTime() -
-        new Date(b.event_date as string).getTime()
-    )
-    .filter((e) => new Date(e.event_date as string).getTime() >= Date.now())
-    .slice(0, 5);
-
-  const kpiTotalMembers = membersState.length;
-  const kpiActiveProjects = activeProjects.length;
-  const kpiEventsThisMonth = eventsState.filter((e) => {
-    if (!e.event_date) return false; // guard: null/empty date is not counted
-    const d = new Date(e.event_date); // now typed as string
-    const now = new Date();
-    return (
-      d.getFullYear() === now.getFullYear() && d.getMonth() === now.getMonth()
-    );
-  }).length;
-  const kpiAlumni = alumniState.length;
-
-  // Rows for registrations modal (joined with Member)
+  // =========================== Modal data rows ===========================
   const modalRegistrationRows = useMemo<RegRow[]>(() => {
     if (!regsModal?.event?.event_id) return [];
     const id = regsModal.event.event_id;
@@ -199,16 +144,16 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   const modalProjectMemberRows = useMemo(() => {
     if (!projMembersModal?.project?.project_id) return [];
     const pid = projMembersModal.project.project_id;
-    return projMembersState
-      .filter((pm: any) => pm.project_id === pid)
-      .map((pm: any) => ({
+    return projectMemberRoles
+      .filter((pm) => pm.project_id === pid)
+      .map((pm) => ({
         project_id: pm.project_id,
         member_id: pm.member_id,
         member: memberById.get(pm.member_id),
       }));
-  }, [projMembersModal, projMembersState, memberById]);
+  }, [projMembersModal, projectMemberRoles, memberById]);
 
-  // Delete handlers
+  // =========================== DB REST Actions ===========================
   const onDeleteMember = async (m: Member) => {
     if (
       !confirm(`Delete ${m.first_name} ${m.last_name}? This cannot be undone.`)
@@ -246,7 +191,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     const snapshot = eventsState;
     setEventsState((prev) => prev.filter((x) => x.event_id !== ev.event_id));
     try {
-      await deleteRow("Evt", "event_id", ev.event_id);
+      await deleteRow("Event", "event_id", ev.event_id);
       if (selectedEventId === ev.event_id) setSelectedEventId(null);
     } catch (e: any) {
       setEventsState(snapshot);
@@ -273,50 +218,27 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     }
   };
 
-  const upsertRegistration = async (
-    row: EventRegistration,
-    mode: "create" | "edit"
-  ) => {
-    if (mode === "create") {
-      const { data, error, status } = await supabase
-        .schema("admin")
-        .from("EventRegistration")
-        .insert(row)
-        .select("*")
-        .single();
-
-      if (error) throw new Error(`${error.message} (HTTP ${status})`);
-
+  const upsertRegistration = async (row: EventRegistration) => {
+    try {
+      const data = await upsertRow<EventRegistration>(
+        "EventRegistration",
+        {
+          event_id: row.event_id,
+          member_id: row.member_id,
+          registered: row.registered,
+          attendance: row.attendance ?? null,
+        },
+        ["event_id", "member_id"]
+      );
       setRegistrationsState((prev) => {
-        // ensure uniqueness if the row previously existed
-        const filtered = prev.filter(
+        const withoutOld = prev.filter(
           (r) =>
             !(r.event_id === data.event_id && r.member_id === data.member_id)
         );
-        return [data, ...filtered];
+        return [data, ...withoutOld];
       });
-    } else {
-      const { data, error, status } = await supabase
-        .schema("admin")
-        .from("EventRegistration")
-        .update({
-          registered: row.registered,
-          attendance: row.attendance,
-        })
-        .eq("event_id", row.event_id)
-        .eq("member_id", row.member_id)
-        .select("*")
-        .single();
-
-      if (error) throw new Error(`${error.message} (HTTP ${status})`);
-
-      setRegistrationsState((prev) =>
-        prev.map((r) =>
-          r.event_id === data.event_id && r.member_id === data.member_id
-            ? data
-            : r
-        )
-      );
+    } catch (e: any) {
+      alert(`Save failed: ${e?.message ?? e}`);
     }
   };
 
@@ -327,22 +249,18 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     project_id: number;
     member_id: number;
   }) => {
-    const { data, error, status } = await supabase
-      .schema("admin")
-      .from("VisionaryLabMemberRole")
-      .insert({ project_id, member_id })
-      .select("*")
-      .single();
-
-    if (error) throw new Error(`${error.message} (HTTP ${status})`);
-    setProjMembersState((prev: any[]) => {
-      // prevent dupes
-      const exists = prev.some(
-        (x) =>
-          x.project_id === data.project_id && x.member_id === data.member_id
+    try {
+      const data = await upsertRow<any>(
+        "VisionaryLabMemberRole",
+        { project_id, member_id },
+        ["project_id", "member_id"]
       );
-      return exists ? prev : [data, ...prev];
-    });
+      // Optimistic: prevent dupes
+      setRegistrationsState((prev) => prev);
+      setProjMembersModal((pm) => pm);
+    } catch (e: any) {
+      alert(`Add failed: ${e?.message ?? e}`);
+    }
   };
 
   const deleteProjectMember = async ({
@@ -352,59 +270,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     project_id: number;
     member_id: number;
   }) => {
-    const { error, status } = await supabase
-      .schema("admin")
-      .from("VisionaryLabMemberRole")
-      .delete()
-      .eq("project_id", project_id)
-      .eq("member_id", member_id);
-
-    if (error) throw new Error(`${error.message} (HTTP ${status})`);
-    setProjMembersState((prev: any[]) =>
-      prev.filter(
-        (x) => !(x.project_id === project_id && x.member_id === member_id)
-      )
-    );
+    try {
+      await deleteWhere("VisionaryLabMemberRole", { project_id, member_id });
+    } catch (e: any) {
+      alert(`Delete failed: ${e?.message ?? e}`);
+    }
   };
 
-  const onReplaceProjectMember = async ({
-    project_id,
-    from_member_id,
-    to_member_id,
-  }: {
-    project_id: number;
-    from_member_id: number;
-    to_member_id: number;
-  }) => {
-    // If your DB allows updating member_id directly, do an update.
-    // Otherwise, perform delete + insert:
-    // await pmTable().delete().eq("project_id", project_id).eq("member_id", from_member_id);
-    // await pmTable().insert({ project_id, member_id: to_member_id });
-    // Then update local state accordingly...
-  };
-
-  const deleteRegistration = async ({
-    event_id,
-    member_id,
-  }: {
-    event_id: number;
-    member_id: number;
-  }) => {
-    const { error, status } = await supabase
-      .schema("admin")
-      .from("EventRegistration")
-      .delete()
-      .eq("event_id", event_id)
-      .eq("member_id", member_id);
-
-    if (error) throw new Error(`${error.message} (HTTP ${status})`);
-
-    setRegistrationsState((prev) =>
-      prev.filter(
-        (r) => !(r.event_id === event_id && r.member_id === member_id)
-      )
-    );
-  };
+  // =========================== Render UI Sections ===========================
 
   return (
     <div className="space-y-4">
@@ -412,789 +285,69 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
         <SidebarTabs value={tab} onChange={setTab} />
 
         <div className="space-y-6">
-          {/* ================== Overview ================== */}
           {tab === "Overview" && (
-            <>
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <Kpi label="Members" value={kpiTotalMembers} />
-                <Kpi label="Active V.L Projects" value={kpiActiveProjects} />
-                <Kpi label="Events (this month)" value={kpiEventsThisMonth} />
-                <Kpi label="Alumni" value={kpiAlumni} />
-              </div>
-
-              <div className={SECTION_CARD}>
-                <h2 className="text-lg font-semibold mb-4 text-dsmlcTangerine">
-                  Members by Role
-                </h2>
-                <div className="overflow-x-auto">
-                  <table className="table-fixed w-full">
-                    <thead>
-                      <tr>
-                        <th className="text-xs md:text-sm sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
-                          Role
-                        </th>
-                        <th className="text-xs md:text-sm sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
-                          Count
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {membersByRole.map(([role, count]) => (
-                        <tr key={role} className="hover">
-                          <td className="border-r  dark:text-dark-dsmlcBlack text-light-dsmlcBlack border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
-                            <span>{role}</span>
-                          </td>
-                          <td className="text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                            {count}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-
-              <div className={SECTION_CARD}>
-                <h2 className="text-lg font-semibold mb-4 text-dsmlcTangerine">
-                  Upcoming Events
-                </h2>
-                <div className="overflow-x-auto">
-                  <table className="table w-full">
-                    <thead>
-                      <tr>
-                        <th className="sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
-                          Name
-                        </th>
-                        <th className="sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
-                          Date
-                        </th>
-                        <th className="sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
-                          Type
-                        </th>
-                        <th className="text-center sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
-                          Registered
-                        </th>
-                        <th className="text-center sticky dark:text-dark-dsmlcBlack text-light-dsmlcBlack bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite">
-                          Present
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {upcomingEvents.map((e) => {
-                        const agg = registrationsByEvent.get(e.event_id) ?? {
-                          registered: 0,
-                          present: 0,
-                        };
-                        return (
-                          <tr key={e.event_id} className="hover">
-                            <td className="text-center border-r dark:text-dark-dsmlcBlack text-light-dsmlcBlack border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
-                              {e.event_name}
-                            </td>
-                            <td className="text-center whitespace-nowrap dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                              {fmtDate(e.event_date)}
-                            </td>
-                            <td className=" text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                              {e.event_type ?? "—"}
-                            </td>
-                            <td className="text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                              {agg.registered}
-                            </td>
-                            <td className="text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                              {agg.present}
-                            </td>
-                          </tr>
-                        );
-                      })}
-                      {upcomingEvents.length === 0 && (
-                        <tr>
-                          <td
-                            className="text-center dark:text-dark-dsmlcBlack text-light-dsmlcBlack pt-8"
-                            colSpan={5}
-                          >
-                            No upcoming events.
-                          </td>
-                        </tr>
-                      )}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </>
+            <OverviewTab
+              kpiTotalMembers={kpiTotalMembers}
+              kpiActiveProjects={kpiActiveProjects}
+              kpiEventsThisMonth={kpiEventsThisMonth}
+              kpiAlumni={kpiAlumni}
+              membersByRole={membersByRole}
+              upcomingEvents={upcomingEvents}
+              registrationsByEvent={registrationsByEvent}
+            />
           )}
 
-          {/* ================== Members ==================*/}
           {tab === "Members" && (
-            <div className={SECTION_CARD}>
-              <div className="flex items-center justify-between mb-4 gap-3">
-                <h2 className="text-lg font-semibold text-dsmlcTangerine">
-                  Members
-                </h2>
-                <div className="flex items-center gap-2">
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    onClick={() =>
-                      setMemberModal({
-                        mode: "create",
-                        initial: {
-                          first_name: "",
-                          last_name: "",
-                          graduated: false,
-                        },
-                      })
-                    }
-                  >
-                    Add
-                  </button>
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    disabled={!selectedMember}
-                    onClick={() =>
-                      selectedMember &&
-                      setMemberModal({ mode: "edit", initial: selectedMember })
-                    }
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    disabled={!selectedMember}
-                    onClick={() =>
-                      selectedMember && onDeleteMember(selectedMember)
-                    }
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-
-              <SimpleTable<Member>
-                data={membersState}
-                rowKey={(m) => m.member_id}
-                searchPlaceholder="Search member..."
-                stickyHeader
-                zebra
-                verticalDividers
-                columnGroups={[
-                  { label: "Select", span: 1 },
-                  { label: "Member", span: 2 },
-                  { label: "Contact", span: 1 },
-                  { label: "Academics", span: 2 },
-                  { label: "Status", span: 2 },
-                ]}
-                columns={[
-                  {
-                    key: "select",
-                    header: "",
-                    className: "w-[60px]",
-                    render: (m) => (
-                      <div className="flex justify-center">
-                        <input
-                          type="radio"
-                          name="member-select"
-                          className="radio"
-                          checked={selectedMemberId === m.member_id}
-                          onChange={() => setSelectedMemberId(m.member_id)}
-                          aria-label={`Select ${m.first_name} ${m.last_name}`}
-                        />
-                      </div>
-                    ),
-                  },
-                  {
-                    key: "name",
-                    header: "Name",
-                    className: "min-w-[160px]",
-                    render: (m) => (
-                      <div className="flex items-center gap-2  dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                        <div className="avatar placeholder" />
-                        <span>{`${m.first_name} ${m.last_name}`}</span>
-                      </div>
-                    ),
-                  },
-                  {
-                    key: "role_id",
-                    header: "Role",
-                    className: "min-w-[120px]",
-                    render: (m) => (
-                      <span className="badge badge-outline  dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                        {m.role_id
-                          ? (roleById.get(m.role_id) ?? "Unassigned")
-                          : "Unassigned"}
-                      </span>
-                    ),
-                  },
-                  {
-                    key: "email",
-                    header: "Email",
-                    className:
-                      "min-w-[200px] max-w-[260px]  dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (m) =>
-                      m.email ? (
-                        <a
-                          className="link truncate block"
-                          href={`mailto:${m.email}`}
-                        >
-                          {m.email}
-                        </a>
-                      ) : (
-                        "—"
-                      ),
-                  },
-                  {
-                    key: "major",
-                    header: "Major",
-                    className:
-                      "min-w-[120px]  dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                  },
-                  {
-                    key: "year",
-                    header: "Year",
-                    className:
-                      "w-[80px]  dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                  },
-                  {
-                    key: "join_date",
-                    header: "Joined",
-                    className:
-                      "w-[120px]  dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (m) => fmtDate(m.join_date ?? null),
-                  },
-                  {
-                    key: "graduated",
-                    header: "Graduated",
-                    className:
-                      "w-[110px]  dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (m) => (
-                      <span
-                        className={
-                          "px-2 py-0.5 rounded-full text-xs " +
-                          (m.graduated
-                            ? "bg-green-500 text-green-1000"
-                            : "bg-red-500 text-red-1000")
-                        }
-                      >
-                        {m.graduated ? "Yes" : "No"}
-                      </span>
-                    ),
-                  },
-                ]}
-              />
-            </div>
+            <MembersTab
+              members={membersState}
+              roleById={roleById}
+              selectedMemberId={selectedMemberId}
+              setSelectedMemberId={setSelectedMemberId}
+              setMemberModal={setMemberModal}
+              onDeleteMember={onDeleteMember}
+            />
           )}
 
-          {/* ================== Projects ==================*/}
           {tab === "Projects" && (
-            <div className={SECTION_CARD}>
-              <div className="flex items-center justify-between mb-4 gap-3">
-                <h2 className="text-lg font-semibold text-dsmlcTangerine">
-                  Visionary Lab Projects
-                </h2>
-                <div className="flex items-center gap-2">
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    onClick={() =>
-                      setProjectModal({
-                        mode: "create",
-                        initial: { name: "", status: "planned" },
-                      })
-                    }
-                  >
-                    Add
-                  </button>
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    disabled={!selectedProject}
-                    onClick={() =>
-                      selectedProject &&
-                      setProjectModal({
-                        mode: "edit",
-                        initial: selectedProject,
-                      })
-                    }
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    disabled={!selectedProject}
-                    onClick={() =>
-                      selectedProject && onDeleteProject(selectedProject)
-                    }
-                  >
-                    Delete
-                  </button>
-                  <button
-                    className="inline-flex items-center justify-center
-    rounded-full border border-dsmlcTangerine
-    bg-transparent px-5 py-2 text-sm font-medium
-    text-dsmlcTangerine
-    hover:bg-dsmlcTangerine hover:text-white
-    focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-    shadow-sm hover:shadow-md
-    transition-all duration-200"
-                    disabled={!selectedProject}
-                    onClick={() =>
-                      selectedProject &&
-                      setProjMembersModal({ project: selectedProject })
-                    }
-                  >
-                    Manage members
-                  </button>
-                </div>
-              </div>
-
-              <SimpleTable<VisionaryLabProject>
-                data={projectsState}
-                rowKey={(p) => p.project_id}
-                searchPlaceholder="Search projects…"
-                stickyHeader
-                zebra
-                verticalDividers
-                columnGroups={[
-                  { label: "Select", span: 1 },
-                  { label: "Project", span: 2 },
-                  { label: "People", span: 2 },
-                  { label: "Timeline", span: 2 },
-                  { label: "Status", span: 1 },
-                ]}
-                columns={[
-                  {
-                    key: "select",
-                    header: "",
-                    className: "w-[60px]",
-                    render: (p) => (
-                      <div className="flex justify-center">
-                        <input
-                          type="radio"
-                          name="project-select"
-                          className="radio"
-                          checked={selectedProjectId === p.project_id}
-                          onChange={() => setSelectedProjectId(p.project_id)}
-                          aria-label={`Select project ${p.name}`}
-                        />
-                      </div>
-                    ),
-                  },
-                  {
-                    key: "name",
-                    header: "Name",
-                    className:
-                      "min-w-[180px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                  },
-                  {
-                    key: "project_type",
-                    header: "Type",
-                    className:
-                      "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                  },
-                  {
-                    key: "project_lead",
-                    header: "Project Lead",
-                    className:
-                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (p) => {
-                      const lead = p.project_lead
-                        ? memberById.get(p.project_lead)
-                        : undefined;
-                      return lead
-                        ? `${lead.first_name} ${lead.last_name}`
-                        : "—";
-                    },
-                  },
-                  {
-                    key: "team",
-                    header: "Team",
-                    className:
-                      "w-[80px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (p) => projectTeamCounts.get(p.project_id) ?? 0,
-                  },
-                  {
-                    key: "start_date",
-                    header: "Start",
-                    className:
-                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (p) => fmtDate(p.start_date),
-                  },
-                  {
-                    key: "end_date",
-                    header: "End",
-                    className:
-                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (p) => fmtDate(p.end_date ?? null),
-                  },
-                  {
-                    key: "status",
-                    header: "Status",
-                    className:
-                      "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (p) => (
-                      <span
-                        className={
-                          "px-2 py-0.5 rounded-full text-xs " +
-                          (p.status === "active"
-                            ? "bg-green-500 text-green-1000"
-                            : p.status === "planned"
-                              ? "bg-blue-500 text-blue-1000"
-                              : p.status === "paused"
-                                ? "bg-yellow-500 text-yellow-1000"
-                                : "bg-neutral/10")
-                        }
-                      >
-                        {p.status ?? "—"}
-                      </span>
-                    ),
-                  },
-                ]}
-              />
-            </div>
+            <ProjectsTab
+              projects={projectsState}
+              memberById={memberById}
+              projectTeamCounts={projectTeamCounts}
+              selectedProjectId={selectedProjectId}
+              setSelectedProjectId={setSelectedProjectId}
+              setProjectModal={setProjectModal}
+              setProjMembersModal={setProjMembersModal}
+              onDeleteProject={onDeleteProject}
+            />
           )}
 
-          {/* ================== Events ==================*/}
           {tab === "Events" && (
-            <div className={SECTION_CARD}>
-              <div className="flex items-center justify-between mb-4 gap-3">
-                <h2 className="text-lg font-semibold text-dsmlcTangerine">
-                  Events
-                </h2>
-                <div className="flex items-center gap-2">
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    onClick={() =>
-                      setEventModal({
-                        mode: "create",
-                        initial: { event_name: "", event_date: "" },
-                      })
-                    }
-                  >
-                    Add
-                  </button>
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    disabled={!selectedEvent}
-                    onClick={() =>
-                      selectedEvent &&
-                      setEventModal({ mode: "edit", initial: selectedEvent })
-                    }
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    disabled={!selectedEvent}
-                    onClick={() =>
-                      selectedEvent && onDeleteEvent(selectedEvent)
-                    }
-                  >
-                    Delete
-                  </button>
-
-                  {/* NEW: View registrations */}
-                  <button
-                    className="inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    disabled={!selectedEvent}
-                    onClick={() =>
-                      selectedEvent && setRegsModal({ event: selectedEvent })
-                    }
-                  >
-                    View registrations
-                  </button>
-                </div>
-              </div>
-
-              <SimpleTable<Event>
-                data={eventsState}
-                rowKey={(e) => e.event_id}
-                searchPlaceholder="Search events…"
-                stickyHeader
-                zebra
-                verticalDividers
-                columnGroups={[
-                  { label: "Select", span: 1 },
-                  { label: "Event", span: 2 },
-                  { label: "Schedule", span: 1 },
-                  { label: "Attendance", span: 2 },
-                ]}
-                columns={[
-                  {
-                    key: "select",
-                    header: "",
-                    className:
-                      "w-[60px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (e) => (
-                      <div className="flex justify-center">
-                        <input
-                          type="radio"
-                          name="event-select"
-                          className="radio"
-                          checked={selectedEventId === e.event_id}
-                          onChange={() => setSelectedEventId(e.event_id)}
-                          aria-label={`Select event ${e.event_name}`}
-                        />
-                      </div>
-                    ),
-                  },
-                  {
-                    key: "event_name",
-                    header: "Name",
-                    className:
-                      "min-w-[200px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                  },
-                  {
-                    key: "event_type",
-                    header: "Type",
-                    className:
-                      "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                  },
-                  {
-                    key: "event_date",
-                    header: "Date",
-                    className:
-                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (e) => fmtDate(e.event_date),
-                  },
-                  {
-                    key: "registered",
-                    header: "Registered",
-                    className:
-                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (e) =>
-                      registrationsByEvent.get(e.event_id)?.registered ?? 0,
-                  },
-                  {
-                    key: "present",
-                    header: "Present",
-                    className:
-                      "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (e) =>
-                      registrationsByEvent.get(e.event_id)?.present ?? 0,
-                  },
-                ]}
-              />
-            </div>
+            <EventsTab
+              events={eventsState}
+              registrationsByEvent={registrationsByEvent}
+              selectedEventId={selectedEventId}
+              setSelectedEventId={setSelectedEventId}
+              setEventModal={setEventModal}
+              setRegsModal={setRegsModal}
+              onDeleteEvent={onDeleteEvent}
+            />
           )}
 
-          {/* ================== Alumni ==================*/}
           {tab === "Alumni" && (
-            <div className={SECTION_CARD}>
-              <div className="flex items-center justify-between mb-4 gap-3">
-                <h2 className="text-lg font-semibold text-dsmlcTangerine">
-                  Alumni
-                </h2>
-                <div className="flex items-center gap-2">
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    onClick={() =>
-                      setAlumniModal({
-                        mode: "create",
-                        initial: { member_id: undefined },
-                      })
-                    }
-                  >
-                    Add
-                  </button>
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    disabled={!selectedAlumni}
-                    onClick={() =>
-                      selectedAlumni &&
-                      setAlumniModal({ mode: "edit", initial: selectedAlumni })
-                    }
-                  >
-                    Edit
-                  </button>
-                  <button
-                    className="      inline-flex items-center justify-center
-      rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
-      text-dsmlcTangerine
-      hover:bg-dsmlcTangerine hover:text-white
-      focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-      shadow-sm hover:shadow-md
-      transition-all duration-200"
-                    disabled={!selectedAlumni}
-                    onClick={() =>
-                      selectedAlumni && onDeleteAlumni(selectedAlumni)
-                    }
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
-
-              <SimpleTable<Alumni>
-                data={alumniState}
-                rowKey={(a, i) => `${a.member_id}-${i}`}
-                searchPlaceholder="Search alumni…"
-                stickyHeader
-                zebra
-                verticalDividers
-                columnGroups={[
-                  { label: "Select", span: 1 },
-                  { label: "Alumni", span: 1 },
-                  { label: "Career", span: 2 },
-                  { label: "Details", span: 2 },
-                ]}
-                columns={[
-                  {
-                    key: "select",
-                    header: "",
-                    className:
-                      "w-[60px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (a) => (
-                      <div className="flex justify-center">
-                        <input
-                          type="radio"
-                          name="alumni-select"
-                          className="radio"
-                          checked={selectedAlumniMemberId === a.member_id}
-                          onChange={() =>
-                            setSelectedAlumniMemberId(a.member_id)
-                          }
-                          aria-label={`Select alumni for member #${a.member_id}`}
-                        />
-                      </div>
-                    ),
-                  },
-                  {
-                    key: "member_id",
-                    header: "Name",
-                    className:
-                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (a) => {
-                      const m = memberById.get(a.member_id);
-                      return m
-                        ? `${m.first_name} ${m.last_name}`
-                        : `#${a.member_id}`;
-                    },
-                  },
-                  {
-                    key: "company",
-                    header: "Company",
-                    className:
-                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                  },
-                  {
-                    key: "position",
-                    header: "Previous Position",
-                    className:
-                      "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                  },
-                  {
-                    key: "graduation_year",
-                    header: "Grad Year",
-                    className:
-                      "w-[110px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                  },
-                  {
-                    key: "linkedin",
-                    header: "LinkedIn",
-                    className:
-                      "w-[110px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-                    render: (a) =>
-                      a.linkedin ? (
-                        <a
-                          className="link"
-                          href={a.linkedin}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          Profile
-                        </a>
-                      ) : (
-                        "—"
-                      ),
-                  },
-                ]}
-              />
-            </div>
+            <AlumniTab
+              alumni={alumniState}
+              memberById={memberById}
+              selectedAlumniMemberId={selectedAlumniMemberId}
+              setSelectedAlumniMemberId={setSelectedAlumniMemberId}
+              setAlumniModal={setAlumniModal}
+              onDeleteAlumni={onDeleteAlumni}
+            />
           )}
         </div>
       </div>
 
-      {/* ================== Modals ==================*/}
+      {/* Modals */}
+
       {memberModal && (
         <MemberEditorModal
           open={!!memberModal}
@@ -1270,6 +423,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
           }}
         />
       )}
+
       {regsModal && (
         <EventRegistrationModal
           open={!!regsModal}
@@ -1278,7 +432,9 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
           roleById={roleById}
           members={membersState}
           onSaved={upsertRegistration}
-          onDelete={deleteRegistration}
+          onDelete={({ event_id, member_id }) =>
+            deleteWhere("EventRegistration", { event_id, member_id })
+          }
           onClose={() => setRegsModal(null)}
         />
       )}

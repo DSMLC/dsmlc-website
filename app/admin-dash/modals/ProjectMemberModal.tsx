@@ -4,14 +4,14 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import SimpleTable from "../components/SimpleTable";
 import { Member, VisionaryLabProject } from "../utility/types";
 
-/* ---------------- Types ---------------- */
+/* =========================  Types =========================  */
 type ProjMemberRow = {
   project_id: number;
   member_id: number;
   member?: Member;
 };
 
-/* ========================= Searchable member combobox (no icon) ========================= */
+/* ========================= Search ========================= */
 function MemberSearchSelect({
   members,
   value,

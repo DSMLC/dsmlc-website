@@ -21,7 +21,6 @@ export default function AlumniEditorModal({
   const [form, setForm] = useState<Partial<Alumni>>(initial);
   const [saving, setSaving] = useState(false);
 
-  // entrance animation (consistent with other modals)
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(open), [open]);
 
