@@ -7,6 +7,7 @@ import {
   Member,
   VisionaryLabProject,
   EventRegistration,
+  VisionaryLabMemberRole,
 } from "./utility/types";
 import { deleteRow, deleteWhere, upsertRow } from "./utility/adminCrud";
 
@@ -41,7 +42,6 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   } = Data;
 
   // =========================== Tab + local DB mirrors ===========================
-
   const [tab, setTab] = useState<Tab>("Overview");
   const [membersState, setMembersState] = useState<Member[]>(members);
   const [projectsState, setProjectsState] =
@@ -50,6 +50,8 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   const [alumniState, setAlumniState] = useState<Alumni[]>(alumni);
   const [registrationsState, setRegistrationsState] =
     useState<EventRegistration[]>(registrations);
+  const [projMembersState, setProjMembersState] =
+    useState<VisionaryLabMemberRole[]>(projectMemberRoles);
 
   useEffect(() => {
     setMembersState(members);
@@ -57,7 +59,8 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     setEventsState(events);
     setAlumniState(alumni);
     setRegistrationsState(registrations);
-  }, [members, projects, events, alumni, registrations]);
+    setProjMembersState(projectMemberRoles);
+  }, [members, projects, events, alumni, registrations, projectMemberRoles]);
 
   // =========================== Selections ===========================
   const [selectedMemberId, setSelectedMemberId] = useState<number | null>(null);
@@ -127,7 +130,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     membersState,
     eventsState,
     registrationsState,
-    projectMemberRoles,
+    projectMemberRoles: projMembersState, // use the live state
     alumniState,
     projectsState,
   });
@@ -144,14 +147,15 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   const modalProjectMemberRows = useMemo(() => {
     if (!projMembersModal?.project?.project_id) return [];
     const pid = projMembersModal.project.project_id;
-    return projectMemberRoles
+    return projMembersState
       .filter((pm) => pm.project_id === pid)
       .map((pm) => ({
         project_id: pm.project_id,
         member_id: pm.member_id,
+        project_role: pm.project_role ?? null,
         member: memberById.get(pm.member_id),
       }));
-  }, [projMembersModal, projectMemberRoles, memberById]);
+  }, [projMembersModal, projMembersState, memberById]);
 
   // =========================== DB REST Actions ===========================
   const onDeleteMember = async (m: Member) => {
@@ -242,24 +246,33 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     }
   };
 
-  const addProjectMember = async ({
-    project_id,
-    member_id,
-  }: {
-    project_id: number;
-    member_id: number;
-  }) => {
+  // ---- Project member role upsert (create/edit). Accepts string; normalize ""->null for DB.
+  const upsertProjectMember = async (row: VisionaryLabMemberRole) => {
     try {
-      const data = await upsertRow<any>(
+      const normalized = (row.project_role ?? "").trim();
+      const data = await upsertRow<VisionaryLabMemberRole>(
         "VisionaryLabMemberRole",
-        { project_id, member_id },
+        {
+          project_id: row.project_id,
+          member_id: row.member_id,
+          project_role: normalized === "" ? null : normalized,
+        } as any, // DB allows null; our runtime payload is normalized here
         ["project_id", "member_id"]
       );
-      // Optimistic: prevent dupes
-      setRegistrationsState((prev) => prev);
-      setProjMembersModal((pm) => pm);
+      setProjMembersState((prev) => {
+        const idx = prev.findIndex(
+          (x) =>
+            x.project_id === data.project_id && x.member_id === data.member_id
+        );
+        if (idx >= 0) {
+          const copy = [...prev];
+          copy[idx] = { ...copy[idx], ...data };
+          return copy;
+        }
+        return [data, ...prev];
+      });
     } catch (e: any) {
-      alert(`Add failed: ${e?.message ?? e}`);
+      alert(`Save failed: ${e?.message ?? e}`);
     }
   };
 
@@ -272,13 +285,17 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   }) => {
     try {
       await deleteWhere("VisionaryLabMemberRole", { project_id, member_id });
+      setProjMembersState((prev) =>
+        prev.filter(
+          (x) => !(x.project_id === project_id && x.member_id === member_id)
+        )
+      );
     } catch (e: any) {
       alert(`Delete failed: ${e?.message ?? e}`);
     }
   };
 
   // =========================== Render UI Sections ===========================
-
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6">
@@ -347,7 +364,6 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
       </div>
 
       {/* Modals */}
-
       {memberModal && (
         <MemberEditorModal
           open={!!memberModal}
@@ -439,18 +455,20 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
         />
       )}
 
-      {projMembersModal && (
+      {projMembersModal ? (
         <ProjectMembersModal
-          open={!!projMembersModal}
+          open
           project={projMembersModal.project}
           rows={modalProjectMemberRows}
           roleById={roleById}
           members={membersState}
-          onAdd={addProjectMember}
-          onDelete={deleteProjectMember}
+          onSaved={upsertProjectMember} // single path create/edit
+          onDelete={({ project_id, member_id }) =>
+            deleteProjectMember({ project_id, member_id })
+          }
           onClose={() => setProjMembersModal(null)}
         />
-      )}
+      ) : null}
     </div>
   );
 };

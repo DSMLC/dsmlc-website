@@ -2,12 +2,17 @@
 
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import SimpleTable from "../components/SimpleTable";
-import { Member, VisionaryLabProject } from "../utility/types";
+import {
+  Member,
+  VisionaryLabProject,
+  VisionaryLabMemberRole,
+} from "../utility/types";
 
 /* =========================  Types =========================  */
 type ProjMemberRow = {
   project_id: number;
   member_id: number;
+  project_role?: string | null;
   member?: Member;
 };
 
@@ -197,7 +202,7 @@ function ProjectMembersModal({
   rows,
   roleById,
   members,
-  onAdd,
+  onSaved,
   onDelete,
   onClose,
 }: {
@@ -206,10 +211,10 @@ function ProjectMembersModal({
   rows: ProjMemberRow[];
   roleById: Map<number, string>;
   members: Member[];
-  onAdd: (payload: {
-    project_id: number;
-    member_id: number;
-  }) => Promise<void> | void;
+  onSaved: (
+    row: VisionaryLabMemberRole,
+    mode: "create" | "edit"
+  ) => Promise<void> | void;
   onDelete: (payload: {
     project_id: number;
     member_id: number;
@@ -217,58 +222,69 @@ function ProjectMembersModal({
   onClose: () => void;
 }) {
   const [selectedMemberId, setSelectedMemberId] = useState<number | null>(null);
-  const [adding, setAdding] = useState(false);
-  const [deleting, setDeleting] = useState(false);
-  const [pickerValue, setPickerValue] = useState<number | null>(null);
 
-  const existingIds = useMemo(
+  // Inline editor (mirror EventRegistrationsModal)
+  const [editor, setEditor] = useState<{
+    mode: "create" | "edit";
+    values: {
+      member_id: number | null;
+      project_role: string; // keep as string to satisfy VisionaryLabMemberRole
+    };
+    saving?: boolean;
+  } | null>(null);
+
+  const [deleting, setDeleting] = useState(false);
+
+  const selectedRow: ProjMemberRow | undefined = useMemo(
+    () => rows.find((r) => r.member_id === selectedMemberId),
+    [rows, selectedMemberId]
+  );
+
+  const existingMemberIds = useMemo(
     () => new Set(rows.map((r) => r.member_id)),
     [rows]
   );
 
   const creatableMembers = useMemo(
-    () => members.filter((m) => !existingIds.has(m.member_id)),
-    [members, existingIds]
-  );
-
-  const selectedRow = useMemo(
-    () => rows.find((r) => r.member_id === selectedMemberId),
-    [rows, selectedMemberId]
+    () => members.filter((m) => !existingMemberIds.has(m.member_id)),
+    [members, existingMemberIds]
   );
 
   if (!open) return null;
 
-  const addMember = async () => {
-    if (pickerValue == null) {
-      alert("Select a member to add.");
-      return;
-    }
-    if (existingIds.has(pickerValue)) {
-      alert("That member is already on this project.");
-      return;
-    }
-    try {
-      setAdding(true);
-      await onAdd({ project_id: project.project_id, member_id: pickerValue });
-      setPickerValue(null);
-      setSelectedMemberId(pickerValue);
-    } catch (e: any) {
-      alert(e?.message ?? "Add failed.");
-    } finally {
-      setAdding(false);
-    }
+  const startCreate = () => {
+    setEditor({
+      mode: "create",
+      values: {
+        member_id: null,
+        project_role: "", // empty string means "Unassigned"
+      },
+    });
   };
 
-  const removeMember = async () => {
+  const startEdit = () => {
+    if (!selectedRow) return;
+    setEditor({
+      mode: "edit",
+      values: {
+        member_id: selectedRow.member_id,
+        project_role: selectedRow.project_role ?? "", // coerce to string
+      },
+    });
+  };
+
+  const confirmDelete = async () => {
     if (!selectedRow || deleting) return;
-    const label = selectedRow.member
+    const displayName = selectedRow.member
       ? `${selectedRow.member.first_name} ${selectedRow.member.last_name}`
       : `#${selectedRow.member_id}`;
     if (
-      !confirm(`Remove ${label} from "${project.name}"? This cannot be undone.`)
-    )
+      !confirm(
+        `Remove ${displayName} from project "${project.name}"? This cannot be undone.`
+      )
+    ) {
       return;
-
+    }
     try {
       setDeleting(true);
       await onDelete({
@@ -276,10 +292,47 @@ function ProjectMembersModal({
         member_id: selectedRow.member_id,
       });
       setSelectedMemberId(null);
+      setEditor((ed) =>
+        ed && ed.values.member_id === selectedRow.member_id ? null : ed
+      );
     } catch (e: any) {
+      console.error(e);
       alert(e?.message ?? "Delete failed.");
     } finally {
       setDeleting(false);
+    }
+  };
+
+  const cancelEditor = () => setEditor(null);
+
+  const saveEditor = async () => {
+    if (!editor) return;
+    const { member_id, project_role } = editor.values;
+
+    if (!member_id) {
+      alert("Please choose a member.");
+      return;
+    }
+    if (editor.mode === "create" && existingMemberIds.has(member_id)) {
+      alert("That member is already on this project.");
+      return;
+    }
+
+    const payload: VisionaryLabMemberRole = {
+      project_id: project.project_id,
+      member_id,
+      project_role, // string ("" allowed; dashboard will normalize ""->null for DB)
+    };
+
+    try {
+      setEditor((e) => (e ? { ...e, saving: true } : e));
+      await onSaved(payload, editor.mode);
+      setEditor(null);
+      if (editor.mode === "create") setSelectedMemberId(member_id);
+    } catch (e: any) {
+      console.error(e);
+      alert(e?.message ?? "Save failed.");
+      setEditor((ed) => (ed ? { ...ed, saving: false } : ed));
     }
   };
 
@@ -311,6 +364,46 @@ function ProjectMembersModal({
 
           <div className="flex items-center gap-2">
             <button
+              onClick={startCreate}
+              className="inline-flex items-center justify-center
+                rounded-full border border-dsmlcTangerine
+                bg-transparent px-4 py-1.5 text-sm font-medium
+                text-dsmlcTangerine
+                hover:bg-dsmlcTangerine hover:text-white
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+                shadow-sm hover:shadow-md transition-all duration-200"
+            >
+              Add
+            </button>
+            <button
+              disabled={!selectedRow}
+              onClick={startEdit}
+              className="inline-flex items-center justify-center
+                rounded-full border border-dsmlcTangerine
+                bg-transparent px-4 py-1.5 text-sm font-medium
+                text-dsmlcTangerine
+                hover:bg-dsmlcTangerine hover:text-white
+                disabled:opacity-50 disabled:cursor-not-allowed
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+                shadow-sm hover:shadow-md transition-all duration-200"
+            >
+              Edit
+            </button>
+            <button
+              disabled={!selectedRow || deleting}
+              onClick={confirmDelete}
+              className="inline-flex items-center justify-center
+                rounded-full border border-dsmlcTangerine
+                bg-transparent px-4 py-1.5 text-sm font-medium
+                text-dsmlcTangerine
+                hover:bg-dsmlcTangerine hover:text-white
+                disabled:opacity-50 disabled:cursor-not-allowed
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+                shadow-sm hover:shadow-md transition-all duration-200"
+            >
+              {deleting ? "Deleting…" : "Delete"}
+            </button>
+            <button
               onClick={onClose}
               className="inline-flex items-center justify-center
                 rounded-full border border-dsmlcTangerine
@@ -321,39 +414,6 @@ function ProjectMembersModal({
                 shadow-sm hover:shadow-md transition-all duration-200"
             >
               Close
-            </button>
-          </div>
-        </div>
-
-        {/* Add picker */}
-        <div className="rounded-2xl border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment p-4 mb-4">
-          <div className="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-3 items-end">
-            <div>
-              <label className="label">
-                <span className="label-text dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                  Add member to project
-                </span>
-              </label>
-              <MemberSearchSelect
-                members={creatableMembers}
-                value={pickerValue}
-                onChange={setPickerValue}
-                placeholder="Search by name or email…"
-              />
-            </div>
-            <button
-              onClick={addMember}
-              disabled={pickerValue == null || adding}
-              className="inline-flex items-center justify-center
-                  rounded-full border border-dsmlcTangerine
-                  bg-transparent px-5 py-2 text-sm font-medium
-                  text-dsmlcTangerine
-                  hover:bg-dsmlcTangerine hover:text-white
-                  disabled:opacity-50 disabled:cursor-not-allowed
-                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-                  shadow-sm hover:shadow-md transition-all duration-200"
-            >
-              {adding ? "Adding…" : "Add"}
             </button>
           </div>
         </div>
@@ -372,6 +432,7 @@ function ProjectMembersModal({
               { label: "Member", span: 2 },
               { label: "Contact", span: 1 },
               { label: "Org Role", span: 1 },
+              { label: "Project Role", span: 1 },
             ]}
             columns={[
               {
@@ -428,6 +489,13 @@ function ProjectMembersModal({
                     ? (roleById.get(r.member.role_id) ?? "Unassigned")
                     : "Unassigned",
               },
+              {
+                key: "projectRole",
+                header: "Project Role",
+                className:
+                  "min-w-[140px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+                render: (r) => r.project_role ?? "Unassigned",
+              },
             ]}
           />
           {rows.length === 0 && (
@@ -437,23 +505,122 @@ function ProjectMembersModal({
           )}
         </div>
 
-        {/* Actions */}
-        <div className="mt-4 flex items-center gap-2">
-          <button
-            disabled={!selectedRow || deleting}
-            onClick={removeMember}
-            className="inline-flex items-center justify-center
-                rounded-full border border-dsmlcTangerine
-                bg-transparent px-5 py-2 text-sm font-medium
-                text-dsmlcTangerine
-                hover:bg-dsmlcTangerine hover:text-white
-                disabled:opacity-50 disabled:cursor-not-allowed
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-                shadow-sm hover:shadow-md transition-all duration-200"
-          >
-            {deleting ? "Removing…" : "Remove selected"}
-          </button>
-        </div>
+        {/* Inline editor */}
+        {editor && (
+          <div className="mt-4 rounded-2xl border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment p-4">
+            <div className="flex items-center justify-between mb-3">
+              <h4 className="font-semibold text-dsmlcTangerine">
+                {editor.mode === "create"
+                  ? "Add project member"
+                  : "Edit project member"}
+              </h4>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Member selector (only on create) */}
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
+                    Member:
+                  </span>
+                </label>
+
+                {editor.mode === "create" ? (
+                  <MemberSearchSelect
+                    members={creatableMembers}
+                    value={editor.values.member_id}
+                    onChange={(id) =>
+                      setEditor((prev) =>
+                        prev
+                          ? {
+                              ...prev,
+                              values: { ...prev.values, member_id: id },
+                            }
+                          : prev
+                      )
+                    }
+                    placeholder="Search by name or email…"
+                  />
+                ) : (
+                  <input
+                    className="input input-bordered rounded-xl
+                               border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+                               bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
+                               text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
+                    value={
+                      selectedRow?.member
+                        ? `${selectedRow.member.first_name} ${selectedRow.member.last_name}`
+                        : `#${editor.values.member_id}`
+                    }
+                    disabled
+                  />
+                )}
+              </div>
+
+              {/* Project Role (text) */}
+              <div className="form-control md:col-span-2">
+                <label className="label">
+                  <span className="label-text dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
+                    Project Role:
+                  </span>
+                </label>
+                <input
+                  className="input input-bordered rounded-xl
+                             border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+                             bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
+                             text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
+                  placeholder="e.g., Developer, PM, Designer…"
+                  value={editor.values.project_role}
+                  onChange={(e) =>
+                    setEditor((prev) =>
+                      prev
+                        ? {
+                            ...prev,
+                            values: {
+                              ...prev.values,
+                              project_role: e.target.value,
+                            },
+                          }
+                        : prev
+                    )
+                  }
+                />
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="mt-4 flex items-center gap-2">
+              <button
+                className="inline-flex items-center justify-center
+                  rounded-full border border-dsmlcTangerine
+                  bg-transparent px-5 py-2 text-sm font-medium
+                  text-dsmlcTangerine
+                  hover:bg-dsmlcTangerine hover:text-white
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+                  shadow-sm hover:shadow-md
+                  transition-all duration-200"
+                disabled={editor.saving}
+                onClick={saveEditor}
+              >
+                {editor.saving ? "Saving…" : "Save"}
+              </button>
+              <button
+                className="inline-flex items-center justify-center
+                  rounded-full border border-dsmlcTangerine
+                  bg-transparent px-5 py-2 text-sm font-medium
+                  text-dsmlcTangerine
+                  hover:bg-dsmlcTangerine hover:text-white
+                  focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+                  shadow-sm hover:shadow-md
+                  transition-all duration-200"
+                disabled={editor.saving}
+                onClick={cancelEditor}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

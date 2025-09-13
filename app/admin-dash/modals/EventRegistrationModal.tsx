@@ -13,7 +13,7 @@ const yesNo = (n: number | null | undefined) =>
 const presentAbsent = (n: number | null | undefined) =>
   n === 1 ? "present" : n === 0 ? "absent" : "Unassigned";
 
-/* ========================= Searchable member combobox ========================= */
+/* ========================= Searchable member ========================= */
 
 function MemberSearchSelect({
   members,
@@ -107,7 +107,6 @@ function MemberSearchSelect({
 
   return (
     <div className="relative">
-      {/* Input only, no logo */}
       <div className="relative flex-1">
         <input
           ref={inputRef}
@@ -133,7 +132,7 @@ function MemberSearchSelect({
         {query && (
           <button
             type="button"
-            className="absolute inset-y-0 right-2 my-auto btn btn-ghost btn-xs rounded-full text-dsmlcTangerine"
+            className="absolute inset-y-0 right-2 my-auto btn btn-ghost btn-xs rounded-full text-dsmlcTangerine "
             onClick={clear}
             aria-label="Clear"
             title="Clear"
@@ -149,10 +148,9 @@ function MemberSearchSelect({
           ref={listRef}
           id="member-search-listbox"
           role="listbox"
-          className="absolute z-[200] mt-2 w-full max-h-72 overflow-auto rounded-2xl
-                     border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
-                     bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
-                     shadow-xl"
+          className="absolute left-full top-0 mr-2 z-[200] w-72 max-h-72 overflow-auto rounded-2xl
+             border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+             bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite shadow-xl"
         >
           {filtered.length === 0 && (
             <li className="px-3 py-3 text-sm opacity-70 select-none text-dsmlcTangerine">
