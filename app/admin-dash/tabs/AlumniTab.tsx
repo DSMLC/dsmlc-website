@@ -74,9 +74,9 @@ export default function AlumniTab({
         verticalDividers
         columnGroups={[
           { label: "Select", span: 1 },
-          { label: "Alumni", span: 1 },
-          { label: "Career", span: 2 },
-          { label: "Details", span: 2 },
+          { label: "Alumni", span: 2 }, // Name + Member ID
+          { label: "Career", span: 2 }, // Company + Previous Position
+          { label: "Details", span: 2 }, // Grad Year + LinkedIn
         ]}
         columns={[
           {
@@ -98,14 +98,32 @@ export default function AlumniTab({
             ),
           },
           {
-            key: "member_id",
+            key: "name",
             header: "Name",
             className:
-              "min-w-[160px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+              "min-w-[160px] max-w-[220px] truncate dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
             render: (a) => {
               const m = memberById.get(a.member_id);
-              return m ? `${m.first_name} ${m.last_name}` : `#${a.member_id}`;
+              return m ? (
+                <span className="truncate block">{`${m.first_name} ${m.last_name}`}</span>
+              ) : (
+                `#${a.member_id}`
+              );
             },
+          },
+          {
+            key: "memberId",
+            header: "Member ID",
+            className:
+              "w-[110px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
+            render: (a) => (
+              <span
+                className="inline-flex items-center rounded-full border px-2 py-0.5 text-[11px]
+                border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment"
+              >
+                #{a.member_id}
+              </span>
+            ),
           },
           {
             key: "company",
