@@ -139,6 +139,11 @@ export default function MemberEditorModal({
             className="text-lg sm:text-xl font-semibold text-dsmlcTangerine"
           >
             {mode === "edit" ? "Edit Member" : "Add Member"}
+            {mode === "edit" && form.member_id != null ? (
+              <span className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack ml-2 text-sm ">
+                • ID #{form.member_id}
+              </span>
+            ) : null}
           </h3>
 
           <button
@@ -161,6 +166,18 @@ export default function MemberEditorModal({
         {/* Body */}
         <div className="px-6 py-5 max-h-[70vh] sm:max-h-[72vh] overflow-y-auto border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {mode === "edit" && (
+              <label className="form-control">
+                <span className="label-text font-medium">Member ID</span>
+                <input
+                  className="input input-bordered dark:text-dark-dsmlcBlack text-light-dsmlcBlack w-full bg-white /40 dark:bg-black/25"
+                  value={form.member_id ?? ""}
+                  disabled
+                  readOnly
+                />
+              </label>
+            )}
+
             <label className="form-control">
               <span className="label-text font-medium">First name *</span>
               <input
@@ -278,7 +295,7 @@ export default function MemberEditorModal({
         {/* Footer */}
         <div className="sticky bottom-0 flex items-center justify-end gap-2 px-6 py-4 border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment backdrop-blur">
           <button
-            className="      inline-flex items-center justify-center
+            className="inline-flex items-center justify-center
       rounded-full border border-dsmlcTangerine
       bg-transparent px-5 py-2 text-sm font-medium
       text-dsmlcTangerine
@@ -292,7 +309,7 @@ export default function MemberEditorModal({
             Cancel
           </button>
           <button
-            className="      inline-flex items-center justify-center
+            className="inline-flex items-center justify-center
       rounded-full border border-dsmlcTangerine
       bg-transparent px-5 py-2 text-sm font-medium
       text-dsmlcTangerine

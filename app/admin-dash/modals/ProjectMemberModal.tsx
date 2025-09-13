@@ -147,7 +147,7 @@ function MemberSearchSelect({
           ref={listRef}
           id="pmember-search-listbox"
           role="listbox"
-          className="absolute z-[200] mt-2 w-full max-h-72 overflow-auto rounded-2xl
+          className="absolute left-full top-0 mr-2 z-[200] w-full max-h-72 overflow-auto rounded-2xl
                      border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
                      bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite shadow-xl"
         >
