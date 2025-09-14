@@ -147,7 +147,7 @@ function MemberSearchSelect({
           ref={listRef}
           id="member-search-listbox"
           role="listbox"
-          className="absolute left-full top-0 mr-2 z-[200] w-72 max-h-72 overflow-auto rounded-2xl
+          className="absolute top-full top-0 mr-2 z-[200] w-72 max-h-72 overflow-auto rounded-2xl
              border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
              bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite shadow-xl"
         >
@@ -641,7 +641,7 @@ function EventRegistrationsModal({
                         : ""
                     }
                   />
-                  <span className="label-text">
+                  <span className="label-text text-light-dsmlcBlack dark:text-dark-dsmlcBlack">
                     Register a guest (not a member)
                   </span>
                 </label>
@@ -651,7 +651,9 @@ function EventRegistrationsModal({
                 // Member select
                 <div className="form-control md:col-span-3">
                   <label className="label">
-                    <span className="label-text">Member:</span>
+                    <span className="label-text text-light-dsmlcBlack dark:text-dark-dsmlcBlack">
+                      Member:
+                    </span>
                   </label>
                   {editor.mode === "create" ? (
                     <MemberSearchSelect
@@ -689,7 +691,9 @@ function EventRegistrationsModal({
                 <>
                   <div className="form-control">
                     <label className="label">
-                      <span className="label-text">Guest first name</span>
+                      <span className="label-text text-light-dsmlcBlack dark:text-dark-dsmlcBlack">
+                        Guest first name:
+                      </span>
                     </label>
                     <input
                       className="input input-bordered rounded-xl
@@ -715,7 +719,9 @@ function EventRegistrationsModal({
                   </div>
                   <div className="form-control">
                     <label className="label">
-                      <span className="label-text">Guest last name</span>
+                      <span className="label-text text-light-dsmlcBlack dark:text-dark-dsmlcBlack">
+                        Guest last name:
+                      </span>
                     </label>
                     <input
                       className="input input-bordered rounded-xl
@@ -741,7 +747,9 @@ function EventRegistrationsModal({
                   </div>
                   <div className="form-control">
                     <label className="label">
-                      <span className="label-text">Guest email (optional)</span>
+                      <span className="label-text text-light-dsmlcBlack dark:text-dark-dsmlcBlack">
+                        Guest email (optional):
+                      </span>
                     </label>
                     <input
                       type="email"
@@ -772,12 +780,14 @@ function EventRegistrationsModal({
               {/* Registered */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Registered:</span>
+                  <span className="label-text text-light-dsmlcBlack dark:text-dark-dsmlcBlack">
+                    Registered:
+                  </span>
                 </label>
                 <select
                   className="select select-bordered rounded-xl
                              border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
-                             bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite"
+                             bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
                   value={editor.values.registered ?? ""}
                   onChange={(e) =>
                     setEditor((prev) =>
@@ -793,21 +803,38 @@ function EventRegistrationsModal({
                     )
                   }
                 >
-                  <option value="">— (Unassigned)</option>
-                  <option value="1">1 (Yes)</option>
-                  <option value="0">0 (No)</option>
+                  <option
+                    className="text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
+                    value=""
+                  >
+                    — (Unassigned)
+                  </option>
+                  <option
+                    className="text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
+                    value="1"
+                  >
+                    1 (Yes)
+                  </option>
+                  <option
+                    className="text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
+                    value="0"
+                  >
+                    0 (No)
+                  </option>
                 </select>
               </div>
 
               {/* Attendance */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Attendance:</span>
+                  <span className="label-text text-light-dsmlcBlack dark:text-dark-dsmlcBlack">
+                    Attendance:
+                  </span>
                 </label>
                 <select
                   className="select select-bordered rounded-xl
                              border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
-                             bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite"
+                             bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
                   value={editor.values.attendance ?? ""}
                   onChange={(e) =>
                     setEditor((prev) =>
