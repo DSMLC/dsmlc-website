@@ -14,6 +14,7 @@ const TABLES = {
   projects: "VisionaryLabProject",
   projectMemberRoles: "VisionaryLabMemberRole",
   alumni: "Alumni",
+  guests: "Guest",
 } as const;
 
 export default function AdminDashPage() {
@@ -44,6 +45,7 @@ export default function AdminDashPage() {
           projectsRes,
           projMemberRolesRes,
           alumniRes,
+          guestsRes,
         ] = await Promise.all([
           supabase.schema("admin").from(TABLES.roles).select("*"),
           supabase.schema("admin").from(TABLES.members).select("*"),
@@ -52,6 +54,7 @@ export default function AdminDashPage() {
           supabase.schema("admin").from(TABLES.projects).select("*"),
           supabase.schema("admin").from(TABLES.projectMemberRoles).select("*"),
           supabase.schema("admin").from(TABLES.alumni).select("*"),
+          supabase.schema("admin").from(TABLES.guests).select("*"),
         ]);
 
         const errs = [
@@ -62,6 +65,7 @@ export default function AdminDashPage() {
           projectsRes.error,
           projMemberRolesRes.error,
           alumniRes.error,
+          guestsRes.error,
         ].filter(Boolean);
 
         if (errs.length) {
@@ -76,6 +80,7 @@ export default function AdminDashPage() {
           projects: projectsRes.data ?? [],
           projectMemberRoles: projMemberRolesRes.data ?? [],
           alumni: alumniRes.data ?? [],
+          guests: guestsRes.data ?? [],
         };
 
         const builtSections: PageData[] = [

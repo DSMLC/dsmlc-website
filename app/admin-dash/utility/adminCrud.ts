@@ -79,17 +79,18 @@ export async function deleteRow(
 /** delete by  where-clause (composite PKs) */
 export async function deleteWhere(
   table: string,
-  where: Record<string, string | number | boolean | null>
-) {
-  try {
-    let q = supabase.schema("admin").from(table).delete();
-    for (const [k, v] of Object.entries(where)) q = q.eq(k, v as any);
-    const { error, status } = await q;
-    if (error) throw new Error(`${error.message} (HTTP ${status})`);
-  } catch (e) {
-    console.error("deleteWhere failed:", e);
-    throw asErr(`Delete ${table}`, e);
+  where: Record<string, unknown>
+): Promise<void> {
+  let q = supabase.schema("admin").from(table).delete();
+
+  for (const [k, v] of Object.entries(where)) {
+    if (v === undefined) continue;
+    if (v === null) q = q.is(k, null);        // IS NULL, not = NULL
+    else q = q.eq(k, v as any);
   }
+
+  const { error } = await q; // no .select()
+  if (error) throw error;
 }
 
 /** upsert with conflict columns (composite PKs) */

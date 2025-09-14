@@ -3,9 +3,9 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import SimpleTable from "../components/SimpleTable";
 import { fmtDate } from "../components/ui";
-import { Event, Member, EventRegistration } from "../utility/types";
+import { Event, Member, EventRegistration, Guest } from "../utility/types";
 
-type RegRow = EventRegistration & { member?: Member };
+type RegRow = EventRegistration & { member?: Member; guest?: Guest };
 
 // Helpers for display
 const yesNo = (n: number | null | undefined) =>
@@ -14,7 +14,6 @@ const presentAbsent = (n: number | null | undefined) =>
   n === 1 ? "present" : n === 0 ? "absent" : "Unassigned";
 
 /* ========================= Searchable member ========================= */
-
 function MemberSearchSelect({
   members,
   value,
@@ -206,6 +205,7 @@ function EventRegistrationsModal({
   members,
   onSaved,
   onDelete,
+  onCreateGuest, // NEW
   onClose,
 }: {
   open: boolean;
@@ -219,32 +219,34 @@ function EventRegistrationsModal({
   ) => Promise<void> | void;
   onDelete: (keys: {
     event_id: number;
-    member_id: number;
-  }) => Promise<void> | void;
+    member_id?: number | null;
+    guest_id?: number | null;
+  }) => Promise<void> | void; // widened
+  onCreateGuest: (g: {
+    first_name: string;
+    last_name: string;
+    email?: string | null;
+  }) => Promise<Guest>; // NEW
   onClose: () => void;
 }) {
-  const [selectedMemberId, setSelectedMemberId] = useState<number | null>(null);
+  // Stable selection key: member → m:{member_id}, guest → g:{guest_id}
+  const keyOf = (r: RegRow) =>
+    r.member_id != null ? `m:${r.member_id}` : `g:${r.guest_id}`;
 
-  // Inline editor state (numeric fields)
-  const [editor, setEditor] = useState<{
-    mode: "create" | "edit";
-    values: {
-      member_id: number | null;
-      registered: number | null; // 1=yes, 0=no, null=unknown
-      attendance: number | null; // 1=present, 0=absent, null=unknown
-    };
-    saving?: boolean;
-  } | null>(null);
-
-  const [deleting, setDeleting] = useState(false);
+  const [selectedKey, setSelectedKey] = useState<string | null>(null);
 
   const selectedRow: RegRow | undefined = useMemo(
-    () => rows.find((r) => r.member_id === selectedMemberId),
-    [rows, selectedMemberId]
+    () => rows.find((r) => keyOf(r) === selectedKey),
+    [rows, selectedKey]
   );
 
   const existingMemberIds = useMemo(
-    () => new Set(rows.map((r) => r.member_id)),
+    () =>
+      new Set(
+        rows
+          .filter((r) => r.member_id != null)
+          .map((r) => r.member_id as number)
+      ),
     [rows]
   );
 
@@ -253,25 +255,49 @@ function EventRegistrationsModal({
     [members, existingMemberIds]
   );
 
+  // Inline editor: either Member or Guest
+  const [editor, setEditor] = useState<{
+    mode: "create" | "edit";
+    asGuest: boolean;
+    values: {
+      member_id: number | null;
+      guest_first_name: string;
+      guest_last_name: string;
+      guest_email: string;
+      registered: number | null;
+      attendance: number | null;
+    };
+    saving?: boolean;
+  } | null>(null);
+
+  const [deleting, setDeleting] = useState(false);
+
   if (!open) return null;
 
-  const startCreate = () => {
+  const startCreate = () =>
     setEditor({
       mode: "create",
+      asGuest: false,
       values: {
         member_id: null,
+        guest_first_name: "",
+        guest_last_name: "",
+        guest_email: "",
         registered: null,
         attendance: null,
       },
     });
-  };
 
   const startEdit = () => {
     if (!selectedRow) return;
     setEditor({
       mode: "edit",
+      asGuest: selectedRow.member_id == null,
       values: {
-        member_id: selectedRow.member_id,
+        member_id: selectedRow.member_id ?? null,
+        guest_first_name: selectedRow.guest?.first_name ?? "",
+        guest_last_name: selectedRow.guest?.last_name ?? "",
+        guest_email: selectedRow.guest?.email ?? "",
         registered:
           selectedRow.registered === 1 || selectedRow.registered === 0
             ? selectedRow.registered
@@ -286,29 +312,29 @@ function EventRegistrationsModal({
 
   const confirmDelete = async () => {
     if (!selectedRow || deleting) return;
-    const displayName = selectedRow.member
-      ? `${selectedRow.member.first_name} ${selectedRow.member.last_name}`
-      : `#${selectedRow.member_id}`;
+    const label =
+      selectedRow.member_id != null
+        ? selectedRow.member
+          ? `${selectedRow.member.first_name} ${selectedRow.member.last_name}`
+          : `#${selectedRow.member_id}`
+        : selectedRow.guest
+          ? `${selectedRow.guest.first_name} ${selectedRow.guest.last_name}`
+          : `Guest #${selectedRow.guest_id}`;
+
     if (
-      !confirm(
-        `Remove registration for ${displayName} from "${event.event_name}"? This cannot be undone.`
-      )
-    ) {
+      !confirm(`Remove registration for ${label} from "${event.event_name}"?`)
+    )
       return;
-    }
+
     try {
       setDeleting(true);
       await onDelete({
         event_id: event.event_id,
-        member_id: selectedRow.member_id,
+        member_id: selectedRow.member_id ?? null,
+        guest_id: selectedRow.guest_id ?? null,
       });
-      setSelectedMemberId(null);
-      // If editor was open for this row, close it
-      setEditor((ed) =>
-        ed && ed.values.member_id === selectedRow.member_id ? null : ed
-      );
+      setSelectedKey(null);
     } catch (e: any) {
-      console.error(e);
       alert(e?.message ?? "Delete failed.");
     } finally {
       setDeleting(false);
@@ -316,35 +342,68 @@ function EventRegistrationsModal({
   };
 
   const cancelEditor = () => setEditor(null);
-
   const parseNumeric = (v: string): number | null =>
     v === "" ? null : Number(v);
 
   const saveEditor = async () => {
     if (!editor) return;
-    const { member_id, registered, attendance } = editor.values;
-
-    if (!member_id) {
-      alert("Please choose a member.");
-      return;
-    }
-    if (editor.mode === "create" && existingMemberIds.has(member_id)) {
-      alert("That member is already registered for this event.");
-      return;
-    }
-    // Coerce to numbers (null allowed)
-    const payload: EventRegistration = {
-      event_id: event.event_id,
-      member_id,
-      registered: registered ?? 0, // if unset, store 0 by default
-      attendance: attendance, // can be null if unknown
-    };
+    const { asGuest, values } = editor;
 
     try {
       setEditor((e) => (e ? { ...e, saving: true } : e));
+
+      if (asGuest) {
+        // Validation: at least a first or last name
+        if (!values.guest_first_name.trim() && !values.guest_last_name.trim()) {
+          alert("Please enter the guest's first or last name.");
+          setEditor((e) => (e ? { ...e, saving: false } : e));
+          return;
+        }
+
+        // Create/ensure a Guest first
+        const g = await onCreateGuest({
+          first_name: values.guest_first_name.trim(),
+          last_name: values.guest_last_name.trim(),
+          email: values.guest_email.trim() ? values.guest_email.trim() : null,
+        });
+
+        const payload: EventRegistration = {
+          event_id: event.event_id,
+          member_id: null,
+          guest_id: g.guest_id,
+          registered: values.registered ?? 0,
+          attendance: values.attendance ?? null,
+        };
+
+        await onSaved(payload, editor.mode);
+        setEditor(null);
+        setSelectedKey(`g:${g.guest_id}`);
+        return;
+      }
+
+      // Member path
+      if (!values.member_id) {
+        alert("Please choose a member.");
+        setEditor((e) => (e ? { ...e, saving: false } : e));
+        return;
+      }
+      if (editor.mode === "create" && existingMemberIds.has(values.member_id)) {
+        alert("That member is already registered for this event.");
+        setEditor((e) => (e ? { ...e, saving: false } : e));
+        return;
+      }
+
+      const payload: EventRegistration = {
+        event_id: event.event_id,
+        member_id: values.member_id,
+        guest_id: null,
+        registered: values.registered ?? 0,
+        attendance: values.attendance ?? null,
+      };
+
       await onSaved(payload, editor.mode);
       setEditor(null);
-      if (editor.mode === "create") setSelectedMemberId(member_id);
+      setSelectedKey(`m:${values.member_id}`);
     } catch (e: any) {
       console.error(e);
       alert(e?.message ?? "Save failed.");
@@ -435,18 +494,18 @@ function EventRegistrationsModal({
           </div>
         </div>
 
-        {/* Body: table */}
+        {/* Table */}
         <div className="overflow-auto rounded-xl border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
           <SimpleTable<RegRow>
             data={rows}
-            rowKey={(r) => `${r.event_id}-${r.member_id}`}
+            rowKey={(r) => keyOf(r)}
             searchPlaceholder="Search registrations…"
             stickyHeader
             zebra
             verticalDividers
             columnGroups={[
               { label: "Select", span: 1 },
-              { label: "Member", span: 2 },
+              { label: "Person", span: 2 },
               { label: "Contact", span: 1 },
               { label: "Status", span: 2 },
             ]}
@@ -455,18 +514,21 @@ function EventRegistrationsModal({
                 key: "select",
                 header: "",
                 className: "w-[60px]",
-                render: (r) => (
-                  <div className="flex justify-center">
-                    <input
-                      type="radio"
-                      name="reg-select"
-                      className="radio"
-                      checked={selectedMemberId === r.member_id}
-                      onChange={() => setSelectedMemberId(r.member_id)}
-                      aria-label={`Select registration for member #${r.member_id}`}
-                    />
-                  </div>
-                ),
+                render: (r) => {
+                  const k = keyOf(r);
+                  return (
+                    <div className="flex justify-center">
+                      <input
+                        type="radio"
+                        name="reg-select"
+                        className="radio"
+                        checked={selectedKey === k}
+                        onChange={() => setSelectedKey(k)}
+                        aria-label={`Select ${k}`}
+                      />
+                    </div>
+                  );
+                },
               },
               {
                 key: "name",
@@ -474,9 +536,13 @@ function EventRegistrationsModal({
                 className:
                   "min-w-[180px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                 render: (r) =>
-                  r.member
-                    ? `${r.member.first_name} ${r.member.last_name}`
-                    : `#${r.member_id}`,
+                  r.member_id != null
+                    ? r.member
+                      ? `${r.member.first_name} ${r.member.last_name}`
+                      : `#${r.member_id}`
+                    : r.guest
+                      ? `${r.guest.first_name} ${r.guest.last_name}`
+                      : `Guest #${r.guest_id}`,
               },
               {
                 key: "role",
@@ -484,6 +550,7 @@ function EventRegistrationsModal({
                 className:
                   "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                 render: (r) => {
+                  if (r.member_id == null) return "Guest";
                   const m = r.member;
                   return m?.role_id
                     ? (roleById.get(m.role_id) ?? "Unassigned")
@@ -496,12 +563,23 @@ function EventRegistrationsModal({
                 className:
                   "min-w-[200px] max-w-[260px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                 render: (r) =>
-                  r.member?.email ? (
+                  r.member_id != null ? (
+                    r.member?.email ? (
+                      <a
+                        className="link truncate block"
+                        href={`mailto:${r.member.email}`}
+                      >
+                        {r.member.email}
+                      </a>
+                    ) : (
+                      "—"
+                    )
+                  ) : r.guest?.email ? (
                     <a
                       className="link truncate block"
-                      href={`mailto:${r.member.email}`}
+                      href={`mailto:${r.guest.email}`}
                     >
-                      {r.member.email}
+                      {r.guest.email}
                     </a>
                   ) : (
                     "—"
@@ -544,58 +622,162 @@ function EventRegistrationsModal({
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {/* Member selector (searchable) */}
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                    Member:
-                  </span>
-                </label>
-
-                {editor.mode === "create" ? (
-                  <MemberSearchSelect
-                    members={creatableMembers}
-                    value={editor.values.member_id}
-                    onChange={(id) =>
+              {/* Toggle Member vs Guest */}
+              <div className="form-control md:col-span-3">
+                <label className="label cursor-pointer justify-start gap-3 p-0">
+                  <input
+                    type="checkbox"
+                    className="toggle"
+                    checked={editor.asGuest}
+                    onChange={(e) =>
                       setEditor((prev) =>
-                        prev
-                          ? {
-                              ...prev,
-                              values: { ...prev.values, member_id: id },
-                            }
-                          : prev
+                        prev ? { ...prev, asGuest: e.target.checked } : prev
                       )
                     }
-                    placeholder="Search by name or email…"
-                  />
-                ) : (
-                  <input
-                    className="input input-bordered rounded-xl
-                               border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
-                               bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
-                               text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
-                    value={
-                      selectedRow?.member
-                        ? `${selectedRow.member.first_name} ${selectedRow.member.last_name}`
-                        : `#${editor.values.member_id}`
+                    disabled={editor.mode === "edit"} // lock type during edit
+                    title={
+                      editor.mode === "edit"
+                        ? "Type cannot be changed while editing"
+                        : ""
                     }
-                    disabled
                   />
-                )}
-              </div>
-
-              {/* Registered (numeric) */}
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                    Registered:
+                  <span className="label-text">
+                    Register a guest (not a member)
                   </span>
                 </label>
+              </div>
+
+              {!editor.asGuest ? (
+                // Member select
+                <div className="form-control md:col-span-3">
+                  <label className="label">
+                    <span className="label-text">Member:</span>
+                  </label>
+                  {editor.mode === "create" ? (
+                    <MemberSearchSelect
+                      members={creatableMembers}
+                      value={editor.values.member_id}
+                      onChange={(id) =>
+                        setEditor((prev) =>
+                          prev
+                            ? {
+                                ...prev,
+                                values: { ...prev.values, member_id: id },
+                              }
+                            : prev
+                        )
+                      }
+                      placeholder="Search by name or email…"
+                    />
+                  ) : (
+                    <input
+                      className="input input-bordered rounded-xl
+                                 border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+                                 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
+                                 text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
+                      value={
+                        selectedRow?.member
+                          ? `${selectedRow.member.first_name} ${selectedRow.member.last_name}`
+                          : `#${editor.values.member_id}`
+                      }
+                      disabled
+                    />
+                  )}
+                </div>
+              ) : (
+                // Guest mini form
+                <>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Guest first name</span>
+                    </label>
+                    <input
+                      className="input input-bordered rounded-xl
+                                 border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+                                 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
+                                 text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
+                      value={editor.values.guest_first_name}
+                      onChange={(e) =>
+                        setEditor((prev) =>
+                          prev
+                            ? {
+                                ...prev,
+                                values: {
+                                  ...prev.values,
+                                  guest_first_name: e.target.value,
+                                },
+                              }
+                            : prev
+                        )
+                      }
+                      placeholder="Alex"
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Guest last name</span>
+                    </label>
+                    <input
+                      className="input input-bordered rounded-xl
+                                 border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+                                 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
+                                 text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
+                      value={editor.values.guest_last_name}
+                      onChange={(e) =>
+                        setEditor((prev) =>
+                          prev
+                            ? {
+                                ...prev,
+                                values: {
+                                  ...prev.values,
+                                  guest_last_name: e.target.value,
+                                },
+                              }
+                            : prev
+                        )
+                      }
+                      placeholder="Johnson"
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="label-text">Guest email (optional)</span>
+                    </label>
+                    <input
+                      type="email"
+                      className="input input-bordered rounded-xl
+                                 border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
+                                 bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
+                                 text-light-dsmlcBlack dark:text-dark-dsmlcBlack"
+                      value={editor.values.guest_email}
+                      onChange={(e) =>
+                        setEditor((prev) =>
+                          prev
+                            ? {
+                                ...prev,
+                                values: {
+                                  ...prev.values,
+                                  guest_email: e.target.value,
+                                },
+                              }
+                            : prev
+                        )
+                      }
+                      placeholder="alex@example.com"
+                    />
+                  </div>
+                </>
+              )}
+
+              {/* Registered */}
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Registered:</span>
+                </label>
                 <select
-                  className="select select-bordered rounded-xl dark:text-dark-dsmlcBlack text-light-dsmlcBlack m-auto
+                  className="select select-bordered rounded-xl
                              border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
-                             bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
-                             focus:outline-none focus:ring-2 focus:ring-dsmlcTangerine focus:border-dsmlcTangerine"
+                             bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite"
                   value={editor.values.registered ?? ""}
                   onChange={(e) =>
                     setEditor((prev) =>
@@ -611,39 +793,21 @@ function EventRegistrationsModal({
                     )
                   }
                 >
-                  <option
-                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
-                    value=""
-                  >
-                    — (Unassigned)
-                  </option>
-                  <option
-                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
-                    value="1"
-                  >
-                    1 (Yes)
-                  </option>
-                  <option
-                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
-                    value="0"
-                  >
-                    0 (No)
-                  </option>
+                  <option value="">— (Unassigned)</option>
+                  <option value="1">1 (Yes)</option>
+                  <option value="0">0 (No)</option>
                 </select>
               </div>
 
-              {/* Attendance (numeric) */}
+              {/* Attendance */}
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
-                    Attendance:
-                  </span>
+                  <span className="label-text">Attendance:</span>
                 </label>
                 <select
-                  className="select select-bordered rounded-xl dark:text-dark-dsmlcBlack text-light-dsmlcBlack
+                  className="select select-bordered rounded-xl
                              border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
-                             bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
-                             focus:outline-none focus:ring-2 focus:ring-dsmlcTangerine/60 focus:border-dsmlcTangerine"
+                             bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite"
                   value={editor.values.attendance ?? ""}
                   onChange={(e) =>
                     setEditor((prev) =>
@@ -659,24 +823,9 @@ function EventRegistrationsModal({
                     )
                   }
                 >
-                  <option
-                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
-                    value=""
-                  >
-                    — (Unassigned)
-                  </option>
-                  <option
-                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
-                    value="1"
-                  >
-                    1 (present)
-                  </option>
-                  <option
-                    className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack"
-                    value="0"
-                  >
-                    0 (absent)
-                  </option>
+                  <option value="">— (Unassigned)</option>
+                  <option value="1">1 (present)</option>
+                  <option value="0">0 (absent)</option>
                 </select>
               </div>
             </div>

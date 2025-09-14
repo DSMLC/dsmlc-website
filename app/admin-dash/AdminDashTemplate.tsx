@@ -8,8 +8,14 @@ import {
   VisionaryLabProject,
   EventRegistration,
   VisionaryLabMemberRole,
+  Guest,
 } from "./utility/types";
-import { deleteRow, deleteWhere, upsertRow } from "./utility/adminCrud";
+import {
+  deleteRow,
+  deleteWhere,
+  upsertRow,
+  insertRow,
+} from "./utility/adminCrud";
 
 import OverviewTab from "./tabs/OverviewTab";
 import MembersTab from "./tabs/MembersTab";
@@ -26,7 +32,7 @@ import AlumniEditorModal from "./modals/AlumniEditorModal";
 import EventRegistrationModal from "./modals/EventRegistrationModal";
 import ProjectMembersModal from "./modals/ProjectMemberModal";
 
-type RegRow = EventRegistration & { member?: Member };
+type RegRow = EventRegistration & { member?: Member; guest?: Guest };
 
 const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   Data,
@@ -39,6 +45,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     projects,
     projectMemberRoles,
     alumni,
+    guests,
   } = Data;
 
   // =========================== Tab + local DB mirrors ===========================
@@ -52,6 +59,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     useState<EventRegistration[]>(registrations);
   const [projMembersState, setProjMembersState] =
     useState<VisionaryLabMemberRole[]>(projectMemberRoles);
+  const [guestsState, setGuestsState] = useState<Guest[]>(guests ?? []);
 
   useEffect(() => {
     setMembersState(members);
@@ -60,7 +68,16 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     setAlumniState(alumni);
     setRegistrationsState(registrations);
     setProjMembersState(projectMemberRoles);
-  }, [members, projects, events, alumni, registrations, projectMemberRoles]);
+    setGuestsState(guests ?? []);
+  }, [
+    members,
+    projects,
+    events,
+    alumni,
+    registrations,
+    projectMemberRoles,
+    guests,
+  ]);
 
   // =========================== Selections ===========================
   const [selectedMemberId, setSelectedMemberId] = useState<number | null>(null);
@@ -71,6 +88,10 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   const [selectedAlumniMemberId, setSelectedAlumniMemberId] = useState<
     number | null
   >(null);
+  const guestById = useMemo(
+    () => new Map(guestsState.map((g) => [g.guest_id, g])),
+    [guestsState]
+  );
 
   const selectedMember = useMemo(
     () => membersState.find((m) => m.member_id === selectedMemberId) ?? null,
@@ -130,7 +151,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     membersState,
     eventsState,
     registrationsState,
-    projectMemberRoles: projMembersState, // use the live state
+    projectMemberRoles: projMembersState,
     alumniState,
     projectsState,
   });
@@ -141,8 +162,12 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     const id = regsModal.event.event_id;
     return registrationsState
       .filter((r) => r.event_id === id)
-      .map((r) => ({ ...r, member: memberById.get(r.member_id) }));
-  }, [regsModal, registrationsState, memberById]);
+      .map((r) => ({
+        ...r,
+        member: r.member_id != null ? memberById.get(r.member_id) : undefined,
+        guest: r.guest_id != null ? guestById.get(r.guest_id) : undefined,
+      }));
+  }, [regsModal, registrationsState, memberById, guestById]);
 
   const modalProjectMemberRows = useMemo(() => {
     if (!projMembersModal?.project?.project_id) return [];
@@ -222,23 +247,60 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     }
   };
 
+  const onDeleteRegistration = async ({
+    event_id,
+    member_id = null,
+    guest_id = null,
+  }: {
+    event_id: number;
+    member_id?: number | null;
+    guest_id?: number | null;
+  }) => {
+    await deleteWhere("EventRegistration", { event_id, member_id, guest_id });
+
+    setRegistrationsState((prev) =>
+      prev.filter((r) => {
+        if (r.event_id !== event_id) return true;
+        // remove either by member_id or by guest_id
+        if (member_id !== null && member_id !== undefined) {
+          return r.member_id !== member_id;
+        }
+        if (guest_id !== null && guest_id !== undefined) {
+          return (r as any).guest_id !== guest_id;
+        }
+        return true;
+      })
+    );
+  };
+
   const upsertRegistration = async (row: EventRegistration) => {
     try {
+      const payload = {
+        event_id: row.event_id,
+        member_id: row.member_id ?? null,
+        guest_id: row.guest_id ?? null,
+        registered: row.registered,
+        attendance: row.attendance ?? null,
+      };
+
+      const conflict =
+        row.member_id != null
+          ? ["event_id", "member_id"]
+          : ["event_id", "guest_id"];
+
       const data = await upsertRow<EventRegistration>(
         "EventRegistration",
-        {
-          event_id: row.event_id,
-          member_id: row.member_id,
-          registered: row.registered,
-          attendance: row.attendance ?? null,
-        },
-        ["event_id", "member_id"]
+        payload,
+        conflict
       );
+
       setRegistrationsState((prev) => {
-        const withoutOld = prev.filter(
-          (r) =>
-            !(r.event_id === data.event_id && r.member_id === data.member_id)
-        );
+        const same = (a: EventRegistration, b: EventRegistration) =>
+          a.event_id === b.event_id &&
+          (a.member_id ?? null) === (b.member_id ?? null) &&
+          (a.guest_id ?? null) === (b.guest_id ?? null);
+
+        const withoutOld = prev.filter((r) => !same(r, data));
         return [data, ...withoutOld];
       });
     } catch (e: any) {
@@ -293,6 +355,20 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     } catch (e: any) {
       alert(`Delete failed: ${e?.message ?? e}`);
     }
+  };
+
+  const onCreateGuest = async (g: {
+    first_name: string;
+    last_name: string;
+    email?: string | null;
+  }) => {
+    const saved = await insertRow<Guest>("Guest", {
+      first_name: g.first_name,
+      last_name: g.last_name,
+      email: g.email ?? null,
+    });
+    setGuestsState((prev) => [saved, ...prev]);
+    return saved;
   };
 
   // =========================== Render UI Sections ===========================
@@ -442,15 +518,14 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
 
       {regsModal && (
         <EventRegistrationModal
-          open={!!regsModal}
+          open
           event={regsModal.event}
           rows={modalRegistrationRows}
           roleById={roleById}
           members={membersState}
+          onCreateGuest={onCreateGuest}
           onSaved={upsertRegistration}
-          onDelete={({ event_id, member_id }) =>
-            deleteWhere("EventRegistration", { event_id, member_id })
-          }
+          onDelete={onDeleteRegistration}
           onClose={() => setRegsModal(null)}
         />
       )}

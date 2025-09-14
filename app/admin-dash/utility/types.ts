@@ -23,9 +23,17 @@ export type Event = {
 
 export type EventRegistration = {
   event_id: number;
-  member_id: number;
+  member_id: number | null;
+  guest_id: number | null;
   registered: number;
   attendance?: number | null;
+};
+
+export type Guest = {
+  guest_id: number;
+  first_name: string;
+  last_name: string;
+  email?: string | null;
 };
 
 export type VisionaryLabProject = {
@@ -40,7 +48,7 @@ export type VisionaryLabProject = {
 };
 
 export type VisionaryLabMemberRole = {
-  project_id: number;
+  project_id: number; 
   member_id: number;
   project_role: string; // e.g., "Developer", "PM"
 };
@@ -61,6 +69,7 @@ export type AdminDataDashboardData = {
   projects: VisionaryLabProject[];
   projectMemberRoles: VisionaryLabMemberRole[];
   alumni: Alumni[];
+  guests: Guest[]; 
 };
 
 export interface AdminDataDashboardTemplateProps {
