@@ -1,4 +1,22 @@
 {
+  "Fall_2025": [
+        {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/DataScienceCamp.png",
+        "imageName": "Picture of Data Science Camp 2025"
+      },
+      "number": "Apr 3",
+      "header": "Data Science Camp",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "DSMLC members helped out with an exciting event introducing young high school students to the field of data science!"
+        }
+      ]
+    }
+  ],
+
   "winter_2025": [
     {
       "image": {
@@ -47,9 +65,9 @@
     },
     {
       "image": {
-        "imageType": "Logo",
-        "imageLink": "#",
-        "imageName": "Logo"
+        "imageType": "Pic",
+        "imageLink": "/images/sponsors/urban_systems.jpg",
+        "imageName": "Urban Systems Logo"
       },
       "number": "Feb 13",
       "header": "Large Language Models (LLMs) workshop by Urban Systems",
