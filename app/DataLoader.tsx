@@ -22,10 +22,12 @@ import CarouselTemplate from "./components/templates/CarouselTemplate";
 import BackgroundFillTemplate from "./components/templates/BackgroundFillTemplate";
 import IncreasingNumbersTemplate from "./components/templates/IncreasingNumbersTemplate";
 import BackgroundFillTemplate2 from "./components/templates/BackgroundFillTemplate2";
+import BackgroundFillTemplate3 from "./components/templates/BackgroundFillTemplate3";
 import SocialLinksTemplate from "./components/templates/SocialLinksTemplate";
 import ComingSoonTemplate from "./components/templates/ComingSoonTemplate";
 import CardTemplate from "./components/templates/CardTemplate";
 import EmailFormTemplate from "./components/templates/EmailFormTemplate";
+import AdminDataDashboardTemplate from "./admin-dash/AdminDashTemplate";
 
 export interface ImageData {
   imageLink?: string;
@@ -46,6 +48,11 @@ export interface BackgroundFillTemplateData {
 
 export interface BackgroundFillTemplateData2 {
   type: "BackgroundFillTemplate2";
+  data: PageData[];
+}
+
+export interface BackgroundFillTemplateData3 {
+  type: "BackgroundFillTemplate3";
   data: PageData[];
 }
 
@@ -229,6 +236,58 @@ export interface CardTemplateData {
         };
       }[];
 }
+export interface AdminDataDashboardTemplateData {
+  type: "AdminDataDashboardTemplate";
+  data: {
+    roles: { role_id: number; role: string }[];
+    members: {
+      member_id: number;
+      first_name: string;
+      last_name: string;
+      email?: string;
+      ucid?: string;
+      major?: string;
+      role_id?: number | null;
+      year?: number | null;
+      graduated?: boolean | null;
+    }[];
+    events: {
+      event_id: number;
+      event_name: string;
+      event_description?: string;
+      event_type?: string;
+      event_date: string;
+    }[];
+    registrations: {
+      event_id: number;
+      member_id: number;
+      registered: boolean;
+      attendance?: "present" | "absent" | "late" | null;
+    }[];
+    projects: {
+      project_id: number;
+      name: string;
+      project_type?: string;
+      description?: string;
+      start_date?: string;
+      end_date?: string | null;
+      status?: string;
+      project_lead?: number | null;
+    }[];
+    projectMemberRoles: {
+      project_id: number;
+      member_id: number;
+      project_role: string;
+    }[];
+    alumni: {
+      member_id: number;
+      graduation_year?: number | null;
+      linkedin?: string | null;
+      company?: string | null;
+      position?: string | null;
+    }[];
+  };
+}
 
 export interface EmailFormTemplateData {
   type: "EmailFormTemplate";
@@ -258,10 +317,12 @@ export type PageData =
   | SubtitleTemplateData3
   | BackgroundFillTemplateData
   | BackgroundFillTemplateData2
+  | BackgroundFillTemplateData3
   | SocialLinksTemplateData
   | IncreasingNumbersData
   | CardTemplateData
-  | EmailFormTemplateData;
+  | EmailFormTemplateData
+  | AdminDataDashboardTemplateData;
 
 export const templateMap: {
   [key in PageData["type"]]?: React.ComponentType<{
@@ -291,10 +352,12 @@ export const templateMap: {
   CarouselTemplate: CarouselTemplate,
   BackgroundFillTemplate: BackgroundFillTemplate,
   BackgroundFillTemplate2: BackgroundFillTemplate2,
+  BackgroundFillTemplate3: BackgroundFillTemplate3,
   IncreasingNumbersTemplate: IncreasingNumbersTemplate,
   SocialLinksTemplate: SocialLinksTemplate,
   CardTemplate: CardTemplate,
   EmailFormTemplate: EmailFormTemplate,
+  AdminDataDashboardTemplate: AdminDataDashboardTemplate,
 };
 
 const resolveData = async (pageData: PageData): Promise<any> => {
@@ -341,7 +404,8 @@ const resolveData = async (pageData: PageData): Promise<any> => {
 
   if (
     (pageData.type === "BackgroundFillTemplate" ||
-      pageData.type === "BackgroundFillTemplate2") &&
+      pageData.type === "BackgroundFillTemplate2" ||
+      pageData.type === "BackgroundFillTemplate3") &&
     Array.isArray(pageData.data)
   ) {
     const resolvedNestedData = await Promise.all(
@@ -387,7 +451,8 @@ const DataLoader = ({ pageData }: { pageData: PageData }) => {
 
   if (
     pageData.type === "BackgroundFillTemplate" ||
-    pageData.type === "BackgroundFillTemplate2"
+    pageData.type === "BackgroundFillTemplate2" ||
+    pageData.type === "BackgroundFillTemplate3"
   ) {
     return (
       <TemplateComponent
