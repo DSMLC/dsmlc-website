@@ -137,7 +137,15 @@ export default function AdminDashPage() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 space-y-4">
+    <div
+      className="min-h-screen                    
+      mx-auto w-full
+      max-w-screen-2xl 2xl:max-w-[1350px]  
+      /* or: max-w-none for true full-bleed */
+      px-3 sm:px-6 lg:px-8 py-4
+      space-y-4
+      flex flex-col"
+    >
       {/* Admin Header */}
       <div
         className="

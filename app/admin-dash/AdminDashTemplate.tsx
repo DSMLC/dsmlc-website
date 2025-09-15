@@ -220,7 +220,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     const snapshot = eventsState;
     setEventsState((prev) => prev.filter((x) => x.event_id !== ev.event_id));
     try {
-      await deleteRow("Event", "event_id", ev.event_id);
+      await deleteRow("Evt", "event_id", ev.event_id);
       if (selectedEventId === ev.event_id) setSelectedEventId(null);
     } catch (e: any) {
       setEventsState(snapshot);
@@ -308,7 +308,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
     }
   };
 
-  // ---- Project member role upsert (create/edit). Accepts string; normalize ""->null for DB.
+  // ---- Project member role upsert
   const upsertProjectMember = async (row: VisionaryLabMemberRole) => {
     try {
       const normalized = (row.project_role ?? "").trim();
@@ -318,7 +318,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
           project_id: row.project_id,
           member_id: row.member_id,
           project_role: normalized === "" ? null : normalized,
-        } as any, // DB allows null; our runtime payload is normalized here
+        } as any, // DB allows null; runtime payload normalized
         ["project_id", "member_id"]
       );
       setProjMembersState((prev) => {
@@ -374,7 +374,7 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   // =========================== Render UI Sections ===========================
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-[200px_minmax(0,1fr)] gap-8">
         <SidebarTabs value={tab} onChange={setTab} />
 
         <div className="space-y-6">
