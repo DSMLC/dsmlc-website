@@ -11,6 +11,14 @@ type Props = {
   onSaved: (row: Member, mode: "create" | "edit") => void;
 };
 
+const toStr = (v: unknown) =>
+  typeof v === "string" ? v : v == null ? "" : String(v);
+
+const trimOrNull = (v: unknown): string | null => {
+  const s = toStr(v).trim();
+  return s === "" ? null : s;
+};
+
 export default function MemberEditorModal({
   open,
   mode,
@@ -60,11 +68,11 @@ export default function MemberEditorModal({
 
       // Build a clean payload
       const payload: Partial<Member> = {
-        first_name: (form.first_name ?? "").trim(),
-        last_name: (form.last_name ?? "").trim(),
-        email: form.email?.trim() ? form.email.trim() : null,
-        ucid: form.ucid?.trim() ? form.ucid.trim() : null,
-        major: form.major?.trim() ? form.major.trim() : null,
+        first_name: toStr(form.first_name).trim(),
+        last_name: toStr(form.last_name).trim(),
+        email: trimOrNull(form.email),
+        ucid: trimOrNull(form.ucid),
+        major: trimOrNull(form.major),
         role_id:
           typeof form.role_id === "number"
             ? form.role_id
@@ -78,7 +86,7 @@ export default function MemberEditorModal({
               ? Number(form.year)
               : null,
         graduated: !!form.graduated,
-        join_date: form.join_date?.trim() ? form.join_date.trim() : null,
+        join_date: trimOrNull(form.join_date),
       };
 
       if (mode === "edit") {
