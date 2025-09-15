@@ -88,7 +88,7 @@
         "data": {
         "json": "upcoming_events.json",
         "keys": ["final_comp", "workshops", "other_events"],
-        "limit": 2
+        "limit": 4
         }
       },
       {
