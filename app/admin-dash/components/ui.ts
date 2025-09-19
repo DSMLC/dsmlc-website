@@ -1,7 +1,7 @@
 export const fmtDate = (d?: string | null) =>
   !d
     ? "—"
-    : new Date(d).toLocaleDateString("en-US", {
+    : new Date(d + "T00:00:00").toLocaleDateString("en-US", {
         year: "numeric",
         month: "short",
         day: "numeric",
