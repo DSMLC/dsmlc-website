@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import SimpleTable from "../components/SimpleTable";
-import { SECTION_CARD } from "../components/ui";
+import { SECTION_CARD, fmtDate } from "../components/ui";
 import { Member } from "../utility/types";
 
 type Props = {
@@ -74,7 +74,7 @@ export default function MembersTab({
         verticalDividers
         columnGroups={[
           { label: "Select", span: 1 },
-          { label: "Member", span: 3 }, // was 2; now includes ID
+          { label: "Member", span: 3 },
           { label: "Contact", span: 1 },
           { label: "Academics", span: 2 },
           { label: "Status", span: 2 },
@@ -165,8 +165,7 @@ export default function MembersTab({
             header: "Joined",
             className:
               "w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
-            render: (m) =>
-              m.join_date ? new Date(m.join_date).toLocaleDateString() : "—",
+            render: (m) => (m.join_date ? fmtDate(m.join_date) : "—"),
           },
           {
             key: "graduated",
