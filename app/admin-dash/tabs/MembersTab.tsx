@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo, useCallback } from "react";
 import SimpleTable from "../components/SimpleTable";
 import { SECTION_CARD, fmtDate } from "../components/ui";
 import { Member } from "../utility/types";
@@ -29,11 +29,63 @@ export default function MembersTab({
   const selectedMember =
     members.find((m) => m.member_id === selectedMemberId) ?? null;
 
+  const allEmails = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          members
+            .map((m) => (m.email ?? "").trim())
+            .filter((e) => e && /\S+@\S+\.\S+/.test(e))
+        )
+      ),
+    [members]
+  );
+
+  const handleCopyEmails = useCallback(async () => {
+    const text = allEmails.join(", ");
+    if (!text) return;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      alert("All member emails copied to clipboard!");
+    } catch {
+      // Fallback for older browsers or blocked permissions
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand("copy");
+        alert("All member emails copied to clipboard!");
+      } catch {
+        alert("Could not copy to clipboard. Please copy manually.");
+      } finally {
+        document.body.removeChild(ta);
+      }
+    }
+  }, [allEmails]);
+
   return (
     <div className={SECTION_CARD}>
       <div className="flex items-center justify-between mb-4 gap-3">
         <h2 className="text-lg font-semibold text-dsmlcTangerine">Members</h2>
         <div className="flex items-center gap-2">
+          <button
+            className="inline-flex items-center justify-center rounded-full border border-dsmlcTangerine bg-transparent px-5 py-2 text-sm font-medium text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60 shadow-sm hover:shadow-md transition-all duration-200"
+            disabled={allEmails.length === 0}
+            onClick={handleCopyEmails}
+            title={
+              allEmails.length
+                ? `Copy ${allEmails.length} email${allEmails.length > 1 ? "s" : ""}`
+                : "No emails to copy"
+            }
+          >
+            Copy Emails
+          </button>
+
           <button
             className="inline-flex items-center justify-center rounded-full border border-dsmlcTangerine bg-transparent px-5 py-2 text-sm font-medium text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60 shadow-sm hover:shadow-md transition-all duration-200"
             onClick={() =>

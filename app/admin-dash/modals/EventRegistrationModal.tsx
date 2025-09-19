@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useCallback,
+} from "react";
 import SimpleTable from "../components/SimpleTable";
 import { fmtDate } from "../components/ui";
 import { Event, Member, EventRegistration, Guest } from "../utility/types";
@@ -272,6 +278,53 @@ function EventRegistrationsModal({
 
   const [deleting, setDeleting] = useState(false);
 
+  // ===== Copy Emails =====
+  const allEmails = useMemo(
+    () =>
+      Array.from(
+        new Set(
+          rows
+            .map(
+              (r) =>
+                (r.member_id != null ? r.member?.email : r.guest?.email) ?? ""
+            )
+            .map((e) => e.trim())
+            .filter((e) => e && /\S+@\S+\.\S+/.test(e))
+        )
+      ),
+    [rows]
+  );
+
+  const handleCopyEmails = useCallback(async () => {
+    const text = allEmails.join(", ");
+    if (!text) return;
+
+    try {
+      await navigator.clipboard.writeText(text);
+      alert(
+        `Copied ${allEmails.length} email${allEmails.length > 1 ? "s" : ""} to clipboard!`
+      );
+    } catch {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try {
+        document.execCommand("copy");
+        alert(
+          `Copied ${allEmails.length} email${allEmails.length > 1 ? "s" : ""} to clipboard!`
+        );
+      } catch {
+        alert("Could not copy to clipboard. Please copy manually.");
+      } finally {
+        document.body.removeChild(ta);
+      }
+    }
+  }, [allEmails]);
+
   if (!open) return null;
 
   const startCreate = () =>
@@ -439,6 +492,25 @@ function EventRegistrationsModal({
             </p>
           </div>
           <div className="flex items-center gap-2">
+            <button
+              onClick={handleCopyEmails}
+              disabled={allEmails.length === 0}
+              className="inline-flex items-center justify-center
+                rounded-full border border-dsmlcTangerine
+                bg-transparent px-4 py-1.5 text-sm font-medium
+                text-dsmlcTangerine
+                hover:bg-dsmlcTangerine hover:text-white
+                disabled:opacity-50 disabled:cursor-not-allowed
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
+                shadow-sm hover:shadow-md transition-all duration-200"
+              title={
+                allEmails.length
+                  ? `Copy ${allEmails.length} email${allEmails.length > 1 ? "s" : ""}`
+                  : "No emails to copy"
+              }
+            >
+              Copy Emails
+            </button>
             <button
               onClick={startCreate}
               className="inline-flex items-center justify-center
