@@ -166,7 +166,7 @@ export default function EventEditorModal({
             </label>
 
             <label className="form-control">
-              <span className="label-text font-medium">Date (optional)</span>
+              <span className="label-text font-medium">Date</span>
               <input
                 type="date"
                 className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
@@ -176,9 +176,7 @@ export default function EventEditorModal({
             </label>
 
             <label className="form-control sm:col-span-2">
-              <span className="label-text font-medium">
-                Description (optional)
-              </span>
+              <span className="label-text font-medium">Description</span>
               <textarea
                 className="textarea textarea-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50 min-h-[7rem]"
                 value={form.event_description ?? ""}

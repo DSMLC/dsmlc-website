@@ -125,7 +125,7 @@ export default function AlumniEditorModal({
         <div className="px-6 py-5 max-h-[70vh] sm:max-h-[72vh] overflow-y-auto border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <label className="form-control">
-              <span className="label-text font-medium">Member ID</span>
+              <span className="label-text font-medium">Member ID *</span>
               <input
                 type="number"
                 inputMode="numeric"
