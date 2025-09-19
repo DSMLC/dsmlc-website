@@ -19,6 +19,17 @@ const trimOrNull = (v: unknown): string | null => {
   return s === "" ? null : s;
 };
 
+const ROLE_OPTIONS = [
+  { id: 1, name: "Member" },
+  { id: 2, name: "Operations" },
+  { id: 3, name: "Events" },
+  { id: 4, name: "External" },
+  { id: 5, name: "Competitions" },
+  { id: 6, name: "Marketing" },
+  { id: 7, name: "Administration" },
+  { id: 8, name: "Visionary Lab" },
+];
+
 export default function MemberEditorModal({
   open,
   mode,
@@ -118,6 +129,11 @@ export default function MemberEditorModal({
 
   if (!open) return null;
 
+  const selectedRoleName =
+    form.role_id != null
+      ? ROLE_OPTIONS.find((r) => r.id === form.role_id)?.name
+      : undefined;
+
   return (
     <div
       className="fixed inset-0 z-50 grid place-items-center p-4"
@@ -208,7 +224,7 @@ export default function MemberEditorModal({
             </label>
 
             <label className="form-control sm:col-span-2">
-              <span className="label-text font-medium">Email</span>
+              <span className="label-text font-medium">Email *</span>
               <input
                 type="email"
                 className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
@@ -219,7 +235,7 @@ export default function MemberEditorModal({
             </label>
 
             <label className="form-control">
-              <span className="label-text font-medium">UCID</span>
+              <span className="label-text font-medium">UCID *</span>
               <input
                 className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
                 value={form.ucid ?? ""}
@@ -238,11 +254,11 @@ export default function MemberEditorModal({
               />
             </label>
 
+            {/* Role dropdown (hardcoded options) */}
             <label className="form-control">
-              <span className="label-text font-medium">Role ID</span>
-              <input
-                type="number"
-                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+              <span className="label-text font-medium">Role *</span>
+              <select
+                className="select select-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
                 value={form.role_id ?? ""}
                 onChange={(e) =>
                   set(
@@ -250,9 +266,16 @@ export default function MemberEditorModal({
                     e.target.value ? Number(e.target.value) : (null as any)
                   )
                 }
-                placeholder="e.g., 2"
-                inputMode="numeric"
-              />
+              >
+                <option value="" disabled>
+                  Select a role…
+                </option>
+                {ROLE_OPTIONS.map((r) => (
+                  <option key={r.id} value={r.id}>
+                    {r.name} (#{r.id})
+                  </option>
+                ))}
+              </select>
             </label>
 
             <label className="form-control">
