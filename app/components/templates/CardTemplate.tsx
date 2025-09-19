@@ -10,7 +10,8 @@ const CardTemplate = ({ Data }: { Data: CardTemplateData["data"] }) => {
   const cardsToDisplay = Data as {
     title: string;
     description?: string;
-    timestamp?: string;
+    StartDate?: string;
+    EndDate?: string;
     location?: string;
     image?: ImageData;
     button?: {
@@ -38,13 +39,23 @@ const CardTemplate = ({ Data }: { Data: CardTemplateData["data"] }) => {
               </span>
             )}
 
-            {card.timestamp && (
+            {card.StartDate && (
               <p className="font-redHat text-sm text-gray-500">
-                {new Date(card.timestamp).toLocaleDateString("en-US", {
+                {new Date(card.StartDate).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "short",
                   day: "numeric",
                 })}
+                {card.EndDate && (
+                  <>
+                    {" – "}
+                    {new Date(card.EndDate).toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </>
+                )}
               </p>
             )}
 

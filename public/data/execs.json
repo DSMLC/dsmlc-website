@@ -29,6 +29,7 @@
         "programs": ["Statistics", "Economics"],
         "year": "5th year "
       },
+      "profile": "/images/profile/hanz_delacruz.gif",
       "linkedin": "https://www.linkedin.com/in/hanzdelacruz/",
       "joinDate": ""
     },
@@ -219,6 +220,7 @@
         "programs": ["Computer Science", "Business"],
         "year": "3rd Year"
       },
+      "profile": "/images/profile/prantap_sharma.jpg",
       "linkedin": "https://www.linkedin.com/in/prantap-sharma-2ab1662bb/",
       "joinDate": ""
     },
@@ -422,6 +424,7 @@
         "programs": ["Computer Science"],
         "year": "2nd Year"
       },
+      "profile": "/images/profile/navroop_bath.jpg",
       "linkedin": "https://www.linkedin.com/in/nbath ",
       "joinDate": ""
     },
@@ -438,7 +441,7 @@
         "programs": ["Business Analytics"]
       },
       "linkedin": "",
-      "joinDate": ""
+      "joinDate": "2021 - 2024"
     },
     {
       "name": "Tan Li",
@@ -448,8 +451,9 @@
           "roles": ["VP Finance"]
         }
       ],
+      "profile": "/images/profile/tan_li.png",
       "linkedin": "",
-      "joinDate": ""
+      "joinDate": "2021 - 2023"
     },
     {
       "name": "Haidar Putra",
@@ -459,8 +463,9 @@
           "roles": ["VP Operations"]
         }
       ],
+      "profile": "/images/profile/haidar_putra.png",
       "linkedin": "",
-      "joinDate": ""
+      "joinDate": "2021 - 2021"
     },
     {
       "name": "Ayman Mohammed",
@@ -473,8 +478,9 @@
       "program": {
         "programs": ["Cellular Molecular Microbial Biology"]
       },
+      "profile": "/images/profile/ayman_mohammed.png",
       "linkedin": "",
-      "joinDate": ""
+      "joinDate": "2021 - 2024"
     },
     {
       "name": "Kelly Osena",
@@ -484,8 +490,9 @@
           "roles": ["VP Communications"]
         }
       ],
+      "profile": "/images/profile/kelly_osena.png",
       "linkedin": "",
-      "joinDate": ""
+      "joinDate": "2022 - 2023"
     },
     {
       "name": "Gabriel Rodriguez",
@@ -501,7 +508,7 @@
       },
       "bio": "I like learning about cultures and languages, travelling the world, painting and animating cityscapes, working out, recording everything for my future self to see, and keeping things aesthetic :D",
       "linkedin": "",
-      "joinDate": ""
+      "joinDate": "2023 - 2025"
     },
     {
       "name": "Rayyan Zuberi",
@@ -516,7 +523,7 @@
       },
       "profile": "/images/profile/rayyan_zuberi.webp",
       "linkedin": "",
-      "joinDate": ""
+      "joinDate": "2021 - 2024"
     },
     {
       "name": "Taha Malik",
@@ -532,7 +539,7 @@
       },
       "bio": "I’m obsessed with hiking and solo summit adventures—there’s nothing like conquering new peaks and soaking in those breathtaking mountain views! I’m also a total tech enthusiast, especially when it comes to neurotechnology and cybernetics. The future of these fields blows my mind, and I can’t wait to see how they reshape the world!",
       "linkedin": "",
-      "joinDate": "",
+      "joinDate": "2023 - 2025",
       "profile": "/images/profile/taha_malik.jpg"
     },
     {
@@ -548,7 +555,22 @@
       },
       "profile": "/images/profile/maheen_hossain.jpg",
       "linkedin": "",
-      "joinDate": ""
+      "joinDate": "2021 - 2025"
+    },
+    {
+      "name": "Fazlie",
+      "role": [
+        {
+          "group": "Legacy Executives (Advisory Team)",
+          "roles": ["VP Events"]
+        }
+      ],
+      "program": {
+        "programs": [""]
+      },
+      "profile": "/images/profile/fazlie.png",
+      "linkedin": "",
+      "joinDate": "2021 - 2021"
     },
     {
       "name": "Jason Nguyen",
@@ -563,7 +585,7 @@
       },
       "profile": "/images/profile/jason_nguyen.jpg",
       "linkedin": "",
-      "joinDate": ""
+      "joinDate": "2023 - 2025"
     },
     {
       "name": "Divakar Gaba",
