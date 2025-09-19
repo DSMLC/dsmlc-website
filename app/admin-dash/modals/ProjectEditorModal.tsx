@@ -114,7 +114,7 @@ export default function ProjectEditorModal({
       aria-labelledby="project-modal-title"
       onKeyDown={onKeyDown}
     >
-      {/* Backdrop (click to close) */}
+      {/* Backdrop */}
       <button
         aria-label="Close"
         className="absolute inset-0 bg-black/40"
@@ -161,7 +161,7 @@ export default function ProjectEditorModal({
         <div className="px-6 py-5 max-h-[70vh] sm:max-h-[72vh] overflow-y-auto border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <label className="form-control">
-              <span className="label-text font-medium">Name</span>
+              <span className="label-text font-medium">Name *</span>
               <input
                 className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
                 value={form.name ?? ""}
@@ -171,7 +171,7 @@ export default function ProjectEditorModal({
             </label>
 
             <label className="form-control">
-              <span className="label-text font-medium">Type</span>
+              <span className="label-text font-medium">Type *</span>
               <input
                 className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
                 value={form.project_type ?? ""}
@@ -191,7 +191,7 @@ export default function ProjectEditorModal({
             </label>
 
             <label className="form-control">
-              <span className="label-text font-medium">Start date</span>
+              <span className="label-text font-medium">Start date *</span>
               <input
                 type="date"
                 className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
@@ -201,9 +201,7 @@ export default function ProjectEditorModal({
             </label>
 
             <label className="form-control">
-              <span className="label-text font-medium">
-                End date (optional)
-              </span>
+              <span className="label-text font-medium">End date</span>
               <input
                 type="date"
                 className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
@@ -213,7 +211,7 @@ export default function ProjectEditorModal({
             </label>
 
             <label className="form-control">
-              <span className="label-text font-medium">Status</span>
+              <span className="label-text font-medium">Status *</span>
               <select
                 className="select select-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
                 value={form.status ?? "planned"}
