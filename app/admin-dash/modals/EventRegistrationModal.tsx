@@ -211,7 +211,7 @@ function EventRegistrationsModal({
   members,
   onSaved,
   onDelete,
-  onCreateGuest, // NEW
+  onCreateGuest,
   onClose,
 }: {
   open: boolean;
@@ -406,14 +406,39 @@ function EventRegistrationsModal({
       setEditor((e) => (e ? { ...e, saving: true } : e));
 
       if (asGuest) {
-        // Validation: at least a first or last name
-        if (!values.guest_first_name.trim() && !values.guest_last_name.trim()) {
+        // at least a first or last name
+        if (
+          editor.mode === "create" &&
+          !values.guest_first_name.trim() &&
+          !values.guest_last_name.trim()
+        ) {
           alert("Please enter the guest's first or last name.");
           setEditor((e) => (e ? { ...e, saving: false } : e));
           return;
         }
 
-        // Create/ensure a Guest first
+        if (editor.mode === "edit") {
+          if (!selectedRow?.guest_id) {
+            alert("No guest_id found for this registration.");
+            setEditor((e) => (e ? { ...e, saving: false } : e));
+            return;
+          }
+
+          const payload: EventRegistration = {
+            event_id: event.event_id,
+            member_id: null,
+            guest_id: selectedRow.guest_id,
+            registered: values.registered ?? 0,
+            attendance: values.attendance ?? null,
+          };
+
+          await onSaved(payload, "edit");
+          setEditor(null);
+          setSelectedKey(`g:${selectedRow.guest_id}`);
+          return;
+        }
+
+        // *** CREATE NEW GUEST REGISTRATION ***
         const g = await onCreateGuest({
           first_name: values.guest_first_name.trim(),
           last_name: values.guest_last_name.trim(),
@@ -428,7 +453,7 @@ function EventRegistrationsModal({
           attendance: values.attendance ?? null,
         };
 
-        await onSaved(payload, editor.mode);
+        await onSaved(payload, "create");
         setEditor(null);
         setSelectedKey(`g:${g.guest_id}`);
         return;
