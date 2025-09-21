@@ -1,6 +1,6 @@
 {
   "Fall_2025": [
-        {
+    {
       "image": {
         "imageType": "Pic",
         "imageLink": "/images/events/fall_2025/DataScienceCamp.png",
@@ -12,6 +12,21 @@
         {
           "header": "Event Overview:",
           "text": "DSMLC members helped out with an exciting event introducing young high school students to the field of data science!"
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "#",
+        "imageName": "Picture of Clubs Week 2025"
+      },
+      "number": "Sept 16-17",
+      "header": "Club's Week",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "Stop by our booth in the MacHall Courtyard to meet our team, learn about our upcoming events, and explore how you can get involved with data science and machine learning on campus!"
         }
       ]
     }
