@@ -261,6 +261,47 @@ function EventRegistrationsModal({
     [members, existingMemberIds]
   );
 
+  // Build a concrete `_search` field for the table filter
+  const rowsForTable = useMemo(() => {
+    const roleOf = (m?: Member) =>
+      m?.role_id
+        ? (roleById.get(m.role_id) ?? "Unassigned")
+        : m
+          ? "Unassigned"
+          : "Guest";
+
+    return rows.map((r) => {
+      const isMember = r.member_id != null;
+      const first = isMember
+        ? (r.member?.first_name ?? "")
+        : (r.guest?.first_name ?? "");
+      const last = isMember
+        ? (r.member?.last_name ?? "")
+        : (r.guest?.last_name ?? "");
+      const email = isMember ? (r.member?.email ?? "") : (r.guest?.email ?? "");
+      const role = isMember ? roleOf(r.member) : "Guest";
+
+      const parts = [
+        String(r.member_id ?? ""),
+        String(r.guest_id ?? ""),
+        first,
+        last,
+        `${first} ${last}`,
+        email,
+        role,
+        yesNo(r.registered),
+        presentAbsent(r.attendance),
+        r.registered == null ? "" : String(r.registered),
+        r.attendance == null ? "" : String(r.attendance),
+      ];
+
+      return {
+        ...r,
+        _search: parts.join(" ").toLowerCase(),
+      };
+    });
+  }, [rows, roleById]);
+
   // Inline editor: either Member or Guest
   const [editor, setEditor] = useState<{
     mode: "create" | "edit";
@@ -593,8 +634,8 @@ function EventRegistrationsModal({
 
         {/* Table */}
         <div className="overflow-auto rounded-xl border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
-          <SimpleTable<RegRow>
-            data={rows}
+          <SimpleTable<RegRow & { _search: string }>
+            data={rowsForTable}
             rowKey={(r) => keyOf(r)}
             searchPlaceholder="Search registrations…"
             stickyHeader
@@ -607,6 +648,13 @@ function EventRegistrationsModal({
               { label: "Status", span: 2 },
             ]}
             columns={[
+              // Hidden column to expose searchable text to the table filter
+              {
+                key: "_search",
+                header: "",
+                className: "hidden",
+                render: () => null,
+              },
               {
                 key: "select",
                 header: "",

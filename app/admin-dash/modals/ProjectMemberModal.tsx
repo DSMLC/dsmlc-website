@@ -250,6 +250,36 @@ function ProjectMembersModal({
     [members, existingMemberIds]
   );
 
+  // Build a concrete `_search` field for the table filter
+  const rowsForTable = useMemo(() => {
+    return rows.map((r) => {
+      const first = r.member?.first_name ?? "";
+      const last = r.member?.last_name ?? "";
+      const email = r.member?.email ?? "";
+      const orgRole =
+        r.member?.role_id != null
+          ? (roleById.get(r.member.role_id) ?? "Unassigned")
+          : "Unassigned";
+      const projectRole = r.project_role ?? "Unassigned";
+
+      const parts = [
+        String(r.project_id),
+        String(r.member_id),
+        first,
+        last,
+        `${first} ${last}`,
+        email,
+        orgRole,
+        projectRole,
+      ];
+
+      return {
+        ...r,
+        _search: parts.join(" ").toLowerCase(),
+      };
+    });
+  }, [rows, roleById]);
+
   if (!open) return null;
 
   const startCreate = () => {
@@ -420,8 +450,8 @@ function ProjectMembersModal({
 
         {/* Members table */}
         <div className="overflow-auto rounded-xl border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment">
-          <SimpleTable<ProjMemberRow>
-            data={rows}
+          <SimpleTable<ProjMemberRow & { _search: string }>
+            data={rowsForTable}
             rowKey={(r) => `${r.project_id}-${r.member_id}`}
             searchPlaceholder="Search project members…"
             stickyHeader
@@ -435,6 +465,13 @@ function ProjectMembersModal({
               { label: "Project Role", span: 1 }, // Project Role
             ]}
             columns={[
+              // Hidden column to expose searchable text
+              {
+                key: "_search",
+                header: "",
+                className: "hidden",
+                render: () => null,
+              },
               {
                 key: "select",
                 header: "",
@@ -502,7 +539,7 @@ function ProjectMembersModal({
                 className:
                   "min-w-[120px] dark:text-dark-dsmlcBlack text-light-dsmlcBlack",
                 render: (r) =>
-                  r.member?.role_id
+                  r.member?.role_id != null
                     ? (roleById.get(r.member.role_id) ?? "Unassigned")
                     : "Unassigned",
               },
