@@ -14,18 +14,8 @@
   ],
   "other_events": [
         {
-          "title": "Fall Club's Week",
-          "location": "MacEwan Student Centre",
-          "StartDate": "September 16, 2025",
-          "EndDate": "September 17, 2025",
-          "button": {
-            "link": "#",
-            "name": "No Sign-Up"
-          }
-        },
-        {
           "title": "Club Meet & Greet",
-          "location": "ENG 224, University Campus",
+          "location": "ENG 03, University Campus",
           "StartDate": "September 25, 2025",
           "button": {
             "link": "https://docs.google.com/forms/d/e/1FAIpQLSfF8RQA1RlQCwWEaShWbFBH0ZZAnhU6S8DU_AtgFhfxZRuPvQ/viewform?usp=sharing&ouid=111958854804027583566",

@@ -139,7 +139,19 @@
           "json": "recorded_workshops.json",
           "keys": ["Fall_2024_Winter_2025"]
         }
+      },
+      {
+        "type": "SubtitleTemplate2",
+        "data": "Fall 2025 - Winter 2026"
+      },
+      {
+        "type": "CardTemplate",
+        "data": {
+          "json": "recorded_workshops.json",
+          "keys": ["Fall_2025_Winter_2026"]
+        }
       }
+      
     ]
   },
   {

@@ -382,11 +382,39 @@ const resolveData = async (pageData: PageData): Promise<any> => {
           .flat();
 
         if (json === "upcoming_events.json") {
-          // upcoming_events.json ----> Date sorting
-          combinedData = combinedData.sort((a, b) => {
-            const dateA = new Date(a.StartDate || 0).getTime();
-            const dateB = new Date(b.StartDate || 0).getTime();
-            return dateA - dateB;
+          const asLocalDate = (d: unknown): Date | null => {
+            if (typeof d !== "string" || d.trim() === "") return null;
+            const m = d.match(/^(\d{4})-(\d{2})-(\d{2})/);
+            if (m) {
+              const [_, y, mo, day] = m;
+              return new Date(Number(y), Number(mo) - 1, Number(day));
+            }
+            const dt = new Date(d);
+            return isNaN(dt.getTime()) ? null : dt;
+          };
+
+          // local midnight
+          const now = new Date();
+          const today = new Date(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate()
+          );
+
+          // Filter out past events:
+          // If EndDate exists, use it; otherwise use StartDate.
+          combinedData = combinedData.filter((ev: any) => {
+            const start = asLocalDate(ev?.StartDate);
+            const end = asLocalDate(ev?.EndDate) ?? start; // fallback to start if no end
+            if (!start && !end) return false;
+            return end && end >= today; // keep if end/start hasn't passed yet
+          });
+
+          // 2) Sort by StartDate ascending
+          combinedData = combinedData.sort((a: any, b: any) => {
+            const aDate = asLocalDate(a?.StartDate)?.getTime() ?? 0;
+            const bDate = asLocalDate(b?.StartDate)?.getTime() ?? 0;
+            return aDate - bDate;
           });
         }
 
