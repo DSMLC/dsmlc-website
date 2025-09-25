@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import supabase from "./supabase_client";
-import { fetchLinks } from "./Backend";
+import { fetchLinks, GRAPH_CONNECTIONS, GRAPH_NAMES } from "./Backend";
 import { Link } from "./components/NetworkGraph";
 
 export const useConnectionLinks = (): Link[] => {
@@ -21,7 +21,7 @@ export const useConnectionLinks = (): Link[] => {
         {
           event: "INSERT",
           schema: "public",
-          table: "NetworkGraphGameConnections",
+          table: GRAPH_CONNECTIONS,
         },
         (payload) => {
           console.log("Global connection event:", payload.new);
@@ -33,7 +33,7 @@ export const useConnectionLinks = (): Link[] => {
         {
           event: "UPDATE",
           schema: "public",
-          table: "NetworkGraphGameNames",
+          table: GRAPH_NAMES,
         },
         (payload) => {
           console.log("Global connection UPDATE event:", payload.new);
