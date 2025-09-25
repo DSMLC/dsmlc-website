@@ -1,6 +1,36 @@
 {
-  "Fall_2025": [
+  "fall_2025": [
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/DeepLWorkshop.jpg",
+        "imageName": "Picture of DeepL workshop 2025"
+      },
+      "number": "Sep. 22",
+      "header": "Deep Learning With Cars Workshop",
+      "points": [
         {
+          "header": "Event Overview:",
+          "text": "In this workshop, we will code from scratch a basic DeepL Model for cars to learn how to drive."
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/yash_club_week.webp",
+        "imageName": "Picture of Club week 2025"
+      },
+      "number": "Sep. 17 - 18",
+      "header": "SU Fall 2025 Clubs Week",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "Explore our booth during SU Fall Clubs Week! Meet us in the MacHall Courtyard to learn about DSMLC and our activities."
+        }
+      ]
+    },
+    {
       "image": {
         "imageType": "Pic",
         "imageLink": "/images/events/fall_2025/DataScienceCamp.png",

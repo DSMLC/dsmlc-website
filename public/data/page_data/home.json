@@ -86,9 +86,9 @@
       {
         "type": "CardTemplate",
         "data": {
-        "json": "upcoming_events.json",
-        "keys": ["final_comp", "workshops", "other_events"],
-        "limit": 4
+          "json": "upcoming_events.json",
+          "keys": ["final_comp", "workshops", "other_events"],
+          "limit": 4
         }
       },
       {
@@ -118,7 +118,7 @@
         "type": "CarouselTemplate",
         "data": {
           "json": "past_events.json",
-          "keys": ["fall_2024"]
+          "keys": ["fall_2025"]
         }
       },
       {
