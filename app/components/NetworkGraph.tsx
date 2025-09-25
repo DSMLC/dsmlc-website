@@ -342,7 +342,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
               const dx = other.x - node.x;
               const dy = other.y - node.y;
               const distance = Math.sqrt(dx * dx + dy * dy);
-              const desiredDistance = 250;
+              const desiredDistance = 1000;
               const force = (distance - desiredDistance) * 0.01;
               node.vx += (dx / distance) * force;
               node.vy += (dy / distance) * force;
