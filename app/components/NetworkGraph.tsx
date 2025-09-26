@@ -98,7 +98,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
     loadNodes();
 
     const subscription = supabase
-      .channel("realtime:NetworkGraphGameNames")
+      .channel("realtime:NetworkGraphGameNamesFall2025")
       .on(
         "postgres_changes",
         { event: "INSERT", schema: "public", table: GRAPH_NAMES },
