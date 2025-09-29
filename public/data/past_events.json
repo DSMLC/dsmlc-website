@@ -1,4 +1,37 @@
 {
+  "Fall_2025": [
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/fall_2025_meet_greet.jpg",
+        "imageName": "Picture of Fall 2025 Meet & Greet"
+      },
+      "number": "Sep. 25",
+      "header": "Fall 2025 Meet & Greet",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "DSMLC members and execs come together to hear about upcoming plans and events for the Year of 2025!"
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/data_science_camp.png",
+        "imageName": "Picture of Data Science Camp"
+      },
+      "number": "July 11",
+      "header": "Data Science High School Camp",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "DSMLC members helped out with an exciting event introducing young high school students to the field of data science!"
+        }
+      ]
+    }
+  ],
+
   "winter_2025": [
     {
       "image": {
@@ -22,7 +55,7 @@
         "imageName": "Picture of Bitcoin Workshop"
       },
       "number": "Mar 6",
-      "header": "Predicting Bitcoin Trends with Machine Learning wokrshop",
+      "header": "Predicting Bitcoin Trends with Machine Learning workshop",
       "points": [
         {
           "header": "Event Overview: ",

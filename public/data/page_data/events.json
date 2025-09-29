@@ -56,6 +56,24 @@
       {
         "type": "TitleTemplate1",
         "data": {
+          "title": "Fall 2025"
+        }
+      },
+      {
+        "type": "TimelineTemplate1",
+        "data": {
+          "json": "past_events.json",
+          "keys": ["Fall_2025"]
+        }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
           "title": "Winter 2025"
         }
       },
