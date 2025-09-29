@@ -1,17 +1,17 @@
 {
-  "fall_2025": [
+"Fall_2025": [
     {
       "image": {
         "imageType": "Pic",
-        "imageLink": "/images/events/fall_2025/DeepLWorkshop.jpg",
-        "imageName": "Picture of DeepL workshop 2025"
+        "imageLink": "/images/events/fall_2025/fall_2025_meet_greet.jpg",
+        "imageName": "Picture of Fall 2025 Meet & Greet"
       },
-      "number": "Sep. 22",
-      "header": "Deep Learning With Cars Workshop",
+      "number": "Sep. 25",
+      "header": "Fall 2025 Meet & Greet",
       "points": [
         {
           "header": "Event Overview:",
-          "text": "In this workshop, we will code from scratch a basic DeepL Model for cars to learn how to drive."
+          "text": "DSMLC members and execs come together to hear about upcoming plans and events for the Year of 2025!"
         }
       ]
     },
@@ -36,8 +36,8 @@
         "imageLink": "/images/events/fall_2025/DataScienceCamp.png",
         "imageName": "Picture of Data Science Camp 2025"
       },
-      "number": "July 14",
-      "header": "Data Science Camp",
+      "number": "July 11",
+      "header": "Data Science High School Camp",
       "points": [
         {
           "header": "Event Overview:",
@@ -70,7 +70,7 @@
         "imageName": "Picture of Bitcoin Workshop"
       },
       "number": "Mar 6",
-      "header": "Predicting Bitcoin Trends with Machine Learning wokrshop",
+      "header": "Predicting Bitcoin Trends with Machine Learning workshop",
       "points": [
         {
           "header": "Event Overview: ",
