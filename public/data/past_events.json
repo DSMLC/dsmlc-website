@@ -1,5 +1,5 @@
 {
-"Fall_2025": [
+"fall_2025": [
     {
       "image": {
         "imageType": "Pic",
@@ -11,7 +11,22 @@
       "points": [
         {
           "header": "Event Overview:",
-          "text": "DSMLC members and execs come together to hear about upcoming plans and events for the Year of 2025!"
+          "text": "DSMLC members and execs come together to hear about upcoming plans and events for the Year of 2025-2026!"
+        }
+      ]
+    },
+        {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/DeepLWorkshop.jpg",
+        "imageName": "Picture of Car's Deep Learning Workshop"
+      },
+      "number": "Sep. 22",
+      "header": "Deep Learning With Cars",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "A hands-on workshop where students are given a chance to build a Deep learning ML model to race their vehicle along a race track"
         }
       ]
     },
@@ -33,7 +48,7 @@
     {
       "image": {
         "imageType": "Pic",
-        "imageLink": "/images/events/fall_2025/DataScienceCamp.png",
+        "imageLink": "/images/events/fall_2025/data_science_camp.png",
         "imageName": "Picture of Data Science Camp 2025"
       },
       "number": "July 11",
@@ -74,7 +89,7 @@
       "points": [
         {
           "header": "Event Overview: ",
-          "text": "A hands-on workshop which explored the yfinance library, and learned to predict trends with Random Forest, and price forecast with LSTMs to analyze financial markets"
+          "text": "A hands-on workshop which explored the finance library, and learned to predict trends with Random Forest, and price forecast with LSTMs to analyze financial markets"
         }
       ]
     },
