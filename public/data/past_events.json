@@ -1,5 +1,5 @@
 {
-  "Fall_2025": [
+"Fall_2025": [
     {
       "image": {
         "imageType": "Pic",
@@ -18,8 +18,23 @@
     {
       "image": {
         "imageType": "Pic",
-        "imageLink": "/images/events/fall_2025/data_science_camp.png",
-        "imageName": "Picture of Data Science Camp"
+        "imageLink": "/images/events/fall_2025/yash_club_week.webp",
+        "imageName": "Picture of Club week 2025"
+      },
+      "number": "Sep. 17 - 18",
+      "header": "SU Fall 2025 Clubs Week",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "Explore our booth during SU Fall Clubs Week! Meet us in the MacHall Courtyard to learn about DSMLC and our activities."
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/DataScienceCamp.png",
+        "imageName": "Picture of Data Science Camp 2025"
       },
       "number": "July 11",
       "header": "Data Science High School Camp",
@@ -80,9 +95,9 @@
     },
     {
       "image": {
-        "imageType": "Logo",
-        "imageLink": "#",
-        "imageName": "Logo"
+        "imageType": "Pic",
+        "imageLink": "/images/sponsors/urban_systems.jpg",
+        "imageName": "Urban Systems Logo"
       },
       "number": "Feb 13",
       "header": "Large Language Models (LLMs) workshop by Urban Systems",

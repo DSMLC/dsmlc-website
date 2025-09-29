@@ -2,7 +2,7 @@
 
 import type React from "react";
 import { useState, useEffect, useRef } from "react";
-import { fetchLinks, fetchNodes } from "../Backend";
+import { fetchLinks, fetchNodes, GRAPH_NAMES } from "../Backend";
 import supabase from "../supabase_client";
 import { useTheme } from "../ThemeProvider";
 
@@ -98,10 +98,10 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
     loadNodes();
 
     const subscription = supabase
-      .channel("realtime:NetworkGraphGameNames")
+      .channel("realtime:NetworkGraphGameNamesFall2025")
       .on(
         "postgres_changes",
-        { event: "INSERT", schema: "public", table: "NetworkGraphGameNames" },
+        { event: "INSERT", schema: "public", table: GRAPH_NAMES },
         (payload) => {
           setNodes((prevNodes) =>
             ensureDSMLCNode([
@@ -121,7 +121,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
       )
       .on(
         "postgres_changes",
-        { event: "UPDATE", schema: "public", table: "NetworkGraphGameNames" },
+        { event: "UPDATE", schema: "public", table: GRAPH_NAMES },
         (payload) => {
           setNodes((prevNodes) =>
             ensureDSMLCNode(
@@ -342,7 +342,7 @@ const NetworkGraph: React.FC<NetworkGraphProps> = ({ userId, links }) => {
               const dx = other.x - node.x;
               const dy = other.y - node.y;
               const distance = Math.sqrt(dx * dx + dy * dy);
-              const desiredDistance = 250;
+              const desiredDistance = 1000;
               const force = (distance - desiredDistance) * 0.01;
               node.vx += (dx / distance) * force;
               node.vy += (dy / distance) * force;

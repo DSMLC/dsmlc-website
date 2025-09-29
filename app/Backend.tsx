@@ -2,6 +2,13 @@
 import { Link } from "./components/NetworkGraph";
 import supabase from "./supabase_client";
 
+const CONNECTIONS_COMP_2025 = "NetworkGraphGameConnections"
+const CONNECTIONS_MEET_2025 = "NetworkGraphGameConnectionsFall2025"
+const NAMES_COMP_2025 = "NetworkGraphGameNames"
+const NAMES_MEET_2025 = "NetworkGraphGameNamesFall2025"
+export const GRAPH_CONNECTIONS = CONNECTIONS_MEET_2025
+export const GRAPH_NAMES = NAMES_MEET_2025
+
 export const updateButtonClicksDatabase = async (buttonName: string) => {
   const { data, error: fetchError } = await supabase
     .from("ButtonClicks")
@@ -37,7 +44,7 @@ export const addPlayer = async (
   linkedin?: string
 ) => {
   const { data: existingPlayer, error: fetchError } = await supabase
-    .from("NetworkGraphGameNames")
+    .from(GRAPH_NAMES)
     .select("player_id")
     .eq("player_id", playerId)
     .single();
@@ -54,7 +61,7 @@ export const addPlayer = async (
 
   // Insert new player
   const { error: insertError } = await supabase
-    .from("NetworkGraphGameNames")
+    .from(GRAPH_NAMES)
     .insert({
       name: playerName,
       player_id: playerId,
@@ -68,7 +75,7 @@ export const addPlayer = async (
 
 export const fetchNodes = async () => {
   const { data, error } = await supabase
-    .from("NetworkGraphGameNames")
+    .from(GRAPH_NAMES)
     .select("player_id, name, connection_count");
 
   if (error) {
@@ -91,7 +98,7 @@ export const getConnectedPlayers = async (
   playerCode: string
 ): Promise<string[]> => {
   const { data, error } = await supabase
-    .from("NetworkGraphGameConnections")
+    .from(GRAPH_CONNECTIONS)
     .select("first_pair, second_pair")
     .or(`first_pair.eq.${playerCode},second_pair.eq.${playerCode}`);
 
@@ -116,7 +123,7 @@ export const getPlayerNames = async (
   playerCodes: string[]
 ): Promise<{ player_id: string; name: string }[]> => {
   const { data: playersData, error: playersError } = await supabase
-    .from("NetworkGraphGameNames")
+    .from(GRAPH_NAMES)
     .select("player_id, name, linkedin")
     .in("player_id", playerCodes);
 
@@ -143,7 +150,7 @@ export const addPair = async (
 
   if (!isConnectingToDSMLC) {
     const { data: playerData, error: playerFetchError } = await supabase
-      .from("NetworkGraphGameNames")
+      .from(GRAPH_NAMES)
       .select("player_id")
       .eq("player_id", targetCode)
       .single();
@@ -154,14 +161,14 @@ export const addPair = async (
   } else {
     // Ensure DSMLC node exists
     const { data: dsmlcData, error: dsmlcError } = await supabase
-      .from("NetworkGraphGameNames")
+      .from(GRAPH_NAMES)
       .select("player_id")
       .eq("player_id", "dsmlc")
       .single();
 
     if (dsmlcError || !dsmlcData) {
       const { error: insertDsmlcError } = await supabase
-        .from("NetworkGraphGameNames")
+        .from(GRAPH_NAMES)
         .insert({
           player_id: "dsmlc",
           name: "DSMLC",
@@ -183,7 +190,7 @@ export const addPair = async (
 
   // Insert new pair
   const { data, error: insertError } = await supabase
-    .from("NetworkGraphGameConnections")
+    .from(GRAPH_CONNECTIONS)
     .insert({
       first_pair: pairCode1,
       second_pair: targetCode,
@@ -203,7 +210,7 @@ export const addPair = async (
 
 export const fetchLinks = async (): Promise<Link[]> => {
   const { data, error } = await supabase
-    .from("NetworkGraphGameConnections")
+    .from(GRAPH_CONNECTIONS)
     .select("first_pair, second_pair");
 
   if (error || !data) {
@@ -224,7 +231,7 @@ export const updatePlayer = async (
   linkedin?: string
 ): Promise<boolean> => {
   const { error } = await supabase
-    .from("NetworkGraphGameNames")
+    .from(GRAPH_NAMES)
     .update({
       name,
       linkedin: linkedin || null,
@@ -240,7 +247,7 @@ export const updatePlayer = async (
 
 export const checkPlayerInDatabase = async (code: string): Promise<boolean> => {
   const { data, error } = await supabase
-    .from("NetworkGraphGameNames")
+    .from(GRAPH_NAMES)
     .select("player_id")
     .eq("player_id", code)
     .single();
