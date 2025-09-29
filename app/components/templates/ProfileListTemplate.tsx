@@ -120,16 +120,20 @@ export const ProfileListTemplate = ({
                         }`}
                       >
                         <div
-                          className={`flex gap-2 ${
-                            filteredExec.joinDate === ""
-                              ? "invisible"
-                              : "visible"
-                          }`}
+                        // className={`flex gap-2 ${
+                        //   filteredExec.joinDate === ""
+                        //     ? "invisible"
+                        //     : "visible"
+                        // }`}
                         >
-                          <p className="text-xs">Member Since: </p>
-                          <span className="text-xs">
-                            {filteredExec.joinDate}
-                          </span>
+                          {filteredExec.joinDate !== "" && (
+                            <p className="text-xs">
+                              Member Since:{" "}
+                              <span className="text-xs">
+                                {filteredExec.joinDate}
+                              </span>
+                            </p>
+                          )}
                         </div>
                       </div>
 
@@ -137,7 +141,7 @@ export const ProfileListTemplate = ({
                         {filteredExec.linkedin === "" ? (
                           <div className="w-8 h-8"></div>
                         ) : (
-                          <a href={filteredExec.linkedin}>
+                          <a href={filteredExec.linkedin} className="group">
                             <Image
                               src={
                                 isDarkMode
@@ -147,7 +151,7 @@ export const ProfileListTemplate = ({
                               alt="linkedin_icon"
                               width={25}
                               height={25}
-                              className="opacity-70"
+                              className="opacity-70 group-hover:opacity-100 group-hover:brightness-0 group-hover:invert transition"
                             />
                           </a>
                         )}
