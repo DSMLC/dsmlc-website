@@ -2,6 +2,15 @@
   "final_comp": [
   ],
   "workshops": [
+        {
+          "title": "Databricks Technical Workshop",
+          "location": "Math Sciences 521",
+          "StartDate": "October 6, 2025",
+          "button": {
+            "link": "https://docs.google.com/forms/d/e/1FAIpQLSfVe9uMrOAPhxG0eIwqPkVAfWJBgs7Jubho5e9R5DwsBs7r5A/viewform?pli=1S",
+            "name": "Sign-Up"
+          }
+        }
   ],
   "other_events": [
   ]
