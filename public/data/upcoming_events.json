@@ -2,25 +2,16 @@
   "final_comp": [
   ],
   "workshops": [
-            {
-          "title": "Deep Learning with Cars",
-          "location": "Math Sciences 431",
-          "StartDate": "September 22, 2025",
+        {
+          "title": "Databricks Technical Workshop",
+          "location": "Math Sciences 521",
+          "StartDate": "October 6, 2025",
           "button": {
-            "link": "https://forms.gle/ybSnhfZC2hbj9KdV9",
+            "link": "https://docs.google.com/forms/d/e/1FAIpQLSfVe9uMrOAPhxG0eIwqPkVAfWJBgs7Jubho5e9R5DwsBs7r5A/viewform?pli=1S",
             "name": "Sign-Up"
           }
         }
   ],
   "other_events": [
-        {
-          "title": "Club Meet & Greet",
-          "location": "ENG 03, University Campus",
-          "StartDate": "September 25, 2025",
-          "button": {
-            "link": "https://docs.google.com/forms/d/e/1FAIpQLSfF8RQA1RlQCwWEaShWbFBH0ZZAnhU6S8DU_AtgFhfxZRuPvQ/viewform?usp=sharing&ouid=111958854804027583566",
-            "name": "Sign-Up"
-          }
-        }
   ]
 }

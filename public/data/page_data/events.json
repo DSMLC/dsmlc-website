@@ -63,7 +63,7 @@
         "type": "TimelineTemplate1",
         "data": {
           "json": "past_events.json",
-          "keys": ["Fall_2025"]
+          "keys": ["fall_2025"]
         }
       }
     ]
