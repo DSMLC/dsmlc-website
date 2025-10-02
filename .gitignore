@@ -6,6 +6,8 @@
 .pnp.js
 .yarn/install-state.gz
 
+/discord-bot/node_modules
+
 # testing
 /coverage
 
