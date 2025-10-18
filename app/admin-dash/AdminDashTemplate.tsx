@@ -374,10 +374,10 @@ const AdminDataDashboardTemplate: React.FC<AdminDataDashboardTemplateProps> = ({
   // =========================== Render UI Sections ===========================
   return (
     <div className="space-y-4">
-      <div className="grid grid-cols-1 md:grid-cols-[200px_minmax(0,1fr)] gap-8">
+      <div className="flex flex-col md:grid md:grid-cols-[200px_minmax(0,1fr)] lg:grid-cols-[250px_minmax(0,1fr)] xl:grid-cols-[300px_minmax(0,1fr)] gap-4 md:gap-8">
         <SidebarTabs value={tab} onChange={setTab} />
 
-        <div className="space-y-6">
+        <div className="space-y-4 md:space-y-6">
           {tab === "Overview" && (
             <OverviewTab
               kpiTotalMembers={kpiTotalMembers}

@@ -37,13 +37,13 @@ export default function ProjectsTab({
 
   return (
     <div className={SECTION_CARD}>
-      <div className="flex items-center justify-between mb-4 gap-3">
-        <h2 className="text-lg font-semibold text-dsmlcTangerine">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-3">
+        <h2 className="text-base sm:text-lg font-semibold text-dsmlcTangerine">
           Visionary Lab Projects
         </h2>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
-            className="inline-flex items-center justify-center rounded-full border border-dsmlcTangerine bg-transparent px-5 py-2 text-sm font-medium text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60 shadow-sm hover:shadow-md transition-all duration-200"
+            className="inline-flex items-center justify-center rounded-full border border-dsmlcTangerine bg-transparent px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60 shadow-sm hover:shadow-md transition-all duration-200"
             onClick={() =>
               setProjectModal({
                 mode: "create",
@@ -54,7 +54,7 @@ export default function ProjectsTab({
             Add
           </button>
           <button
-            className="inline-flex items-center justify-center rounded-full border border-dsmlcTangerine bg-transparent px-5 py-2 text-sm font-medium text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60 shadow-sm hover:shadow-md transition-all duration-200"
+            className="inline-flex items-center justify-center rounded-full border border-dsmlcTangerine bg-transparent px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60 shadow-sm hover:shadow-md transition-all duration-200"
             disabled={!selectedProject}
             onClick={() =>
               selectedProject &&
@@ -64,14 +64,14 @@ export default function ProjectsTab({
             Edit
           </button>
           <button
-            className="inline-flex items-center justify-center rounded-full border border-dsmlcTangerine bg-transparent px-5 py-2 text-sm font-medium text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60 shadow-sm hover:shadow-md transition-all duration-200"
+            className="inline-flex items-center justify-center rounded-full border border-dsmlcTangerine bg-transparent px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60 shadow-sm hover:shadow-md transition-all duration-200"
             disabled={!selectedProject}
             onClick={() => selectedProject && onDeleteProject(selectedProject)}
           >
             Delete
           </button>
           <button
-            className="inline-flex items-center justify-center rounded-full border border-dsmlcTangerine bg-transparent px-5 py-2 text-sm font-medium text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60 shadow-sm hover:shadow-md transition-all duration-200"
+            className="inline-flex items-center justify-center rounded-full border border-dsmlcTangerine bg-transparent px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium text-dsmlcTangerine hover:bg-dsmlcTangerine hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60 shadow-sm hover:shadow-md transition-all duration-200"
             disabled={!selectedProject}
             onClick={() =>
               selectedProject &&

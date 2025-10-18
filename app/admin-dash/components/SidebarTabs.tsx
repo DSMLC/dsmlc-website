@@ -19,8 +19,10 @@ export default function SidebarTabs({
   onChange: (t: Tab) => void;
 }) {
   return (
-    <aside className={SECTION_CARD}>
-      <nav className="flex flex-col gap-2">
+    <aside
+      className={cn(SECTION_CARD, "w-full md:w-auto lg:w-[250px] xl:w-[300px]")}
+    >
+      <nav className="flex flex-row md:flex-col gap-2 overflow-x-auto md:overflow-x-visible">
         {TABS.map((t) => {
           const active = value === t;
           return (
@@ -29,7 +31,7 @@ export default function SidebarTabs({
               type="button"
               onClick={() => onChange(t)}
               className={cn(
-                "w-full text-left px-3 py-2 rounded-xl border transition text-xl font-redHat text-dsmlcTangerine",
+                "flex-shrink-0 md:w-full text-left px-3 py-2 rounded-xl border transition text-sm sm:text-base md:text-xl font-redHat text-dsmlcTangerine whitespace-nowrap",
                 active
                   ? "bg-black/5 dark:bg-white/10 border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment"
                   : "bg-transparent hover:bg-black/5 dark:hover:bg-white/10 border-transparent"

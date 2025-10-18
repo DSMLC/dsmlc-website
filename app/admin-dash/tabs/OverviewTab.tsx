@@ -25,7 +25,7 @@ export default function OverviewTab({
 }: Props) {
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
         <Kpi label="Members" value={kpiTotalMembers} />
         <Kpi label="Active V.L Projects" value={kpiActiveProjects} />
         <Kpi label="Events (this month)" value={kpiEventsThisMonth} />
@@ -33,7 +33,7 @@ export default function OverviewTab({
       </div>
 
       <div className={SECTION_CARD}>
-        <h2 className="text-lg font-semibold mb-4 text-dsmlcTangerine">
+        <h2 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4 text-dsmlcTangerine">
           Members by Role
         </h2>
         <div className="overflow-x-auto">

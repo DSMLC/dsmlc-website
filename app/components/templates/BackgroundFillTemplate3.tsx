@@ -48,11 +48,11 @@ const BackgroundFillTemplate2 = ({
       whileInView="visible"
       viewport={{ once: true, margin: "-100px 0px -100px 0px" }}
       variants={containerVariants}
-      className={`relative overflow-hidden justify-center items-center bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border border-dsmlcTangerine rounded-4xl ${
+      className={`relative overflow-hidden justify-center items-center bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite border border-dsmlcTangerine rounded-2xl sm:rounded-4xl ${
         hasHeaderTextTemplate
-          ? "py-8 sm:py-12"
-          : "max-w-4xl w-fit m-auto p-8 sm:p-12"
-      } mb-16 lg:min-w-[1275px] min-w-full`}
+          ? "py-4 sm:py-8 md:py-12"
+          : "max-w-none sm:max-w-6xl lg:max-w-7xl xl:max-w-none w-full sm:w-fit m-auto p-2 sm:p-4 md:p-8 lg:p-12"
+      } mb-4 sm:mb-8 md:mb-16`}
     >
       <motion.div
         className="absolute inset-0 z-0"
