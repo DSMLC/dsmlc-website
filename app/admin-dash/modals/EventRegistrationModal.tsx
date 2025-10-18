@@ -153,7 +153,7 @@ function MemberSearchSelect({
           ref={listRef}
           id="member-search-listbox"
           role="listbox"
-          className="absolute top-full top-0 mr-2 z-[200] w-72 max-h-72 overflow-auto rounded-2xl
+          className="absolute top-full mr-2 z-[200] w-72 max-h-72 overflow-auto rounded-2xl
              border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
              bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite shadow-xl"
         >
@@ -531,7 +531,7 @@ function EventRegistrationsModal({
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-4">
       {/* Backdrop */}
       <div
         className="absolute inset-0 bg-black/40"
@@ -540,52 +540,53 @@ function EventRegistrationsModal({
       />
       {/* Modal */}
       <div
-        className="relative w-[min(1024px,92vw)] max-h-[85vh] bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
-                   rounded-2xl shadow-xl border border-light-dsmlcEnhancedParchment
-                   dark:border-dark-dsmlcEnhancedParchment p-6 overflow-hidden"
+        className="relative w-full max-w-sm sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl max-h-[95vh] bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
+                   rounded-xl sm:rounded-2xl shadow-xl border border-light-dsmlcEnhancedParchment
+                   dark:border-dark-dsmlcEnhancedParchment p-3 sm:p-4 md:p-6 overflow-hidden"
         role="dialog"
         aria-modal="true"
       >
         {/* Header */}
-        <div className="flex items-start justify-between gap-4 mb-4">
-          <div>
-            <h3 className="text-lg font-semibold text-dsmlcTangerine">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4 mb-3 sm:mb-4">
+          <div className="min-w-0 flex-1">
+            <h3 className="text-base sm:text-lg font-semibold text-dsmlcTangerine truncate">
               Registrations — {event.event_name}
             </h3>
-            <p className="text-sm opacity-80 dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
+            <p className="text-xs sm:text-sm opacity-80 dark:text-dark-dsmlcBlack text-light-dsmlcBlack">
               {fmtDate(event.event_date)}{" "}
               {event.event_type ? `· ${event.event_type}` : ""}
             </p>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-1 md:gap-2">
             <button
               onClick={handleCopyEmails}
               disabled={allEmails.length === 0}
               className="inline-flex items-center justify-center
                 rounded-full border border-dsmlcTangerine
-                bg-transparent px-4 py-1.5 text-sm font-medium
+                bg-transparent px-3 sm:px-4 py-2 sm:py-1.5 text-xs sm:text-sm font-medium
                 text-dsmlcTangerine
                 hover:bg-dsmlcTangerine hover:text-white
                 disabled:opacity-50 disabled:cursor-not-allowed
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-                shadow-sm hover:shadow-md transition-all duration-200"
+                shadow-sm hover:shadow-md transition-all duration-200 flex-1 sm:flex-none"
               title={
                 allEmails.length
                   ? `Copy ${allEmails.length} email${allEmails.length > 1 ? "s" : ""}`
                   : "No emails to copy"
               }
             >
-              Copy Emails
+              <span className="hidden sm:inline">Copy Emails</span>
+              <span className="sm:hidden">Copy</span>
             </button>
             <button
               onClick={startCreate}
               className="inline-flex items-center justify-center
                 rounded-full border border-dsmlcTangerine
-                bg-transparent px-4 py-1.5 text-sm font-medium
+                bg-transparent px-3 sm:px-4 py-2 sm:py-1.5 text-xs sm:text-sm font-medium
                 text-dsmlcTangerine
                 hover:bg-dsmlcTangerine hover:text-white
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-                shadow-sm hover:shadow-md transition-all duration-200"
+                shadow-sm hover:shadow-md transition-all duration-200 flex-1 sm:flex-none"
             >
               Add
             </button>
@@ -594,12 +595,12 @@ function EventRegistrationsModal({
               onClick={startEdit}
               className="inline-flex items-center justify-center
                 rounded-full border border-dsmlcTangerine
-                bg-transparent px-4 py-1.5 text-sm font-medium
+                bg-transparent px-3 sm:px-4 py-2 sm:py-1.5 text-xs sm:text-sm font-medium
                 text-dsmlcTangerine
                 hover:bg-dsmlcTangerine hover:text-white
                 disabled:opacity-50 disabled:cursor-not-allowed
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-                shadow-sm hover:shadow-md transition-all duration-200"
+                shadow-sm hover:shadow-md transition-all duration-200 flex-1 sm:flex-none"
             >
               Edit
             </button>
@@ -608,12 +609,12 @@ function EventRegistrationsModal({
               onClick={confirmDelete}
               className="inline-flex items-center justify-center
                 rounded-full border border-dsmlcTangerine
-                bg-transparent px-4 py-1.5 text-sm font-medium
+                bg-transparent px-3 sm:px-4 py-2 sm:py-1.5 text-xs sm:text-sm font-medium
                 text-dsmlcTangerine
                 hover:bg-dsmlcTangerine hover:text-white
                 disabled:opacity-50 disabled:cursor-not-allowed
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-                shadow-sm hover:shadow-md transition-all duration-200"
+                shadow-sm hover:shadow-md transition-all duration-200 flex-1 sm:flex-none"
             >
               {deleting ? "Deleting…" : "Delete"}
             </button>
@@ -621,11 +622,11 @@ function EventRegistrationsModal({
               onClick={onClose}
               className="inline-flex items-center justify-center
                 rounded-full border border-dsmlcTangerine
-                bg-transparent px-4 py-1.5 text-sm font-medium
+                bg-transparent px-3 sm:px-4 py-2 sm:py-1.5 text-xs sm:text-sm font-medium
                 text-dsmlcTangerine
                 hover:bg-dsmlcTangerine hover:text-white
                 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60
-                shadow-sm hover:shadow-md transition-all duration-200"
+                shadow-sm hover:shadow-md transition-all duration-200 flex-1 sm:flex-none"
             >
               Close
             </button>

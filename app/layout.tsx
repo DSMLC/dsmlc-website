@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   description: "Data Science Machine Learning Club Webpage",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -53,7 +58,9 @@ export default function RootLayout({
           <MovingCircles2DBounce />
           <NeuralNetworkAnimation />
           <NetlifyIdentityProvider>
-            <main className="flex-grow pt-32">{children}</main>{" "}
+            <main className="flex-grow pt-16 sm:pt-24 md:pt-32">
+              {children}
+            </main>{" "}
           </NetlifyIdentityProvider>
           <Footer />
         </ThemeProvider>

@@ -140,38 +140,37 @@ export default function AdminDashPage() {
     <div
       className="min-h-screen                    
       mx-auto w-full
-      max-w-screen-2xl 2xl:max-w-[1350px]  
-      /* or: max-w-none for true full-bleed */
-      px-3 sm:px-6 lg:px-8 py-4
-      space-y-4
+      max-w-none lg:max-w-screen-2xl xl:max-w-[1600px] 2xl:max-w-[1800px]
+      px-2 sm:px-4 md:px-6 lg:px-8 py-2 sm:py-4
+      space-y-2 sm:space-y-4
       flex flex-col"
     >
       {/* Admin Header */}
       <div
         className="
       relative overflow-hidden
-      flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between
+      flex flex-col gap-3 sm:gap-4 sm:flex-row sm:items-center sm:justify-between
       bg-light-dsmlcWhite dark:bg-dark-dsmlcWhite
       border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment
       shadow-lg shadow-light-dsmlcParchment dark:shadow-dark-dsmlcParchment
-      rounded-3xl p-6 sm:p-7
+      rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-7
     "
       >
         {/* Left: Title + meta */}
         <div className="space-y-2">
-          <h1 className="text-2xl sm:text-3xl font-bold font-redHat tracking-tight text-dsmlcTangerine">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold font-redHat tracking-tight text-dsmlcTangerine">
             Admin Dashboard
           </h1>
 
-          <div className="flex items-center gap-2">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2">
             <p className="text-sm text-light-dsmlcBlack/70 dark:text-dark-dsmlcBlack/70">
               Welcome,
             </p>
             <div className="flex items-center gap-2 rounded-full border border-light-dsmlcEnhancedParchment dark:border-dark-dsmlcEnhancedParchment px-3 py-1.5">
-              <div className="flex h-7 w-25 items-center justify-center rounded-full bg-dsmlcTangerine/10 text-dsmlcTangerine font-semibold">
+              <div className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-dsmlcTangerine/10 text-dsmlcTangerine font-semibold text-xs sm:text-sm">
                 {user.email?.[0]?.toUpperCase() ?? "U"}
               </div>
-              <span className="text-sm font-medium text-light-dsmlcBlack dark:text-dark-dsmlcBlack">
+              <span className="text-xs sm:text-sm font-medium text-light-dsmlcBlack dark:text-dark-dsmlcBlack truncate">
                 {user.email}
               </span>
             </div>
@@ -179,13 +178,13 @@ export default function AdminDashPage() {
         </div>
 
         {/* Right: Actions */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={handleSignOut}
             className="
       inline-flex items-center justify-center
       rounded-full border border-dsmlcTangerine
-      bg-transparent px-5 py-2 text-sm font-medium
+      bg-transparent px-3 sm:px-5 py-2 text-xs sm:text-sm font-medium
       text-dsmlcTangerine
       hover:bg-dsmlcTangerine hover:text-white
       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dsmlcTangerine/60

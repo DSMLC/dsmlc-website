@@ -13,10 +13,10 @@ export default function Kpi({
 }) {
   return (
     <div className={SECTION_CARD}>
-      <div className="text-sm font-semibold font-redHat text-dsmlcTangerine">
+      <div className="text-xs sm:text-sm font-semibold font-redHat text-dsmlcTangerine">
         {label}
       </div>
-      <div className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack text-2xl font-redHat">
+      <div className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack text-xl sm:text-2xl font-redHat">
         {value}
       </div>
       {hint && (
