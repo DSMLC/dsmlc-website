@@ -30,6 +30,16 @@ const ROLE_OPTIONS = [
   { id: 8, name: "Visionary Lab" },
 ];
 
+const MAJOR_OPTIONS = [
+  "Computer Science",
+  "Data Science",
+  "Science",
+  "Engineering",
+  "Business",
+  "Kinesiology",
+  "Other",
+];
+
 export default function MemberEditorModal({
   open,
   mode,
@@ -246,12 +256,20 @@ export default function MemberEditorModal({
 
             <label className="form-control">
               <span className="label-text font-medium">Major</span>
-              <input
-                className="input input-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
+              <select
+                className="select select-bordered text-black w-full focus-visible:ring-2 focus-visible:ring-primary/50"
                 value={form.major ?? ""}
-                onChange={(e) => set("major", e.target.value || ("" as any))}
-                placeholder="Computer Science"
-              />
+                onChange={(e) => set("major", e.target.value || (null as any))}
+              >
+                <option value="" disabled>
+                  Select a major
+                </option>
+                {MAJOR_OPTIONS.map((major) => (
+                  <option key={major} value={major}>
+                    {major}
+                  </option>
+                ))}
+              </select>
             </label>
 
             {/* Role dropdown (hardcoded options) */}
