@@ -87,6 +87,13 @@
           "json": "upcoming_events.json",
           "keys": ["workshops"]
         }
+      },
+      {
+        "type": "ComingSoonTemplate",
+        "data": {
+          "header": "Check Back for Future Workshops!",
+          "subtext": "Follow our Socials to stay Updated!"
+        }
       }
     ]
   },
@@ -116,7 +123,6 @@
           "subtext": "Follow our Socials to stay Updated!"
         }
       }
-      
     ]
   }
 ]

@@ -60,37 +60,6 @@
         "type": "HeaderTextTemplate2",
         "data": [
           {
-            "header": "Upcoming Workshops",
-            "text": "Explore the latest opportunities to expand your skills and connect with peers. Here's a list of our upcoming hands-on workshops designed to empower you with practical knowledge in data science and machine learning."
-          }
-        ]
-      },
-      {
-        "type": "CardTemplate",
-        "data": {
-          "json": "upcoming_events.json",
-          "keys": ["workshops"],
-          "limit": 3
-        }
-      },
-      {
-        "type": "ButtonTemplate",
-        "data": [
-          {
-            "link": "/events/upcoming",
-            "name": "More Workshops"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "type": "BackgroundFillTemplate",
-    "data": [
-      {
-        "type": "HeaderTextTemplate2",
-        "data": [
-          {
             "header": "Previous Recorded Workshops",
             "text": "Since Fall 2021, our club has organized a series of impactful workshops designed to equip students with essential data science and machine learning skills. These workshops have covered topics ranging from introductory programming and data visualization to advanced machine learning techniques and tools. Explore our recorded sessions to revisit these enriching learning experiences."
           }
@@ -150,6 +119,37 @@
           "json": "recorded_workshops.json",
           "keys": ["Fall_2021_Winter_2022"]
         }
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Upcoming Workshops",
+            "text": "Explore the latest opportunities to expand your skills and connect with peers. Here's a list of our upcoming hands-on workshops designed to empower you with practical knowledge in data science and machine learning."
+          }
+        ]
+      },
+      {
+        "type": "CardTemplate",
+        "data": {
+          "json": "upcoming_events.json",
+          "keys": ["workshops"],
+          "limit": 3
+        }
+      },
+      {
+        "type": "ButtonTemplate",
+        "data": [
+          {
+            "link": "/events/upcoming",
+            "name": "More Workshops"
+          }
+        ]
       }
     ]
   },
