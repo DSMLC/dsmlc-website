@@ -226,6 +226,37 @@
     "type": "BackgroundFillTemplate",
     "data": [
       {
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Upcoming Workshops",
+            "text": "Explore the latest opportunities to expand your skills and connect with peers. Here's a list of our upcoming hands-on workshops designed to empower you with practical knowledge in data science and machine learning."
+          }
+        ]
+      },
+      {
+        "type": "CardTemplate",
+        "data": {
+          "json": "upcoming_events.json",
+          "keys": ["workshops"],
+          "limit": 3
+        }
+      },
+      {
+        "type": "ButtonTemplate",
+        "data": [
+          {
+            "link": "/events/upcoming",
+            "name": "More Workshops"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
         "type": "FAQTemplate",
         "data": {
           "header": "Frequently Asked Questions",
