@@ -1,5 +1,20 @@
 {
-"fall_2025": [
+  "fall_2025": [
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/databricks_collaboration.jpg",
+        "imageName": "Databricks Technical Workshop"
+      },
+      "number": "Oct. 6",
+      "header": "Databricks Technical Workshop",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "Learn trending data engineering, machine learning, and visualization skills with real business applications directly from Databricks themselves!"
+        }
+      ]
+    },
     {
       "image": {
         "imageType": "Pic",
@@ -15,7 +30,7 @@
         }
       ]
     },
-        {
+    {
       "image": {
         "imageType": "Pic",
         "imageLink": "/images/events/fall_2025/DeepLWorkshop.jpg",
@@ -26,7 +41,7 @@
       "points": [
         {
           "header": "Event Overview:",
-          "text": "A hands-on workshop where students are given a chance to build a Deep learning ML model to race their vehicle along a race track"
+          "text": "A hands-on workshop where students are given a chance to build a Deep learning ML model to race their vehicle along a race track."
         }
       ]
     },
