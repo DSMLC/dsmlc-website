@@ -114,6 +114,14 @@
         "link": "https://drive.google.com/drive/u/1/folders/1jHLFYUrO8zV6iRhr-09f2tKnNIEOSfID",
         "name": "view"
       }
+    },
+    {
+      "title": "1.4 - Intro to Data Engineering: ",
+      "description": "Explore how data engineers transform raw data into trusted, analysis ready information using Databricks.",
+      "button": {
+        "link": "#",
+        "name": "WIP"
+      }
     }
   ]
 }
