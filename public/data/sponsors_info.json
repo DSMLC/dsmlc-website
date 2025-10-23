@@ -11,7 +11,7 @@
     {
       "image": {
         "imageType": "Sponsor",
-        "imageLink": "/images/sponsors/dama_calgary.png",
+        "imageLink": "/images/sponsors/dama.png",
         "imageName": "Dama logo"
       }
     },
@@ -34,7 +34,7 @@
     },
     {
       "image": {
-        "imageLink": "/images/sponsors/platform_calgary.png",
+        "imageLink": "/images/sponsors/platform.png",
         "imageName": "platform calgary logo",
         "imageType": "Sponsor"
       }
@@ -58,7 +58,7 @@
   "collabs": [
     {
       "image": {
-        "imageLink": "/images/sponsors/alta_ml.png",
+        "imageLink": "/images/sponsors/altaml.png",
         "imageName": "alta ML logo",
         "imageType": "Sponsor"
       }
