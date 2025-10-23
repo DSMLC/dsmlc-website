@@ -4,18 +4,24 @@
     {
       "image": {
         "imageType": "Sponsor",
-        "imageLink": "/images/sponsors/urban_systems.jpg",
+        "imageLink": "/images/sponsors/urban_systems.png",
         "imageName": "Urban Systems Logo"
       }
     },
     {
       "image": {
         "imageType": "Sponsor",
-        "imageLink": "/images/sponsors/dama_logo.png",
+        "imageLink": "/images/sponsors/dama.png",
         "imageName": "Dama logo"
       }
+    },
+    {
+      "image": {
+        "imageType": "Sponsor",
+        "imageLink": "/images/sponsors/enbridge.png",
+        "imageName": "enbridge logo"
+      }
     }
-
   ],
 
   "previous": [
@@ -28,21 +34,21 @@
     },
     {
       "image": {
-        "imageLink": "/images/sponsors/platform_calgary.png",
+        "imageLink": "/images/sponsors/platform.png",
         "imageName": "platform calgary logo",
         "imageType": "Sponsor"
       }
     },
     {
       "image": {
-        "imageLink": "/images/sponsors/uofc_data_science.png",
+        "imageLink": "/images/sponsors/ucalgary_datascience.png",
         "imageName": "uofc data science logo",
         "imageType": "Sponsor"
       }
     },
     {
       "image": {
-        "imageLink": "/images/sponsors/uofc_faculty_science.jpg",
+        "imageLink": "/images/sponsors/ucalgary_sciencefaculty.png",
         "imageName": "uofc faculty of science logo",
         "imageType": "Sponsor"
       }
@@ -52,14 +58,14 @@
   "collabs": [
     {
       "image": {
-        "imageLink": "/images/sponsors/alta_ml.png",
+        "imageLink": "/images/sponsors/altaml.png",
         "imageName": "alta ML logo",
         "imageType": "Sponsor"
       }
     },
     {
       "image": {
-        "imageLink": "/images/sponsors/teck.png",
+        "imageLink": "/images/sponsors/teck_resources.png",
         "imageName": "teck logo",
         "imageType": "Sponsor"
       }

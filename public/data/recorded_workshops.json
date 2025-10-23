@@ -1,120 +1,127 @@
 {
   "Fall_2021_Winter_2022": [
-        {
-          "title": "0.1 - Intro to Python: ",
-          "description": "An introductory workshop on Python programming fundamentals.",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
-            "name": "view"
-          }
-        },
-        {
-          "title": "0.2 - Intro to Pandas: ",
-          "description": "An introduction to the Pandas library, focusing on data manipulation and analysis.",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/1WZ98o5cK59sANYLivBTq4pxI3UN96fR3",
-            "name": "view"
-          }
-        }
+    {
+      "title": "0.1 - Intro to Python: ",
+      "description": "An introductory workshop on Python programming fundamentals.",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/1O_gbM08kaYNmUcLbj9bQ1OHQKhk-Uy37",
+        "name": "view"
+      }
+    },
+    {
+      "title": "0.2 - Intro to Pandas: ",
+      "description": "An introduction to the Pandas library, focusing on data manipulation and analysis.",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/1WZ98o5cK59sANYLivBTq4pxI3UN96fR3",
+        "name": "view"
+      }
+    }
   ],
 
   "Fall_2022_Winter_2023": [
-        {
-          "title": "0.3 - Intro to Data Visualization: ",
-          "description": "Workshop on data visualization techniques and tools.",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/12JQVaQjlXbzWHKpjF4tWDUE2pUqxUZLS",
-            "name": "view"
-          }
-        },
-        {
-          "title": "0.4 - Intro to Supervised Learning Pt.1:  ",
-          "description": "Part 1 of an introduction to supervised learning concepts in machine learning.",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/1t0nJKAyOO8Xbx2w8Le-QQQH2tUHfPzr2",
-            "name": "view"
-          }
-        },
-        {
-          "title": "0.5 - Intro to Supervised Learning Pt.2:  ",
-          "description": "Part 2 of an introduction to supervised learning concepts in machine learning.",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/18eNQLCqK7NAxbWJti5T0oH0lL8LxgO6s",
-            "name": "view"
-          }
-        }
-
+    {
+      "title": "0.3 - Intro to Data Visualization: ",
+      "description": "Workshop on data visualization techniques and tools.",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/12JQVaQjlXbzWHKpjF4tWDUE2pUqxUZLS",
+        "name": "view"
+      }
+    },
+    {
+      "title": "0.4 - Intro to Supervised Learning Pt.1:  ",
+      "description": "Part 1 of an introduction to supervised learning concepts in machine learning.",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/1t0nJKAyOO8Xbx2w8Le-QQQH2tUHfPzr2",
+        "name": "view"
+      }
+    },
+    {
+      "title": "0.5 - Intro to Supervised Learning Pt.2:  ",
+      "description": "Part 2 of an introduction to supervised learning concepts in machine learning.",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/18eNQLCqK7NAxbWJti5T0oH0lL8LxgO6s",
+        "name": "view"
+      }
+    }
   ],
 
-    "Fall_2023_Winter_2024": [
-        {
-          "title": "0.6 - Intro to SQL: ",
-          "description": "An introduction to SQL for managing and querying databases.",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/1p006H_RDLjapfkj91p9EXSSvKwsJpXQQ",
-            "name": "view"
-          }
-        },
-        {
-          "title": "0.7 - Intro to Power BI: ",
-          "description": "A beginner’s guide to Power BI for data visualization and business intelligence.",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/1KKYHNbd5BeX8_tw1mrtkJYl614dwGopT",
-            "name": "view"
-          }
-        },
-        {
-          "title": "0.8 - Machine Learning Algorithmic Approaches by Khizer: ",
-          "description": "Workshop covering different algorithmic approaches in machine learning.",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/1iI_Rqo_xmTlTzLAflSDKHF9UFohtsrmy",
-            "name": "view"
-          }
-        }
+  "Fall_2023_Winter_2024": [
+    {
+      "title": "0.6 - Intro to SQL: ",
+      "description": "An introduction to SQL for managing and querying databases.",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/1p006H_RDLjapfkj91p9EXSSvKwsJpXQQ",
+        "name": "view"
+      }
+    },
+    {
+      "title": "0.7 - Intro to Power BI: ",
+      "description": "A beginner’s guide to Power BI for data visualization and business intelligence.",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/1KKYHNbd5BeX8_tw1mrtkJYl614dwGopT",
+        "name": "view"
+      }
+    },
+    {
+      "title": "0.8 - Machine Learning Algorithmic Approaches by Khizer: ",
+      "description": "Workshop covering different algorithmic approaches in machine learning.",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/1iI_Rqo_xmTlTzLAflSDKHF9UFohtsrmy",
+        "name": "view"
+      }
+    }
   ],
 
-      "Fall_2024_Winter_2025": [
-        {
-          "title": "0.9 - Data Visualization and Manipulation Using Python: ",
-          "description": "Workshop on advanced data visualization and manipulation techniques using Python.",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/1n4zDqrl3mRltO3L5rHclUmagH4jBsa_d",
-            "name": "view"
-          }
-        },
-        {
-          "title": "1.0 - Clouds and Business",
-          "description": "Master SQL and PySpark for efficient data management, explore a real-world retail sales case study, and practice live SQL querying using Google Colab.",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/1YcPcgQ_qeUe4B6TqzkhqWfpiGxG0QVxc",
-            "name": "view"
-          }
-        },
-        {
-          "title": "1.1 - Make Your Own AI Study Companion",
-          "description": "Develop your own AI-powered study assistant using Natural Language Processing (NLP).",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/1muBsaxQIetHbkLE97TWe-pRVUMznSyc6",
-            "name": "view"
-          }
-        },
-        {
-          "title": "1.2 - Predicting Bitcoin Prices",
-          "description": "Learn to analyze Bitcoin & Ethereum trends with ML. Use it to predict stock market trends and analyze your own investments!",
-          "button": {
-            "link": "https://drive.google.com/drive/folders/1wyDVTTHBSYf9f9j1HItTtptNYjTEZx7d",
-            "name": "view"
-          }
-        }
+  "Fall_2024_Winter_2025": [
+    {
+      "title": "0.9 - Data Visualization and Manipulation Using Python: ",
+      "description": "Workshop on advanced data visualization and manipulation techniques using Python.",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/1n4zDqrl3mRltO3L5rHclUmagH4jBsa_d",
+        "name": "view"
+      }
+    },
+    {
+      "title": "1.0 - Clouds and Business",
+      "description": "Master SQL and PySpark for efficient data management, explore a real-world retail sales case study, and practice live SQL querying using Google Colab.",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/1YcPcgQ_qeUe4B6TqzkhqWfpiGxG0QVxc",
+        "name": "view"
+      }
+    },
+    {
+      "title": "1.1 - Make Your Own AI Study Companion",
+      "description": "Develop your own AI-powered study assistant using Natural Language Processing (NLP).",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/1muBsaxQIetHbkLE97TWe-pRVUMznSyc6",
+        "name": "view"
+      }
+    },
+    {
+      "title": "1.2 - Predicting Bitcoin Prices",
+      "description": "Learn to analyze Bitcoin & Ethereum trends with ML. Use it to predict stock market trends and analyze your own investments!",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/1wyDVTTHBSYf9f9j1HItTtptNYjTEZx7d",
+        "name": "view"
+      }
+    }
   ],
-        "Fall_2025_Winter_2026": [
-        {
-          "title": "1.3 - Deep Learning with Cars: ",
-          "description": "Building a basic deep learning model using neural networks for cars.",
-          "button": {
-            "link": "https://drive.google.com/drive/u/1/folders/1jHLFYUrO8zV6iRhr-09f2tKnNIEOSfID",
-            "name": "view"
-          }
-        }
+  "Fall_2025_Winter_2026": [
+    {
+      "title": "1.3 - Deep Learning with Cars: ",
+      "description": "Building a basic deep learning model using neural networks for cars.",
+      "button": {
+        "link": "https://drive.google.com/drive/u/1/folders/1jHLFYUrO8zV6iRhr-09f2tKnNIEOSfID",
+        "name": "view"
+      }
+    },
+    {
+      "title": "1.4 - Intro to Data Engineering: ",
+      "description": "Explore how data engineers transform raw data into trusted, analysis ready information using Databricks.",
+      "button": {
+        "link": "#",
+        "name": "WIP"
+      }
+    }
   ]
 }

@@ -108,15 +108,7 @@
           "json": "upcoming_events.json",
           "keys": ["other_events"]
         }
-      },
-      {
-        "type": "ComingSoonTemplate",
-        "data": {
-          "header": "Check Back for Future Events!",
-          "subtext": "Follow our Socials to stay Updated!"
-        }
       }
-      
     ]
   }
 ]
