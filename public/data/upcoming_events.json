@@ -13,5 +13,14 @@
         }
   ],
   "other_events": [
+        {
+          "title": "DSMLC X SASE Networking Night",
+          "location": "Engineering lounge",
+          "StartDate": "November 4, 2025",
+          "button": {
+            "link": "https://docs.google.com/forms/d/e/1FAIpQLScxCicv0p2ITsrzmZ5rbcf257ZZfD2u5QD03zNEzQnm6Pb_XA/viewform?pli=1",
+            "name": "Sign-Up"
+          }
+        }
   ]
 }
