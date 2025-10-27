@@ -83,6 +83,20 @@
         "imageName": "shopify logo",
         "imageType": "Sponsor"
       }
+    },
+    {
+      "image": {
+        "imageLink": "/images/sponsors/databricks.png",
+        "imageName": "Databricks logo",
+        "imageType": "Sponsor"
+      }
+    },
+    {
+      "image": {
+        "imageLink": "/images/sponsors/enactus.png",
+        "imageName": "Enactus logo",
+        "imageType": "Sponsor"
+      }
     }
   ],
   "upload": ""
