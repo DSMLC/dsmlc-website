@@ -39,8 +39,8 @@
             }
           },
           {
-            "title": "DSMLC Bingo",
-            "description": "Connect with others on DSMLC topics!",
+            "title": "Networking Bingo",
+            "description": "Connect with others on Engineering, Data Science, & Business topics!",
             "image": {
               "imageLink": "/images/bingo.png",
               "imageName": "Picture of DSMLC's bingo game",
