@@ -4,120 +4,59 @@ import { Brain, Check, Trophy, PartyPopper } from "lucide-react";
 
 // AI buzzwords for the bingo board
 const aiTerms = [
-  // Core AI & ML Concepts
-  "Neural Network",
-  "Machine Learning",
-  "Deep Learning",
-  "Natural Language Processing",
-  "Computer Vision",
-  "Reinforcement Learning",
-  "Supervised Learning",
-  "Unsupervised Learning",
-  "Self-Supervised Learning",
-  "Semi-Supervised Learning",
-  "Transfer Learning",
-  "Generative AI",
-  "Large Language Model",
-  "Transformer",
-  "Attention Mechanism",
-  "Gradient Descent",
-  "Backpropagation",
-  "Autoencoder",
-  "Model Compression",
-  "Knowledge Distillation",
+  // Tech & Data-Oriented
+  "Has built or deployed a machine learning model",
+  "Works with data pipelines or ETL tools",
+  "Can explain what an API is",
+  "Knows what overfitting means",
+  "Uses Python daily",
+  "Knows what SQL stands for",
+  "Has tried using AI to automate a task",
+  "Is interested in generative AI",
+  "Has broken production code before",
+  "Has used cloud platforms (AWS, Azure, or GCP)",
+  "Can explain what “big data” really means",
+  "Has taken a statistics course they actually liked",
+  "Has written a technical report for a project",
+  "Has done a Kaggle competition",
+  "Is researching AI or data science in academia",
 
-  // Model Architectures & Techniques
-  "Convolutional Neural Network",
-  "Recurrent Neural Network",
-  "Long Short-Term Memory (LSTM)",
-  "Gated Recurrent Unit (GRU)",
-  "BERT",
-  "GPT",
-  "Diffusion Model",
-  "Variational Autoencoder (VAE)",
-  "GAN (Generative Adversarial Network)",
-  "Bayesian Network",
-  "Self-Attention",
-  "Multi-Head Attention",
-  "Sparse Attention",
-  "Bidirectional Encoding",
-  "Graph Neural Network (GNN)",
-  "Graph Embeddings",
-  "Meta-Learning",
-  "Federated Learning",
+  // Business, Management & Strategy
+  "Has pitched an idea or project to leadership or clients",
+  "Knows what EBITDA stands for",
+  "Can explain what synergy is",
+  "Has worked with or helped grow a startup",
+  "Can explain SWOT analysis",
+  "Can explain what a stakeholder analysis is",
+  "Can define what “return on investment” means",
 
-  // Data Science & Feature Engineering
-  "Feature Engineering",
-  "Dimensionality Reduction",
-  "Principal Component Analysis (PCA)",
-  "t-SNE",
-  "UMAP",
-  "Feature Extraction",
-  "Tokenization",
-  "Word Embeddings",
-  "Word2Vec",
-  "GloVe",
-  "FastText",
-  "One-Hot Encoding",
-  "TF-IDF",
-  "Named Entity Recognition (NER)",
-  "Part-of-Speech Tagging",
-  "Dependency Parsing",
-  "Semantic Search",
-  "Vector Database",
+  // Engineering & Innovation
+  "Has built a prototype or project from scratch",
+  "Can explain what an API endpoint is",
+  "Works with or studies engineering",
+  "Has used sensors or robotics in a project",
+  "Has participated in a hackathon",
+  "Has taken apart a device just to see how it works",
+  "Knows what version control is",
+  "Works in system design or architecture",
+  "Loves solving optimization problems",
 
-  // Training & Optimization
-  "Training Data",
-  "Fine-Tuning",
-  "Hyperparameter Tuning",
-  "Batch Normalization",
-  "Dropout",
-  "Cross-Validation",
-  "Bias-Variance Tradeoff",
-  "Overfitting",
-  "Underfitting",
-  "Regularization",
-  "Loss Function",
-  "Activation Function",
-  "Optimization Algorithm",
-  "Adam Optimizer",
-  "Stochastic Gradient Descent (SGD)",
-  "Momentum",
-  "Learning Rate Decay",
-  "Few-Shot Learning",
-  "Zero-Shot Learning",
-  "Multi-Task Learning",
-  "Continual Learning",
-  "Model Pruning",
-  "Quantization",
-  "Sparse Models",
-  "Low-Rank Adaptation (LoRA)",
-  "Prompt Engineering",
-
-  // Deployment & Applications
-  "Model Inference",
-  "Latency",
-  "Throughput",
-  "A/B Testing",
-  "Edge AI",
-  "Embedded AI",
-  "MLOps",
-  "Data Pipeline",
-  "Model Drift",
-  "Explainability (XAI)",
-  "Bias Mitigation",
-  "Fairness in AI",
-  "Ethical AI",
-  "Adversarial Attacks",
-  "Security in AI",
-  "Interpretability",
-  "Shapley Values",
-  "LIME (Local Interpretable Model-Agnostic Explanations)",
-  "Data Augmentation",
-  "Synthetic Data",
-  "Data Labeling",
-  "Self-Training",
-  "Human-in-the-Loop AI",
+  // Personal & Fun Prompts
+  "Has traveled to more than 3 countries",
+  "Has read a book related to tech or business recently",
+  "Plays an instrument or creates art",
+  "Has met someone famous",
+  "Shares the same birthday month as you",
+  "Has taken a risk that paid off",
+  "Has a side hustle or creative project",
+  "Can recommend a good podcast",
+  "Has failed at something but learned a lot from it",
+  "Has switched fields or industries at least once",
+  "Checks Linkedin first thing in the morning",
+  "Can tell you their MBTI",
+  "Knows at least three useless fun facts",
+  "Can show you their most recent photo in their camera roll",
+  "Is double majoring in something",
 ];
 
 function shuffleArray(array: string[]) {
@@ -187,13 +126,13 @@ const Page = () => {
           <div className="flex items-center justify-center gap-2 mb-2">
             <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-orange-400" />
             <h1 className="text-2xl sm:text-4xl font-bold text-orange-400">
-              AI Buzzword Bingo
+              Networking Night Buzzword Bingo
             </h1>
           </div>
           <p className="text-sm sm:text-base text-orange-200/80 max-w-2xl mx-auto px-2">
-            Network with others and find someone who can explain each AI term
-            before marking it off. First to get 5 in a row (horizontal,
-            vertical, or diagonal) wins! Keep going to fill the whole board!
+            Network with others and find anyone who can answer each box before
+            marking it off. First to get 5 in a row (horizontal, vertical, or
+            diagonal) wins! Keep going to fill the whole board!
           </p>
           <button
             onClick={handleNewGame}
