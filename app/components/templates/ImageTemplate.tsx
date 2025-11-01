@@ -3,8 +3,6 @@ import React from "react";
 import Image from "next/image";
 import { useTheme } from "@/app/ThemeProvider";
 
-
-
 const sizeConfig = {
   Pic: {
     width: {
@@ -61,7 +59,7 @@ export type ImageType = "Pic" | "Logo" | "Banner" | "Sponsor";
 const getImageClassname = (type: ImageType): string => {
   switch (type) {
     case "Pic":
-      return "object-cover self-center object-center min-w-40 h-[300px] max-w-80 border-2 border-dsmlcTangerine rounded-4xl";
+      return "object-cover self-center object-center w-full rounded-4xl border-2 border-dsmlcTangerine";
     case "Logo":
       return "object-contain";
     case "Sponsor":
@@ -82,23 +80,21 @@ const ImageTemplate = ({
   name: string;
   type: ImageType;
 }) => {
-
-  const {isDarkMode} = useTheme();
-  
-  
+  const { isDarkMode } = useTheme();
 
   const isInvalidImage = image === "#" || !image;
   const finalType: ImageType = isInvalidImage ? "Logo" : type;
-  const defaultImg = isDarkMode ? "/images/light_logo.png" : "/images/dark_logo.png"
+  const defaultImg = isDarkMode
+    ? "/images/light_logo.png"
+    : "/images/dark_logo.png";
   const finalImage = isInvalidImage ? defaultImg : image;
 
-   const imageClassname = getImageClassname(finalType);
+  const imageClassname = getImageClassname(finalType);
   const { width, height } = sizeConfig[finalType];
 
   return (
     <div>
       {image && (
-      
         <>
           <Image
             className={`${imageClassname} lg:block hidden `}
@@ -128,7 +124,7 @@ const ImageTemplate = ({
             loading="lazy"
           />
         </>
-        )}
+      )}
     </div>
   );
 };
