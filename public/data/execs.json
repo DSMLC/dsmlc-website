@@ -225,22 +225,6 @@
       "joinDate": ""
     },
     {
-      "name": "Tae Shim",
-      "role": [
-        {
-          "group": "Operations Team",
-          "roles": ["Workshop Coordinator"]
-        }
-      ],
-      "program": {
-        "programs": ["Data Science"],
-        "year": "2nd Year"
-      },
-      "profile": "/images/profile/tae_shim.jpg",
-      "linkedin": "https://www.linkedin.com/in/taehyung-shim-8a2032305/",
-      "joinDate": "Jun 2025"
-    },
-    {
       "name": "Andrey Dimanchev",
       "role": [
         {
@@ -328,22 +312,6 @@
       ],
       "profile": "/images/profile/amy_cui.jpg",
       "linkedin": "",
-      "joinDate": ""
-    },
-    {
-      "name": "Sarah Feng",
-      "role": [
-        {
-          "group": "Marketing Team",
-          "roles": ["Marketing Lead"]
-        }
-      ],
-      "program": {
-        "programs": ["Accounting", "Data Science"],
-        "year": "4th Year"
-      },
-      "profile": "/images/profile/sarah_feng.jpg",
-      "linkedin": "https://www.linkedin.com/in/manxuan-sarah-feng/",
       "joinDate": ""
     },
     {
