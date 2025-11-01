@@ -225,6 +225,22 @@
       "joinDate": ""
     },
     {
+      "name": "Tae Shim",
+      "role": [
+        {
+          "group": "Legacy Executives (Advisory Team)",
+          "roles": ["Workshop Coordinator"]
+        }
+      ],
+      "program": {
+        "programs": ["Data Science"],
+        "year": "2nd Year"
+      },
+      "profile": "/images/profile/tae_shim.jpg",
+      "linkedin": "https://www.linkedin.com/in/taehyung-shim-8a2032305/",
+      "joinDate": "2025 - 2025"
+    },
+    {
       "name": "Andrey Dimanchev",
       "role": [
         {
