@@ -181,8 +181,8 @@ const Page = () => {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-900 font-redhat overflow-x-hidden">
-      <div className="max-w-4xl mx-auto px-3 py-4 sm:px-6 sm:py-6">
+    <div className="min-h-screen bg-transparent flex justify-center items-start px-3 sm:px-6 py-6">
+      <div className="w-full max-w-4xl bg-zinc-900 border border-orange-400/50 rounded-2xl shadow-lg p-4 sm:p-6">
         <div className="text-center mb-6 sm:mb-8">
           <div className="flex items-center justify-center gap-2 mb-2">
             <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-orange-400" />
