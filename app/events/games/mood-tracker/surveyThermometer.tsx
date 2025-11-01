@@ -81,7 +81,7 @@ const SurveyThermometer: React.FC<SurveyThermometerProps> = ({ data }) => {
       ></div>
       <div
         id="votes_bar"
-        className="flex flex-row p-5 bg-black w-[100%] justify-evenly rounded-lg"
+        className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 p-5 bg-black w-full rounded-lg place-items-center"
       >
         {sortedData.map(
           ([key, value], index) =>
@@ -89,12 +89,12 @@ const SurveyThermometer: React.FC<SurveyThermometerProps> = ({ data }) => {
               <div
                 key={key}
                 style={{ flex: value }}
-                className={`flex flex-col text-3xl justify-center items-center w-[100%] text-white font-bold font-redhat p-3 transition-all duration-500 ease-in-out ${getColor(
+                className={`flex flex-col text-xl justify-center items-center w-[100%] text-white font-bold font-redhat p-3 transition-all duration-500 ease-in-out ${getColor(
                   key as keyof SurveyData
                 )}`}
               >
                 <div>{key}</div>
-                <div className="text-5xl">{value}</div>
+                <div className="text-xl">{value}</div>
               </div>
             )
         )}
@@ -106,17 +106,16 @@ const SurveyThermometer: React.FC<SurveyThermometerProps> = ({ data }) => {
         {notSortedData.map(([key, value], index) => (
           <div
             key={key}
-            className={`flex flex-col justify-center items-center w-[33.3%] p-7 font-bold  rounded-lg font-redhat text-8xl ${getColor(
+            className={`flex flex-col justify-center items-center w-[33.3%] p-7 font-bold  rounded-lg font-redhat text-3xl ${getColor(
               key as keyof SurveyData
             )}`}
           >
             <div>{key}</div>
-            <div className="text-8xl">
+            <div className="text-3xl">
               {((value / totalVotes) * 100).toFixed(1)}%
             </div>
           </div>
         ))}
-        ,
       </div>
     </div>
   );
