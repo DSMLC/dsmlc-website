@@ -55,7 +55,6 @@ const aiTerms = [
   "Checks Linkedin first thing in the morning",
   "Can tell you their MBTI",
   "Knows at least three useless fun facts",
-  "Can show you their most recent photo in their camera roll",
   "Is double majoring in something",
 ];
 
