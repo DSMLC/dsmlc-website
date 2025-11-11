@@ -18,7 +18,7 @@
             "image": {
               "imageLink": "/images/social-networking.png",
               "imageName": "Picture of DSMLC's Final Comp game",
-              "imageType": "Pic"
+              "imageType": "Game"
             },
             "button": {
               "link": "games/social-network-graph",
@@ -31,7 +31,7 @@
             "image": {
               "imageLink": "/images/mood-tracker/mood-tracker.png",
               "imageName": "Picture of DSMLC's weflourish game",
-              "imageType": "Pic"
+              "imageType": "Game"
             },
             "button": {
               "link": "games/mood-tracker",
@@ -44,7 +44,7 @@
             "image": {
               "imageLink": "/images/bingo.png",
               "imageName": "Picture of DSMLC's bingo game",
-              "imageType": "Pic"
+              "imageType": "Game"
             },
             "button": {
               "link": "games/bingo",

@@ -16,6 +16,18 @@ const sizeConfig = {
       small: 150,
     },
   },
+  Game: {
+    width: {
+      large: 600,
+      medium: 400,
+      small: 300,
+    },
+    height: {
+      large: 300,
+      medium: 200,
+      small: 150,
+    },
+  },
   Logo: {
     width: {
       large: 110,
@@ -42,23 +54,25 @@ const sizeConfig = {
   },
   Banner: {
     width: {
-      large: 1200, // Full-width for large screens
+      large: 1200,
       medium: 800,
       small: 600,
     },
     height: {
-      large: 300, // Fixed consistent height
+      large: 300,
       medium: 200,
       small: 150,
     },
   },
 };
 
-export type ImageType = "Pic" | "Logo" | "Banner" | "Sponsor";
+export type ImageType = "Pic" | "Game" | "Logo" | "Banner" | "Sponsor";
 
 const getImageClassname = (type: ImageType): string => {
   switch (type) {
     case "Pic":
+      return "object-cover object-center rounded-4xl border-2 border-dsmlcTangerine max-w-full  w-[400px] h-[260px]";
+    case "Game":
       return "object-cover self-center object-center w-full rounded-4xl border-2 border-dsmlcTangerine";
     case "Logo":
       return "object-contain";
