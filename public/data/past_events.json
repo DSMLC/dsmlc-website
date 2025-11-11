@@ -3,6 +3,36 @@
     {
       "image": {
         "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/dsmlcxsase_networking.jpg",
+        "imageName": "DSMLC X SASE Networking Night"
+      },
+      "number": "Nov. 4",
+      "header": "DSMLC X SASE Networking Night",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "Hosted a networking event where students connected with industry professionals and Professors to learn about their careers, companies, and opportunities in data science and engineering."
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/dataeng_workshop.jpg",
+        "imageName": "Data Engineering Workshop"
+      },
+      "number": "Oct. 27",
+      "header": "Data Engineering Workshop",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "Learn the fundamentals of data engineering, including data pipelines, ETL processes, and medalion architecture through Databricks!"
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
         "imageLink": "/images/events/fall_2025/databricks_collaboration.jpg",
         "imageName": "Databricks Technical Workshop"
       },
