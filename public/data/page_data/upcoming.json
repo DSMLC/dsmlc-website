@@ -64,7 +64,14 @@
         "type": "ComingSoonTemplate",
         "data": {
           "header": "Check Back for Future Events!",
-          "subtext": "Follow our Socials to stay Updated!"
+          "subtext": "Follow our Socials to stay Updated!",
+          "condition": {
+            "type": "array",
+            "data": {
+              "json": "upcoming_events.json",
+              "keys": ["final_comp"]
+            }
+          }
         }
       }
     ]
@@ -88,11 +95,18 @@
           "keys": ["workshops"]
         }
       },
-    {
+      {
         "type": "ComingSoonTemplate",
         "data": {
           "header": "Check Back for Future Events!",
-          "subtext": "Follow our Socials to stay Updated!"
+          "subtext": "Follow our Socials to stay Updated!",
+          "condition": {
+            "type": "array",
+            "data": {
+              "json": "upcoming_events.json",
+              "keys": ["workshops"]
+            }
+          }
         }
       }
     ]
@@ -120,7 +134,14 @@
         "type": "ComingSoonTemplate",
         "data": {
           "header": "Check Back for Future Events!",
-          "subtext": "Follow our Socials to stay Updated!"
+          "subtext": "Follow our Socials to stay Updated!",
+          "condition": {
+            "type": "array",
+            "data": {
+              "json": "upcoming_events.json",
+              "keys": ["other_events"]
+            }
+          }
         }
       }
     ]
