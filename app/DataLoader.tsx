@@ -82,6 +82,13 @@ export interface ComingSoonTemplateData {
   data: {
     header: string;
     subtext?: string;
+    condition: {
+      type: string;
+      data: {
+        json: string;
+        keys: string[];
+      };
+    };
   };
 }
 
@@ -360,7 +367,7 @@ export const templateMap: {
   AdminDataDashboardTemplate: AdminDataDashboardTemplate,
 };
 
-const resolveData = async (pageData: PageData): Promise<any> => {
+export const resolveData = async (pageData: PageData): Promise<any> => {
   if (
     typeof pageData.data === "object" &&
     pageData.data !== null &&
