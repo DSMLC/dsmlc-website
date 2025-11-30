@@ -122,6 +122,14 @@
         "link": "https://drive.google.com/drive/u/1/folders/12EuIcR6blhT3fu7985_GacpaD_myoGOc",
         "name": "view"
       }
+    },
+    {
+      "title": "1.5 - Intro to Image Classification: ",
+      "description": "You’ll explore how models interpret images, train a classifier, and experiment with parameter tuning.",
+      "button": {
+        "link": "https://drive.google.com/drive/u/1/folders/1xD26d8R5w7q1b51orq-7514676UUsYee",
+        "name": "view"
+      }
     }
   ]
 }
