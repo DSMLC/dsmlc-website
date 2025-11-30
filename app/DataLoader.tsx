@@ -233,8 +233,8 @@ export interface CardTemplateData {
     | {
         title: string;
         description?: string;
-        StartDate?: string;
-        EndDate?: string;
+        startDate?: string;
+        endDate?: string;
         location?: string;
         image?: ImageData;
         button?: {
@@ -411,16 +411,16 @@ export const resolveData = async (pageData: PageData): Promise<any> => {
           // Filter out past events:
           // If EndDate exists, use it; otherwise use StartDate.
           combinedData = combinedData.filter((ev: any) => {
-            const start = asLocalDate(ev?.StartDate);
-            const end = asLocalDate(ev?.EndDate) ?? start; // fallback to start if no end
+            const start = asLocalDate(ev?.startDate);
+            const end = asLocalDate(ev?.endDate) ?? start; // fallback to start if no end
             if (!start && !end) return false;
             return end && end >= today; // keep if end/start hasn't passed yet
           });
 
           // 2) Sort by StartDate ascending
           combinedData = combinedData.sort((a: any, b: any) => {
-            const aDate = asLocalDate(a?.StartDate)?.getTime() ?? 0;
-            const bDate = asLocalDate(b?.StartDate)?.getTime() ?? 0;
+            const aDate = asLocalDate(a?.startDate)?.getTime() ?? 0;
+            const bDate = asLocalDate(b?.startDate)?.getTime() ?? 0;
             return aDate - bDate;
           });
         }
