@@ -51,17 +51,19 @@
     "type": "BackgroundFillTemplate",
     "data": [
       {
-        "type": "HeaderTextTemplate4",
+        "type": "HeaderTextTemplate2",
+        "data": [
+          {
+            "header": "Current Open Positions",
+            "text": "Interested in joining DSMLC as an executive? Find and submit applications here!"
+          }
+        ]
+      },
+      {
+        "type": "CardTemplate",
         "data": {
           "json": "applications.json",
           "keys": ["exec_positions"]
-        }
-      },
-      {
-        "type": "ButtonTemplate",
-        "data": {
-          "json": "applications.json",
-          "keys": ["apply_exec_button"]
         }
       }
     ]
