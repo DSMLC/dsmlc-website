@@ -11,16 +11,23 @@
       "name": "No Positions Available for Members"
     }
   ],
+
   "exec_positions": [
     {
-      "header": "Current Open Positions:",
-      "text": ["Competitions Lead - Plan and execute DSMLC’s flagship Final Competition and more, managing logistics, themes, and inter-team coordination."]
-    }
-  ],
-  "apply_exec_button": [
+      "title": "Competition Lead",
+      "description": "Plan and execute DSMLC’s flagship Final Competition and more!",
+      "button": {
+        "link": "https://docs.google.com/forms/d/1poiN2kwlewP2SQA_HT6IbtiNwI-Pi-VKvfXgwsV9ivU/viewform?edit_requested=true",
+        "name": "Apply Now"
+      }
+    },
     {
-      "link": "https://docs.google.com/forms/d/1poiN2kwlewP2SQA_HT6IbtiNwI-Pi-VKvfXgwsV9ivU/viewform?edit_requested=true",
-      "name": "Apply Now"
+      "title": "Marketing Lead",
+      "description": "Create engaging visual content, including graphics, videos, and promotional materials!",
+      "button": {
+        "link": "https://docs.google.com/forms/d/1poiN2kwlewP2SQA_HT6IbtiNwI-Pi-VKvfXgwsV9ivU/viewform?edit_requested=true",
+        "name": "Apply Now"
+      }
     }
   ]
 }
