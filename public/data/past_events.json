@@ -3,6 +3,36 @@
     {
       "image": {
         "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/data_speaks.png",
+        "imageName": "Data Speaks Panel Discussion"
+      },
+      "number": "Dec. 4",
+      "header": "Data Speaks Panel Discussion",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "A dynamic, cross-disciplinary event focused on how individuals communicate ideas, insights, and data effectively."
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/fall_2025/image_classification.png",
+        "imageName": "Image Classification Workshop"
+      },
+      "number": "Dec. 1",
+      "header": "Image Classification Workshop",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "Learn how models “see” images, be able to train a classifier, and experiment with tuning parameters for image classification."
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
         "imageLink": "/images/events/fall_2025/dsmlc_sase_networking.jpg",
         "imageName": "DSMLC X SASE Networking Night"
       },

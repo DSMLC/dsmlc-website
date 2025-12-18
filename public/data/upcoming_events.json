@@ -1,25 +1,17 @@
 {
-  "final_comp": [],
-  "workshops": [
+  "final_comp": [
     {
-          "title": "Image Classification Workshop",
-          "location": "Online",
-          "startDate": "December 1, 2025",
-          "button": {
-            "link": "https://forms.gle/GNBkcGBSKC8Vb7SHA",
-            "name": "Sign-Up"
-          }
-    }
-  ],
-  "other_events": [
-    {
-      "title": "Data Speaks",
-      "location": "HNSC 122",
-      "startDate": "December 3, 2025",
+      "title": "Sample Dummy",
+      "location": "Sample Dummy",
+      "startDate": "December 21, 2021",
       "button": {
-        "link": "https://forms.gle/3eKms4MJyh2NAfZP8",
-        "name": "Sign-Up"
+        "link": "https://petertran-portfolio.com",
+        "name": "Sample"
       }
     }
+  ],
+  "workshops": [
+  ],
+  "other_events": [
   ]
 }

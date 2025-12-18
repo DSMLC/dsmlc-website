@@ -71,7 +71,7 @@ export type ImageType = "Pic" | "Game" | "Logo" | "Banner" | "Sponsor";
 const getImageClassname = (type: ImageType): string => {
   switch (type) {
     case "Pic":
-      return "object-cover object-center rounded-4xl border-2 border-dsmlcTangerine max-w-full  w-[400px] h-[260px]";
+      return "object-cover self-center object-center min-w-40 h-[300px] max-w-100 border-2 border-dsmlcTangerine rounded-4xl";
     case "Game":
       return "object-cover self-center object-center w-full rounded-4xl border-2 border-dsmlcTangerine";
     case "Logo":
