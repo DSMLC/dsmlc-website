@@ -50,7 +50,25 @@
       }
     ]
   },
-    {
+  {
+    "type": "BackgroundFillTemplate",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
+          "title": "Winter 2026"
+        }
+      },
+      {
+        "type": "TimelineTemplate1",
+        "data": {
+          "json": "past_events.json",
+          "keys": ["winter_2026"]
+        }
+      }
+    ]
+  },
+  {
     "type": "BackgroundFillTemplate",
     "data": [
       {

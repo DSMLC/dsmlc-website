@@ -1,4 +1,21 @@
 {
+  "winter_2026": [
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/winter_2026/D.A.D_Chirality_Research_event.JPG",
+        "imageName": "Chirality Research Data Across Domains "
+      },
+      "number": "Jan 15",
+      "header": "Data Across Domains with Chirality Research",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "Professionals from Chirality Research discuss real-world use cases on how data-driven work connects across disciplines within the industry."
+        }
+      ]
+    }
+  ],
   "fall_2025": [
     {
       "image": {
