@@ -303,6 +303,21 @@
       "joinDate": ""
     },
     {
+      "name": "Zehaan Walji",
+      "role": [
+        {
+          "group": "Competitions Team",
+          "roles": ["Competition Lead"]
+        }
+      ],
+      "program": {
+        "programs": ["Computer Science", "Biological Science"],
+        "year": "2nd Year"
+      },
+      "linkedin": "linkedin.com/in/zehaan-walji",
+      "joinDate": "Dec 2025"
+    },
+    {
       "name": "Yash Dhaneshwari",
       "role": [
         {
@@ -329,6 +344,22 @@
       "profile": "/images/profile/amy_cui.jpg",
       "linkedin": "",
       "joinDate": ""
+    },
+    {
+      "name": "Anna Phan",
+      "role": [
+        {
+          "group": "Marketing Team",
+          "roles": ["Marketing Lead"]
+        }
+      ],
+      "program": {
+        "programs": ["Data Science"],
+        "year": "4th Year"
+      },
+      "profile": "/images/profile/anna-phan.png",
+      "linkedin": "https://www.linkedin.com/in/anna-phan-",
+      "joinDate": "Dec 2025"
     },
     {
       "name": "Dheeraj Jaswal",
