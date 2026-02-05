@@ -73,18 +73,18 @@
         "type": "TimelineTemplate2",
         "data": [
           {
-            "number": "1",
-            "header": "DSMLC Final Competition 2023",
+            "number": "2025",
+            "header": "DSMLC Final Competition",
             "points": [
               {
                 "header": "Overview:",
-                "text": "Our inaugural competition was a resounding success, featuring sponsorship from ARC Resources and an inspiring keynote address by Dr. Xuewen Lu, who shared valuable academic insights into the field of data science."
+                "text": "The 2025 Competition was an immense success. With three unique categories and four highly talented speakers: Corey Yang from Urban System, Pierce Anderson from ARC Resources, Helen Ashton from AWS, and Banks Odole from SAIT, attendees gained new connections and insights."
               }
             ]
           },
           {
-            "number": "2",
-            "header": "DSMLC Final Competition 2024",
+            "number": "2024",
+            "header": "DSMLC Final Competition",
             "points": [
               {
                 "header": "Overview:",
@@ -93,12 +93,12 @@
             ]
           },
           {
-            "number": "3",
-            "header": "DSMLC Final Competition 2025",
+            "number": "2023",
+            "header": "DSMLC Final Competition",
             "points": [
               {
                 "header": "Overview:",
-                "text": "The 2025 Competition was an immense success. With three unique categories and four highly talented speakers: Corey Yang from Urban System, Pierce Anderson from ABC Resources, Helen Ashton from AWS, and Banks Odole from SAIT, attendees gained new connections and insights."
+                "text": "Our inaugural competition was a resounding success, featuring sponsorship from ARC Resources and an inspiring keynote address by Dr. Xuewen Lu, who shared valuable academic insights into the field of data science."
               }
             ]
           }
