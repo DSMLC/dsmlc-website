@@ -95,6 +95,7 @@
           "keys": ["workshops"]
         }
       },
+
       {
         "type": "ComingSoonTemplate",
         "data": {

@@ -11,7 +11,16 @@
     }
   ],
   "workshops": [
+    {
+      "title": "Intro to Azure ML",
+      "location": "MS 427",
+      "startDate": "February 13, 2026",
+      "description": "See how cloud-based machine learning works by building and deploying a model in Azure! No prior experience required!",
+      "button": {
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSdM_E1Pea-dGBnbLHYnJ0w0qFMFqVyPzCgIFvOAosMf2kvb4Q/viewform?usp=header",
+        "name": "Register Now!"
+      }
+    }
   ],
-  "other_events": [
-  ]
+  "other_events": []
 }
