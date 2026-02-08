@@ -65,6 +65,20 @@
           "json": "applications.json",
           "keys": ["exec_positions"]
         }
+      },
+      {
+        "type": "ComingSoonTemplate",
+        "data": {
+          "header": "No Current Positions Open",
+          "subtext": "Follow our socials to stay updated on new positions!",
+          "condition": {
+            "type": "array",
+            "data": {
+              "json": "applications.json",
+              "keys": ["exec_positions"]
+            }
+          }
+        }
       }
     ]
   },
