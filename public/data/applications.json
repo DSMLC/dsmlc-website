@@ -12,5 +12,38 @@
     }
   ],
 
-  "exec_positions": []
+  "exec_positions": [
+    {
+      "title": "Visionary Lab Director",
+      "description": "Lead project initiatives, guide teams from idea to execution, and help build partnerships with external organizations to grow DSMLC’s impact. This role is ideal for organized, proactive leaders who enjoy innovation and teamwork.",
+      "button": {
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLScqfquOxuJJCOK67amC8ee0YN79ZepfGcbqliCIyVrlvloHmA/viewform",
+        "name": "Apply Now"
+      }
+    },
+    {
+      "title": "Sponsorship Lead",
+      "description": "Build relationships with industry partners to support club events and growth. Responsibilities include researching sponsors, leading outreach, developing partnership materials, and managing communications. A great fit for confident communicators who are persuasive and professional.",
+      "button": {
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLScqfquOxuJJCOK67amC8ee0YN79ZepfGcbqliCIyVrlvloHmA/viewform",
+        "name": "Apply Now"
+      }
+    },
+    {
+      "title": "Communications Lead",
+      "description": "Oversee internal and external messaging to keep the club informed and engaged. You will craft updates, coordinate announcements, and support social and email communications. Experience with Canva or campaign management is an asset.",
+      "button": {
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLScqfquOxuJJCOK67amC8ee0YN79ZepfGcbqliCIyVrlvloHmA/viewform",
+        "name": "Apply Now"
+      }
+    },
+    {
+      "title": "Events Lead",
+      "description": "Bring DSMLC’s vision to life through engaging events that connect students, industry, and faculty. You will manage logistics, lead execution, and solve real-time challenges while collaborating across teams. Perfect for problem-solvers who thrive in fast-paced environments.",
+      "button": {
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLScqfquOxuJJCOK67amC8ee0YN79ZepfGcbqliCIyVrlvloHmA/viewform",
+        "name": "Apply Now"
+      }
+    }
+  ]
 }
