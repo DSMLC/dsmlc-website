@@ -130,6 +130,14 @@
         "link": "https://drive.google.com/drive/u/1/folders/1xD26d8R5w7q1b51orq-7514676UUsYee",
         "name": "view"
       }
+    },
+    {
+      "title": "1.6 - Intro to Azure ML: ",
+      "description": "This workshop introduces machine learning in the cloud using Azure Machine Learning Studio.",
+      "button": {
+        "link": "https://drive.google.com/drive/folders/10-9eCCPPyX1bJ7ubiXFWvjHrCMZYGNm_",
+        "name": "view"
+      }
     }
   ]
 }
