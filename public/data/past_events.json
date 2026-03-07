@@ -3,6 +3,51 @@
     {
       "image": {
         "imageType": "Pic",
+        "imageLink": "/images/events/winter_2026/Interview_and_Application.jpg",
+        "imageName": "Interview and Application night "
+      },
+      "number": "Feb 27",
+      "header": "Interview and Application Night",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "Students got the chance to directly speak with industry professionals and learn practical ways to stand out through stronger applications and confident interviewing."
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/winter_2026/Intro_Azure.png",
+        "imageName": "Intro to Azure Workshop"
+      },
+      "number": "Feb 13",
+      "header": "Interview and Application Night",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "Students join us for a beginner-friendly workshop to lean about Azure. Participants get the chance to work with Azure and a dataset to build a model."
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/winter_2026/UrbanSystems_Case_Comp.JPG",
+        "imageName": "Intro to Azure Workshop"
+      },
+      "number": "Feb 4",
+      "header": "Town of Cochrane x Urban Systems Case Competition",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "This interdisciplinary case competition, hosted in collaboration with Urban Systems and the Town of Cochrane, invites students to address real-world mobility and planning challenges in one of Alberta's fastes growing communities."
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
         "imageLink": "/images/events/winter_2026/D.A.D_Chirality_Research_event.JPG",
         "imageName": "Chirality Research Data Across Domains "
       },
