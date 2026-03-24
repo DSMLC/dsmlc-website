@@ -2,12 +2,14 @@
 import { Link } from "./components/NetworkGraph";
 import supabase from "./supabase_client";
 
-const CONNECTIONS_COMP_2025 = "NetworkGraphGameConnections"
-const CONNECTIONS_MEET_2025 = "NetworkGraphGameConnectionsFall2025"
-const NAMES_COMP_2025 = "NetworkGraphGameNames"
-const NAMES_MEET_2025 = "NetworkGraphGameNamesFall2025"
-export const GRAPH_CONNECTIONS = CONNECTIONS_MEET_2025
-export const GRAPH_NAMES = NAMES_MEET_2025
+const CONNECTIONS_COMP_2025 = "NetworkGraphGameConnections";
+const CONNECTIONS_MEET_2025 = "NetworkGraphGameConnectionsFall2025";
+const CONNECTIONS_COMP_2026 = "NetworkGraphGameConnectionsSymposium2026";
+const NAMES_COMP_2025 = "NetworkGraphGameNames";
+const NAMES_MEET_2025 = "NetworkGraphGameNamesFall2025";
+const NAMES_COMP_2026 = "NetworkGraphGameNamesSymposium2026";
+export const GRAPH_CONNECTIONS = CONNECTIONS_COMP_2026;
+export const GRAPH_NAMES = NAMES_COMP_2026;
 
 export const updateButtonClicksDatabase = async (buttonName: string) => {
   const { data, error: fetchError } = await supabase
@@ -41,7 +43,7 @@ export const addPlayer = async (
   playerName: string,
   playerId: string,
   gameId: string,
-  linkedin?: string
+  linkedin?: string,
 ) => {
   const { data: existingPlayer, error: fetchError } = await supabase
     .from(GRAPH_NAMES)
@@ -60,15 +62,13 @@ export const addPlayer = async (
   }
 
   // Insert new player
-  const { error: insertError } = await supabase
-    .from(GRAPH_NAMES)
-    .insert({
-      name: playerName,
-      player_id: playerId,
-      game_id: gameId,
-      connection_count: 0,
-      linkedin: linkedin || null,
-    });
+  const { error: insertError } = await supabase.from(GRAPH_NAMES).insert({
+    name: playerName,
+    player_id: playerId,
+    game_id: gameId,
+    connection_count: 0,
+    linkedin: linkedin || null,
+  });
 
   if (insertError) console.error("Error inserting player:", insertError);
 };
@@ -95,7 +95,7 @@ export const fetchNodes = async () => {
 };
 
 export const getConnectedPlayers = async (
-  playerCode: string
+  playerCode: string,
 ): Promise<string[]> => {
   const { data, error } = await supabase
     .from(GRAPH_CONNECTIONS)
@@ -120,7 +120,7 @@ export const getConnectedPlayers = async (
 };
 
 export const getPlayerNames = async (
-  playerCodes: string[]
+  playerCodes: string[],
 ): Promise<{ player_id: string; name: string }[]> => {
   const { data: playersData, error: playersError } = await supabase
     .from(GRAPH_NAMES)
@@ -137,7 +137,7 @@ export const getPlayerNames = async (
 
 export const addPair = async (
   pairCode1: string,
-  pairCode2: string
+  pairCode2: string,
 ): Promise<string | null> => {
   const normalizedCode2 = pairCode2.trim().toLowerCase();
 
@@ -228,7 +228,7 @@ export const fetchLinks = async (): Promise<Link[]> => {
 export const updatePlayer = async (
   playerId: string,
   name: string,
-  linkedin?: string
+  linkedin?: string,
 ): Promise<boolean> => {
   const { error } = await supabase
     .from(GRAPH_NAMES)

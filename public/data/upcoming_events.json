@@ -8,19 +8,26 @@
         "link": "https://petertran-portfolio.com",
         "name": "Sample"
       }
-    }
-  ],
-  "workshops": [
+    },
     {
-      "title": "Intro to Azure ML",
-      "location": "MS 427",
-      "startDate": "February 13, 2026",
-      "description": "See how cloud-based machine learning works by building and deploying a model in Azure! No prior experience required!",
+      "title": "Final Competition Symposium",
+      "location": "Best Western Plus Village Park Inn",
+      "startDate": "March 27, 2026",
       "button": {
-        "link": "https://docs.google.com/forms/d/e/1FAIpQLSdM_E1Pea-dGBnbLHYnJ0w0qFMFqVyPzCgIFvOAosMf2kvb4Q/viewform?usp=header",
-        "name": "Register Now!"
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLSfhIjKY_jhEI0NnuXiQd6xIvjTx0mA6dZLFHL5oTtZMrzL0_g/viewform",
+        "name": "Student RSVP"
+      }
+    },
+    {
+      "title": "Final Competition Symposium",
+      "location": "Best Western Plus Village Park Inn",
+      "startDate": "March 27, 2026",
+      "button": {
+        "link": "https://docs.google.com/forms/d/e/1FAIpQLScrgxZaTYhXrQelZPcGebIGNdJ4x4o_0Zex2GFmEojIKWz95A/viewform",
+        "name": "Industry Professional RSVP"
       }
     }
   ],
+  "workshops": [],
   "other_events": []
 }
