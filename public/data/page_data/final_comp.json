@@ -193,6 +193,51 @@
       {
         "type": "TitleTemplate1",
         "data": {
+          "title": "Winners of Final Competition 2026",
+          "subtitle": "Congratulations! [subject to change]"
+        }
+      },
+      {
+        "type": "CarouselTemplate",
+        "data": [
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2026/winners_2026.jpeg",
+              "imageName": "Final Competition Winners Group",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2026/first_place_2026.jpeg",
+              "imageName": "First Place Winners",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2026/second_place_2026.jpeg",
+              "imageName": "Second Place Winners",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2026/third_place_2026.jpeg",
+              "imageName": "Third Place Winners",
+              "imageType": "Banner"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "BackgroundFillTemplate2",
+    "data": [
+      {
+        "type": "TitleTemplate1",
+        "data": {
           "title": "Winners of Final Competition 2025",
           "subtitle": "Congratulations! Zaine Ancheta & Bolu Alagabe & Ngoc Minh Tran & Farshad Islam & Raafi Zia, Michelle Cheung & Carlos Sujanto, Abdul Suhaib & Michael Moon"
         }
