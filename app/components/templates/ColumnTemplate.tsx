@@ -63,7 +63,6 @@ const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
 
   return (
     <div className="pb-16 w-full max-w-6xl mx-auto">
-      {/* Full rows in CSS grid */}
       {fullRowItems.length > 0 && (
         <div
           className={`text-center grid gap-14 ${getGridClass()} items-stretch justify-items-center`}
@@ -72,17 +71,16 @@ const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
         </div>
       )}
 
-      {/* Partial last row — flex centered, items match grid column width */}
       {lastRowItems.length > 0 && (
         <div
-          className={`flex justify-center gap-14 ${
+          className={`flex flex-col md:flex-row md:justify-center gap-14 ${
             fullRowItems.length > 0 ? "mt-14" : ""
           }`}
         >
           {lastRowItems.map((data, index) => (
             <div
               key={index}
-              className="w-full lg:max-w-[calc(33.333%-1.75rem)] md:max-w-[calc(50%-1.75rem)] max-w-full"
+              className="w-full md:max-w-[calc(50%-1.75rem)] lg:max-w-[calc(33.333%-1.75rem)]"
             >
               {renderItem(data, index)}
             </div>
