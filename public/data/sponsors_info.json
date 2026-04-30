@@ -24,6 +24,13 @@
     },
     {
       "image": {
+        "imageType": "Sponsor",
+        "imageLink": "/images/sponsors/atb.png",
+        "imageName": "atb logo"
+      }
+    },
+    {
+      "image": {
         "imageLink": "/images/sponsors/ucalgary_sciencefaculty.png",
         "imageName": "uofc faculty of science logo",
         "imageType": "Sponsor"
