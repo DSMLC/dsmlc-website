@@ -4,11 +4,11 @@
     "title": "Club Members"
   },
   "events_held": {
-    "value": 45,
+    "value": 60,
     "title": "Events Held"
   },
   "event_attendees": {
-    "value": 2515,
+    "value": 2815,
     "title": "Event Attendees"
   }
 }
