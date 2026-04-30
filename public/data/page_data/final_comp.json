@@ -73,6 +73,16 @@
         "type": "TimelineTemplate2",
         "data": [
           {
+            "number": "2026",
+            "header": "DSMLC Final Competition",
+            "points": [
+              {
+                "header": "Overview:",
+                "text": "With over 100+ attendees, the 2026 Final Competition was our biggest event yet! In collaboration with Enbridge, students were challenged to come up with an applicable data solution working with a Wind Farm SCADA dataset. We had Speakers from Urban systems, DAMA Calgary, Enbridge, and ATB to discuss and speak about their chosen topics."
+              }
+            ]
+          },
+          {
             "number": "2025",
             "header": "DSMLC Final Competition",
             "points": [
@@ -118,6 +128,10 @@
           {
             "value": 92,
             "title": "2025 Attendees"
+          },
+          {
+            "value": 127,
+            "title": "2026 Attendees"
           }
         ]
       }
@@ -130,7 +144,7 @@
         "type": "HeaderTextTemplate2",
         "data": [
           {
-            "header": "2025 Annual Final Competition Timeline"
+            "header": "2026 Annual Final Competition Timeline"
           }
         ]
       },
