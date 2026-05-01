@@ -1,5 +1,5 @@
 import React from "react";
-import rawData from "../../public/data/page_data/visionary_lab.json";
+import rawData from "../../public/data/page_data/archive/visionary_lab.json";
 import DataLoader, { PageData } from "../DataLoader";
 
 const VisionaryLabData: PageData[] = rawData as PageData[];

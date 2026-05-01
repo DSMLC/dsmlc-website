@@ -23,59 +23,70 @@ const ColumnTemplate = ({ Data }: { Data: ColumnTemplateData["data"] }) => {
     return "lg:grid-cols-3 md:grid-cols-2 grid-cols-1";
   };
 
-  const getItemClass = (index: number) => {
-    if (itemCount <= 3) return "";
+  const remainder = itemCount % 3;
+  const fullRowCount = itemCount - remainder;
+  const fullRowItems = Data.slice(0, fullRowCount);
+  const lastRowItems = remainder !== 0 ? Data.slice(fullRowCount) : [];
 
-    const rowIndex = Math.floor(index / 3);
-    const itemsInLastRow = itemCount % 3 || 3;
-    const isLastRow = rowIndex === Math.floor((itemCount - 1) / 3);
-
-    if (isLastRow) {
-      if (itemsInLastRow === 1) {
-        return "col-span-full md:col-span-2 lg:col-span-1 md:col-start-2 lg:col-start-2";
-      } else if (itemsInLastRow === 2) {
-        return index % 3 === 0 ? "md:col-start-2 lg:col-start-2" : "";
-      }
-    }
-
-    return "";
+  const renderItem = (
+    data: ColumnTemplateData["data"][number],
+    index: number,
+  ) => {
+    const imageLink =
+      isDarkMode && data.image?.imageDarkMode
+        ? data.image.imageDarkMode
+        : data.image?.imageLink;
+    return (
+      <div
+        key={index}
+        className="flex flex-col gap-7 px-5 lg:px-0 h-full w-full"
+      >
+        <div className="flex justify-center">
+          {data.image && (
+            <ImageTemplate
+              image={imageLink || ""}
+              name={data.image.imageName || ""}
+              type={data.image.imageType as ImageType}
+            />
+          )}
+        </div>
+        {data.header && <SubtitleTemplate3 Data={data.header} />}
+        {data.text && (
+          <div
+            className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack tracking-wide font-quicksand lg:text-lg md:text-base text-sm h-full"
+            dangerouslySetInnerHTML={{ __html: data.text }}
+          />
+        )}
+      </div>
+    );
   };
 
   return (
-    <div
-      className={`pb-16 text-center grid gap-14 ${getGridClass()} w-full max-w-6xl mx-auto items-stretch justify-items-center`}
-    >
-      {Data.map((data, index) => {
-        const imageLink =
-          isDarkMode && data.image?.imageDarkMode
-            ? data.image.imageDarkMode
-            : data.image?.imageLink;
-        return (
-          <div
-            key={index}
-            className={`flex flex-col gap-7 px-5 lg:px-0 h-full w-full ${getItemClass(
-              index
-            )}`}
-          >
-            <div className="flex justify-center">
-              {data.image && (
-                <ImageTemplate
-                  image={imageLink || ""}
-                  name={data.image.imageName || ""}
-                  type={data.image.imageType as ImageType}
-                />
-              )}
+    <div className="pb-16 w-full max-w-6xl mx-auto">
+      {fullRowItems.length > 0 && (
+        <div
+          className={`text-center grid gap-14 ${getGridClass()} items-stretch justify-items-center`}
+        >
+          {fullRowItems.map((data, index) => renderItem(data, index))}
+        </div>
+      )}
+
+      {lastRowItems.length > 0 && (
+        <div
+          className={`flex flex-col md:flex-row md:justify-center gap-14 ${
+            fullRowItems.length > 0 ? "mt-14" : ""
+          }`}
+        >
+          {lastRowItems.map((data, index) => (
+            <div
+              key={index}
+              className="w-full md:max-w-[calc(50%-1.75rem)] lg:max-w-[calc(33.333%-1.75rem)]"
+            >
+              {renderItem(data, index)}
             </div>
-            {data.header && <SubtitleTemplate3 Data={data.header} />}
-            {data.text && (
-              <div
-                className="dark:text-dark-dsmlcBlack text-light-dsmlcBlack tracking-wide font-quicksand lg:text-lg md:text-base text-sm h-full"
-                dangerouslySetInnerHTML={{ __html: data.text }}
-              ></div>
-            )}
-          </div>
-        );
-      })}
+          ))}
+        </div>
+      )}
     </div>
   );
 };

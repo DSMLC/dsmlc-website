@@ -34,10 +34,6 @@
         "link": ""
       },
       {
-        "name": "Final Competition",
-        "link": "/final-comp"
-      },
-      {
         "name": "Workshops",
         "link": "/workshops"
       },
@@ -52,23 +48,10 @@
     ]
   },
   {
-    "name": "Visionary Lab",
-    "type": "dropdown",
-    "link": "/visionary-lab",
-    "dropdown": [
-      {
-        "name": "About",
-        "link": ""
-      },
-      {
-        "name": "Partner Program",
-        "link": "/partner-program"
-      },
-      {
-        "name": "Student Program",
-        "link": "/student-program"
-      }
-    ]
+    "name": "Final Competition",
+    "type": "main",
+    "link": "/final-comp",
+    "dropdown": []
   },
   {
     "name": "Contact",

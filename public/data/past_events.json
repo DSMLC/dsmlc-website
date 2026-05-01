@@ -3,6 +3,36 @@
     {
       "image": {
         "imageType": "Pic",
+        "imageLink": "/images/events/winter_2026/Bayesian.png",
+        "imageName": "Bayesian Workshop"
+      },
+      "number": "Apr 2",
+      "header": "Bayesian Regression Workshop With SUM-C",
+      "points": [
+        {
+          "header": "Event Overview:",
+          "text": "A formal introduction to the fundamentals of Bayesian regression in Machine Learning that was led by Professor Danika Lipman."
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
+        "imageLink": "/images/events/winter_2026/final_comp_2026.jpg",
+        "imageName": "Final Competition Symposium 2026"
+      },
+      "number": "Mar 27",
+      "header": "Annual Final Competition Symposium 2026",
+      "points": [
+        {
+          "header": "Competition Details:",
+          "text": "In Collaboration with Enbridge, DSMLC wrapped up the year by celebrating the Finalist of our Annual Case Competition that explores applicable data solutions."
+        }
+      ]
+    },
+    {
+      "image": {
+        "imageType": "Pic",
         "imageLink": "/images/events/winter_2026/Interview_and_Application.jpg",
         "imageName": "Interview and Application night "
       },
