@@ -253,28 +253,5 @@
         ]
       }
     ]
-  },
-  {
-    "type": "BackgroundFillTemplate",
-    "data": [
-      {
-        "type": "HeaderTextTemplate2",
-        "data": [
-          {
-            "header": "Visionary Lab",
-            "text": "The Visionary Lab connects students with real-world data science experience through projects from local businesses and nonprofits. By tackling these challenges, students gain practical skills and resume-worthy experiences, while partner organizations benefit from innovative, data-driven solutions at no cost. The Visionary Lab bridges the gap between academics and application."
-          }
-        ]
-      },
-      {
-        "type": "ButtonTemplate",
-        "data": [
-          {
-            "link": "/visionary-lab",
-            "name": "Learn More"
-          }
-        ]
-      }
-    ]
   }
 ]
