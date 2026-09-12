@@ -147,43 +147,6 @@
     ]
   },
   {
-    "type": "BackgroundFillTemplate2",
-    "data": [
-      {
-        "type": "HeaderTextTemplate2",
-        "data": [
-          {
-            "header": "Introducing: Visionary Lab",
-            "text": "The Visionary Lab bridges the gap between academic learning and real-world impact, connecting University of Calgary students with local organizations to solve real-world challenges through data-driven innovation."
-          }
-        ]
-      },
-      {
-        "type": "HeaderTextTemplate1",
-        "data": [
-          {
-            "header": "For Organizations",
-            "text": "Gain access to creative, no-cost solutions for your data challenges while empowering the next generation of talent."
-          },
-          {
-            "header": "For Students",
-            "text": "Transform your classroom knowledge into practical experience that builds your skills, grows your network, and strengthens your resume."
-          }
-        ]
-      },
-      {
-        "type": "ButtonTemplate",
-        "data": [
-          {
-            "link": "/visionary-lab",
-            "name": "Learn More"
-          }
-        ]
-      }
-    ]
-  },
-
-  {
     "type": "BackgroundFillTemplate",
     "data": [
       {
