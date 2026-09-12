@@ -10,7 +10,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
   const noLogos = Data.filter(
-    (data) => data.image && data.image.imageType !== "Logo"
+    (data) => data.image && data.image.imageType !== "Logo",
   );
   const clearTimer = useCallback(() => {
     if (intervalRef.current) {
@@ -23,7 +23,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
     clearTimer(); // Make sure we don't stack multiple intervals
     intervalRef.current = setInterval(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === noLogos.length - 1 ? 0 : prevIndex + 1
+        prevIndex === noLogos.length - 1 ? 0 : prevIndex + 1,
       );
     }, 5000);
   }, [noLogos.length, clearTimer]);
@@ -37,14 +37,14 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
 
   const goToNext = () => {
     setCurrentIndex((current) =>
-      current === noLogos.length - 1 ? 0 : current + 1
+      current === noLogos.length - 1 ? 0 : current + 1,
     );
     startTimer();
   };
 
   const goToPrevious = () => {
     setCurrentIndex((current) =>
-      current === 0 ? noLogos.length - 1 : current - 1
+      current === 0 ? noLogos.length - 1 : current - 1,
     );
     startTimer();
   };

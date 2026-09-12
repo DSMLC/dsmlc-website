@@ -8,48 +8,46 @@
           "roles": ["President"]
         }
       ],
-      "profile": "/images/profile/evan_poulson.jpg",
       "program": {
         "programs": ["Computer Science", "Data Science"],
         "year": "3rd Year"
       },
-      "bio": "Hi I'm Evan, a 3rd year Comp Sci/Data Sci Major! I'm really big into basketball and snowboarding, and I also enjoy learning about history and different cultures!",
-      "linkedin": "https://www.linkedin.com/in/evan-poulson-302a4a266/",
-      "joinDate": "Oct 2023"
+      "profile": "/images/profile/evan_poulson.jpg",
+      "linkedin": "https://www.linkedin.com/in/evan-poulson-302a4a266/"
     },
     {
-      "name": "Hanz Dela Cruz",
+      "name": "Taha Malik",
       "role": [
         {
           "group": "Admin Team",
-          "roles": ["Vice President"]
+          "roles": ["Vice President Internal"]
         }
       ],
       "program": {
-        "programs": ["Statistics", "Economics"],
-        "year": "5th year "
+        "programs": ["Computer Science", "Finance"],
+        "year": "4th year "
       },
-      "profile": "/images/profile/hanz_delacruz.gif",
-      "linkedin": "https://www.linkedin.com/in/hanzdelacruz/",
-      "joinDate": "Jul 2024"
+      "profile": "/images/profile/taha_malik.jpg",
+      "linkedin": "https://www.linkedin.com/in/taha--malik/"
     },
     {
-      "name": "Adrian Julve",
+      "name": "Dheeraj Jaswal",
       "role": [
         {
-          "group": "Events Team",
-          "roles": ["Director of Events"]
+          "group": "Admin Team",
+          "roles": ["Vice President External"]
         }
       ],
-      "profile": "/images/profile/adrian_julve.jpg",
+      "profile":"/images/profile/dheeraj_jaswal.jpg",
       "program": {
-        "programs": ["Data Science"],
-        "year": "3rd Year"
+        "programs": ["Business Analytics", "Data Science"],
+        "year": "3th year "
       },
-      "bio": "I love being active and I'm all about improving myself physically and mentally. You can frequently catch me in the gym or hiking up a mountain! I'm also big into car culture and video games!",
-      "linkedin": "https://www.linkedin.com/in/adrian-julve/",
-      "joinDate": "Oct 2023"
+      "linkedin": "https://www.linkedin.com/in/dheerajjaswal/"
     },
+
+
+
     {
       "name": "Aimen Zahid",
       "role": [
@@ -60,41 +58,25 @@
       ],
       "program": {
         "programs": ["Data Science"],
-        "year": "3rd Year"
-      },
-      "bio": "Hi, I'm Aimen! I'm passionate problem-solving through data and the future of AI. During my free time, I'm an avid reader and enjoy exploring topics in literature and psychology.",
-      "linkedin": "https://www.linkedin.com/in/aimen-zahid/",
-      "joinDate": ""
-    },
-    {
-      "name": "Amna Irfan",
-      "role": [
-        {
-          "group": "Events Team",
-          "roles": ["Events Lead"]
-        }
-      ],
-      "program": {
-        "programs": ["Business (Accounting)"],
-        "year": "3rd Year"
-      },
-      "linkedin": "https://www.linkedin.com/in/amna-irfan-b5a4662a3/",
-      "joinDate": ""
-    },
-    {
-      "name": "Kya Broderick",
-      "role": [
-        {
-          "group": "Events Team",
-          "roles": ["Events Lead"]
-        }
-      ],
-      "program": {
-        "programs": ["Computer Science", "Statistics"],
         "year": "4th Year"
       },
-      "linkedin": "",
-      "joinDate": ""
+      "profile": "/images/profile/aimen_zahid.jpg",
+      "linkedin": "https://www.linkedin.com/in/aimen-zahid/"
+    },
+    {
+      "name": "Kimih Yan",
+      "role": [
+        {
+          "group": "Events Team",
+          "roles": ["Director of Events"]
+        }
+      ],
+      "program": {
+        "programs": ["Computer Science"],
+        "year": "5th Year"
+      },
+      "profile": "/images/profile/kimih_yan.jpg",
+      "linkedin": "https://www.linkedin.com/in/kimihyan/"
     },
     {
       "name": "Saira Fatima",
@@ -106,28 +88,15 @@
       ],
       "program": {
         "programs": ["Computer Science"],
-        "year": "3rd Year"
-      },
-      "linkedin": "",
-      "joinDate": ""
-    },
-    {
-      "name": "Joseph Tandyo",
-      "role": [
-        {
-          "group": "Operations Team",
-          "roles": ["Director of Operations"]
-        }
-      ],
-      "program": {
-        "programs": ["Computer Science"],
         "year": "4th Year"
       },
-      "profile": "/images/profile/joseph_tandyo.jpg",
-      "bio": "hello I'm Joseph and I am in 3rd year computer science. In my free time I like to watch movies, shows and interested in storytelling in general! I also like to go bouldering from time to time",
-      "linkedin": "https://www.linkedin.com/in/joseph-tandyo-a42458219/",
-      "joinDate": "Nov 2023"
+            "profile": "/images/profile/saira_fatima.png",
+      "linkedin": "https://www.linkedin.com/in/sairafatima-yyc/"
     },
+
+
+
+
     {
       "name": "Peter Tran",
       "role": [
@@ -138,11 +107,10 @@
       ],
       "program": {
         "programs": ["Computer Science"],
-        "year": "3rd Year"
+        "year": "4th Year"
       },
       "profile": "/images/profile/peter_tran.jpg",
-      "linkedin": "https://www.linkedin.com/in/peter-tran-portal/",
-      "joinDate": "Jun 2025"
+      "linkedin": "https://www.linkedin.com/in/peterthetran/"
     },
     {
       "name": "Matthew Liu",
@@ -154,11 +122,10 @@
       ],
       "program": {
         "programs": ["Software Engineering"],
-        "year": "3rd Year"
+        "year": "4th Year"
       },
       "profile": "/images/profile/matthew_liu.jpg",
-      "linkedin": "https://www.linkedin.com/in/matthewliuu/",
-      "joinDate": "Jun 2025"
+      "linkedin": "https://www.linkedin.com/in/matthewliuu/"
     },
     {
       "name": "Lychelle Pham",
@@ -170,27 +137,10 @@
       ],
       "program": {
         "programs": ["Computer Science"],
-        "year": "3rd Year"
+        "year": "4th Year"
       },
       "profile": "/images/profile/lychelle_pham.jpg",
-      "linkedin": "https://www.linkedin.com/in/lychelle-pham-4b70332b9/ ",
-      "joinDate": "Jun 2025"
-    },
-    {
-      "name": "Shreya Shah",
-      "role": [
-        {
-          "group": "Operations Team",
-          "roles": ["Tech Lead"]
-        }
-      ],
-      "program": {
-        "programs": ["Software Engineering"],
-        "year": "3rd Year"
-      },
-      "profile": "/images/profile/shreya_shah.jpg",
-      "linkedin": "http://linkedin.com/in/shreya-shah-14b474347/",
-      "joinDate": "Jun 2025"
+      "linkedin": "https://www.linkedin.com/in/lychelle-pham-4b70332b9/ "
     },
     {
       "name": "Noor Syed",
@@ -202,11 +152,10 @@
       ],
       "program": {
         "programs": ["Software Engineering"],
-        "year": "3rd Year"
+        "year": "4th Year"
       },
       "profile": "/images/profile/noor_syed.jpg",
-      "linkedin": "https://www.linkedin.com/in/noor-syed-551868283/ ",
-      "joinDate": "Jun 2025"
+      "linkedin": "https://www.linkedin.com/in/noor-syed-551868283/ "
     },
     {
       "name": "Prantap Sharma",
@@ -218,27 +167,11 @@
       ],
       "program": {
         "programs": ["Computer Science", "Business"],
-        "year": "3rd Year"
+        "year": "4th Year"
       },
       "profile": "/images/profile/prantap_sharma.jpg",
       "linkedin": "https://www.linkedin.com/in/prantap-sharma-2ab1662bb/",
       "joinDate": ""
-    },
-    {
-      "name": "Tae Shim",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["Workshop Coordinator"]
-        }
-      ],
-      "program": {
-        "programs": ["Data Science"],
-        "year": "2nd Year"
-      },
-      "profile": "/images/profile/tae_shim.jpg",
-      "linkedin": "https://www.linkedin.com/in/taehyung-shim-8a2032305/",
-      "joinDate": "2025 - 2025"
     },
     {
       "name": "Andrey Dimanchev",
@@ -250,73 +183,47 @@
       ],
       "program": {
         "programs": ["Computer Science", "Business"],
-        "year": "3rd Year"
+        "year": "4th Year"
       },
       "profile": "/images/profile/andrey_dimanchev.jpg",
-      "bio": "Passionate about solving complex puzzles with technology, primarily in Machine Learning and Rocketry. I also skateboard!",
-      "linkedin": "https://www.linkedin.com/in/andreydimanchev?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BjHQognZqTiGqNYJc%2BLVlJw%3D%3D",
-      "joinDate": "Aug 2024"
+      "linkedin": "https://www.linkedin.com/in/andreydimanchev?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BjHQognZqTiGqNYJc%2BLVlJw%3D%3D"
     },
-    {
-      "name": "Luis Trigueros Granillo",
-      "role": [
-        {
-          "group": "Competitions Team",
-          "roles": ["Competition Director"]
-        }
-      ],
-      "program": {
-        "programs": ["Computer Science"],
-        "year": "4th Year"
-      },
-      "linkedin": "",
-      "joinDate": ""
-    },
-    {
-      "name": "Karan Malhotra",
-      "role": [
-        {
-          "group": "Competitions Team",
-          "roles": ["Competition Director"]
-        }
-      ],
-      "program": {
-        "programs": ["Data Science"],
-        "year": "4th Year"
-      },
-      "linkedin": "https://www.linkedin.com/in/karan-malhotra27/",
-      "joinDate": ""
-    },
+
+
+
     {
       "name": "Zaine Ancheta",
       "role": [
         {
           "group": "Competitions Team",
-          "roles": ["Competition Lead"]
+          "roles": ["Competitions Director"]
         }
       ],
       "program": {
-        "programs": ["Data Science"],
-        "year": "2nd Year"
+        "programs": ["Computer Science, Data Science"],
+        "year": "3rd Year"
       },
-      "linkedin": "",
-      "joinDate": ""
+      "profile":"/images/profile/zaine_ancheta.jpg",
+      "linkedin": "https://www.linkedin.com/in/zaine-ancheta/"
     },
     {
       "name": "Zehaan Walji",
       "role": [
         {
           "group": "Competitions Team",
-          "roles": ["Competition Lead"]
+          "roles": ["Competitions Director"]
         }
       ],
       "program": {
         "programs": ["Computer Science", "Biological Science"],
-        "year": "2nd Year"
+        "year": "3rd Year"
       },
-      "linkedin": "linkedin.com/in/zehaan-walji",
-      "joinDate": "Dec 2025"
+      "profile":"/images/profile/zehaan_walji.jpg",
+      "linkedin": "linkedin.com/in/zehaan-walji"
     },
+
+
+
     {
       "name": "Yash Dhaneshwari",
       "role": [
@@ -329,9 +236,8 @@
         "programs": ["Computer Science"],
         "year": "3rd Year"
       },
-      "bio": "Passionate about physics and math, and love incorprating these subjects with technology. Love hiking, sketching, playing my guitar, and dancing",
-      "linkedin": "",
-      "joinDate": ""
+      "profile": "/images/profile/yash_dhaneshwari.jpg",
+      "linkedin": "https://www.linkedin.com/in/yash-dhaneshwari/"
     },
     {
       "name": "Amy Cui",
@@ -341,9 +247,12 @@
           "roles": ["Marketing Lead"]
         }
       ],
+      "program": {
+        "programs": ["Accounting"],
+        "year": "2nd Year"
+      },
       "profile": "/images/profile/amy_cui.jpg",
-      "linkedin": "",
-      "joinDate": ""
+      "linkedin": "https://www.linkedin.com/in/amycc123/"
     },
     {
       "name": "Anna Phan",
@@ -355,52 +264,20 @@
       ],
       "program": {
         "programs": ["Data Science"],
-        "year": "4th Year"
+        "year": "5th Year"
       },
       "profile": "/images/profile/anna-phan.png",
-      "linkedin": "https://www.linkedin.com/in/anna-phan-",
-      "joinDate": "Dec 2025"
+      "linkedin": "https://www.linkedin.com/in/anna-phan-"
     },
-    {
-      "name": "Dheeraj Jaswal",
-      "role": [
-        {
-          "group": "External Affairs Team",
-          "roles": ["External Affairs Director"]
-        }
-      ],
-      "program": {
-        "programs": ["Business"],
-        "year": "3rd Year"
-      },
-      "profile": "/images/profile/dheeraj_jaswal.jpg",
-      "bio": "Hi I'm Dheeraj. I enjoy travelling around the world and meeting new people. I am passionate about data science and I love to learn new skills or volunteer in my free time.",
-      "linkedin": "http://linkedin.com/in/dheerajjaswal ",
-      "joinDate": "Jul 2024"
-    },
-    {
-      "name": "Ian McCourtie",
-      "role": [
-        {
-          "group": "External Affairs Team",
-          "roles": ["Financial Controller"]
-        }
-      ],
-      "program": {
-        "programs": ["Business"],
-        "year": "3rd Year"
-      },
-      "profile": "/images/profile/Ian_mccourtie.png",
-      "bio": "I love playing basketball and staying active as much as I can, and I enjoy being social and connecting with people from all different walks of life. I'm very interested in outreach and marketing, as far as connecting with companies and individuals and developing professional connections and relationships.",
-      "linkedin": "https://www.linkedin.com/in/ian-mccourtie-809bb7280/ ",
-      "joinDate": ""
-    },
+
+
+
     {
       "name": "Azka Khalil",
       "role": [
         {
           "group": "External Affairs Team",
-          "roles": ["Communcations Lead"]
+          "roles": ["Director of External Affairs"]
         }
       ],
       "program": {
@@ -416,7 +293,7 @@
       "role": [
         {
           "group": "External Affairs Team",
-          "roles": ["Sponsorship Lead"]
+          "roles": ["Director of External Affairs"]
         }
       ],
       "program": {
@@ -428,235 +305,34 @@
       "joinDate": ""
     },
     {
-      "name": "Navroop Bath",
+      "name": "Ian McCourtie",
       "role": [
         {
           "group": "External Affairs Team",
-          "roles": ["Sponsorship Lead"]
+          "roles": ["Financial Controller"]
         }
       ],
       "program": {
-        "programs": ["Computer Science"],
-        "year": "2nd Year"
+        "programs": ["Business"],
+        "year": "4th Year"
       },
-      "profile": "/images/profile/navroop_bath.jpg",
-      "linkedin": "https://www.linkedin.com/in/nbath ",
-      "joinDate": "Jul 2025"
+      "profile": "/images/profile/Ian_mccourtie.png",
+      "linkedin": "https://www.linkedin.com/in/ian-mccourtie-809bb7280/ "
     },
     {
-      "name": "Lucy Li",
+      "name": "Wali Iftikhar",
       "role": [
         {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Outreach"]
-        }
-      ],
-      "profile": "/images/profile/lucy_li.jpeg",
-      "program": {
-        "programs": ["Business Analytics"]
-      },
-      "linkedin": "",
-      "joinDate": "2021 - 2024"
-    },
-    {
-      "name": "Tan Li",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Finance"]
-        }
-      ],
-      "profile": "/images/profile/tan_li.png",
-      "linkedin": "",
-      "joinDate": "2021 - 2023"
-    },
-    {
-      "name": "Haidar Putra",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Operations"]
-        }
-      ],
-      "profile": "/images/profile/haidar_putra.png",
-      "linkedin": "",
-      "joinDate": "2021 - 2021"
-    },
-    {
-      "name": "Ayman Mohammed",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Operations"]
+          "group": "External Affairs Team",
+          "roles": ["External Affairs Lead"]
         }
       ],
       "program": {
-        "programs": ["Cellular Molecular Microbial Biology"]
+        "programs": ["Business, Computer Science"],
+        "year": "4th Year"
       },
-      "profile": "/images/profile/ayman_mohammed.png",
-      "linkedin": "",
-      "joinDate": "2021 - 2024"
-    },
-    {
-      "name": "Kelly Osena",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Communications"]
-        }
-      ],
-      "profile": "/images/profile/kelly_osena.png",
-      "linkedin": "",
-      "joinDate": "2022 - 2023"
-    },
-    {
-      "name": "Gabriel Rodriguez",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["President"]
-        }
-      ],
-      "profile": "/images/profile/gabriel_rodriguez.jpg",
-      "program": {
-        "programs": ["Computer Science", "Business"]
-      },
-      "bio": "I like learning about cultures and languages, travelling the world, painting and animating cityscapes, working out, recording everything for my future self to see, and keeping things aesthetic :D",
-      "linkedin": "",
-      "joinDate": "2023 - 2025"
-    },
-    {
-      "name": "Rayyan Zuberi",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["Presidential Advisor"]
-        }
-      ],
-      "program": {
-        "programs": ["Medical Student (MD)"]
-      },
-      "profile": "/images/profile/rayyan_zuberi.webp",
-      "linkedin": "",
-      "joinDate": "2021 - 2024"
-    },
-    {
-      "name": "Taha Malik",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Outreach"]
-        }
-      ],
-      "program": {
-        "programs": ["Computer Science", "Finance"],
-        "year": ""
-      },
-      "bio": "I’m obsessed with hiking and solo summit adventures—there’s nothing like conquering new peaks and soaking in those breathtaking mountain views! I’m also a total tech enthusiast, especially when it comes to neurotechnology and cybernetics. The future of these fields blows my mind, and I can’t wait to see how they reshape the world!",
-      "linkedin": "",
-      "joinDate": "2023 - 2025",
-      "profile": "/images/profile/taha_malik.jpg"
-    },
-    {
-      "name": "Maheen Hossain",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Operations"]
-        }
-      ],
-      "program": {
-        "programs": ["Software Engineering"]
-      },
-      "profile": "/images/profile/maheen_hossain.jpg",
-      "linkedin": "",
-      "joinDate": "2021 - 2025"
-    },
-    {
-      "name": "Fazlie",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["VP Events"]
-        }
-      ],
-      "program": {
-        "programs": [""]
-      },
-      "profile": "/images/profile/fazlie.png",
-      "linkedin": "",
-      "joinDate": "2021 - 2021"
-    },
-    {
-      "name": "Jason Nguyen",
-      "role": [
-        {
-          "group": "Legacy Executives (Advisory Team)",
-          "roles": ["Tech Lead"]
-        }
-      ],
-      "program": {
-        "programs": ["Computer Science"]
-      },
-      "profile": "/images/profile/jason_nguyen.jpg",
-      "linkedin": "",
-      "joinDate": "2023 - 2025"
-    },
-    {
-      "name": "Divakar Gaba",
-      "role": [
-        {
-          "group": "Visionary Lab Board",
-          "roles": ["Visionary Lab Chairman"]
-        }
-      ],
-      "program": {
-        "year": "2nd Year",
-        "programs": ["Computer Science"]
-      },
-      "linkedin": "https://www.linkedin.com/in/divakar-gaba-776b0624b/",
-      "joinDate": ""
-    },
-    {
-      "name": "Aryan Kalia",
-      "role": [
-        {
-          "group": "Visionary Lab Board",
-          "roles": ["Visionary Lab Director"]
-        }
-      ],
-      "program": {
-        "year": "2nd Year",
-        "programs": ["Data Science"]
-      },
-      "linkedin": "https://www.linkedin.com/in/aryan-kalia-/",
-      "joinDate": ""
-    },
-    {
-      "name": "Rafay Kamran",
-      "role": [
-        {
-          "group": "Visionary Lab Board",
-          "roles": ["Visionary Lab Director"]
-        }
-      ],
-      "program": {
-        "programs": ["Data Science"],
-        "year": "2nd Year"
-      },
-      "linkedin": "www.linkedin.com/in/rafay-kamran ",
-      "joinDate": ""
-    },
-    {
-      "name": "Abdullah",
-      "role": [
-        {
-          "group": "Visionary Lab Board",
-          "roles": ["Visionary Lab Director"]
-        }
-      ],
-      "linkedin": "https://www.linkedin.com/in/abdullah-warraich-4a176a331/",
-      "joinDate": ""
+      "profile": "/images/profile/wali_iftikhar.jpg",
+      "linkedin": "https://www.linkedin.com/in/waliftikhar/"
     }
   ]
 }

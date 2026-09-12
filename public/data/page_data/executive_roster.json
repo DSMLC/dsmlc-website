@@ -14,6 +14,13 @@
         "data": [
           {
             "image": {
+              "imageLink": "/images/events/fall_2025/fall_2025_meet_greet.jpg",
+              "imageName": "Fall 2025 DSMLC Executives",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
               "imageLink": "/images/events/fall_2024/exec_team_thumbs.png",
               "imageName": "Picture of DSMLC's Exec Team Thumbs Up",
               "imageType": "Banner"
@@ -78,10 +85,6 @@
           {
             "link": "/contact/executive",
             "name": "Join the Exec Team"
-          },
-          {
-            "link": "/visionary-lab/student-program",
-            "name": "Join the Visionary Lab"
           }
         ]
       }
@@ -138,15 +141,6 @@
       {
         "type": "ProfileListTemplate",
         "data": ["Marketing Team"]
-      }
-    ]
-  },
-  {
-    "type": "BackgroundFillTemplate2",
-    "data": [
-      {
-        "type": "ProfileListTemplate",
-        "data": ["Legacy Executives (Advisory Team)"]
       }
     ]
   }
