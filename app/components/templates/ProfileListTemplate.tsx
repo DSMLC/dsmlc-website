@@ -32,8 +32,8 @@ export const ProfileListTemplate = ({
               {Execs.execs
                 .filter((exec) =>
                   exec.role.some(
-                    (role) => role.group == roleGroup && role.roles.length > 0
-                  )
+                    (role) => role.group == roleGroup && role.roles.length > 0,
+                  ),
                 )
                 .map((filteredExec, index) => {
                   return (
@@ -89,7 +89,7 @@ export const ProfileListTemplate = ({
                                     {program}
                                   </div>
                                 );
-                              }
+                              },
                             )}
                         </span>
                       )}
@@ -109,33 +109,8 @@ export const ProfileListTemplate = ({
                             >
                               {roleTitle}
                             </span>
-                          ))
+                          )),
                         )}
-
-                      <div
-                        className={`flex justify-center m-2 opacity-60 ${
-                          isDarkMode
-                            ? "text-light-dsmlcWhite"
-                            : "text-dark-dsmlcParchment"
-                        }`}
-                      >
-                        <div
-                        // className={`flex gap-2 ${
-                        //   filteredExec.joinDate === ""
-                        //     ? "invisible"
-                        //     : "visible"
-                        // }`}
-                        >
-                          {filteredExec.joinDate !== "" && (
-                            <p className="text-xs">
-                              Member Since:{" "}
-                              <span className="text-xs">
-                                {filteredExec.joinDate}
-                              </span>
-                            </p>
-                          )}
-                        </div>
-                      </div>
 
                       <div className="flex justify-center">
                         {filteredExec.linkedin === "" ? (

@@ -22,7 +22,7 @@ const TimelineTemplate1 = ({
             entry.target.classList.remove(
               "sm:translate-x-full",
               "sm:-translate-x-full",
-              "opacity-0"
+              "opacity-0",
             );
             entry.target.classList.add("translate-x-0", "opacity-100");
           }
@@ -31,7 +31,7 @@ const TimelineTemplate1 = ({
       {
         threshold: 0.7,
         rootMargin: "-50px 500px -50px 500px",
-      }
+      },
     );
 
     timelineRefs.current.forEach((ref) => {
@@ -44,7 +44,10 @@ const TimelineTemplate1 = ({
 
   return (
     <div className="relative mb-16 text-start grid md:gap-14 gap-7 md:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-fit m-auto items-stretch">
-      <div className="absolute top-0 md:left-1/2 left-6 w-px h-full dark:bg-dark-dsmlcBlack bg-light-dsmlcBlack transform -translate-x-1/2"></div>
+      {/* Hidden on mobile: with everything stacked into one column there's no
+          clean midpoint for this line to run through, so it was cutting
+          straight across images instead of connecting anything. */}
+      <div className="hidden md:block absolute top-0 left-1/2 w-px h-full dark:bg-dark-dsmlcBlack bg-light-dsmlcBlack transform -translate-x-1/2"></div>
       {Data.map((data, index) => {
         const getFontSize = () => {
           const length = String(data.number).length;
@@ -84,11 +87,13 @@ const TimelineTemplate1 = ({
             ) : null}
 
             <div className="flex flex-col gap-7 lg:px-0 px-5 lg:w-full max-w-4xl w-fit m-auto h-full">
-              <div
-                className={`absolute break-words max-w-20 md:left-1/2 left-6 transform -translate-x-1/2 dark:bg-dark-dsmlcParchment bg-light-dsmlcParchment text-center ${getFontSize()} text-dsmlcDataOrange font-bold min-w-12 min-h-12 flex items-center p-2 justify-center rounded-full border-2 dark:border-dark-dsmlcBlack border-light-dsmlcBlack border-solid`}
-              >
-                {" "}
-                {data.number}
+              <div className="flex items-center gap-4 md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2">
+                <div
+                  className={`shrink-0 break-words max-w-20 dark:bg-dark-dsmlcParchment bg-light-dsmlcParchment text-center ${getFontSize()} text-dsmlcDataOrange font-bold min-w-12 min-h-12 flex items-center p-2 justify-center rounded-full border-2 dark:border-dark-dsmlcBlack border-light-dsmlcBlack border-solid`}
+                >
+                  {data.number}
+                </div>
+                <span className="md:hidden h-px flex-1 dark:bg-dark-dsmlcBlack bg-light-dsmlcBlack opacity-30" />
               </div>
 
               <div

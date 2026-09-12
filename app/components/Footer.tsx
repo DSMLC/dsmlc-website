@@ -65,32 +65,7 @@ const Footer = () => {
           initial="initial"
           whileHover="hover"
           whileTap="tap"
-        >
-          <motion.div
-            className="
-              flex items-center justify-center w-12 h-12 rounded-full
-              dark:bg-light-dsmlcBlack bg-dark-dsmlcBlack
-              hover:shadow-xl transition-shadow duration-300
-              dark:shadow-dark-dsmlcParchment shadow-light-dsmlcParchment
-            "
-            variants={iconVariants}
-          >
-            <a
-              href="/admin-dash"
-              onClick={() => updateButtonClicksDatabase("Go Admin")}
-              aria-label="Admin dashboard"
-              className="flex items-center justify-center w-full h-full"
-            >
-              <Image
-                src="/images/user-admin.svg"
-                alt="Admin Logo"
-                width={28}
-                height={28}
-                className="transition-transform duration-300 invert brightness-0"
-              />
-            </a>
-          </motion.div>
-        </motion.div>
+        ></motion.div>
       </div>
     </div>
   );

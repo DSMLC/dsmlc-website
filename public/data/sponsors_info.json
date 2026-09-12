@@ -11,8 +11,8 @@
     {
       "image": {
         "imageType": "Sponsor",
-        "imageLink": "/images/sponsors/dama.png",
-        "imageName": "Dama logo"
+        "imageLink": "/images/sponsors/atb.png",
+        "imageName": "ATB logo"
       }
     },
     {
@@ -25,8 +25,8 @@
     {
       "image": {
         "imageType": "Sponsor",
-        "imageLink": "/images/sponsors/atb.png",
-        "imageName": "atb logo"
+        "imageLink": "/images/sponsors/chirality.png",
+        "imageName": "Chirality Research"
       }
     },
     {
@@ -34,6 +34,13 @@
         "imageLink": "/images/sponsors/ucalgary_sciencefaculty.png",
         "imageName": "uofc faculty of science logo",
         "imageType": "Sponsor"
+      }
+    },
+    {
+      "image": {
+        "imageType": "Sponsor",
+        "imageLink": "/images/sponsors/dama.png",
+        "imageName": "Dama logo"
       }
     }
   ],

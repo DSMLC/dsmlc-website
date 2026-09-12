@@ -65,6 +65,20 @@
           "json": "applications.json",
           "keys": ["exec_positions"]
         }
+      },
+      {
+        "type": "ComingSoonTemplate",
+        "data": {
+          "header": "No Positions Available Right Now",
+          "subtext": "Follow our Socials to stay Updated!",
+          "condition": {
+            "type": "array",
+            "data": {
+              "json": "applications.json",
+              "keys": ["exec_positions"]
+            }
+          }
+        }
       }
     ]
   },
@@ -86,10 +100,6 @@
           {
             "link": "/about/execs",
             "name": "Meet the Exec Team"
-          },
-          {
-            "link": "/visionary-lab/student-program",
-            "name": "Join the Visionary Lab"
           }
         ]
       }

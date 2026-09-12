@@ -3,7 +3,6 @@
 import type React from "react";
 import { useEffect, useState } from "react";
 import { getConnectedPlayers, getPlayerNames } from "../Backend";
-import supabase from "../supabase_client";
 import { Link } from "./NetworkGraph";
 import clubLinks from "@/public/data/club_links.json";
 

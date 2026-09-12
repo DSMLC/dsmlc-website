@@ -36,10 +36,6 @@
           {
             "link": "/about/execs",
             "name": "Meet the Execs"
-          },
-          {
-            "link": "/about/history",
-            "name": "Learn About Our History"
           }
         ]
       }
@@ -111,6 +107,20 @@
               "imageName": "Picture of DSMLC's power bi workshop",
               "imageType": "Banner"
             }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/fall_2025/DeepLWorkshop.jpg",
+              "imageName": "Deep Learning Workshop Fall 2025",
+              "imageType": "Banner"
+            }
+          },
+          {
+            "image": {
+              "imageLink": "/images/events/fall_2025/databricks_collaboration.jpg",
+              "imageName": "Databricks Workshop Fall 2025",
+              "imageType": "Banner"
+            }
           }
         ]
       },
@@ -157,6 +167,13 @@
       {
         "type": "CarouselTemplate",
         "data": [
+          {
+            "image": {
+              "imageLink": "/images/events/fall_2025/dsmlc_sase_networking.jpg",
+              "imageName": "DSMLC X Sase Networking Night Fall 2025",
+              "imageType": "Banner"
+            }
+          },
           {
             "image": {
               "imageLink": "/images/events/fall_2024/career_panel_part1b.png",
@@ -213,6 +230,13 @@
       {
         "type": "CarouselTemplate",
         "data": [
+          {
+            "image": {
+              "imageLink": "/images/events/winter_2026/final_comp_2026.jpg",
+              "imageName": "Final Competititions Winter 2026",
+              "imageType": "Banner"
+            }
+          },
           {
             "image": {
               "imageLink": "/images/events/winter_2024/final_comp_1.JPG",
