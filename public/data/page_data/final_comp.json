@@ -138,24 +138,31 @@
     ]
   },
   {
-    "type": "BackgroundFillTemplate",
-    "data": [
-      {
-        "type": "HeaderTextTemplate2",
-        "data": [
-          {
-            "header": "2026 Annual Final Competition Timeline"
+  "type": "BackgroundFillTemplate",
+  "data": [
+    {
+      "type": "HeaderTextTemplate2",
+      "data": [
+        {
+          "header": "2027 Annual Final Competition Timeline"
+        }
+      ]
+    },
+    {
+      "type": "ComingSoonTemplate",
+      "data": {
+        "header": "Coming Soon",
+        "subtext": "For Now, Check our Socials for new updates!",
+        "condition": {
+          "type": "array",
+          "data": {
+            "json": "final_comp_timeline.json",
+            "keys": ["final_comp_2027"]
           }
-        ]
-      },
-      {
-        "type": "TimelineTemplate1",
-        "data": {
-          "json": "final_comp_timeline.json",
-          "keys": ["final_comp_2026"]
         }
       }
-    ]
+    }
+  ]
   },
   {
     "type": "BackgroundFillTemplate",

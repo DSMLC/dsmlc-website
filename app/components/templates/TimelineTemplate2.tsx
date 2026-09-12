@@ -10,7 +10,7 @@ const TimelineSection = ({ data, index }: { data: any; index: number }) => {
   const ref = React.useRef(null);
   const isInView = useInView(ref, {
     once: true,
-    margin: "-250px",
+    margin: "-100px 0px -100px 0px",
   });
 
   return (
