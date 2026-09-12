@@ -5,10 +5,14 @@ import { CarouselTemplateData } from "@/app/DataLoader";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useTheme } from "@/app/ThemeProvider";
 
+const SWIPE_THRESHOLD = 50;
+
 const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
   const { isDarkMode } = useTheme();
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
   const noLogos = Data.filter(
     (data) => data.image && data.image.imageType !== "Logo",
   );
@@ -54,6 +58,39 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
     startTimer();
   };
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchEndX.current = null;
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (
+      oneImage ||
+      touchStartX.current === null ||
+      touchEndX.current === null
+    ) {
+      touchStartX.current = null;
+      touchEndX.current = null;
+      return;
+    }
+
+    const distance = touchStartX.current - touchEndX.current;
+
+    // swipe for mobile
+    if (distance > SWIPE_THRESHOLD) {
+      goToNext();
+    } else if (distance < -SWIPE_THRESHOLD) {
+      goToPrevious();
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   const imageLink =
     isDarkMode && noLogos[currentIndex].image?.imageDarkMode
       ? noLogos[currentIndex].image.imageDarkMode
@@ -64,10 +101,15 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
   return (
     <div className="w-full flex flex-col justify-center items-center px-4 mb-10">
       <div className="relative group w-full max-w-4xl">
-        <div className="flex justify-between gap-5 items-center">
+        <div
+          className="flex justify-between gap-5 items-center"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           {!oneImage && (
             <button
-              className="h-fit text-dsmlcTangerine p-2 rounded-full opacity-50 hover:scale-110 group-hover:opacity-100 transition-all duration-300 hover:text-dsmlcDataOrange border-2 hover:border-dsmlcDataOrange border-dsmlcTangerine"
+              className="hidden sm:flex h-fit text-dsmlcTangerine p-2 rounded-full opacity-50 hover:scale-110 group-hover:opacity-100 transition-all duration-300 hover:text-dsmlcDataOrange border-2 hover:border-dsmlcDataOrange border-dsmlcTangerine"
               onClick={goToPrevious}
               aria-label="Previous image"
             >
@@ -83,7 +125,7 @@ const CarouselTemplate = ({ Data }: { Data: CarouselTemplateData["data"] }) => {
           )}
           {!oneImage && (
             <button
-              className="h-fit text-dsmlcTangerine transition-all p-2 rounded-full opacity-50 hover:scale-110 group-hover:opacity-100 duration-300 hover:text-dsmlcDataOrange border-2 hover:border-dsmlcDataOrange border-dsmlcTangerine"
+              className="hidden sm:flex h-fit text-dsmlcTangerine transition-all p-2 rounded-full opacity-50 hover:scale-110 group-hover:opacity-100 duration-300 hover:text-dsmlcDataOrange border-2 hover:border-dsmlcDataOrange border-dsmlcTangerine"
               onClick={goToNext}
               aria-label="Next image"
             >
