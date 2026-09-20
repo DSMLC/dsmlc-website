@@ -2,6 +2,9 @@
   "name": "dsmlc-website",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,7 +16,7 @@
     "@react-three/fiber": "^8.17.10",
     "@supabase/supabase-js": "^2.47.10",
     "canvas": "^3.0.0-rc2",
-    "dsmlc-website": "file:",
+    "dsmlc-website": "file:.",
     "framer-motion": "^11.11.9",
     "googleapis": "^144.0.0",
     "konva": "^9.3.16",

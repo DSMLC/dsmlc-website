@@ -113,21 +113,6 @@
       "linkedin": "https://www.linkedin.com/in/peterthetran/"
     },
     {
-      "name": "Matthew Liu",
-      "role": [
-        {
-          "group": "Operations Team",
-          "roles": ["Tech Lead"]
-        }
-      ],
-      "program": {
-        "programs": ["Software Engineering"],
-        "year": "4th Year"
-      },
-      "profile": "/images/profile/matthew_liu.jpg",
-      "linkedin": "https://www.linkedin.com/in/matthewliuu/"
-    },
-    {
       "name": "Lychelle Pham",
       "role": [
         {
