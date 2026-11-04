@@ -5,11 +5,13 @@ import supabase from "./supabase_client";
 const CONNECTIONS_COMP_2025 = "NetworkGraphGameConnections";
 const CONNECTIONS_MEET_2025 = "NetworkGraphGameConnectionsFall2025";
 const CONNECTIONS_COMP_2026 = "NetworkGraphGameConnectionsSymposium2026";
+const CONNECTIONS_NN_FALL_2026 = "NetworkGraphGameConnectionsNNFall2026";
 const NAMES_COMP_2025 = "NetworkGraphGameNames";
 const NAMES_MEET_2025 = "NetworkGraphGameNamesFall2025";
 const NAMES_COMP_2026 = "NetworkGraphGameNamesSymposium2026";
-export const GRAPH_CONNECTIONS = CONNECTIONS_COMP_2026;
-export const GRAPH_NAMES = NAMES_COMP_2026;
+const NAMES_NN_FALL_2026 = "NetworkGraphGameNamesNNFall2026";
+export const GRAPH_CONNECTIONS = CONNECTIONS_NN_FALL_2026;
+export const GRAPH_NAMES = NAMES_NN_FALL_2026;
 
 export const updateButtonClicksDatabase = async (buttonName: string) => {
   const { data, error: fetchError } = await supabase
