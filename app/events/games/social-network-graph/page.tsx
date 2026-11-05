@@ -20,7 +20,8 @@ const SocialNetworkData: PageData[] = rawData as PageData[];
 
 const NotPlayingComponent: React.FC<{
   onSubmitName: (name: string, linkedin?: string) => void;
-}> = ({ onSubmitName }) => {
+  error?: string | null;
+}> = ({ onSubmitName, error }) => {
   const [name, setName] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [isHovering, setIsHovering] = useState(false);
@@ -53,6 +54,7 @@ const NotPlayingComponent: React.FC<{
           placeholder="Enter your LinkedIn URL (Optional)"
           className="text-2xl w-full p-4 mt-4 mb-6 dark:bg-dark-dsmlcWhite bg-light-dsmlcWhite rounded-lg dark:text-dark-dsmlcBlack text-light-dsmlcBlack placeholder-dsmlcTangerine/70 ring-2 ring-dsmlcTangerine focus:outline-none focus:ring-4 focus:ring-dsmlcDataOrange transition-colors"
         />
+        {error && <p className="text-red-500 font-medium mb-4">{error}</p>}
         <button
           type="submit"
           disabled={!name.trim()}
@@ -109,13 +111,23 @@ const PlayingComponent: React.FC<{
       setError("Name cannot be blank.");
       return;
     }
-    const success = await updatePlayer(playerCode, editedName, editedLinkedin);
-    if (success) {
-      localStorage.setItem("playerName", editedName);
-      localStorage.setItem("playerLinkedin", editedLinkedin || "");
-      onUpdateProfile(editedName, editedLinkedin);
-      setEditMode(false);
-    } else {
+    try {
+      const success = await updatePlayer(
+        playerCode,
+        editedName,
+        editedLinkedin
+      );
+      if (success) {
+        localStorage.setItem("playerName", editedName);
+        localStorage.setItem("playerLinkedin", editedLinkedin || "");
+        onUpdateProfile(editedName, editedLinkedin);
+        setEditMode(false);
+        setError(null);
+      } else {
+        setError("Error updating profile. Please try again.");
+      }
+    } catch (e) {
+      console.error(e);
       setError("Error updating profile. Please try again.");
     }
   };
@@ -234,6 +246,7 @@ const PlayingComponent: React.FC<{
     </div>
   );
 };
+
 const generateCode = () => {
   const chars = "abcdefghijklmnopqrstuvwxyz0123456789";
   let code = "";
@@ -248,6 +261,7 @@ const Page = () => {
   const [playerName, setPlayerName] = useState("");
   const [playerLinkedin, setPlayerLinkedin] = useState("");
   const [playerCode, setPlayerCode] = useState(generateCode());
+  const [registerError, setRegisterError] = useState<string | null>(null);
   const links = useConnectionLinks();
   const [isConnectedWithDSMLC, setIsConnectedWithDSMLC] = useState(false);
 
@@ -258,7 +272,14 @@ const Page = () => {
       const storedPlayerLinkedin = localStorage.getItem("playerLinkedin");
 
       if (storedPlayerName && storedPlayerCode) {
-        const exists = await checkPlayerInDatabase(storedPlayerCode);
+        // On a network error, keep the session instead of wiping it.
+        let exists = true;
+        try {
+          exists = await checkPlayerInDatabase(storedPlayerCode);
+        } catch (e) {
+          console.error(e);
+          exists = true;
+        }
 
         if (exists) {
           setPlayerName(storedPlayerName);
@@ -266,7 +287,7 @@ const Page = () => {
           setPlayerLinkedin(storedPlayerLinkedin || "");
           setIsPlaying(true);
         } else {
-          // Clear invalid data
+          // Player genuinely not in the database: clear invalid data
           localStorage.removeItem("playerName");
           localStorage.removeItem("playerCode");
           localStorage.removeItem("playerLinkedin");
@@ -288,16 +309,28 @@ const Page = () => {
 
   const handleSubmitName = async (name: string, linkedin?: string) => {
     const generatedCode = generateCode();
+    setRegisterError(null);
 
-    // Save to localStorage
+    // Make sure the player is really saved before we start playing.
+    try {
+      await addPlayer(
+        name.trim(),
+        generatedCode,
+        "_FINAL_COMP_W2025",
+        linkedin
+      );
+    } catch (e) {
+      console.error(e);
+      setRegisterError("Couldn't create your player. Please try again.");
+      return;
+    }
+
     setPlayerName(name);
     setPlayerLinkedin(linkedin || "");
     setPlayerCode(generatedCode);
     localStorage.setItem("playerName", name);
     localStorage.setItem("playerCode", generatedCode);
     localStorage.setItem("playerLinkedin", linkedin || "");
-
-    await addPlayer(name, generatedCode, "_FINAL_COMP_W2025", linkedin);
 
     setIsPlaying(true);
   };
@@ -306,7 +339,18 @@ const Page = () => {
     pairCode1: string,
     pairCode2: string
   ): Promise<string | null> => {
-    return await addPair(pairCode1, pairCode2);
+    const a = pairCode1.trim().toLowerCase();
+    const b = pairCode2.trim().toLowerCase();
+
+    if (!b) return "Please enter a code.";
+    if (a === b) return "You can't connect with yourself.";
+
+    try {
+      return await addPair(a, b);
+    } catch (e) {
+      console.error(e);
+      return "Connection failed. Please try again.";
+    }
   };
 
   const updateProfile = (newName: string, newLinkedin: string) => {
@@ -320,7 +364,12 @@ const Page = () => {
         <DataLoader key={index} pageData={section} />
       ))}
       <NetworkGraph userId={playerCode} links={links} />
-      {!isPlaying && <NotPlayingComponent onSubmitName={handleSubmitName} />}
+      {!isPlaying && (
+        <NotPlayingComponent
+          onSubmitName={handleSubmitName}
+          error={registerError}
+        />
+      )}
       {isPlaying && (
         <>
           <PlayingComponent
