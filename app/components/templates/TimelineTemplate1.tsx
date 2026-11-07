@@ -37,24 +37,25 @@ const TimelineTemplate1 = ({
     timelineRefs.current.forEach((ref) => {
       if (ref) observer.observe(ref);
     });
+
     return () => {
       observer.disconnect();
     };
   }, []);
 
   return (
-    <div className="relative mb-16 text-start grid md:gap-14 gap-7 md:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-fit m-auto items-stretch">
-      {/* Hidden on mobile: with everything stacked into one column there's no
-          clean midpoint for this line to run through, so it was cutting
-          straight across images instead of connecting anything. */}
+    <div className="relative mb-16 text-start grid md:gap-14 gap-7 md:grid-cols-2 grid-cols-1 lg:w-full max-w-4xl w-full mx-auto items-stretch">
+      {/* Central Timeline Line */}
       <div className="hidden md:block absolute top-0 left-1/2 w-px h-full dark:bg-dark-dsmlcBlack bg-light-dsmlcBlack transform -translate-x-1/2"></div>
+
       {Data.map((data, index) => {
         const getFontSize = () => {
           const length = String(data.number).length;
-          if (length <= 2) return "text-2xl"; // Standard size for 1-2 characters
-          if (length === 3) return "text-md"; // Smaller size for 3 characters
-          return "text-sm"; // Smallest size for 4 or more characters
+          if (length <= 2) return "text-2xl";
+          if (length === 3) return "text-md";
+          return "text-sm";
         };
+
         const imageLink =
           isDarkMode && data.image?.imageDarkMode
             ? data.image.imageDarkMode
@@ -86,21 +87,30 @@ const TimelineTemplate1 = ({
               </div>
             ) : null}
 
-            <div className="flex flex-col gap-7 lg:px-0 px-5 lg:w-full max-w-4xl w-fit m-auto h-full">
-              <div className="flex items-center gap-4 md:absolute md:left-1/2 md:top-0 md:-translate-x-1/2">
+            <div className="relative flex flex-col gap-7 lg:px-0 px-5 w-full max-w-4xl mx-auto h-full">
+              {/* Timeline Date */}
+              <div
+                className={`flex items-center gap-4 md:absolute md:top-0 md:z-10 ${
+                  index % 2 === 0
+                    ? "md:left-0 md:-translate-x-[calc(50%+1.75rem)]"
+                    : "md:right-0 md:translate-x-[calc(50%+1.75rem)]"
+                }`}
+              >
                 <div
                   className={`shrink-0 break-words max-w-20 dark:bg-dark-dsmlcParchment bg-light-dsmlcParchment text-center ${getFontSize()} text-dsmlcDataOrange font-bold min-w-12 min-h-12 flex items-center p-2 justify-center rounded-full border-2 dark:border-dark-dsmlcBlack border-light-dsmlcBlack border-solid`}
                 >
                   {data.number}
                 </div>
+
                 <span className="md:hidden h-px flex-1 dark:bg-dark-dsmlcBlack bg-light-dsmlcBlack opacity-30" />
               </div>
 
+              {/* Timeline Content */}
               <div
                 ref={(el) => {
                   timelineRefs.current[index] = el;
                 }}
-                className={`flex flex-col gap-7 lg:px-0 px-5 lg:w-full max-w-4xl w-fit m-auto h-full transform transition-all duration-1000 ease-in-out opacity-0 ${
+                className={`flex flex-col gap-7 lg:px-0 px-5 w-full max-w-4xl mx-auto h-full transform transition-all duration-1000 ease-in-out opacity-0 ${
                   index % 2 === 0
                     ? "sm:translate-x-full md:pl-10 lg:pl-7 pl-14"
                     : "sm:-translate-x-full md:pr-10 lg:pr-5 pl-14"
