@@ -83,7 +83,7 @@
       "role": [
         {
           "group": "Events Team",
-          "roles": ["Events Lead"]
+          "roles": ["Sr. Events"]
         }
       ],
       "program": {
@@ -93,6 +93,37 @@
             "profile": "/images/profile/saira_fatima.png",
       "linkedin": "https://www.linkedin.com/in/sairafatima-yyc/"
     },
+    {
+      "name": "Arthur Bazyan",
+      "role": [
+        {
+          "group": "Events Team",
+          "roles": ["Jr. Events"]
+        }
+      ],
+      "program": {
+        "programs": ["Data Science"],
+        "year": "1st Year"
+      },
+            "profile": "/images/profile/arthur_bazyan.jpg",
+      "linkedin": "https://www.linkedin.com/in/arthur-bazyan-b50a552a3/"
+    },
+        {
+      "name": "Harman Baidwan",
+      "role": [
+        {
+          "group": "Events Team",
+          "roles": ["Jr. Events"]
+        }
+      ],
+      "program": {
+        "programs": ["Computer Science"],
+        "year": "2nd Year"
+      },
+            "profile": "/images/profile/harman_baidwan.jpg",
+      "linkedin": "https://www.linkedin.com/in/harman-baidwan-75a678338/"
+    },
+
 
 
 
@@ -117,7 +148,7 @@
       "role": [
         {
           "group": "Operations Team",
-          "roles": ["Tech Lead"]
+          "roles": ["Sr. Technology"]
         }
       ],
       "program": {
@@ -132,7 +163,7 @@
       "role": [
         {
           "group": "Operations Team",
-          "roles": ["Tech Lead"]
+          "roles": ["Sr. Technology"]
         }
       ],
       "program": {
@@ -143,11 +174,27 @@
       "linkedin": "https://www.linkedin.com/in/noor-syed-551868283/ "
     },
     {
+      "name": "Bailey Li",
+      "role": [
+        {
+          "group": "Operations Team",
+          "roles": ["Jr. Technology"]
+        }
+      ],
+      "program": {
+        "programs": ["Computer Science"],
+        "year": "3rd Year"
+      },
+      "profile": "",
+      "linkedin": "https://www.linkedin.com/in/bailey-li-305a73312/"
+    },
+
+    {
       "name": "Prantap Sharma",
       "role": [
         {
           "group": "Operations Team",
-          "roles": ["Workshop Coordinator"]
+          "roles": ["Sr. Workshop Coordinator"]
         }
       ],
       "program": {
@@ -163,7 +210,7 @@
       "role": [
         {
           "group": "Operations Team",
-          "roles": ["Workshop Coordinator"]
+          "roles": ["Sr. Workshop Coordinator"]
         }
       ],
       "program": {
@@ -171,8 +218,24 @@
         "year": "4th Year"
       },
       "profile": "/images/profile/andrey_dimanchev.jpg",
-      "linkedin": "https://www.linkedin.com/in/andreydimanchev?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BjHQognZqTiGqNYJc%2BLVlJw%3D%3D"
+      "linkedin": "https://www.linkedin.com/in/andreydimanchev/"
     },
+    {
+      "name": "Zainab Saeed",
+      "role": [
+        {
+          "group": "Operations Team",
+          "roles": ["Jr. Workshop Coordinator"]
+        }
+      ],
+      "program": {
+        "programs": ["Data Science"],
+        "year": "3rd Year"
+      },
+      "profile": "/images/profile/zainab_saeed.jpg",
+      "linkedin": "https://www.linkedin.com/in/zainab-saeed-zs/"
+    },
+
 
 
 
@@ -192,7 +255,7 @@
       "linkedin": "https://www.linkedin.com/in/zaine-ancheta/"
     },
     {
-      "name": "Zehaan Walji",
+      "name": "Karan Malhotra",
       "role": [
         {
           "group": "Competitions Team",
@@ -200,11 +263,56 @@
         }
       ],
       "program": {
-        "programs": ["Computer Science", "Biological Science"],
-        "year": "3rd Year"
+        "programs": ["Data Science"],
+        "year": "4th Year"
       },
-      "profile":"/images/profile/zehaan_walji.jpg",
-      "linkedin": "linkedin.com/in/zehaan-walji"
+      "profile":"/images/profile/karan_malhotra.jpg",
+      "linkedin": "https://www.linkedin.com/in/karan-malhotra27/"
+    },
+        {
+      "name": "Hoang Luan Le",
+      "role": [
+        {
+          "group": "Competitions Team",
+          "roles": ["Jr. Competitions"]
+        }
+      ],
+      "program": {
+        "programs": ["Data Science"],
+        "year": "2nd Year"
+      },
+      "profile":"/images/profile/hoang_luan_le.jpg",
+      "linkedin": "https://www.linkedin.com/in/hoangluanle/"
+    },
+        {
+      "name": "Ethan De La Cruz",
+      "role": [
+        {
+          "group": "Competitions Team",
+          "roles": ["Jr. Competitions"]
+        }
+      ],
+      "program": {
+        "programs": ["Computer Science"],
+        "year": "1st Year"
+      },
+      "profile":"",
+      "linkedin": ""
+    },
+        {
+      "name": "Jacob Hailemariam",
+      "role": [
+        {
+          "group": "Competitions Team",
+          "roles": ["Jr. Competitions"]
+        }
+      ],
+      "program": {
+        "programs": ["Electrical Engineering,Computer Engineering"],
+        "year": "2nd Year"
+      },
+      "profile":"/images/profile/jacob_hailemariam.jpg",
+      "linkedin": "https://www.linkedin.com/in/jacob-hailemariam/"
     },
 
 
@@ -309,7 +417,7 @@
       "role": [
         {
           "group": "External Affairs Team",
-          "roles": ["External Affairs Lead"]
+          "roles": ["Sr. External Affairs"]
         }
       ],
       "program": {
@@ -318,6 +426,51 @@
       },
       "profile": "/images/profile/wali_iftikhar.jpg",
       "linkedin": "https://www.linkedin.com/in/waliftikhar/"
+    },
+        {
+      "name": "Jhian Mendoza",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": ["Jr. External Affairs"]
+        }
+      ],
+      "program": {
+        "programs": ["Data Science, Math"],
+        "year": "1st Year"
+      },
+      "profile": "/images/profile/jhian_mendoza.jpg",
+      "linkedin": "https://www.linkedin.com/in/jhian-mendoza-1aa860171/"
+    },
+    {
+      "name": "Gage Erickson",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": ["Jr. External Affairs"]
+        }
+      ],
+      "program": {
+        "programs": ["Business, Computer Science"],
+        "year": "2nd Year"
+      },
+      "profile": "/images/profile/gage_erickson.jpg",
+      "linkedin": "https://www.linkedin.com/in/gage-erickson/"
+    },
+    {
+      "name": "Fahim Ahmadi",
+      "role": [
+        {
+          "group": "External Affairs Team",
+          "roles": ["Jr. External Affairs"]
+        }
+      ],
+      "program": {
+        "programs": ["Data Science"],
+        "year": "2nd Year"
+      },
+      "profile": "/images/profile/fahim_ahmadi.jpg",
+      "linkedin": "https://www.linkedin.com/in/fahim-ahmadi-10502232b/"
     }
   ]
 }
